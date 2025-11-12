@@ -63,7 +63,7 @@
           "reference": "CodeSystem/contact-purpose"
         },
         "description": "Defines the role of a contact in regulatory correspondence. Used to distinguish the sender (health authority) and recipient (marketing authorization holder) in structured Q&A.",
-        "name": "BRR Contact Purpose Code System",
+        "name": "Contact Purpose Code System",
         "isExample": false
       },
       {
@@ -78,7 +78,7 @@
         "reference": {
           "reference": "StructureDefinition/RegulatoryQuestionnaire"
         },
-        "description": "A profile on Questionnaire for structured regulatory questions from a health authority to a market authorization holder during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient, rich text questions, and CTD section mapping.",
+        "description": "A profile on Questionnaire for structured regulatory questions from a health authority to a market authorization holder during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient, rich text questions, CTD section mapping, and organizational identifiers with address.",
         "name": "Regulatory Questionnaire",
         "isExample": false
       },
