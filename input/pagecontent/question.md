@@ -1,22 +1,20 @@
-# Regulatory Questions (Questionnaire)
-
 The Regulatory Questionnaire profile defines a structured, machine-readable format for regulatory questions issued by a health authority (e.g., EMA, FDA) to a marketing authorization holder (MAH) during the review of a regulatory submission such as a Type II Variation, NDA, or MAA.
 
 This resource enables automated routing, tracking, and response management while preserving rich formatting, organizational context, and traceability to the Common Technical Document (CTD) structure.
 
 ---
 
-## Purpose & Business Value
+### Purpose & Business Value
 
 - **Standardized Communication**: Eliminates ambiguity in question format across agencies and sponsors
-- **Automated Workflow**: Enables integration with eCTD systems, RIM, and document management platforms
-- **Audit Trail**: Full traceability of sender, recipient, deadlines, and CTD section linkage
-- **Rich Text Support**: Preserves bolding, hyperlinks, tables, and formatting from regulator tools
+- **Automated Workflow**: Enables integration with structured authoring systems, regulatory information management systems, document management platforms, atuomation, and AI agents
+- **Audit Trail**: Full traceability of sender, recipient, deadlines, and coded categorization of each question
+- **Rich Text Support**: Preserves bold, hyperlinks, tables, images, and formatting from standard structured authoring tools
 - **Global Interoperability**: Aligns with ICH, HL7 FHIR, and IDMP standards
 
 ---
 
-## Key Elements of a Regulatory Question
+### Key Elements of a Regulatory Question
 
 <table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
   <thead style="background-color: #f5f5f5;">
@@ -70,14 +68,14 @@ This resource enables automated routing, tracking, and response management while
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.text</code></td>
       <td style="padding: 8px; border: 1px solid #ddd;">The regulatory question in rich text (XHTML)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Includes bold, links, tables, and references</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Includes bold, links, paragraphs, tables, images, and references</td>
     </tr>
   </tbody>
 </table>
 
 ---
 
-## Example Use Case: EMA Type II Variation
+### Example Use Case: EMA Type II Variation
 
 **Scenario**: EMA issues 10 questions on stability and labeling during review of a shelf-life extension.
 
@@ -90,21 +88,16 @@ With this profile:
 
 ---
 
-## How to Use This Profile
+### How to Use This Profile
 
 - Health Authority: Generate Questionnaire from review tool; include rich text and CTD codes
 - MAH (Sponsor): Import into RIM system; assign owners; link responses via `QuestionnaireResponse`
-- Vendors: Support structured authoring of the question and export to a FHIR-compliant XML or JSON file for submission via email or portal; or incorporate into a `Task` resource for submission via API [](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html)
+- Vendors: Support structured authoring of the question and export to a FHIR-compliant XML or JSON file for submission via email or portal; or incorporate into a `Task` resource for submission via API [Refer to APIX IG for details](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html)
 
 ---
 
-## Related Resources
+### Related Resources
 
-- [QuestionnaireResponse Profile](questionnaireresponse.html) – For structured sponsor replies
-- [CTD Section Code System](codesystem-ctd-section.html) – Full hierarchy
-- [Contact Purpose Code System](codesystem-contact-purpose.html) – SENDER / RECIPIENT
-- [Implementation Guide Home](index.html)
-
----
-
-*This profile is part of the HL7 BRR FHIR Implementation Guide for structured regulatory correspondence in biopharmaceutical lifecycle management.*
+- [Questionnaire Response Structure](https://build.fhir.org/ig/HL7/rtq-ig/branches/main/response.html) – For an overview of the question response.
+- [CTD Section Code System](https://build.fhir.org/ig/HL7/rtq-ig/branches/main/CodeSystem-ctd-categories-full.html) – Full hierarchy
+- [Contact Purpose Code System](https://build.fhir.org/ig/HL7/rtq-ig/branches/main/CodeSystem-contact-purpose.html) – SENDER / RECIPIENT

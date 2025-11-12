@@ -110,13 +110,13 @@
           "sourceUrl": "use-case.html"
         },
         {
-          "title": "Questions Example",
+          "title": "Question Structure",
           "generation": "markdown",
           "name": "question.html",
           "sourceUrl": "question.html"
         },
         {
-          "title": "Response Example",
+          "title": "Response Structure",
           "generation": "markdown",
           "name": "response.html",
           "sourceUrl": "response.html"

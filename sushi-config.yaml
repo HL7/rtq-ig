@@ -19,9 +19,9 @@ pages:
   use-case.md:
     title: Use Case
   question.md:
-    title: Questions Example
+    title: Question Structure
   response.md:
-    title: Response Example
+    title: Response Structure
   terminology.md:
     title: Terminology
 menu:
