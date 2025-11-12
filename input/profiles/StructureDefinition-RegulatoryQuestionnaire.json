@@ -1,164 +1,305 @@
 {
   "resourceType": "StructureDefinition",
   "id": "RegulatoryQuestionnaire",
-  "url": "http://hl7.org/fhir/uv/src-ig/StructureDefinition/RegulatoryQuestionnaire",
-  "version": "0.1.0",
+  "url": "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaire",
+  "version": "1.1.5",
   "name": "RegulatoryQuestionnaire",
-  "title": "Regulatory Questionnaire (LOQ / LOI / RFI)",
-  "status": "draft",
-  "experimental": true,
+  "title": "BRR Regulatory Questionnaire Profile",
+  "status": "active",
   "date": "2025-11-11",
-  "publisher": "Gravitate Health and HL7 Biomedical Research & Regulation (BR&R)",
+  "publisher": "HL7 Biopharmaceutical Regulatory Requirements (BRR) Work Group",
   "contact": [
     {
-      "name": "Gravitate Health",
+      "name": "HL7 BRR WG",
       "telecom": [
-        { "system": "url", "value": "https://www.gravitatehealth.eu/" }
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/brr"
+        }
       ]
     }
   ],
-  "description": "A Questionnaire used by a health authority to issue a List of Questions (LOQ), List of Issues (LOI), or Request for Information (RFI) to a Market Authorization Holder. Supports rich-text questions, hierarchical CTD coding, and full contact signature.",
+  "description": "A profile on Questionnaire for structured regulatory questions from a health authority to a market authorization holder during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient, rich text questions, and CTD section mapping.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
   "type": "Questionnaire",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
   "derivation": "constraint",
-
   "differential": {
     "element": [
       {
-        "id": "Questionnaire",
-        "path": "Questionnaire",
-        "short": "Regulatory Q&A Questionnaire",
-        "definition": "Structured regulatory correspondence from a health authority."
+        "id": "Questionnaire.meta",
+        "path": "Questionnaire.meta",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.meta.versionId",
+        "path": "Questionnaire.meta.versionId",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.meta.lastUpdated",
+        "path": "Questionnaire.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.meta.profile",
         "path": "Questionnaire.meta.profile",
         "min": 1,
-        "fixedUri": "http://hl7.org/fhir/uv/src-ig/StructureDefinition/RegulatoryQuestionnaire"
+        "fixedUri": "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaire"
       },
       {
         "id": "Questionnaire.identifier",
         "path": "Questionnaire.identifier",
-        "min": 2,
-        "max": "*"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 2
       },
       {
-        "id": "Questionnaire.identifier.system",
+        "id": "Questionnaire.identifier:qa-request",
+        "path": "Questionnaire.identifier",
+        "sliceName": "qa-request",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.identifier:qa-request.system",
         "path": "Questionnaire.identifier.system",
-        "min": 1
+        "patternUri": "http://hl7.org/fhir/uv/brr/identifier/qa-request"
       },
       {
-        "id": "Questionnaire.identifier.value",
-        "path": "Questionnaire.identifier.value",
-        "min": 1
+        "id": "Questionnaire.identifier:procedure-number",
+        "path": "Questionnaire.identifier",
+        "sliceName": "procedure-number",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.identifier:procedure-number.system",
+        "path": "Questionnaire.identifier.system",
+        "patternUri": "https://ema.europa.eu/procedure-number"
       },
       {
         "id": "Questionnaire.version",
         "path": "Questionnaire.version",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.name",
+        "path": "Questionnaire.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.title",
+        "path": "Questionnaire.title",
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.status",
         "path": "Questionnaire.status",
         "min": 1,
-        "fixedCode": "active"
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.subjectType",
         "path": "Questionnaire.subjectType",
         "min": 1,
-        "fixedCode": "MedicinalProductDefinition"
+        "patternCode": "MedicinalProductDefinition"
       },
       {
         "id": "Questionnaire.date",
         "path": "Questionnaire.date",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.contact",
         "path": "Questionnaire.contact",
-        "min": 1,
-        "max": "1"
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "purpose.coding.code"
+            }
+          ],
+          "rules": "closed"
+        },
+        "min": 2,
+        "max": "2"
       },
       {
-        "id": "Questionnaire.contact.extension",
-        "path": "Questionnaire.contact.extension",
-        "slicing": {
-          "discriminator": { "type": "value", "path": "url" },
-          "rules": "open"
+        "id": "Questionnaire.contact:sender",
+        "path": "Questionnaire.contact",
+        "sliceName": "sender",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.purpose",
+        "path": "Questionnaire.contact.purpose",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose",
+              "code": "SENDER"
+            }
+          ]
         }
       },
       {
-        "id": "Questionnaire.contact.extension:contact-signature",
+        "id": "Questionnaire.contact:sender.telecom",
+        "path": "Questionnaire.contact.telecom",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.address",
+        "path": "Questionnaire.contact.address",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.extension:signature",
         "path": "Questionnaire.contact.extension",
-        "sliceName": "contact-signature",
-        "min": 0,
-        "max": "1",
+        "sliceName": "signature",
+        "min": 1,
         "type": [
-          { "code": "Extension", "profile": ["http://hl7.org/fhir/uv/src-ig/StructureDefinition/contact-signature"] }
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/brr/StructureDefinition/contact-signature"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Questionnaire.contact:recipient",
+        "path": "Questionnaire.contact",
+        "sliceName": "recipient",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:recipient.purpose",
+        "path": "Questionnaire.contact.purpose",
+        "min": 1,
+        "patternCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose",
+              "code": "RECIPIENT"
+            }
+          ]
+        }
+      },
+      {
+        "id": "Questionnaire.contact:recipient.telecom",
+        "path": "Questionnaire.contact.telecom",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:recipient.address",
+        "path": "Questionnaire.contact.address",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:recipient.extension:signature",
+        "path": "Questionnaire.contact.extension",
+        "sliceName": "signature",
+        "min": 1,
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/brr/StructureDefinition/contact-signature"
+            ]
+          }
         ]
       },
       {
         "id": "Questionnaire.effectivePeriod",
         "path": "Questionnaire.effectivePeriod",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.text",
+        "path": "Questionnaire.text",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.text.status",
+        "path": "Questionnaire.text.status",
+        "patternCode": "generated"
       },
       {
         "id": "Questionnaire.item",
         "path": "Questionnaire.item",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.item.linkId",
         "path": "Questionnaire.item.linkId",
-        "min": 1
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.item.code",
         "path": "Questionnaire.item.code",
-        "min": 3,
-        "max": "3",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true,
         "binding": {
           "strength": "required",
-          "valueSet": "http://hl7.org/fhir/uv/src-ig/ValueSet/ctd-categories-full"
+          "valueSet": "http://hl7.org/fhir/uv/brr/ValueSet/ctd-section"
         }
-      },
-      {
-        "id": "Questionnaire.item.code.system",
-        "path": "Questionnaire.item.code.system",
-        "min": 1,
-        "fixedUri": "http://hl7.org/fhir/uv/src-ig/CodeSystem/ctd-categories-full"
       },
       {
         "id": "Questionnaire.item.type",
         "path": "Questionnaire.item.type",
         "min": 1,
-        "fixedCode": "string"
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.item.text",
         "path": "Questionnaire.item.text",
-        "min": 1
-      },
-      {
-        "id": "Questionnaire.item.text.extension",
-        "path": "Questionnaire.item.text.extension",
-        "slicing": {
-          "discriminator": { "type": "value", "path": "url" },
-          "rules": "open"
-        }
+        "min": 1,
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.item.text.extension:richText",
         "path": "Questionnaire.item.text.extension",
         "sliceName": "richText",
         "min": 1,
-        "max": "1",
         "type": [
-          { "code": "Extension", "profile": ["http://hl7.org/fhir/uv/src-ig/StructureDefinition/questionnaire-itemRichText"] }
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText"
+            ]
+          }
         ]
       }
     ]

@@ -60,6 +60,14 @@
     "resource": [
       {
         "reference": {
+          "reference": "CodeSystem/contact-purpose"
+        },
+        "description": "Defines the role of a contact in regulatory correspondence. Used to distinguish the sender (health authority) and recipient (marketing authorization holder) in structured Q&A.",
+        "name": "BRR Contact Purpose Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/ctd-categories-full"
         },
         "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions in Structured Regulatory Correspondence (SRC). Supports multi-level granularity for EMA, FDA, and Health Canada harmonization.",
@@ -70,7 +78,7 @@
         "reference": {
           "reference": "StructureDefinition/RegulatoryQuestionnaire"
         },
-        "description": "A Questionnaire used by a health authority to issue a List of Questions (LOQ), List of Issues (LOI), or Request for Information (RFI) to a Market Authorization Holder. Supports rich-text questions, hierarchical CTD coding, and full contact signature.",
+        "description": "A profile on Questionnaire for structured regulatory questions from a health authority to a market authorization holder during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient, rich text questions, and CTD section mapping.",
         "name": "Regulatory Questionnaire",
         "isExample": false
       },
@@ -79,7 +87,10 @@
           "reference": "Questionnaire/brr-regulatory-qa-questionnaire"
         },
         "name": "Responses to Question Set ID001",
-        "isExample": true
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaire"
+        ]
       }
     ],
     "page": {

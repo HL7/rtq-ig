@@ -1,0 +1,47 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "contact-purpose",
+  "url": "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose",
+  "version": "1.1.5",
+  "name": "BRRContactPurpose",
+  "title": "BRR Contact Purpose Code System",
+  "status": "active",
+  "date": "2025-11-11",
+  "publisher": "HL7 Biopharmaceutical Regulatory Requirements (BRR) Work Group",
+  "contact": [
+    {
+      "name": "HL7 BRR WG",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/brr"
+        }
+      ]
+    }
+  ],
+  "description": "Defines the role of a contact in regulatory correspondence. Used to distinguish the sender (health authority) and recipient (marketing authorization holder) in structured Q&A.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "SENDER",
+      "display": "Sender (Health Authority)",
+      "definition": "The contact represents the health authority issuing the regulatory questions (e.g., EMA, FDA)."
+    },
+    {
+      "code": "RECIPIENT",
+      "display": "Recipient (Marketing Authorization Holder)",
+      "definition": "The contact represents the sponsor or MAH responsible for responding to the questions."
+    },
+    {
+      "code": "CC",
+      "display": "Carbon Copy",
+      "definition": "The contact is copied on the correspondence for information purposes (optional)."
+    },
+    {
+      "code": "REVIEWER",
+      "display": "Internal Reviewer",
+      "definition": "An internal stakeholder (e.g., project lead, legal) involved in review but not primary sender/recipient."
+    }
+  ]
+}
