@@ -24,6 +24,38 @@
   "fhirVersion": [
     "5.0.0"
   ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r5.core",
+      "version": "5.0.0",
+      "uri": "http://hl7.org/fhir/ImplementationGuide/fhir",
+      "id": "hl7_fhir_r5_core"
+    },
+    {
+      "packageId": "hl7.terminology.r5",
+      "version": "5.5.0",
+      "uri": "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
+      "id": "hl7_terminology_r5"
+    },
+    {
+      "packageId": "hl7.fhir.uv.extensions.r5",
+      "version": "1.0.0",
+      "uri": "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "id": "hl7_fhir_uv_extensions_r5"
+    },
+    {
+      "packageId": "hl7.fhir.pubpack",
+      "version": "0.2.3",
+      "uri": "http://fhir.org/packages/hl7.fhir.pubpack/ImplementationGuide/hl7.fhir.pubpack",
+      "id": "hl7_fhir_pubpack"
+    },
+    {
+      "packageId": "hl7.fhir.xver-extensions",
+      "version": "0.1.0",
+      "uri": "http://fhir.org/packages/hl7.fhir.xver-extensions",
+      "id": "hl7_fhir_xver_extensions"
+    }
+  ],
   "definition": {
     "resource": [
       {
