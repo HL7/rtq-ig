@@ -1,0 +1,115 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.fhir.uv.src-ig",
+  "url": "http://hl7.org/fhir/uv/src-ig/ImplementationGuide/hl7.fhir.uv.src-ig",
+  "version": "0.1.0",
+  "name": "RCS",
+  "title": "Structured Regulatory Correspondence (SRC)",
+  "status": "draft",
+  "publisher": "Gravitate Health and HL7 Biomedical Research & Regulation (BR&R)",
+  "contact": [
+    {
+      "name": "Gravitate Health and HL7 Biomedical Research & Regulation (BR&R)",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.gravitatehealth.eu/"
+        }
+      ]
+    }
+  ],
+  "description": "Standard for structuring regulatory correspondence from a health authority to a Market Authorization Holder. This includes List of Questions (LOQ), Response to List of Questions, List of Issues (LOI), Response to List of Issues, Request for Information, Response to Request for Information, and Decision Letters.",
+  "packageId": "hl7.fhir.uv.src-ig",
+  "license": "CC0-1.0",
+  "fhirVersion": [
+    "5.0.0"
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "CodeSystem/ctd-categories-full"
+        },
+        "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions in Structured Regulatory Correspondence (SRC). Supports multi-level granularity for EMA, FDA, and Health Canada harmonization.",
+        "name": "CTD Question Categories Full",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/RegulatoryQuestionnaire"
+        },
+        "description": "A Questionnaire used by a health authority to issue a List of Questions (LOQ), List of Issues (LOI), or Request for Information (RFI) to a Market Authorization Holder. Supports rich-text questions, hierarchical CTD coding, and full contact signature.",
+        "name": "Regulatory Questionnaire",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Questionnaire/brr-regulatory-qa-questionnaire"
+        },
+        "name": "Responses to Question Set ID001",
+        "isExample": true
+      }
+    ],
+    "page": {
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "title": "Home",
+          "generation": "markdown",
+          "name": "index.html",
+          "sourceUrl": "index.html"
+        },
+        {
+          "title": "Use Case",
+          "generation": "markdown",
+          "name": "use-case.html",
+          "sourceUrl": "use-case.html"
+        },
+        {
+          "title": "Questions Example",
+          "generation": "markdown",
+          "name": "question.html",
+          "sourceUrl": "question.html"
+        },
+        {
+          "title": "Response Example",
+          "generation": "markdown",
+          "name": "response.html",
+          "sourceUrl": "response.html"
+        },
+        {
+          "title": "Terminology",
+          "generation": "markdown",
+          "name": "terminology.html",
+          "sourceUrl": "terminology.html"
+        }
+      ],
+      "name": "toc.html",
+      "sourceUrl": "toc.html"
+    },
+    "parameter": [
+      {
+        "code": {
+          "code": "copyrightyear",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "2025+"
+      },
+      {
+        "code": {
+          "code": "releaselabel",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "ci-build"
+      },
+      {
+        "code": {
+          "code": "path-history",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "http://hl7.org/fhir/uv/src-ig/history.html"
+      }
+    ]
+  }
+}

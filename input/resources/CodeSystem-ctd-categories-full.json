@@ -1,0 +1,800 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ctd-categories-full",
+  "url": "http://hl7.org/fhir/uv/src-ig/CodeSystem/ctd-categories-full",
+  "version": "0.2.0",
+  "name": "CTDQuestionCategoriesFull",
+  "title": "CTD-Based Regulatory Question Categories (Full Granularity)",
+  "status": "draft",
+  "experimental": true,
+  "date": "2025-11-11",
+  "publisher": "HL7 BR&R Work Group – SRC Project",
+  "contact": [
+    {
+      "name": "HL7 BR&R Work Group",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/rcrim/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions in Structured Regulatory Correspondence (SRC). Supports multi-level granularity for EMA, FDA, and Health Canada harmonization.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/uv/src-ig/ValueSet/vs-ctd-question-categories-full",
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "summaries",
+      "display": "CTD Summaries",
+      "definition": "Module 2 – CTD Summaries",
+      "concept": [
+        {
+          "code": "summaries.quality",
+          "display": "Quality Overall Summary",
+          "definition": "2.3 Quality Overall Summary",
+          "concept": [
+            {
+              "code": "summaries.quality.intro",
+              "display": "Introduction",
+              "definition": "2.3.S/P Introduction"
+            },
+            {
+              "code": "summaries.quality.body",
+              "display": "Body of Data",
+              "definition": "2.3.S/P Body of Data"
+            },
+            {
+              "code": "summaries.quality.literature",
+              "display": "Literature References",
+              "definition": "2.3.S/P Literature References"
+            }
+          ]
+        },
+        {
+          "code": "summaries.nonclinical",
+          "display": "Nonclinical Overview",
+          "definition": "2.4 Nonclinical Overview",
+          "concept": [
+            {
+              "code": "summaries.nonclinical.pharmacology",
+              "display": "Pharmacology",
+              "definition": "2.4.1-2 Pharmacology"
+            },
+            {
+              "code": "summaries.nonclinical.pk",
+              "display": "Pharmacokinetics",
+              "definition": "2.4.3 Pharmacokinetics"
+            },
+            {
+              "code": "summaries.nonclinical.tox",
+              "display": "Toxicology",
+              "definition": "2.4.4-6 Toxicology"
+            }
+          ]
+        },
+        {
+          "code": "summaries.clinical",
+          "display": "Clinical Overview",
+          "definition": "2.5 Clinical Overview",
+          "concept": [
+            {
+              "code": "summaries.clinical.efficacy",
+              "display": "Efficacy",
+              "definition": "2.5.2 Efficacy"
+            },
+            {
+              "code": "summaries.clinical.safety",
+              "display": "Safety",
+              "definition": "2.5.3 Safety"
+            },
+            {
+              "code": "summaries.clinical.brm",
+              "display": "Benefit-Risk Assessment",
+              "definition": "2.5.4 Benefit-Risk"
+            }
+          ]
+        },
+        {
+          "code": "summaries.synopses",
+          "display": "Synopses of Individual Studies",
+          "definition": "2.7 Synopses of Individual Studies"
+        }
+      ]
+    },
+    {
+      "code": "quality",
+      "display": "Quality (CMC)",
+      "definition": "Module 3 – Quality",
+      "concept": [
+        {
+          "code": "quality.drug-substance",
+          "display": "Drug Substance",
+          "definition": "3.2.S Drug Substance",
+          "concept": [
+            {
+              "code": "quality.drug-substance.general",
+              "display": "General Information",
+              "definition": "3.2.S.1 General Information",
+              "concept": [
+                {
+                  "code": "quality.drug-substance.general.nomenclature",
+                  "display": "Nomenclature",
+                  "definition": "3.2.S.1.1 Nomenclature"
+                },
+                {
+                  "code": "quality.drug-substance.general.structure",
+                  "display": "Structure",
+                  "definition": "3.2.S.1.2 Structure"
+                },
+                {
+                  "code": "quality.drug-substance.general.properties",
+                  "display": "General Properties",
+                  "definition": "3.2.S.1.3 General Properties"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-substance.manufacture",
+              "display": "Manufacture",
+              "definition": "3.2.S.2 Manufacture",
+              "concept": [
+                {
+                  "code": "quality.drug-substance.manufacture.manufacturer",
+                  "display": "Manufacturer",
+                  "definition": "3.2.S.2.1 Manufacturer"
+                },
+                {
+                  "code": "quality.drug-substance.manufacture.description",
+                  "display": "Description of Manufacturing Process and Process Controls",
+                  "definition": "3.2.S.2.2 Description of Manufacturing Process"
+                },
+                {
+                  "code": "quality.drug-substance.manufacture.controls",
+                  "display": "Control of Materials",
+                  "definition": "3.2.S.2.3 Control of Materials"
+                },
+                {
+                  "code": "quality.drug-substance.manufacture.critical-steps",
+                  "display": "Controls of Critical Steps and Intermediates",
+                  "definition": "3.2.S.2.4 Controls of Critical Steps and Intermediates"
+                },
+                {
+                  "code": "quality.drug-substance.manufacture.validation",
+                  "display": "Process Validation and/or Evaluation",
+                  "definition": "3.2.S.2.5 Process Validation"
+                },
+                {
+                  "code": "quality.drug-substance.manufacture.development",
+                  "display": "Manufacturing Process Development",
+                  "definition": "3.2.S.2.6 Manufacturing Process Development"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-substance.characterisation",
+              "display": "Characterisation",
+              "definition": "3.2.S.3 Characterisation",
+              "concept": [
+                {
+                  "code": "quality.drug-substance.characterisation.elucidation",
+                  "display": "Elucidation of Structure and Other Characteristics",
+                  "definition": "3.2.S.3.1 Elucidation of Structure"
+                },
+                {
+                  "code": "quality.drug-substance.characterisation.impurities",
+                  "display": "Impurities",
+                  "definition": "3.2.S.3.2 Impurities"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-substance.control",
+              "display": "Control of Drug Substance",
+              "definition": "3.2.S.4 Control of Drug Substance",
+              "concept": [
+                {
+                  "code": "quality.drug-substance.control.specification",
+                  "display": "Specification",
+                  "definition": "3.2.S.4.1 Specification"
+                },
+                {
+                  "code": "quality.drug-substance.control.analytical",
+                  "display": "Analytical Procedures",
+                  "definition": "3.2.S.4.2 Analytical Procedures"
+                },
+                {
+                  "code": "quality.drug-substance.control.validation",
+                  "display": "Validation of Analytical Procedures",
+                  "definition": "3.2.S.4.3 Validation of Analytical Procedures"
+                },
+                {
+                  "code": "quality.drug-substance.control.batch",
+                  "display": "Batch Analyses",
+                  "definition": "3.2.S.4.4 Batch Analyses"
+                },
+                {
+                  "code": "quality.drug-substance.control.justification",
+                  "display": "Justification of Specification",
+                  "definition": "3.2.S.4.5 Justification of Specification"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-substance.reference",
+              "display": "Reference Standards or Materials",
+              "definition": "3.2.S.5 Reference Standards"
+            },
+            {
+              "code": "quality.drug-substance.container",
+              "display": "Container Closure System",
+              "definition": "3.2.S.6 Container Closure System"
+            },
+            {
+              "code": "quality.drug-substance.stability",
+              "display": "Stability",
+              "definition": "3.2.S.7 Stability",
+              "concept": [
+                {
+                  "code": "quality.drug-substance.stability.summary",
+                  "display": "Stability Summary and Conclusions",
+                  "definition": "3.2.S.7.1 Stability Summary"
+                },
+                {
+                  "code": "quality.drug-substance.stability.protocol",
+                  "display": "Post-approval Stability Protocol and Commitment",
+                  "definition": "3.2.S.7.2 Post-approval Protocol"
+                },
+                {
+                  "code": "quality.drug-substance.stability.data",
+                  "display": "Stability Data",
+                  "definition": "3.2.S.7.3 Stability Data"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "quality.drug-product",
+          "display": "Drug Product",
+          "definition": "3.2.P Drug Product",
+          "concept": [
+            {
+              "code": "quality.drug-product.description",
+              "display": "Description and Composition of the Drug Product",
+              "definition": "3.2.P.1 Description and Composition"
+            },
+            {
+              "code": "quality.drug-product.pharmaceutical-development",
+              "display": "Pharmaceutical Development",
+              "definition": "3.2.P.2 Pharmaceutical Development",
+              "concept": [
+                {
+                  "code": "quality.drug-product.pharmaceutical-development.components",
+                  "display": "Components of the Drug Product",
+                  "definition": "3.2.P.2.1 Components"
+                },
+                {
+                  "code": "quality.drug-product.pharmaceutical-development.drug-product",
+                  "display": "Drug Product",
+                  "definition": "3.2.P.2.2 Drug Product"
+                },
+                {
+                  "code": "quality.drug-product.pharmaceutical-development.manufacturing",
+                  "display": "Manufacturing Process Development",
+                  "definition": "3.2.P.2.3 Manufacturing Process Development"
+                },
+                {
+                  "code": "quality.drug-product.pharmaceutical-development.container",
+                  "display": "Container Closure System",
+                  "definition": "3.2.P.2.4 Container Closure System"
+                },
+                {
+                  "code": "quality.drug-product.pharmaceutical-development.microbiological",
+                  "display": "Microbiological Attributes",
+                  "definition": "3.2.P.2.5 Microbiological Attributes"
+                },
+                {
+                  "code": "quality.drug-product.pharmaceutical-development.compatibility",
+                  "display": "Compatibility",
+                  "definition": "3.2.P.2.6 Compatibility"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-product.manufacture",
+              "display": "Manufacture",
+              "definition": "3.2.P.3 Manufacture",
+              "concept": [
+                {
+                  "code": "quality.drug-product.manufacture.manufacturer",
+                  "display": "Manufacturer(s)",
+                  "definition": "3.2.P.3.1 Manufacturer(s)"
+                },
+                {
+                  "code": "quality.drug-product.manufacture.batch",
+                  "display": "Batch Formula",
+                  "definition": "3.2.P.3.2 Batch Formula"
+                },
+                {
+                  "code": "quality.drug-product.manufacture.process",
+                  "display": "Description of Manufacturing Process and Process Controls",
+                  "definition": "3.2.P.3.3 Description of Manufacturing Process"
+                },
+                {
+                  "code": "quality.drug-product.manufacture.controls",
+                  "display": "Controls of Critical Steps and Intermediates",
+                  "definition": "3.2.P.3.4 Controls of Critical Steps"
+                },
+                {
+                  "code": "quality.drug-product.manufacture.validation",
+                  "display": "Process Validation and/or Evaluation",
+                  "definition": "3.2.P.3.5 Process Validation"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-product.excipients",
+              "display": "Control of Excipients",
+              "definition": "3.2.P.4 Control of Excipients",
+              "concept": [
+                {
+                  "code": "quality.drug-product.excipients.specifications",
+                  "display": "Specifications",
+                  "definition": "3.2.P.4.1 Specifications"
+                },
+                {
+                  "code": "quality.drug-product.excipients.analytical",
+                  "display": "Analytical Procedures",
+                  "definition": "3.2.P.4.2 Analytical Procedures"
+                },
+                {
+                  "code": "quality.drug-product.excipients.validation",
+                  "display": "Validation of Analytical Procedures",
+                  "definition": "3.2.P.4.3 Validation"
+                },
+                {
+                  "code": "quality.drug-product.excipients.justification",
+                  "display": "Justification of Specifications",
+                  "definition": "3.2.P.4.4 Justification"
+                },
+                {
+                  "code": "quality.drug-product.excipients.novel",
+                  "display": "Novel Excipients",
+                  "definition": "3.2.P.4.5 Novel Excipients"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-product.control",
+              "display": "Control of Drug Product",
+              "definition": "3.2.P.5 Control of Drug Product",
+              "concept": [
+                {
+                  "code": "quality.drug-product.control.specification",
+                  "display": "Specification",
+                  "definition": "3.2.P.5.1 Specification"
+                },
+                {
+                  "code": "quality.drug-product.control.analytical",
+                  "display": "Analytical Procedures",
+                  "definition": "3.2.P.5.2 Analytical Procedures"
+                },
+                {
+                  "code": "quality.drug-product.control.validation",
+                  "display": "Validation of Analytical Procedures",
+                  "definition": "3.2.P.5.3 Validation"
+                },
+                {
+                  "code": "quality.drug-product.control.batch",
+                  "display": "Batch Analyses",
+                  "definition": "3.2.P.5.4 Batch Analyses"
+                },
+                {
+                  "code": "quality.drug-product.control.characterisation",
+                  "display": "Characterisation of Impurities",
+                  "definition": "3.2.P.5.5 Characterisation of Impurities"
+                },
+                {
+                  "code": "quality.drug-product.control.justification",
+                  "display": "Justification of Specification",
+                  "definition": "3.2.P.5.6 Justification"
+                }
+              ]
+            },
+            {
+              "code": "quality.drug-product.reference",
+              "display": "Reference Standards or Materials",
+              "definition": "3.2.P.6 Reference Standards"
+            },
+            {
+              "code": "quality.drug-product.container",
+              "display": "Container Closure System",
+              "definition": "3.2.P.7 Container Closure System"
+            },
+            {
+              "code": "quality.drug-product.stability",
+              "display": "Stability",
+              "definition": "3.2.P.8 Stability",
+              "concept": [
+                {
+                  "code": "quality.drug-product.stability.summary",
+                  "display": "Stability Summary and Conclusions",
+                  "definition": "3.2.P.8.1 Stability Summary"
+                },
+                {
+                  "code": "quality.drug-product.stability.protocol",
+                  "display": "Post-approval Stability Protocol and Commitment",
+                  "definition": "3.2.P.8.2 Post-approval Protocol"
+                },
+                {
+                  "code": "quality.drug-product.stability.data",
+                  "display": "Stability Data",
+                  "definition": "3.2.P.8.3 Stability Data"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "quality.appendices",
+          "display": "Appendices",
+          "definition": "3.2.A Appendices",
+          "concept": [
+            {
+              "code": "quality.appendices.facilities",
+              "display": "Facilities and Equipment",
+              "definition": "3.2.A.1 Facilities and Equipment"
+            },
+            {
+              "code": "quality.appendices.adventitious",
+              "display": "Adventitious Agents Safety Evaluation",
+              "definition": "3.2.A.2 Adventitious Agents"
+            },
+            {
+              "code": "quality.appendices.novel-excipients",
+              "display": "Novel Excipients",
+              "definition": "3.2.A.3 Novel Excipients"
+            }
+          ]
+        },
+        {
+          "code": "quality.regional",
+          "display": "Regional Information",
+          "definition": "3.3 Regional Information"
+        }
+      ]
+    },
+    {
+      "code": "nonclinical",
+      "display": "Nonclinical Study Reports",
+      "definition": "Module 4 – Nonclinical Study Reports",
+      "concept": [
+        {
+          "code": "nonclinical.pharmacology",
+          "display": "Pharmacology",
+          "definition": "4.2 Pharmacology",
+          "concept": [
+            {
+              "code": "nonclinical.pharmacology.primary",
+              "display": "Primary Pharmacodynamics",
+              "definition": "4.2.1.1 Primary Pharmacodynamics"
+            },
+            {
+              "code": "nonclinical.pharmacology.secondary",
+              "display": "Secondary Pharmacodynamics",
+              "definition": "4.2.1.2 Secondary Pharmacodynamics"
+            },
+            {
+              "code": "nonclinical.pharmacology.safety",
+              "display": "Safety Pharmacology",
+              "definition": "4.2.1.3 Safety Pharmacology"
+            },
+            {
+              "code": "nonclinical.pharmacology.discussion",
+              "display": "Pharmacodynamic Drug Interactions",
+              "definition": "4.2.1.4 Pharmacodynamic Drug Interactions"
+            }
+          ]
+        },
+        {
+          "code": "nonclinical.pk",
+          "display": "Pharmacokinetics",
+          "definition": "4.2.2 Pharmacokinetics",
+          "concept": [
+            {
+              "code": "nonclinical.pk.absorption",
+              "display": "Absorption",
+              "definition": "4.2.2.1 Absorption"
+            },
+            {
+              "code": "nonclinical.pk.distribution",
+              "display": "Distribution",
+              "definition": "4.2.2.2 Distribution"
+            },
+            {
+              "code": "nonclinical.pk.metabolism",
+              "display": "Metabolism",
+              "definition": "4.2.2.3 Metabolism"
+            },
+            {
+              "code": "nonclinical.pk.excretion",
+              "display": "Excretion",
+              "definition": "4.2.2.4 Excretion"
+            },
+            {
+              "code": "nonclinical.pk.interactions",
+              "display": "PK Drug Interactions",
+              "definition": "4.2.2.5 PK Drug Interactions"
+            }
+          ]
+        },
+        {
+          "code": "nonclinical.toxicology",
+          "display": "Toxicology",
+          "definition": "4.2.3 Toxicology",
+          "concept": [
+            {
+              "code": "nonclinical.toxicology.single",
+              "display": "Single-Dose Toxicity",
+              "definition": "4.2.3.1 Single-Dose Toxicity"
+            },
+            {
+              "code": "nonclinical.toxicology.repeat",
+              "display": "Repeat-Dose Toxicity",
+              "definition": "4.2.3.2 Repeat-Dose Toxicity"
+            },
+            {
+              "code": "nonclinical.toxicology.geno",
+              "display": "Genotoxicity",
+              "definition": "4.2.3.3 Genotoxicity",
+              "concept": [
+                {
+                  "code": "nonclinical.toxicology.geno.invitro",
+                  "display": "In Vitro",
+                  "definition": "4.2.3.3.1 In Vitro"
+                },
+                {
+                  "code": "nonclinical.toxicology.geno.invivo",
+                  "display": "In Vivo",
+                  "definition": "4.2.3.3.2 In Vivo"
+                }
+              ]
+            },
+            {
+              "code": "nonclinical.toxicology.carc",
+              "display": "Carcinogenicity",
+              "definition": "4.2.3.4 Carcinogenicity"
+            },
+            {
+              "code": "nonclinical.toxicology.repro",
+              "display": "Reproductive and Developmental Toxicity",
+              "definition": "4.2.3.5 Reproductive Toxicity",
+              "concept": [
+                {
+                  "code": "nonclinical.toxicology.repro.fertility",
+                  "display": "Fertility and Early Embryonic Development",
+                  "definition": "4.2.3.5.1 Fertility"
+                },
+                {
+                  "code": "nonclinical.toxicology.repro.embryo",
+                  "display": "Embryo-Fetal Development",
+                  "definition": "4.2.3.5.2 Embryo-Fetal"
+                },
+                {
+                  "code": "nonclinical.toxicology.repro.peri",
+                  "display": "Peri- and Post-Natal Development",
+                  "definition": "4.2.3.5.3 Peri-/Post-Natal"
+                }
+              ]
+            },
+            {
+              "code": "nonclinical.toxicology.local",
+              "display": "Local Tolerance",
+              "definition": "4.2.3.6 Local Tolerance"
+            },
+            {
+              "code": "nonclinical.toxicology.other",
+              "display": "Other Toxicity Studies",
+              "definition": "4.2.3.7 Other Toxicity Studies",
+              "concept": [
+                {
+                  "code": "nonclinical.toxicology.other.antigenicity",
+                  "display": "Antigenicity",
+                  "definition": "4.2.3.7.1 Antigenicity"
+                },
+                {
+                  "code": "nonclinical.toxicology.other.immunotox",
+                  "display": "Immunotoxicity",
+                  "definition": "4.2.3.7.2 Immunotoxicity"
+                },
+                {
+                  "code": "nonclinical.toxicology.other.mechanistic",
+                  "display": "Mechanistic Studies",
+                  "definition": "4.2.3.7.3 Mechanistic"
+                },
+                {
+                  "code": "nonclinical.toxicology.other.impurities",
+                  "display": "Impurities",
+                  "definition": "4.2.3.7.4 Impurities"
+                },
+                {
+                  "code": "nonclinical.toxicology.other.metabolites",
+                  "display": "Metabolites",
+                  "definition": "4.2.3.7.5 Metabolites"
+                },
+                {
+                  "code": "nonclinical.toxicology.other.other",
+                  "display": "Other",
+                  "definition": "4.2.3.7.6 Other"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "clinical",
+      "display": "Clinical Study Reports",
+      "definition": "Module 5 – Clinical Study Reports",
+      "concept": [
+        {
+          "code": "clinical.biopharm",
+          "display": "Biopharmaceutic Studies",
+          "definition": "5.2 Biopharmaceutic Studies",
+          "concept": [
+            {
+              "code": "clinical.biopharm.ba-be",
+              "display": "Bioavailability / Bioequivalence",
+              "definition": "5.2.1-2 BA/BE Studies"
+            },
+            {
+              "code": "clinical.biopharm.invitro",
+              "display": "In Vitro–In Vivo Correlation",
+              "definition": "5.2.3 IVIVC"
+            }
+          ]
+        },
+        {
+          "code": "clinical.pk",
+          "display": "Clinical Pharmacology Studies",
+          "definition": "5.3 Clinical Pharmacology",
+          "concept": [
+            {
+              "code": "clinical.pk.healthy",
+              "display": "Studies in Healthy Subjects",
+              "definition": "5.3.1 Healthy Subjects"
+            },
+            {
+              "code": "clinical.pk.patient",
+              "display": "Studies in Target Population",
+              "definition": "5.3.2 Target Population"
+            },
+            {
+              "code": "clinical.pk.intrinsic",
+              "display": "Intrinsic Factors",
+              "definition": "5.3.3 Intrinsic Factors",
+              "concept": [
+                {
+                  "code": "clinical.pk.intrinsic.renal",
+                  "display": "Renal Impairment",
+                  "definition": "5.3.3.1 Renal"
+                },
+                {
+                  "code": "clinical.pk.intrinsic.hepatic",
+                  "display": "Hepatic Impairment",
+                  "definition": "5.3.3.2 Hepatic"
+                },
+                {
+                  "code": "clinical.pk.intrinsic.age",
+                  "display": "Age / Pediatric",
+                  "definition": "5.3.3.3 Age/Pediatric"
+                }
+              ]
+            },
+            {
+              "code": "clinical.pk.extrinsic",
+              "display": "Extrinsic Factors",
+              "definition": "5.3.4 Extrinsic Factors",
+              "concept": [
+                {
+                  "code": "clinical.pk.extrinsic.ddi",
+                  "display": "Drug-Drug Interactions",
+                  "definition": "5.3.4.1 DDI"
+                }
+              ]
+            },
+            {
+              "code": "clinical.pk.pop",
+              "display": "Population PK",
+              "definition": "5.3.5 Population PK"
+            }
+          ]
+        },
+        {
+          "code": "clinical.efficacy",
+          "display": "Clinical Efficacy & Safety Studies",
+          "definition": "5.3.5-5.4 Efficacy and Safety",
+          "concept": [
+            {
+              "code": "clinical.efficacy.controlled",
+              "display": "Controlled Clinical Studies",
+              "definition": "5.3.5.1 Controlled Studies"
+            },
+            {
+              "code": "clinical.efficacy.uncontrolled",
+              "display": "Uncontrolled Studies",
+              "definition": "5.3.5.2 Uncontrolled"
+            },
+            {
+              "code": "clinical.efficacy.other",
+              "display": "Other Studies",
+              "definition": "5.3.5.3 Other"
+            },
+            {
+              "code": "clinical.efficacy.analysis",
+              "display": "Analyses of Efficacy",
+              "definition": "5.3.5.4 Analyses"
+            }
+          ]
+        },
+        {
+          "code": "clinical.safety",
+          "display": "Safety Data",
+          "definition": "5.3.6 Safety",
+          "concept": [
+            {
+              "code": "clinical.safety.exposure",
+              "display": "Extent of Exposure",
+              "definition": "5.3.6.1 Exposure"
+            },
+            {
+              "code": "clinical.safety.ae",
+              "display": "Adverse Events",
+              "definition": "5.3.6.2 AEs"
+            },
+            {
+              "code": "clinical.safety.lab",
+              "display": "Clinical Laboratory",
+              "definition": "5.3.6.3 Lab"
+            },
+            {
+              "code": "clinical.safety.vital",
+              "display": "Vital Signs / ECG",
+              "definition": "5.3.6.4 Vital/ECG"
+            },
+            {
+              "code": "clinical.safety.immuno",
+              "display": "Immunogenicity",
+              "definition": "5.3.6.5 Immunogenicity"
+            }
+          ]
+        },
+        {
+          "code": "clinical.literature",
+          "display": "Literature References",
+          "definition": "5.4 Literature References"
+        },
+        {
+          "code": "clinical.synopses",
+          "display": "Synopses of Individual Studies",
+          "definition": "5.3.7 Synopses"
+        }
+      ]
+    }
+  ]
+}

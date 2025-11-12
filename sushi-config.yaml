@@ -1,0 +1,44 @@
+id: hl7.fhir.uv.src-ig
+canonical: http://hl7.org/fhir/uv/src-ig
+name: RCS
+title: Structured Regulatory Correspondence (SRC)
+description: Standard for structuring regulatory correspondence from a health authority to a Market Authorization Holder. This includes List of Questions (LOQ), Response to List of Questions, List of Issues (LOI), Response to List of Issues, Request for Information, Response to Request for Information, and Decision Letters.
+status: draft
+version: 0.1.0
+fhirVersion: 5.0.0
+copyrightYear: 2025+
+releaseLabel: ci-build
+publisher:
+  name: Gravitate Health and HL7 Biomedical Research & Regulation (BR&R)
+  url: https://www.gravitatehealth.eu/
+license: CC0-1.0
+
+pages:
+  index.md:
+    title: Home
+  use-case.md:
+    title: Use Case
+  question.md:
+    title: Questions Example
+  response.md:
+    title: Response Example
+  terminology.md:
+    title: Terminology
+menu:
+  Home: index.html
+  Use Case: use-case.html
+  Question Structure: question.html
+  Response Structure: response.html
+  Terminology: terminology.html
+  Artifacts: artifacts.html
+
+resources:
+  CodeSystem/ctd-categories-full:
+    name: CTD Question Categories Full
+  StructureDefinition/RegulatoryQuestionnaire:
+    name: Regulatory Questionnaire
+
+examples:
+  - id: brr-regulatory-qa-questionnaire
+    source: input/examples/Questionnaire-RegulatoryQA-ID001.xml
+    name: EMA List of Questions – Type II Variation (ID001)
