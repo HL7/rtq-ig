@@ -1,9 +1,9 @@
 {
   "resourceType": "ImplementationGuide",
-  "id": "hl7.fhir.uv.src-ig",
-  "url": "http://hl7.org/fhir/uv/src-ig/ImplementationGuide/hl7.fhir.uv.src-ig",
+  "id": "hl7.fhir.uv.rtq-ig",
+  "url": "http://hl7.org/fhir/uv/rtq-ig/ImplementationGuide/hl7.fhir.uv.rtq-ig",
   "version": "0.1.0",
-  "name": "RCS",
+  "name": "RTQ",
   "title": "Response to Regulatory Questions (RTQ)",
   "status": "draft",
   "publisher": "HL7 Biomedical Research & Regulation (BR&R)",
@@ -19,7 +19,7 @@
     }
   ],
   "description": "The Response to Question (RTQ) Implementation Guide provides a standardized framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return.",
-  "packageId": "hl7.fhir.uv.src-ig",
+  "packageId": "hl7.fhir.uv.rtq-ig",
   "license": "CC0-1.0",
   "fhirVersion": [
     "5.0.0"
@@ -151,7 +151,7 @@
           "code": "path-history",
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
-        "value": "http://hl7.org/fhir/uv/src-ig/history.html"
+        "value": "http://hl7.org/fhir/uv/rtq-ig/history.html"
       }
     ]
   }
