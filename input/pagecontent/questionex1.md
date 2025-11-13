@@ -1,3 +1,5 @@
+The HTML rendering below shows an example Regulator Question using synthetic data.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
