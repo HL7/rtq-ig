@@ -1,5 +1,3 @@
-# Question Example 1 – EMA Type II Variation Questionnaire
-
 This example demonstrates a synthetic regulatory questionnaire issued during a Type II variation procedure, using FHIR R5 **Questionnaire** resources for structured, machine-readable exchange.
 
 **FHIR Integration Highlights**
