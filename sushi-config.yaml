@@ -1,6 +1,6 @@
 id: hl7.fhir.uv.rtq-ig
-canonical: http://hl7.org/fhir/uv/rtq-ig
-name: RTQ
+canonical: https://build.fhir.org/ig/HL7/rtq-ig
+name: RTQ_IG
 title: Response to Regulatory Questions (RTQ)
 description: The Response to Question (RTQ) Implementation Guide provides a standardized framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return.
 status: draft
@@ -9,8 +9,8 @@ fhirVersion: 5.0.0
 copyrightYear: 2025+
 releaseLabel: ci-build
 publisher:
-  name: HL7 Biomedical Research & Regulation (BR&R)
-  url: https://confluence.hl7.org/spaces/BRR/pages/7012437/Biomedical+Research+and+Regulation
+  name: HL7 International
+  url: http://www.hl7.org
 license: CC0-1.0
 
 pages:

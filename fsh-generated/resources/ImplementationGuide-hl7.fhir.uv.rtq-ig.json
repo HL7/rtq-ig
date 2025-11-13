@@ -1,19 +1,19 @@
 {
   "resourceType": "ImplementationGuide",
   "id": "hl7.fhir.uv.rtq-ig",
-  "url": "http://hl7.org/fhir/uv/rtq-ig/ImplementationGuide/hl7.fhir.uv.rtq-ig",
+  "url": "https://build.fhir.org/ig/HL7/rtq-ig/ImplementationGuide/hl7.fhir.uv.rtq-ig",
   "version": "0.1.0",
-  "name": "RTQ",
+  "name": "RTQ_IG",
   "title": "Response to Regulatory Questions (RTQ)",
   "status": "draft",
-  "publisher": "HL7 Biomedical Research & Regulation (BR&R)",
+  "publisher": "HL7 International",
   "contact": [
     {
-      "name": "HL7 Biomedical Research & Regulation (BR&R)",
+      "name": "HL7 International",
       "telecom": [
         {
           "system": "url",
-          "value": "https://confluence.hl7.org/spaces/BRR/pages/7012437/Biomedical+Research+and+Regulation"
+          "value": "http://www.hl7.org"
         }
       ]
     }
@@ -145,13 +145,6 @@
           "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
         },
         "value": "ci-build"
-      },
-      {
-        "code": {
-          "code": "path-history",
-          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
-        },
-        "value": "http://hl7.org/fhir/uv/rtq-ig/history.html"
       }
     ]
   }
