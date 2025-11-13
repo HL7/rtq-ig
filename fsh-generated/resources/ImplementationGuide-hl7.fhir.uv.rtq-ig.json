@@ -1,0 +1,158 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "hl7.fhir.uv.rtq-ig",
+  "url": "http://hl7.org/fhir/uv/rtq-ig/ImplementationGuide/hl7.fhir.uv.rtq-ig",
+  "version": "0.1.0",
+  "name": "RTQ",
+  "title": "Response to Regulatory Questions (RTQ)",
+  "status": "draft",
+  "publisher": "HL7 Biomedical Research & Regulation (BR&R)",
+  "contact": [
+    {
+      "name": "HL7 Biomedical Research & Regulation (BR&R)",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://confluence.hl7.org/spaces/BRR/pages/7012437/Biomedical+Research+and+Regulation"
+        }
+      ]
+    }
+  ],
+  "description": "The Response to Question (RTQ) Implementation Guide provides a standardized framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return.",
+  "packageId": "hl7.fhir.uv.rtq-ig",
+  "license": "CC0-1.0",
+  "fhirVersion": [
+    "5.0.0"
+  ],
+  "dependsOn": [
+    {
+      "packageId": "hl7.fhir.r5.core",
+      "version": "5.0.0",
+      "uri": "http://hl7.org/fhir/ImplementationGuide/fhir",
+      "id": "hl7_fhir_r5_core"
+    },
+    {
+      "packageId": "hl7.terminology.r5",
+      "version": "5.5.0",
+      "uri": "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
+      "id": "hl7_terminology_r5"
+    },
+    {
+      "packageId": "hl7.fhir.uv.extensions.r5",
+      "version": "1.0.0",
+      "uri": "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "id": "hl7_fhir_uv_extensions_r5"
+    },
+    {
+      "packageId": "hl7.fhir.pubpack",
+      "version": "0.2.3",
+      "uri": "http://fhir.org/packages/hl7.fhir.pubpack/ImplementationGuide/hl7.fhir.pubpack",
+      "id": "hl7_fhir_pubpack"
+    },
+    {
+      "packageId": "hl7.fhir.xver-extensions",
+      "version": "0.1.0",
+      "uri": "http://fhir.org/packages/hl7.fhir.xver-extensions",
+      "id": "hl7_fhir_xver_extensions"
+    }
+  ],
+  "definition": {
+    "resource": [
+      {
+        "reference": {
+          "reference": "CodeSystem/contact-purpose"
+        },
+        "description": "Defines the role of a contact in regulatory correspondence. Used to distinguish the sender (health authority) and recipient (marketing authorization holder) in structured Q&A.",
+        "name": "Contact Purpose Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "CodeSystem/ctd-categories-full"
+        },
+        "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions in Structured Regulatory Correspondence (SRC). Supports multi-level granularity for EMA, FDA, and Health Canada harmonization.",
+        "name": "CTD Question Categories Full",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/RegulatoryQuestionnaire"
+        },
+        "description": "A profile on Questionnaire for structured regulatory questions from a health authority to a market authorization holder during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient, rich text questions, CTD section mapping, and organizational identifiers with address.",
+        "name": "Regulatory Questionnaire",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "Questionnaire/brr-regulatory-qa-questionnaire"
+        },
+        "name": "Responses to Question Set ID001",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaire"
+        ]
+      }
+    ],
+    "page": {
+      "title": "Table of Contents",
+      "generation": "html",
+      "page": [
+        {
+          "title": "Home",
+          "generation": "markdown",
+          "name": "index.html",
+          "sourceUrl": "index.html"
+        },
+        {
+          "title": "Use Case",
+          "generation": "markdown",
+          "name": "use-case.html",
+          "sourceUrl": "use-case.html"
+        },
+        {
+          "title": "Question Structure",
+          "generation": "markdown",
+          "name": "question.html",
+          "sourceUrl": "question.html"
+        },
+        {
+          "title": "Response Structure",
+          "generation": "markdown",
+          "name": "response.html",
+          "sourceUrl": "response.html"
+        },
+        {
+          "title": "Terminology",
+          "generation": "markdown",
+          "name": "terminology.html",
+          "sourceUrl": "terminology.html"
+        }
+      ],
+      "name": "toc.html",
+      "sourceUrl": "toc.html"
+    },
+    "parameter": [
+      {
+        "code": {
+          "code": "copyrightyear",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "2025+"
+      },
+      {
+        "code": {
+          "code": "releaselabel",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "ci-build"
+      },
+      {
+        "code": {
+          "code": "path-history",
+          "system": "http://hl7.org/fhir/tools/CodeSystem/ig-parameters"
+        },
+        "value": "http://hl7.org/fhir/uv/rtq-ig/history.html"
+      }
+    ]
+  }
+}
