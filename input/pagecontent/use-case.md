@@ -1,30 +1,28 @@
-# Use Cases
-
 This section illustrates how the **Regulatory Questionnaire** profile enables efficient, automated handling of regulatory questions and responses in regulatory workflows. By structuring questions with CTD mappings, rich text, and clear sender/recipient details, **both health authorities and sponsors** can triage inquiries, leverage historical data, and generate draft responses—reducing manual effort, accelerating reviews, and improving global regulatory harmonization.
 
 The profile supports **end-to-end automation**, from question issuance to response submission, integrating with FHIR ready systems and agency review platforms. This aligns with emerging real-time paradigms in global regulatory affairs, where FHIR enables sub-second processing of regulatory information, shrinking timelines from months to days or hours.
 
 ---
 
-## Scenario: EMA Type II Variation Review
+### Scenario: EMA Type II Variation Review
 
 **EMA Type II Variation Review**: During review of a shelf-life extension for a biologic drug, the European Medicines Agency (EMA) issues 10 targeted questions on stability data (CTD 3.2.P.8), impurities (3.2.P.5.4), and labeling updates (1.3.1). The questions are sent as a FHIR Questionnaire bundle via secure API, email, or portal upload.
 
-### Without Structured Q&A
+#### Without Structured Q&A
 - **Regulator**: Manually drafts the questions in Word/email; inconsistent formatting; no traceability to prior reviews; high redundancy.
 - **Sponsor**: Manual parsing of PDF/email; 2–3 days to categorize and assign; duplicate effort across submissions.
 - **Delays**: 4–6 weeks total cycle—exacerbating backlogs, and risk staff burnout.
 - **Capacity limits**: One team handles 2–3 parallel applications; high question volume increases turnover.
 
-### With Structured Q&A (Using This Profile)
+#### With Structured Q&A (Using This Profile)
 
-#### **Regulator Benefits**
+##### **Regulator Benefits**
 1. **Standardized Issuance**: Reviewers use structured authoring tools to generate FHIR-compliant questions with **CTD codes**, **rich text**, and **deadlines** (`effectivePeriod`)—ensuring clarity and consistency. 
 2. **Automated Tracking**: System auto-logs questions by CTD section, agency, and product—enabling **real-time dashboards** on review workload, aging, and bottlenecks.
 3. **Global Benchmarking**: Query historical questions across submissions to identify **recurring issues** (e.g., 70% of stability questions involve timepoint gaps), informing **guidance updates** and **reviewer training**.
 4. **Faster Decision-Making**: Structured responses arrive with **pre-linked CTD references**, reducing verification time by 60–80%.
 
-#### **Sponsor Benefits**
+##### **Sponsor Benefits**
 1. **Immediate Triage**: Upon import, a FHIR-ready system parses `item.code` for CTD sections, auto-routing questions (e.g., stability queries to CMC folder, labeling to SPL team). AI flags urgency based on `effectivePeriod`.
 2. **Historical Reuse**: System queries past QuestionnaireResponses for matching `item.linkId` or CTD codes (e.g., reusing 80% of prior stability justifications from a similar variation). Flags "asked before" with confidence scores.
 3. **Draft Generation**: Pre-built templates and knowledge bases suggest responses, pulling from validated CMC data (e.g., auto-populating impurity thresholds from ICH Q3B). Human review takes 1–2 days.
@@ -38,7 +36,7 @@ The profile supports **end-to-end automation**, from question issuance to respon
 
 ---
 
-## KPI Comparison: Current Process vs. FHIR-Enabled Process
+### KPI Comparison: Current Process vs. FHIR-Enabled Process
 
 The following table quantifies the transformative impact of structured regulatory Q&A for **both regulators and sponsors**.
 
@@ -89,7 +87,7 @@ The following table quantifies the transformative impact of structured regulator
 
 ---
 
-## Strategic Benefit: Global Question Intelligence
+### Strategic Benefit: Global Question Intelligence
 
 Storing all regulatory questions in a **structured, standardized FHIR format** creates a powerful, queryable knowledge base across submissions, agencies, and regions.
 
@@ -109,7 +107,7 @@ This **global question repository** transforms reactive compliance into **proact
 
 ---
 
-## Broader Applications
+### Broader Applications
 
 - **CMC Review Cycles**: Streamline quality queries during IND/NDA reviews; auto-link to CTD modules for contextual responses.
 - **Global Harmonization**: Use CTD mappings for cross-agency questions (ICH-aligned), supporting parallel filings.
