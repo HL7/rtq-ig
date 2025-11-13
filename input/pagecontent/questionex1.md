@@ -1,16 +1,13 @@
-# Question Example 1: EMA Type II Variation Questionnaire
+# Question Example 1 – EMA Type II Variation Questionnaire
 
-This example shows a synthetic regulatory questionnaire issued by the EMA as part of a Type II variation procedure.
+This example demonstrates a synthetic regulatory questionnaire issued during a Type II variation procedure, using FHIR R5 **Questionnaire** resources for structured, machine-readable exchange.
 
-<div class="rtq-questionnaire-example">
-  {% include questionex1.html %}
-</div>
+{% include questionex1-fragment.html %}
 
-**Key Features Demonstrated:**
-- Structured question numbering and coding
-- Hierarchical section references (e.g., 1.3.1 SmPC)
-- Mixed content: text, lists, tables, notes, images
-- Contact information for sender and recipient
-- Machine-readable metadata (in underlying FHIR `Questionnaire` resource)
+**FHIR Integration Highlights**
 
-See the [full FHIR Questionnaire resource](#) for the structured backend.
+* Each question maps to a `Questionnaire.item` with a `linkId` (e.g., `"1"`).
+* Responses are captured in a `QuestionnaireResponse` resource (due 2025-12-11).
+* Supports multilingual ePI updates, stability data, and ICH/WHO zone alignment.
+
+[View the underlying FHIR Questionnaire resource](https://github.com/HL7/rtq-ig/blob/333ec32aea8ef989ed4c655f5916dda4132f12d8/input/examples/Questionnaire-RegulatoryQA-ID001.xml) (generated via FSH).
