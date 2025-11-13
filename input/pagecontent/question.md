@@ -88,7 +88,7 @@ With this profile:
 ---
 ### HTML presentation example
 
-The following is a HTML rendering of a FHIR Questionnaire with synthetic Quality: <a href="questionex1.md">Sample question from a regulator to a market authorization</a>
+The following is a HTML rendering of a FHIR Questionnaire with synthetic Quality: <a href="questionex1.html">Sample question from a regulator to a market authorization</a>
 
 ---
 
