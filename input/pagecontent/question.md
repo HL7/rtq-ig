@@ -74,7 +74,6 @@ This resource enables automated routing, tracking, and response management while
 </table>
 
 ---
-
 ### Example Use Case: EMA Type II Variation
 
 **Scenario**: EMA issues 10 questions on stability and labeling during review of a shelf-life extension.
@@ -85,6 +84,11 @@ With this profile:
 - Sponsor system auto-routes to CMC and labeling teams
 - Response deadline is enforced
 - Full audit trail from EMA to MAH
+
+---
+### HTML presentation example
+
+The following is a HTML rendering of a FHIR Questionnaire with synthetic Quality: <a href="questionex1.md">Sample question from a regulator to a market authorization</a>
 
 ---
 

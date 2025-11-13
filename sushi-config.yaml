@@ -1,16 +1,16 @@
 id: hl7.fhir.uv.src-ig
 canonical: http://hl7.org/fhir/uv/src-ig
 name: RCS
-title: Structured Regulatory Correspondence (SRC)
-description: Standard for structuring regulatory correspondence from a health authority to a Market Authorization Holder. This includes List of Questions (LOQ), Response to List of Questions, List of Issues (LOI), Response to List of Issues, Request for Information, Response to Request for Information, and Decision Letters.
+title: Response to Regulatory Questions (RTQ)
+description: The Response to Question (RTQ) Implementation Guide provides a standardized framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return.
 status: draft
 version: 0.1.0
 fhirVersion: 5.0.0
 copyrightYear: 2025+
 releaseLabel: ci-build
 publisher:
-  name: Gravitate Health and HL7 Biomedical Research & Regulation (BR&R)
-  url: https://www.gravitatehealth.eu/
+  name: HL7 Biomedical Research & Regulation (BR&R)
+  url: https://confluence.hl7.org/spaces/BRR/pages/7012437/Biomedical+Research+and+Regulation
 license: CC0-1.0
 
 pages:
