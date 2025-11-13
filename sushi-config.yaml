@@ -20,6 +20,8 @@ pages:
     title: Use Case
   question.md:
     title: Question Structure
+  questionex1.md:
+    title: Question Example 1
   response.md:
     title: Response Structure
   terminology.md:
