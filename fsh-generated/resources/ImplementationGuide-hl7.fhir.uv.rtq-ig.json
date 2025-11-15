@@ -84,6 +84,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/RegulatoryQuestionnaireResponse"
+        },
+        "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient via author and extensions, rich text in question text and answers, CTD section mapping, and organizational identifiers with address.",
+        "name": "Regulatory Questionnaire Response",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "Questionnaire/brr-regulatory-qa-questionnaire"
         },
         "name": "Responses to Question Set ID001",
