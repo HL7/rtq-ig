@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority. Captures both the sender (health authority that issued the questionnaire) and the recipient (MAH that provides the answers). Supports rich-text, CTD-section mapping, and organizational signatures.",
+  "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority. Captures both the sender (health authority) and recipient (MAH), submission date, rich-text answers, CTD-section mapping, and organizational signatures.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -67,8 +67,7 @@
         "id": "QuestionnaireResponse.text",
         "path": "QuestionnaireResponse.text",
         "min": 1,
-        "mustSupport": true,
-        "comment": "No constraints on content, language or traceability."
+        "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.text.status",
@@ -154,7 +153,8 @@
         "id": "QuestionnaireResponse.authored",
         "path": "QuestionnaireResponse.authored",
         "min": 1,
-        "mustSupport": true
+        "mustSupport": true,
+        "short": "Date and time the response was authored (submission date)"
       },
       {
         "id": "QuestionnaireResponse.author",
@@ -185,7 +185,8 @@
             ]
           }
         ],
-        "mustSupport": true
+        "mustSupport": true,
+        "short": "Market Authorization Holder (MAH) providing the response"
       },
       {
         "id": "QuestionnaireResponse.author:recipient.extension",

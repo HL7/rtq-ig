@@ -86,7 +86,7 @@
         "reference": {
           "reference": "StructureDefinition/RegulatoryQuestionnaireResponse"
         },
-        "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority. Captures both the sender (health authority that issued the questionnaire) and the recipient (MAH that provides the answers). Supports rich-text, CTD-section mapping, and organizational signatures.",
+        "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority. Captures both the sender (health authority) and recipient (MAH), submission date, rich-text answers, CTD-section mapping, and organizational signatures.",
         "name": "Regulatory Questionnaire Response",
         "isExample": false
       },
