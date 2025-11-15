@@ -1,8 +1,3 @@
----
-title: Regulatory Questionnaire Response – Structure & Guidance
-entry: response-structure
----
-
 # Regulatory Questionnaire **Response** – Structure & Guidance
 
 > **For:** Pharmaceutical Regulatory Affairs Teams • Health Authority Reviewers  
