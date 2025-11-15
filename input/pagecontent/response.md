@@ -101,7 +101,7 @@ With this profile:
 
 ### HTML Presentation Example
 The following is an HTML rendering of a FHIR QuestionnaireResponse:  
-<a href="questionnaire-response-id001-response.html">Sample response from MAH to regulator</a>
+<a href="responseex1.html">Sample response from MAH to regulator</a>
 
 ---
 

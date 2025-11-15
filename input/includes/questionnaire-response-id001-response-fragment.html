@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sample Regulatory Questionnaire Response – RTQ IG</title>
+  <style>
+    /* -------------------------------------------------
+       Scoped styles – only affect the questionnaire response
+       ------------------------------------------------- */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+    }
+    .rtq-response {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .rtq-header {
+      text-align: center;
+      padding: 32px 20px 24px;
+      border-bottom: 1px solid #d2d2d7;
+      background: linear-gradient(to bottom, #f9f9fb, #ffffff);
+    }
+    .rtq-header h1 {
+      color: #007aff;
+      font-size: 2.2em;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .rtq-header p {
+      color: #86868b;
+      font-size: 1em;
+      margin: 4px 0;
+    }
+    .rtq-contacts {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      flex-wrap: wrap;
+      background: #f9f9fb;
+    }
+    .rtq-contact {
+      flex: 1;
+      min-width: 280px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .rtq-contact h3 {
+      color: #007aff;
+      margin-top: 0;
+      font-size: 1.1em;
+    }
+    .rtq-contact p {
+      margin: 4px 0;
+      font-size: 0.95em;
+    }
+    .rtq-contact a {
+      color: #007aff;
+      text-decoration: none;
+    }
+    .rtq-contact a:hover {
+      text-decoration: underline;
+    }
+    .rtq-container {
+      padding: 20px 24px;
+    }
+    .rtq-title {
+      background: #f2f2f7;
+      padding: 16px 24px;
+      border-bottom: 1px solid #d2d2d7;
+    }
+    .rtq-title h2 {
+      margin: 0;
+      font-size: 1.6em;
+      color: #1d1d1f;
+    }
+
+    /* ——— QUESTION CARD ——— */
+    .rtq-question-card {
+      margin: 20px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      border: 1px solid #d2d2d7;
+      background: #ffffff;
+    }
+    .rtq-q-header {
+      background: #007aff;
+      color: white;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .rtq-q-number {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+    .rtq-q-codes {
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+    .rtq-q-content {
+      padding: 20px;
+    }
+    .rtq-q-title {
+      font-weight: 600;
+      font-size: 1.18em;
+      margin: 0 0 12px;
+      color: #1d1d1f;
+      line-height: 1.4;
+    }
+    .rtq-q-text {
+      font-size: 1em;
+      color: #1d1d1f;
+    }
+    .rtq-q-text p {
+      margin: 6px 0;
+    }
+    .rtq-q-text a {
+      color: #007aff;
+      text-decoration: none;
+    }
+    .rtq-q-text a:hover {
+      text-decoration: underline;
+    }
+    .rtq-q-text ul {
+      margin: 8px 0;
+      padding-left: 22px;
+    }
+    .rtq-q-text li {
+      margin: 4px 0;
+    }
+    .rtq-q-text table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.95em;
+    }
+    .rtq-q-text th, .rtq-q-text td {
+      border: 1px solid #d2d2d7;
+      padding: 9px;
+      text-align: left;
+    }
+    .rtq-q-text th {
+      background: #f2f2f7;
+      font-weight: 600;
+    }
+    .rtq-note {
+      background: #f9fbff;
+      padding: 12px;
+      border-left: 4px solid #0066cc;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.95em;
+    }
+    .rtq-img-placeholder {
+      background: #e5e5ea;
+      border: 1px dashed #999;
+      border-radius: 10px;
+      padding: 50px;
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      margin: 16px 0;
+      font-size: 0.95em;
+    }
+
+    /* ——— ANSWER CARD ——— */
+    .rtq-answer-card {
+      margin: 16px 0 20px 0;
+      border-radius: 12px;
+      padding: 18px;
+      border: 2px solid #007aff;
+      box-shadow: 0 6px 16px rgba(0, 122, 255, 0.18);
+      background: #ffffff;
+      font-size: 1em;
+    }
+    .rtq-answer-card p, .rtq-answer-card ul, .rtq-answer-card table {
+      margin: 0 0 12px;
+    }
+    .rtq-answer-card p:last-child, .rtq-answer-card ul:last-child, .rtq-answer-card table:last-child {
+      margin-bottom: 0;
+    }
+    .rtq-answer-card ul {
+      padding-left: 20px;
+    }
+    .rtq-answer-card li {
+      margin: 4px 0;
+    }
+    .rtq-answer-card table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.95em;
+    }
+    .rtq-answer-card th, .rtq-answer-card td {
+      border: 1px solid #d2d2d7;
+      padding: 8px;
+      text-align: left;
+    }
+    .rtq-answer-card th {
+      background: #f2f2f7;
+      font-weight: 600;
+    }
+
+    .rtq-footer {
+      text-align: center;
+      padding: 32px 20px;
+      color: #86868b;
+      font-size: 0.9em;
+      border-top: 1px solid #d2d2d7;
+      background: #f9f9fb;
+    }
+    .rtq-footer a {
+      color: #007aff;
+      text-decoration: none;
+    }
+    .rtq-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="rtq-response">
+  <div class="rtq-header">
+    <h1>Regulatory Questionnaire Response</h1>
+    <p>Response to EMA List of Questions – Type II Variation (ID001)</p>
+    <p>Procedure Number: EMEA/H/C/005432/II/0023 | Submitted: November 15, 2025</p>
+  </div>
+
+  <div class="rtq-contacts">
+    <div class="rtq-contact">
+      <h3>Sender: SynthPharma AG</h3>
+      <p style="margin:0;font-weight:bold;">Dr. John Doe</p>
+      <p style="margin:0;font-style:italic;">Head of Regulatory Affairs</p>
+      <p style="margin:0;"><b>SynthPharma AG</b><br>Global Regulatory Strategy<br>Basel, Switzerland</p>
+      <p style="color:#0066cc"><a href="mailto:john.doe@synthpharma.example">john.doe@synthpharma.example</a></p>
+      <p style="font-size:0.9em;color:#666">123 Synthetic Research Blvd, 4000 Basel, Switzerland</p>
+    </div>
+    <div class="rtq-contact">
+      <h3>Recipient: European Medicines Agency</h3>
+      <p style="margin:0;font-weight:bold;">Dr. Jane Doe</p>
+      <p style="margin:0;font-style:italic;">Scientific Officer</p>
+      <p style="margin:0;"><b>Scientific and Regulatory Management</b><br>Human Medicines Evaluation Division<br>European Medicines Agency</p>
+      <p style="color:#0066cc"><a href="mailto:jane.doe@ema.europa.eu">jane.doe@ema.europa.eu</a> | +31-88-781-6000</p>
+      <p style="font-size:0.9em;color:#666">Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands</p>
+    </div>
+  </div>
+
+  <div class="rtq-container">
+    <div class="rtq-title"><h2>Response: RegulatoryQA-ID001-Response</h2></div>
+
+    <!-- Q1 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">1</div>
+        <div class="rtq-q-codes">1.0 Administrative Information → 1.1 Application Form</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Is the fee for the Type II variation fully paid and documented?</div>
+        <div class="rtq-q-text">
+          <p style="font-size:0.9em;color:#555">
+            See <a href="https://www.ema.europa.eu/en/documents/regulatory-procedural-guidance/fees-payable-european-medicines-agency_en.pdf">EMA Fee Guidance</a> for payment confirmation requirements.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>Yes, the fee was paid on <strong>June 25, 2025</strong>. Payment confirmation and receipt are included in the application form (see Section 1.1).</p>
+    </div>
+
+    <!-- Q2 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">2</div>
+        <div class="rtq-q-codes">1.0 Administrative Information → 1.1 Application Form</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Are all required metadata fields in the application form complete?</div>
+        <div class="rtq-q-text">
+          <ul>
+            <li>Marketing Authorisation Holder</li>
+            <li>Product Name (INN)</li>
+            <li>Procedure Number</li>
+            <li>Submission Date</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>Yes, all required metadata fields are complete:</p>
+      <ul>
+        <li><strong>MAH:</strong> SynthPharma AG</li>
+        <li><strong>Product:</strong> ExampleDrug 10 mg Tablets</li>
+        <li><strong>Procedure:</strong> EMEA/H/C/005432/II/0023</li>
+        <li><strong>Submission Date:</strong> 2025-06-25</li>
+      </ul>
+    </div>
+
+    <!-- Q3 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">3</div>
+        <div class="rtq-q-codes">1.3 Product Information → 1.3.1 SmPC, Labelling and Package Leaflet</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?</div>
+        <div class="rtq-q-text">
+          <p>Current ePI states: “Store in a refrigerator (2°C – 8°C). Do not freeze.”</p>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>No additional patient guidance is required. The ePI clearly states: 'Store in a refrigerator (2°C – 8°C). Do not freeze.' The 36-month shelf life is supported by stability data and does not alter patient handling instructions.</p>
+    </div>
+
+    <!-- Q4 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">4</div>
+        <div class="rtq-q-codes">1.3 Product Information → 1.3.1 SmPC, Labelling and Package Leaflet</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Is the patient leaflet revised to clarify the extended shelf life?</div>
+        <div class="rtq-q-text">
+          <p style="font-style:italic">“Shelf life after first opening: 36 months when stored at 2–8°C”</p>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>Yes, the patient leaflet has been updated to state: 'Shelf life after first opening: 36 months when stored at 2–8°C'. The revised leaflet is included in the submission.</p>
+    </div>
+
+    <!-- Q5 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">5</div>
+        <div class="rtq-q-codes">1.3 Product Information → 1.3.1 SmPC, Labelling and Package Leaflet</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Is the updated ePI text sufficiently clear for all EU languages?</div>
+        <div class="rtq-q-text">
+          <table>
+            <tr><th>Language</th><th>Status</th></tr>
+            <tr><td>English</td><td>Approved</td></tr>
+            <tr><td>French</td><td>Under Review</td></tr>
+            <tr><td>German</td><td>Pending</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>Yes, the ePI text has been translated into all EU languages and reviewed for clarity. All versions are linguistically validated. Status: English (Approved), French (Approved), German (Approved), others (Final review completed).</p>
+    </div>
+
+    <!-- Q6 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">6</div>
+        <div class="rtq-q-codes">3.2.P.8 Stability → 3.2.P.8.1 Stability Summary and Conclusion</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?</div>
+        <div class="rtq-q-text">
+          <ul>
+            <li>Include protocol deviations if any.</li>
+            <li>Reference: <a href="https://www.ich.org/page/ich-guidelines">ICH Q1A(R2)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>The submission includes both:</p>
+      <ul>
+        <li><strong>Additional timepoints:</strong> Long-term data extended to 36 months for primary batches A-001, A-002, A-003.</li>
+        <li><strong>New stability studies:</strong> Two pilot-scale batches (B-001, B-002) in new Alu/Alu packaging, with 6-month accelerated (40°C/75% RH) and long-term (25°C/60% RH) data.</li>
+      </ul>
+      <p>No protocol deviations occurred. All studies follow ICH Q1A(R2).</p>
+    </div>
+
+    <!-- Q7 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">7</div>
+        <div class="rtq-q-codes">3.2.P.8 Stability → 3.2.P.8.1 Stability Summary and Conclusion</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Does the data support all intended climatic zones?</div>
+        <div class="rtq-q-text">
+          <div class="rtq-note"><b>Note:</b> Confirm coverage for Zone IVb (30°C/75% RH) per <a href="https://www.who.int/publications/i/item/9789240011922">WHO TRS 1010</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>Yes, the data supports all ICH climatic zones, including Zone IVb:</p>
+      <ul>
+        <li><strong>Zone I/II:</strong> 25°C/60% RH (long-term), 40°C/75% RH (accelerated)</li>
+        <li><strong>Zone IVb:</strong> 30°C/75% RH (long-term) — data confirms compliance per WHO TRS 1010.</li>
+      </ul>
+      <p>All batches remain within specification.</p>
+    </div>
+
+    <!-- Q8 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">8</div>
+        <div class="rtq-q-codes">3.2.P.5 Control of Drug Product → 3.2.P.5.2 Analytical Procedures</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Are the test methods used the same as in the previously submitted stability information?</div>
+        <div class="rtq-q-text">
+          <p style="color:#d32f2f">If changed: justify and provide validation data.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>Yes, all test methods are identical to those validated in the original MAA. No changes were made. Methods remain stability-indicating for assay, impurities, and dissolution.</p>
+    </div>
+
+    <!-- Q9 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">9</div>
+        <div class="rtq-q-codes">3.2.P.5 Control of Drug Product → 3.2.P.5.4 Impurities</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Are there any new degradation products identified within the newly submitted data?</div>
+        <div class="rtq-q-text">
+          <p style="font-size:0.9em">Threshold: <b>&gt;0.10%</b> per <a href="https://www.ich.org/page/quality-guidelines">ICH Q3B(R2)</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>No new degradation products were identified. All observed impurities correspond to previously qualified degradants. Levels remain below 0.10% (ICH Q3B(R2) threshold). No peaks above reporting threshold detected.</p>
+    </div>
+
+    <!-- Q10 -->
+    <div class="rtq-question-card">
+      <div class="rtq-q-header">
+        <div class="rtq-q-number">10</div>
+        <div class="rtq-q-codes">3.2.P.7 Container Closure System</div>
+      </div>
+      <div class="rtq-q-content">
+        <div class="rtq-q-title">Any changes in the packaging configuration and/or storage of the samples during stability?</div>
+        <div class="rtq-q-text">
+          <div class="rtq-img-placeholder">[Figure 1: Cross-section of proposed aluminum/aluminum blister pack]</div>
+          <p style="font-size:0.9em;color:#555"><b>Figure 1:</b> Cross-section of new Alu/Alu blister showing foil thickness and sealing layer.</p>
+          <table>
+            <tr><th>Original</th><th>New</th></tr>
+            <tr><td>PVC/PVDC Blister</td><td>Alu/Alu Blister</td></tr>
+            <tr><td>25°C/60% RH</td><td>Unchanged</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="rtq-answer-card">
+      <p>Yes, a change in packaging configuration was implemented:</p>
+      <ul>
+        <li><strong>Original:</strong> PVC/PVDC blister pack</li>
+        <li><strong>New:</strong> Aluminum/aluminum (Alu/Alu) blister pack</li>
+      </ul>
+      <p>New stability studies (B-001, B-002) were initiated in the Alu/Alu system. Storage conditions remain unchanged: 25°C/60% RH (long-term), 40°C/75% RH (accelerated).</p>
+      <div class="rtq-img-placeholder">[Figure 1: Cross-section of new Alu/Alu blister pack]</div>
+      <p style="font-size:0.9em;color:#555"><b>Figure 1:</b> Cross-section of new Alu/Alu blister showing foil thickness and sealing layer.</p>
+      <table>
+        <tr><th>Parameter</th><th>Original</th><th>New</th></tr>
+        <tr><td>Material</td><td>PVC/PVDC</td><td>Alu/Alu</td></tr>
+        <tr><td>Storage Condition</td><td>25°C/60% RH</td><td>Unchanged</td></tr>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="rtq-footer">
+    <p>Built with the HL7 FHIR RTQ standard – enabling fast, structured, and machine-readable regulatory Q&A in life sciences and healthcare.</p>
+    <p><a href="https://build.fhir.org/ig/HL7/rtq-ig/branches/main/index.html">RTQ Implementation Guide →</a></p>
+  </div>
+</div>
+
+</body>
+</html>
