@@ -140,6 +140,12 @@
           "sourceUrl": "questionex1.html"
         },
         {
+          "title": "Response Example 1",
+          "generation": "markdown",
+          "name": "responseex1.html",
+          "sourceUrl": "responseex1.html"
+        },
+        {
           "title": "Response Structure",
           "generation": "markdown",
           "name": "response.html",

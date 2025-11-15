@@ -22,6 +22,8 @@ pages:
     title: Question Structure
   questionex1.md:
     title: Question Example 1
+  responseex1.md:
+    title: Response Example 1
   response.md:
     title: Response Structure
   terminology.md:

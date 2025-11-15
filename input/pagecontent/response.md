@@ -1,10 +1,3 @@
-# Regulatory Questionnaire **Response** – Structure & Guidance
-
-> **For:** Pharmaceutical Regulatory Affairs Teams • Health Authority Reviewers  
-> **Goal:** Understand how **responses** are structured in the HL7 FHIR RTQ standard — **no technical background required**
-
----
-
 ## Overview
 
 When a **marketing authorization holder (MAH)** receives a list of questions from a **health authority** (e.g., EMA, FDA, PMDA), they submit a **structured, machine-readable response** using the **RTQ (Response to Regulatory Questions)** FHIR profile.
