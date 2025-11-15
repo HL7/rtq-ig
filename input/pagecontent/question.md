@@ -13,6 +13,11 @@ This resource enables automated routing, tracking, and response management while
 - **Global Interoperability**: Aligns with ICH, HL7 FHIR, and IDMP standards
 
 ---
+### HTML presentation example
+
+The following is a HTML rendering of a FHIR Questionnaire with synthetic Quality: <a href="questionex1.html">Sample question from a regulator to a market authorization</a>
+
+---
 
 ### Key Elements of a Regulatory Question
 
@@ -84,11 +89,6 @@ With this profile:
 - Sponsor system auto-routes to CMC and labeling teams
 - Response deadline is enforced
 - Full audit trail from EMA to MAH
-
----
-### HTML presentation example
-
-The following is a HTML rendering of a FHIR Questionnaire with synthetic Quality: <a href="questionex1.html">Sample question from a regulator to a market authorization</a>
 
 ---
 

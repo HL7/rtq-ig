@@ -1,5 +1,3 @@
-## Overview
-
 When a **marketing authorization holder (MAH)** receives a list of questions from a **health authority** (e.g., EMA, FDA, PMDA), they submit a **structured, machine-readable response** using the **RTQ (Response to Regulatory Questions)** FHIR profile.
 
 This resource enables automated routing, tracking, and review management while preserving rich formatting, organizational context, and traceability to the Common Technical Document (CTD) structure.
@@ -12,6 +10,12 @@ This resource enables automated routing, tracking, and review management while p
 - **Audit Trail**: Full traceability of sender (MAH), recipient (authority), submission date, and coded categorization of each answer
 - **Rich Text Support**: Preserves bold, hyperlinks, tables, images, and formatting from standard authoring tools
 - **Global Interoperability**: Aligns with ICH, HL7 FHIR, and IDMP standards
+
+---
+
+### HTML Presentation Example
+The following is an HTML rendering of a FHIR QuestionnaireResponse:  
+<a href="responseex1.html">Sample response from MAH to regulator</a>
 
 ---
 
@@ -84,12 +88,6 @@ With this profile:
 - Regulatory system auto-routes responses to reviewers
 - Submission date is tracked
 - Full audit trail from MAH to authority
-
----
-
-### HTML Presentation Example
-The following is an HTML rendering of a FHIR QuestionnaireResponse:  
-<a href="responseex1.html">Sample response from MAH to regulator</a>
 
 ---
 
