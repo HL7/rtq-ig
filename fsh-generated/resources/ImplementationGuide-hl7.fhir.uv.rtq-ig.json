@@ -86,7 +86,7 @@
         "reference": {
           "reference": "StructureDefinition/RegulatoryQuestionnaireResponse"
         },
-        "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient via author and extensions, rich text in question text and answers, CTD section mapping, and organizational identifiers with address.",
+        "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority. Captures both the sender (health authority that issued the questionnaire) and the recipient (MAH that provides the answers). Supports rich-text, CTD-section mapping, and organizational signatures.",
         "name": "Regulatory Questionnaire Response",
         "isExample": false
       },
