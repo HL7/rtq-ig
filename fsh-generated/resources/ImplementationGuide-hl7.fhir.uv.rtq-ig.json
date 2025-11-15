@@ -134,13 +134,13 @@
           "sourceUrl": "question.html"
         },
         {
-          "title": "Question Example 1",
+          "title": "Question Example",
           "generation": "markdown",
           "name": "questionex1.html",
           "sourceUrl": "questionex1.html"
         },
         {
-          "title": "Response Example 1",
+          "title": "Response Example",
           "generation": "markdown",
           "name": "responseex1.html",
           "sourceUrl": "responseex1.html"
