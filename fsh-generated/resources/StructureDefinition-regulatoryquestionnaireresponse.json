@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "rtq-questionnaireresponse",
-  "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/rtq-questionnaireresponse",
+  "id": "regulatoryquestionnaireresponse",
+  "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/regulatoryquestionnaireresponse",
   "name": "RegulatoryQuestionnaireResponse",
   "title": "Regulatory Questionnaire Response",
   "status": "draft",

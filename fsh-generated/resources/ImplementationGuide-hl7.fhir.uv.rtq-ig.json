@@ -76,7 +76,7 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/rtq-questionnaire"
+          "reference": "StructureDefinition/regulatoryquestionnaire"
         },
         "name": "Regulatory Questionnaire",
         "description": "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences (e.g., medicinal product identification, strength, dose form, indications).",
@@ -90,7 +90,7 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/rtq-questionnaireresponse"
+          "reference": "StructureDefinition/regulatoryquestionnaireresponse"
         },
         "name": "Regulatory Questionnaire Response",
         "description": "A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions \n(e.g., medicinal product identification, strength, pharmaceutical form, routes, indications).",
