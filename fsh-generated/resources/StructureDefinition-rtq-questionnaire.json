@@ -8,7 +8,7 @@
     }
   ],
   "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/rtq-questionnaire",
-  "name": "RTQQuestionnaire",
+  "name": "RtqQuestionnaire",
   "title": "Regulatory Questionnaire",
   "status": "draft",
   "description": "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences (e.g., medicinal product identification, strength, dose form, indications).",
@@ -87,7 +87,7 @@
       {
         "id": "Questionnaire.item:strength.linkId",
         "path": "Questionnaire.item.linkId",
-        "patternString": "product-identifier"
+        "patternString": "strength"
       },
       {
         "id": "Questionnaire.item:strength.repeats",
