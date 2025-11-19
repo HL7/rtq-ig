@@ -3,26 +3,10 @@
   <id value="RegulatoryQA-ID001-Response"/>
   <meta>
     <versionId value="1"/>
-    <lastUpdated value="2025-11-15T14:59:00-05:00"/>
+    <lastUpdated value="2025-11-18T10:30:00+01:00"/>
     <profile value="http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaireResponse"/>
   </meta>
 
-  <!-- Narrative -->
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>Response to Regulatory Questionnaire ID001</h2>
-      <p><b>Procedure:</b> EMEA/H/C/005432/II/0023</p>
-      <p><b>Product:</b> ExampleDrug 10 mg Tablets</p>
-      <p><b>Submitted by:</b> SynthPharma AG</p>
-      <p><b>Submitted to:</b> European Medicines Agency (EMA)</p>
-      <p><b>Date:</b> November 15, 2025</p>
-      <hr/>
-      <p>This response addresses all administrative, labeling, and CMC stability questions for the Type II Variation.</p>
-    </div>
-  </text>
-
-  <!-- Identifiers -->
   <identifier>
     <system value="http://hl7.org/fhir/uv/brr/identifier/qa-request"/>
     <value value="ID001"/>
@@ -32,313 +16,242 @@
     <value value="EMEA/H/C/005432/II/0023"/>
   </identifier>
 
-  <!-- Reference to original Questionnaire -->
-  <questionnaire value="http://hl7.org/fhir/uv/brr/Questionnaire/brr-regulatory-qa-questionnaire"/>
+  <!-- Reference to the original Questionnaire via UUID (contained or external) -->
+  <questionnaire value="urn:uuid:7d3f1a4e-2b8c-4f1a-9e5d-8f2a6b9c1e3f"/>
 
   <status value="completed"/>
   <subject>
     <reference value="MedicinalProductDefinition/example-drug-10mg"/>
     <display value="ExampleDrug 10 mg Tablets"/>
   </subject>
-  <authored value="2025-11-15T14:59:00-05:00"/>
+  <authored value="2025-11-18T10:30:00+01:00"/>
 
-  <!-- SENDER: SynthPharma AG (MAH) — sending the response -->
-  <contact>
-    <purpose>
-      <coding>
-        <system value="http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose"/>
-        <code value="SENDER"/>
-        <display value="Sender (Marketing Authorization Holder)"/>
-      </coding>
-    </purpose>
-    <organization>
-      <reference value="Organization/synthpharma"/>
-      <identifier>
-        <system value="urn:oid:1.3.6.1.4.1.519.1"/>
-        <value value="DUNS-123456789"/>
-      </identifier>
-      <display value="SynthPharma AG"/>
-      <address>
-        <line value="123 Synthetic Research Blvd"/>
-        <city value="Basel"/>
-        <postalCode value="4000"/>
-        <country value="CH"/>
-      </address>
-    </organization>
-    <telecom>
-      <system value="email"/>
-      <value value="john.doe@synthpharma.example"/>
-    </telecom>
-    <telecom>
-      <system value="phone"/>
-      <value value="+41-61-123-4567"/>
-    </telecom>
-    <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/contact-signature">
-      <valueXhtml>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-          <p style="margin:0; font-weight:bold;">Dr. John Doe</p>
-          <p style="margin:0; font-style:italic;">Head of Regulatory Affairs</p>
-          <p style="margin:0;">
-            <b>SynthPharma AG</b><br/>
-            Global Regulatory Strategy<br/>
-            Basel, Switzerland
-          </p>
-          <p style="margin:0; color:#0066cc;">
-            <a href="mailto:john.doe@synthpharma.example">john.doe@synthpharma.example</a>
-          </p>
-          <p style="margin:0; font-size:0.9em; color:#666;">
-            123 Synthetic Research Blvd, 4000 Basel, Switzerland
-          </p>
-        </div>
-      </valueXhtml>
+  <!-- RECIPIENT: European Medicines Agency (Health Authority) -->
+  <author>
+    <reference value="Organization/ema"/>
+    <display value="European Medicines Agency"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/contactPoint">
+      <extension url="name">
+        <valueString value="Dr. Jane Doe"/>
+      </extension>
+      <extension url="title">
+        <valueString value="Scientific Officer"/>
+      </extension>
+      <extension url="department">
+        <valueString value="Scientific and Regulatory Management, Human Medicines Evaluation Division"/>
+      </extension>
+      <extension url="address">
+        <valueAddress>
+          <line value="Domenico Scarlattilaan 6"/>
+          <city value="Amsterdam"/>
+          <postalCode value="1083 HS"/>
+          <country value="NL"/>
+        </valueAddress>
+      </extension>
+      <extension url="telecom">
+        <valueContactPoint>
+          <system value="email"/>
+          <value value="jane.doe@ema.europa.eu"/>
+        </valueContactPoint>
+      </extension>
+      <extension url="telecom">
+        <valueContactPoint>
+          <system value="phone"/>
+          <value value="+31-88-781-6000"/>
+        </valueContactPoint>
+      </extension>
     </extension>
-  </contact>
+  </author>
 
-  <!-- RECIPIENT: EMA — original sender of the question -->
-  <contact>
-    <purpose>
-      <coding>
-        <system value="http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose"/>
-        <code value="RECIPIENT"/>
-        <display value="Recipient (Health Authority)"/>
-      </coding>
-    </purpose>
-    <organization>
-      <reference value="Organization/ema"/>
-      <identifier>
-        <system value="https://ema.europa.eu/organization-id"/>
-        <value value="EMA-ORG-001"/>
-      </identifier>
-      <display value="European Medicines Agency"/>
-      <address>
-        <line value="Domenico Scarlattilaan 6"/>
-        <city value="Amsterdam"/>
-        <postalCode value="1083 HS"/>
-        <country value="NL"/>
-      </address>
-    </organization>
-    <telecom>
-      <system value="email"/>
-      <value value="jane.doe@ema.europa.eu"/>
-    </telecom>
-    <telecom>
-      <system value="phone"/>
-      <value value="+31-88-781-6000"/>
-    </telecom>
-    <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/contact-signature">
-      <valueXhtml>
-        <div xmlns="http://www.w3.org/1999/xhtml">
-          <p style="margin:0; font-weight:bold;">Dr. Jane Doe</p>
-          <p style="margin:0; font-style:italic;">Scientific Officer</p>
-          <p style="margin:0;">
-            <b>Scientific and Regulatory Management</b><br/>
-            Human Medicines Evaluation Division<br/>
-            European Medicines Agency
-          </p>
-          <p style="margin:0; color:#0066cc;">
-            <a href="mailto:jane.doe@ema.europa.eu">jane.doe@ema.europa.eu</a> | 
-            <a href="tel:+31-88-781-6000">+31-88-781-6000</a>
-          </p>
-          <p style="margin:0; font-size:0.9em; color:#666;">
-            Domenico Scarlattilaan 6, 1083 HS Amsterdam, Netherlands
-          </p>
-        </div>
-      </valueXhtml>
+  <!-- SENDER: SynthPharma AG (Marketing Authorization Holder) -->
+  <source>
+    <reference value="Organization/synthpharma"/>
+    <display value="SynthPharma AG"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/contactPoint">
+      <extension url="name">
+        <valueString value="Dr. John Doe"/>
+      </extension>
+      <extension url="title">
+        <valueString value="Head of Regulatory Affairs"/>
+      </extension>
+      <extension url="department">
+        <valueString value="Global Regulatory Strategy"/>
+      </extension>
+      <extension url="address">
+        <valueAddress>
+          <line value="123 Synthetic Research Blvd"/>
+          <city value="Basel"/>
+          <postalCode value="4000"/>
+          <country value="CH"/>
+        </valueAddress>
+      </extension>
+      <extension url="telecom">
+        <valueContactPoint>
+          <system value="email"/>
+          <value value="john.doe@synthpharma.example"/>
+        </valueContactPoint>
+      </extension>
+      <extension url="telecom">
+        <valueContactPoint>
+          <system value="phone"/>
+          <value value="+41-61-123-4567"/>
+        </valueContactPoint>
+      </extension>
     </extension>
-  </contact>
+  </source>
 
-  <!-- ====================== ANSWERS (exact match with Questionnaire) ====================== -->
-
-  <!-- admin-1 -->
+  <!-- Question 1 -->
   <item>
     <linkId value="admin-1"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.0"/>
-      <display value="1.0 Administrative Information"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.1"/>
-      <display value="1.1 Application Form"/>
-    </code>
-    <text value="Is the fee for the Type II variation fully paid and documented?"/>
     <answer>
-      <valueString value="Yes, the fee was paid on June 25, 2025. Payment confirmation and receipt are included in the application form (see Section 1.1)."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Yes, the fee was paid on <b>June 25, 2025</b>. Payment confirmation and receipt are included in the application form (see Section 1.1).</p>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- admin-2 -->
+  <!-- Question 2 -->
   <item>
     <linkId value="admin-2"/>
-    <code>
-      <system value="http://hl7.org/fhir.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.0"/>
-      <display value="1.0 Administrative Information"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.1"/>
-      <display value="1.1 Application Form"/>
-    </code>
-    <text value="Are all required metadata fields in the application form complete?"/>
     <answer>
-      <valueString value="Yes, all required metadata fields are complete:
-• MAH: SynthPharma AG
-• Product: ExampleDrug 10 mg Tablets
-• Procedure: EMEA/H/C/005432/II/0023
-• Submission Date: 2025-06-25"/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Yes, all required metadata fields are complete:</p>
+            <ul>
+              <li><b>MAH:</b> SynthPharma AG</li>
+              <li><b>Product:</b> ExampleDrug 10 mg Tablets</li>
+              <li><b>Procedure:</b> EMEA/H/C/005432/II/0023</li>
+              <li><b>Submission Date:</b> 2025-06-25</li>
+            </ul>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- labeling-1 -->
+  <!-- Question 3 -->
   <item>
     <linkId value="labeling-1"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.3"/>
-      <display value="1.3 Product Information"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.3.1"/>
-      <display value="1.3.1 SmPC, Labelling and Package Leaflet"/>
-    </code>
-    <text value="Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?"/>
     <answer>
-      <valueString value="No additional patient guidance is required. The ePI clearly states: 'Store in a refrigerator (2°C – 8°C). Do not freeze.' The 36-month shelf life is supported by stability data and does not alter patient handling instructions."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>No additional patient guidance is required. The ePI clearly states: “Store in a refrigerator (2°C – 8°C). Do not freeze.” The 36-month shelf life is supported by stability data and does not alter patient handling instructions.</p>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- labeling-2 -->
+  <!-- Question 4 -->
   <item>
     <linkId value="labeling-2"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.3"/>
-      <display value="1.3 Product Information"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.3.1"/>
-      <display value="1.3.1 SmPC, Labelling and Package Leaflet"/>
-    </code>
-    <text value="Is the patient leaflet revised to clarify the extended shelf life?"/>
     <answer>
-      <valueString value="Yes, the patient leaflet has been updated to state: 'Shelf life after first opening: 36 months when stored at 2–8°C'. The revised leaflet is included in the submission."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Yes, the patient leaflet has riguardo been updated to state: “Shelf life after first opening: 36 months when stored at 2–8°C”. The revised leaflet is included in the submission.</p>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- labeling-3 -->
+  <!-- Question 5 -->
   <item>
     <linkId value="labeling-3"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.3"/>
-      <display value="1.3 Product Information"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="1.3.1"/>
-      <display value="1.3.1 SmPC, Labelling and Package Leaflet"/>
-    </code>
-    <text value="Is the updated ePI text sufficiently clear for all EU languages?"/>
     <answer>
-      <valueString value="Yes, the ePI text has been translated into all EU languages and reviewed for clarity. All versions are linguistically validated. Status: English (Approved), French (Approved), German (Approved), others (Final review completed)."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Yes, the ePI text has been translated into all EU languages and reviewed for clarity. All versions are linguistically validated.</p>
+            <table border="1" style="border-collapse:collapse;width:100%;margin-top:12px;">
+              <tr><th>Language</th><th>Status</th></tr>
+              <tr><td>English</td><td>Approved</td></tr>
+              <tr><td>French</td><td>Approved</td></tr>
+              <tr><td>German</td><td>Approved</td></tr>
+              <tr><td>All others</td><td>Final review completed</td></tr>
+            </table>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- cmc-1-DP-Stability -->
+  <!-- Question 6 -->
   <item>
     <linkId value="cmc-1-DP-Stability"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.8"/>
-      <display value="3.2.P.8 Stability"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.8.1"/>
-      <display value="3.2.P.8.1 Stability Summary and Conclusion"/>
-    </code>
-    <text value="Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?"/>
     <answer>
-      <valueString value="The submission includes both:
-• Additional timepoints: Long-term data extended to 36 months for primary batches A-001, A-002, A-003.
-• New stability studies: Two pilot-scale batches (B-001, B-002) in new Alu/Alu packaging, with 6-month accelerated (40°C/75% RH) and long-term (25°C/60% RH) data.
-No protocol deviations occurred. All studies follow ICH Q1A(R2)."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>The submission includes both:</p>
+            <ul>
+              <li><b>Additional timepoints:</b> Long-term data extended to 36 months for primary batches A-001, A-002, A-003.</li>
+              <li><b>New stability studies:</b> Two pilot-scale batches (B-001, B-002) in new Alu/Alu packaging, with 6-month accelerated (40°C/75% RH) and long-term (25°C/60% RH) data.</li>
+            </ul>
+            <p>No protocol deviations occurred. All studies follow ICH Q1A(R2).</p>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- cmc-2-DP-Stability -->
+  <!-- Question 7 -->
   <item>
     <linkId value="cmc-2-DP-Stability"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.8"/>
-      <display value="3.2.P.8 Stability"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.8.1"/>
-      <display value="3.2.P.8.1 Stability Summary and Conclusion"/>
-    </code>
-    <text value="Does the data support all intended climatic zones?"/>
     <answer>
-      <valueString value="Yes, the data supports all ICH climatic zones, including Zone IVb:
-• Zone I/II: 25°C/60% RH (long-term), 40°C/75% RH (accelerated)
-• Zone IVb: 30°C/75% RH (long-term) — data confirms compliance per WHO TRS 1010.
-All batches remain within specification."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Yes, the data supports all ICH climatic zones, including Zone IVb:</p>
+            <ul>
+              <li><b>Zone I/II:</b> 25°C/60% RH (long-term), 40°C/75% RH (accelerated)</li>
+              <li><b>Zone IVb:</b> 30°C/75% RH (long-term) — data confirms compliance per WHO TRS 1010.</li>
+            </ul>
+            <p>All batches remain within specification.</p>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- cmc-3-DP-Analytical Methods -->
+  <!-- Question 8 -->
   <item>
     <linkId value="cmc-3-DP-Analytical Methods"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.5"/>
-      <display value="3.2.P.5 Control of Drug Product"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.5.2"/>
-      <display value="3.2.P.5.2 Analytical Procedures"/>
-    </code>
-    <text value="Are the test methods used the same as in the previously submitted stability information?"/>
     <answer>
-      <valueString value="Yes, all test methods are identical to those validated in the original MAA. No changes were made. Methods remain stability-indicating for assay, impurities, and dissolution."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>Yes, all test methods are identical to those validated in the original MAA. No changes were made. Methods remain stability-indicating for assay, impurities, and dissolution.</p>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- cmc-4-DP-Impurities -->
+  <!-- Question 9 -->
   <item>
     <linkId value="cmc-4-DP-Impurities"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.5"/>
-      <display value="3.2.P.5 Control of Drug Product"/>
-    </code>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.5.4"/>
-      <display value="3.2.P.5.4 Impurities"/>
-    </code>
-    <text value="Are there any new degradation products identified within the newly submitted data?"/>
     <answer>
-      <valueString value="No new degradation products were identified. All observed impurities correspond to previously qualified degradants. Levels remain below 0.10% (ICH Q3B(R2) threshold). No peaks above reporting threshold detected."/>
+      <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
+        <valueXhtml>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>No new degradation products were identified. All observed impurities correspond to previously qualified degradants. Levels remain below 0.10% (ICH Q3B(R2) threshold). No peaks above reporting threshold detected.</p>
+          </div>
+        </valueXhtml>
+      </extension>
     </answer>
   </item>
 
-  <!-- cmc-5-DP-Container Closure System -->
+  <!-- Question 10 -->
   <item>
     <linkId value="cmc-5-DP-Container Closure System"/>
-    <code>
-      <system value="http://hl7.org/fhir/uv/brr/CodeSystem/ctd-section"/>
-      <code value="3.2.P.7"/>
-      <display value="3.2.P.7 Container Closure System"/>
-    </code>
-    <text value="Any changes in the packaging configuration and/or storage of the samples during stability?"/>
     <answer>
       <extension url="http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText">
         <valueXhtml>
@@ -349,14 +262,9 @@ All batches remain within specification."/>
               <li><b>New:</b> Aluminum/aluminum (Alu/Alu) blister pack</li>
             </ul>
             <p>New stability studies (B-001, B-002) were initiated in the Alu/Alu system. Storage conditions remain unchanged: 25°C/60% RH (long-term), 40°C/75% RH (accelerated).</p>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." 
-                 alt="Alu/Alu blister cross-section" 
-                 width="600" 
-                 style="border:1px solid #ccc; margin:10px 0; display:block;" />
-            <p style="font-size:0.9em; color:#555;">
-              <b>Figure 1:</b> Cross-section of new Alu/Alu blister showing foil thickness and sealing layer.
-            </p>
-            <table border="1" style="width:100%; border-collapse:collapse; margin-top:8px;">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." alt="Alu/Alu blister cross-section" width="600"/>
+            <p style="font-size:0.9em;color:#555"><b>Figure 1:</b> Cross-section of new Alu/Alu blister showing foil thickness and sealing layer.</p>
+            <table border="1" style="border-collapse:collapse;width:100%;margin-top:12px;">
               <tr><th>Parameter</th><th>Original</th><th>New</th></tr>
               <tr><td>Material</td><td>PVC/PVDC</td><td>Alu/Alu</td></tr>
               <tr><td>Storage Condition</td><td>25°C/60% RH</td><td>Unchanged</td></tr>
@@ -364,7 +272,6 @@ All batches remain within specification."/>
           </div>
         </valueXhtml>
       </extension>
-      <valueString value="Yes, packaging changed from PVC/PVDC to Alu/Alu. New stability studies initiated. See rich text for diagram and details."/>
     </answer>
   </item>
 
