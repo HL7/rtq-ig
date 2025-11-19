@@ -92,6 +92,16 @@
       },
       {
         "reference": {
+          "reference": "QuestionnaireResponse/RegulatoryQA-ID001"
+        },
+        "name": "RegulatoryQA-ID001",
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaireResponse"
+        ]
+      },
+      {
+        "reference": {
           "reference": "QuestionnaireResponse/RegulatoryQA-ID001-Response"
         },
         "name": "RegulatoryQA-ID001-Response",
