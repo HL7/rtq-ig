@@ -26,7 +26,7 @@ pages:
     title: Response Example
   response.md:
     title: Response Structure
-    
+
 menu:
   Home: index.html
   Use Case: use-case.html
@@ -39,11 +39,6 @@ resources:
     name: CTD Question Categories Full
   StructureDefinition/RegulatoryQuestionnaire:
     name: Regulatory Questionnaire
-
-# examples:
-#  - id: brr-regulatory-qa-questionnaire
-#    source: input/examples/Questionnaire-RegulatoryQA-ID001.xml
-#    name: EMA List of Questions – Type II Variation (ID001)
 
 dependencies:
   hl7.fhir.r5.core: 5.0.0
