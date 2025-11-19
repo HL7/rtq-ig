@@ -1,7 +1,7 @@
 [
   {
     "outputFile": "StructureDefinition-rtq-questionnaire.json",
-    "fshName": "RegulatoryQuestionnaire",
+    "fshName": "RTQQuestionnaire",
     "fshType": "Profile",
     "fshFile": "rtq-questionnaire.fsh",
     "startLine": 1,
@@ -9,7 +9,7 @@
   },
   {
     "outputFile": "StructureDefinition-rtq-questionnaireresponse.json",
-    "fshName": "RegulatoryQuestionnaireResponse",
+    "fshName": "RTQQuestionnaireResponse",
     "fshType": "Profile",
     "fshFile": "rtq-questionnaireresponse.fsh",
     "startLine": 1,

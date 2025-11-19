@@ -1,9 +1,10 @@
-Profile: RegulatoryQuestionnaireResponse
+Profile: RTQQuestionnaireResponse
 Parent: QuestionnaireResponse
 Id: rtq-questionnaireresponse
 Title: "Regulatory Questionnaire Response"
 Description: """
-A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions.
+A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions 
+(e.g., medicinal product identification, strength, pharmaceutical form, routes, indications).
 """
 
 * identifier 0..1 MS
@@ -15,7 +16,6 @@ A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical 
 * author 1..1 MS
 * source 0..1 MS
 
-// Closed slicing on top-level items by linkId – enforces regulatory structure
 * item ^slicing.discriminator.type = #value
 * item ^slicing.discriminator.path = "linkId"
 * item ^slicing.rules = #closed
