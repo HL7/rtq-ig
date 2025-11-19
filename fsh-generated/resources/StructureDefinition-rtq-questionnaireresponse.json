@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "rtq-questionnaireresponse",
   "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/rtq-questionnaireresponse",
-  "name": "RtqQuestionnaireResponse",
+  "name": "RegulatoryQuestionnaireResponse",
   "title": "Regulatory Questionnaire Response",
   "status": "draft",
   "description": "A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions \n(e.g., medicinal product identification, strength, pharmaceutical form, routes, indications).",

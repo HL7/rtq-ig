@@ -1,4 +1,4 @@
-Profile: RtqQuestionnaireResponse
+Profile: RegulatoryQuestionnaireResponse
 Parent: QuestionnaireResponse
 Id: rtq-questionnaireresponse
 Title: "Regulatory Questionnaire Response"
