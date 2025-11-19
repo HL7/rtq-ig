@@ -2,7 +2,7 @@ Profile: RegulatoryQuestionnaire
 Parent: Questionnaire
 Id: rtq-questionnaire
 Title: "Regulatory Questionnaire"
-Description: "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences (e.g., medicinal product identification, strength, dose form, indications)."
+Description: "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences."
 
 * item ^slicing.discriminator.type = #value
 * item ^slicing.discriminator.path = "linkId"

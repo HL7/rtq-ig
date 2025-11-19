@@ -3,8 +3,7 @@ Parent: QuestionnaireResponse
 Id: rtq-questionnaireresponse
 Title: "Regulatory Questionnaire Response"
 Description: """
-A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions 
-(e.g., medicinal product identification, strength, pharmaceutical form, routes, indications).
+A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions.
 """
 
 * identifier 0..1 MS
