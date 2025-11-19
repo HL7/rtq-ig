@@ -1,15 +1,11 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rtq-questionnaireresponse",
-  "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse",
-  "version": "0.1.0",
+  "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/rtq-questionnaireresponse",
   "name": "RegulatoryQuestionnaireResponse",
   "title": "Regulatory Questionnaire Response",
   "status": "draft",
-  "experimental": true,
-  "date": "2025-11-18",
-  "publisher": "HL7 International",
-  "description": "A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions (e.g., medicinal product identification, strength, dose form, indications, etc.).",
+  "description": "A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions \n(e.g., medicinal product identification, strength, pharmaceutical form, routes, indications).",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -19,14 +15,8 @@
   "differential": {
     "element": [
       {
-        "id": "QuestionnaireResponse",
-        "path": "QuestionnaireResponse",
-        "short": "Regulatory Questionnaire Response for medicinal product submissions"
-      },
-      {
         "id": "QuestionnaireResponse.identifier",
         "path": "QuestionnaireResponse.identifier",
-        "min": 0,
         "max": "1",
         "mustSupport": true
       },
@@ -43,7 +33,7 @@
       {
         "id": "QuestionnaireResponse.subject",
         "path": "QuestionnaireResponse.subject",
-        "mustSupport": true,
+        "min": 1,
         "type": [
           {
             "code": "Reference",
@@ -52,16 +42,24 @@
               "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"
             ]
           }
-        ]
+        ],
+        "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.authored",
         "path": "QuestionnaireResponse.authored",
+        "min": 1,
         "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.author",
         "path": "QuestionnaireResponse.author",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.source",
+        "path": "QuestionnaireResponse.source",
         "mustSupport": true
       },
       {
@@ -77,6 +75,16 @@
           "rules": "closed",
           "ordered": false
         },
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.item",
+        "path": "QuestionnaireResponse.item.item",
         "mustSupport": true
       },
       {
@@ -90,7 +98,17 @@
       {
         "id": "QuestionnaireResponse.item:product-identifier.linkId",
         "path": "QuestionnaireResponse.item.linkId",
-        "fixedString": "product-identifier"
+        "patternString": "product-identifier"
+      },
+      {
+        "id": "QuestionnaireResponse.item:product-identifier.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:product-identifier.item",
+        "path": "QuestionnaireResponse.item.item",
+        "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.item:product-name",
@@ -103,7 +121,17 @@
       {
         "id": "QuestionnaireResponse.item:product-name.linkId",
         "path": "QuestionnaireResponse.item.linkId",
-        "fixedString": "product-name"
+        "patternString": "product-name"
+      },
+      {
+        "id": "QuestionnaireResponse.item:product-name.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:product-name.item",
+        "path": "QuestionnaireResponse.item.item",
+        "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.item:strength",
@@ -116,7 +144,17 @@
       {
         "id": "QuestionnaireResponse.item:strength.linkId",
         "path": "QuestionnaireResponse.item.linkId",
-        "fixedString": "strength"
+        "patternString": "strength"
+      },
+      {
+        "id": "QuestionnaireResponse.item:strength.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:strength.item",
+        "path": "QuestionnaireResponse.item.item",
+        "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.item:pharmaceutical-form",
@@ -129,7 +167,17 @@
       {
         "id": "QuestionnaireResponse.item:pharmaceutical-form.linkId",
         "path": "QuestionnaireResponse.item.linkId",
-        "fixedString": "pharmaceutical-form"
+        "patternString": "pharmaceutical-form"
+      },
+      {
+        "id": "QuestionnaireResponse.item:pharmaceutical-form.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:pharmaceutical-form.item",
+        "path": "QuestionnaireResponse.item.item",
+        "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.item:route-of-administration",
@@ -142,7 +190,17 @@
       {
         "id": "QuestionnaireResponse.item:route-of-administration.linkId",
         "path": "QuestionnaireResponse.item.linkId",
-        "fixedString": "route-of-administration"
+        "patternString": "route-of-administration"
+      },
+      {
+        "id": "QuestionnaireResponse.item:route-of-administration.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:route-of-administration.item",
+        "path": "QuestionnaireResponse.item.item",
+        "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.item:therapeutic-indication",
@@ -155,15 +213,15 @@
       {
         "id": "QuestionnaireResponse.item:therapeutic-indication.linkId",
         "path": "QuestionnaireResponse.item.linkId",
-        "fixedString": "therapeutic-indication"
+        "patternString": "therapeutic-indication"
       },
       {
-        "id": "QuestionnaireResponse.item.answer",
+        "id": "QuestionnaireResponse.item:therapeutic-indication.answer",
         "path": "QuestionnaireResponse.item.answer",
         "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.item.item",
+        "id": "QuestionnaireResponse.item:therapeutic-indication.item",
         "path": "QuestionnaireResponse.item.item",
         "mustSupport": true
       }
