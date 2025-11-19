@@ -1,6 +1,6 @@
 Profile: RegulatoryQuestionnaire
 Parent: Questionnaire
-Id: regulatoryquestionnaire
+Id: RegulatoryQuestionnaire
 Title: "Regulatory Questionnaire"
 Description: "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences (e.g., medicinal product identification, strength, dose form, indications)."
 

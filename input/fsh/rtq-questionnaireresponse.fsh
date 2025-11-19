@@ -1,6 +1,6 @@
 Profile: RegulatoryQuestionnaireResponse
 Parent: QuestionnaireResponse
-Id: regulatoryquestionnaireresponse
+Id: RegulatoryQuestionnaireResponse
 Title: "Regulatory Questionnaire Response"
 Description: """
 A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions 

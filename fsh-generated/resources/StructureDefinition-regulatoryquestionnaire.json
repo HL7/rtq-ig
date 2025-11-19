@@ -1,13 +1,13 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "regulatoryquestionnaire",
+  "id": "RegulatoryQuestionnaire",
   "extension": [
     {
       "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-implements",
       "valueUri": "http://hl7.org/fhir/StructureDefinition/MetadataResource"
     }
   ],
-  "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/regulatoryquestionnaire",
+  "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/RegulatoryQuestionnaire",
   "name": "RegulatoryQuestionnaire",
   "title": "Regulatory Questionnaire",
   "status": "draft",
