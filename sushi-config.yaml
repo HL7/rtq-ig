@@ -42,10 +42,10 @@ resources:
   StructureDefinition/RegulatoryQuestionnaire:
     name: Regulatory Questionnaire
 
-examples:
-  - id: brr-regulatory-qa-questionnaire
-    source: input/examples/Questionnaire-RegulatoryQA-ID001.xml
-    name: EMA List of Questions – Type II Variation (ID001)
+# examples:
+#  - id: brr-regulatory-qa-questionnaire
+#    source: input/examples/Questionnaire-RegulatoryQA-ID001.xml
+#    name: EMA List of Questions – Type II Variation (ID001)
 
 dependencies:
   hl7.fhir.r5.core: 5.0.0

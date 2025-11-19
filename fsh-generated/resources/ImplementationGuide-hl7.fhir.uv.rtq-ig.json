@@ -76,17 +76,23 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/RegulatoryQuestionnaire"
+          "reference": "StructureDefinition/rtq-questionnaire"
         },
-        "description": "A profile on Questionnaire for structured regulatory questions from a health authority to a market authorization holder during the review of a regulatory application (e.g., EMA Type II Variation). Supports sender/recipient, rich text questions, CTD section mapping, and organizational identifiers with address.",
+        "description": "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences (e.g., medicinal product identification, strength, dose form, indications).",
         "name": "Regulatory Questionnaire",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "StructureDefinition/RegulatoryQuestionnaireResponse"
+          "reference": "StructureDefinition/RegulatoryQuestionnaire"
         },
-        "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority. Enforces sender (MAH) and recipient (health authority) via sliced contact with purpose SENDER/RECIPIENT. Supports rich-text answers, CTD-section mapping, and organizational signatures.",
+        "name": "Regulatory Questionnaire"
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rtq-questionnaireresponse"
+        },
+        "description": "A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions (e.g., medicinal product identification, strength, dose form, indications, etc.).",
         "name": "Regulatory Questionnaire Response",
         "isExample": false
       },
@@ -95,20 +101,14 @@
           "reference": "QuestionnaireResponse/RegulatoryQA-ID001"
         },
         "name": "RegulatoryQA-ID001",
-        "isExample": true,
-        "profile": [
-          "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaireResponse"
-        ]
+        "isExample": true
       },
       {
         "reference": {
           "reference": "QuestionnaireResponse/RegulatoryQA-ID001-Response"
         },
         "name": "RegulatoryQA-ID001-Response",
-        "isExample": true,
-        "profile": [
-          "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaireResponse"
-        ]
+        "isExample": true
       }
     ],
     "page": {

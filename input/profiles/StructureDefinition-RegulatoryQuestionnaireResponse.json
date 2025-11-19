@@ -1,25 +1,15 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "RegulatoryQuestionnaireResponse",
-  "url": "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaireResponse",
+  "id": "rtq-questionnaireresponse",
+  "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse",
   "version": "0.1.0",
   "name": "RegulatoryQuestionnaireResponse",
   "title": "Regulatory Questionnaire Response",
-  "status": "active",
-  "date": "2025-11-15",
+  "status": "draft",
+  "experimental": true,
+  "date": "2025-11-18",
   "publisher": "HL7 International",
-  "contact": [
-    {
-      "name": "HL7 International - Biomedical Research and Regulation",
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/rcrim"
-        }
-      ]
-    }
-  ],
-  "description": "A profile on QuestionnaireResponse for structured regulatory responses from a market authorization holder to a health authority. Enforces sender (MAH) and recipient (health authority) via sliced contact with purpose SENDER/RECIPIENT. Supports rich-text answers, CTD-section mapping, and organizational signatures.",
+  "description": "A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions (e.g., medicinal product identification, strength, dose form, indications, etc.).",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -31,173 +21,151 @@
       {
         "id": "QuestionnaireResponse",
         "path": "QuestionnaireResponse",
-        "constraint": [
-          {
-            "key": "qrs-1",
-            "severity": "error",
-            "human": "Nested items can't be beneath both item and answer",
-            "expression": "(answer.exists() and item.exists()).not()"
-          }
-        ]
+        "short": "Regulatory Questionnaire Response for medicinal product submissions"
       },
-      { "id": "QuestionnaireResponse.meta", "path": "QuestionnaireResponse.meta", "min": 1 },
-      { "id": "QuestionnaireResponse.meta.versionId", "path": "QuestionnaireResponse.meta.versionId", "min": 1, "mustSupport": true },
-      { "id": "QuestionnaireResponse.meta.lastUpdated", "path": "QuestionnaireResponse.meta.lastUpdated", "min": 1, "mustSupport": true },
-      { "id": "QuestionnaireResponse.meta.profile", "path": "QuestionnaireResponse.meta.profile", "min": 1, "fixedCanonical": "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaireResponse" },
-      { "id": "QuestionnaireResponse.text", "path": "QuestionnaireResponse.text", "min": 1, "mustSupport": true },
-      { "id": "QuestionnaireResponse.text.status", "path": "QuestionnaireResponse.text.status", "patternCode": "generated" },
       {
         "id": "QuestionnaireResponse.identifier",
         "path": "QuestionnaireResponse.identifier",
-        "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
-          "ordered": false,
-          "rules": "open"
-        },
-        "min": 2
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
       },
-      { "id": "QuestionnaireResponse.identifier:qa-request", "path": "QuestionnaireResponse.identifier", "sliceName": "qa-request", "min": 1, "max": "1", "mustSupport": true },
-      { "id": "QuestionnaireResponse.identifier:qa-request.system", "path": "QuestionnaireResponse.identifier.system", "patternUri": "http://hl7.org/fhir/uv/brr/identifier/qa-request" },
-      { "id": "QuestionnaireResponse.identifier:procedure-number", "path": "QuestionnaireResponse.identifier", "sliceName": "procedure-number", "min": 1, "max": "1", "mustSupport": true },
-      { "id": "QuestionnaireResponse.identifier:procedure-number.system", "path": "QuestionnaireResponse.identifier.system", "patternUri": "https://ema.europa.eu/procedure-number" },
       {
         "id": "QuestionnaireResponse.questionnaire",
         "path": "QuestionnaireResponse.questionnaire",
-        "min": 1,
-        "type": [{ "code": "canonical", "targetProfile": ["http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaire"] }],
         "mustSupport": true
       },
-      { "id": "QuestionnaireResponse.status", "path": "QuestionnaireResponse.status", "min": 1, "mustSupport": true },
+      {
+        "id": "QuestionnaireResponse.status",
+        "path": "QuestionnaireResponse.status",
+        "mustSupport": true
+      },
       {
         "id": "QuestionnaireResponse.subject",
         "path": "QuestionnaireResponse.subject",
-        "min": 1,
-        "type": [{ "code": "Reference", "targetProfile": ["http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"] }],
+        "mustSupport": true,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition",
+              "http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "QuestionnaireResponse.authored",
+        "path": "QuestionnaireResponse.authored",
         "mustSupport": true
       },
-      { "id": "QuestionnaireResponse.authored", "path": "QuestionnaireResponse.authored", "min": 1, "mustSupport": true, "short": "Date and time the response was authored (submission date)" },
       {
-        "id": "QuestionnaireResponse.contact",
-        "path": "QuestionnaireResponse.contact",
+        "id": "QuestionnaireResponse.author",
+        "path": "QuestionnaireResponse.author",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item",
+        "path": "QuestionnaireResponse.item",
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "purpose.coding.code" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
           "rules": "closed",
           "ordered": false
         },
-        "min": 2,
-        "max": "2",
         "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.contact:sender",
-        "path": "QuestionnaireResponse.contact",
-        "sliceName": "sender",
+        "id": "QuestionnaireResponse.item:product-identifier",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "product-identifier",
         "min": 1,
         "max": "1",
-        "mustSupport": true,
-        "short": "Sender: Market Authorization Holder (MAH) submitting the response"
-      },
-      {
-        "id": "QuestionnaireResponse.contact:sender.purpose",
-        "path": "QuestionnaireResponse.contact.purpose",
-        "min": 1,
-        "patternCoding": {
-          "system": "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose",
-          "code": "SENDER",
-          "display": "Sender (Marketing Authorization Holder)"
-        },
         "mustSupport": true
       },
-      { "id": "QuestionnaireResponse.contact:sender.organization", "path": "QuestionnaireResponse.contact.organization", "min": 1, "mustSupport": true },
-      { "id": "QuestionnaireResponse.contact:sender.telecom", "path": "QuestionnaireResponse.contact.telecom", "min": 1, "mustSupport": true },
       {
-        "id": "QuestionnaireResponse.contact:sender.extension",
-        "path": "QuestionnaireResponse.contact.extension",
-        "slicing": {
-          "discriminator": [{ "type": "value", "path": "url" }],
-          "rules": "open"
-        }
+        "id": "QuestionnaireResponse.item:product-identifier.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "product-identifier"
       },
       {
-        "id": "QuestionnaireResponse.contact:sender.extension:signature",
-        "path": "QuestionnaireResponse.contact.extension",
-        "sliceName": "signature",
+        "id": "QuestionnaireResponse.item:product-name",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "product-name",
         "min": 0,
         "max": "1",
-        "type": [{ "code": "Extension", "profile": ["http://hl7.org/fhir/uv/brr/StructureDefinition/contact-signature"] }]
-      },
-      {
-        "id": "QuestionnaireResponse.contact:recipient",
-        "path": "QuestionnaireResponse.contact",
-        "sliceName": "recipient",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true,
-        "short": "Recipient: Health Authority that issued the questionnaire"
-      },
-      {
-        "id": "QuestionnaireResponse.contact:recipient.purpose",
-        "path": "QuestionnaireResponse.contact.purpose",
-        "min": 1,
-        "patternCoding": {
-          "system": "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose",
-          "code": "RECIPIENT",
-          "display": "Recipient (Health Authority)"
-        },
         "mustSupport": true
       },
-      { "id": "QuestionnaireResponse.contact:recipient.organization", "path": "QuestionnaireResponse.contact.organization", "min": 1, "mustSupport": true },
-      { "id": "QuestionnaireResponse.contact:recipient.telecom", "path": "QuestionnaireResponse.contact.telecom", "min": 1, "mustSupport": true },
       {
-        "id": "QuestionnaireResponse.contact:recipient.extension",
-        "path": "QuestionnaireResponse.contact.extension",
-        "slicing": {
-          "discriminator": [{ "type": "value", "path": "url" }],
-          "rules": "open"
-        }
+        "id": "QuestionnaireResponse.item:product-name.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "product-name"
       },
       {
-        "id": "QuestionnaireResponse.contact:recipient.extension:signature",
-        "path": "QuestionnaireResponse.contact.extension",
-        "sliceName": "signature",
+        "id": "QuestionnaireResponse.item:strength",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "strength",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:strength.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "strength"
+      },
+      {
+        "id": "QuestionnaireResponse.item:pharmaceutical-form",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "pharmaceutical-form",
         "min": 0,
         "max": "1",
-        "type": [{ "code": "Extension", "profile": ["http://hl7.org/fhir/uv/brr/StructureDefinition/contact-signature"] }]
-      },
-      { "id": "QuestionnaireResponse.item", "path": "QuestionnaireResponse.item", "min": 1, "mustSupport": true },
-      { "id": "QuestionnaireResponse.item.linkId", "path": "QuestionnaireResponse.item.linkId", "min": 1, "mustSupport": true },
-      {
-        "id": "QuestionnaireResponse.item.code",
-        "path": "QuestionnaireResponse.item.code",
-        "min": 1,
-        "mustSupport": true,
-        "binding": { "strength": "required", "valueSet": "http://hl7.org/fhir/uv/brr/ValueSet/ctd-section" }
-      },
-      { "id": "QuestionnaireResponse.item.text", "path": "QuestionnaireResponse.item.text", "min": 1, "mustSupport": true },
-      {
-        "id": "QuestionnaireResponse.item.text.extension",
-        "path": "QuestionnaireResponse.item.text.extension",
-        "slicing": { "discriminator": [{ "type": "value", "path": "url" }], "rules": "open" },
-        "min": 0
+        "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.item.text.extension:richText",
-        "path": "QuestionnaireResponse.item.text.extension",
-        "sliceName": "richText",
+        "id": "QuestionnaireResponse.item:pharmaceutical-form.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "pharmaceutical-form"
+      },
+      {
+        "id": "QuestionnaireResponse.item:route-of-administration",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "route-of-administration",
         "min": 0,
-        "type": [{ "code": "Extension", "profile": ["http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText"] }]
+        "max": "*",
+        "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.item.answer.valueString.extension",
-        "path": "QuestionnaireResponse.item.answer.valueString.extension",
-        "slicing": { "discriminator": [{ "type": "value", "path": "url" }], "rules": "open" }
+        "id": "QuestionnaireResponse.item:route-of-administration.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "route-of-administration"
       },
       {
-        "id": "QuestionnaireResponse.item.answer.valueString.extension:richText",
-        "path": "QuestionnaireResponse.item.answer.valueString.extension",
-        "sliceName": "richText",
+        "id": "QuestionnaireResponse.item:therapeutic-indication",
+        "path": "QuestionnaireResponse.item",
+        "sliceName": "therapeutic-indication",
         "min": 0,
-        "type": [{ "code": "Extension", "profile": ["http://hl7.org/fhir/uv/brr/StructureDefinition/questionnaire-itemRichText"] }]
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item:therapeutic-indication.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
+        "fixedString": "therapeutic-indication"
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer",
+        "path": "QuestionnaireResponse.item.answer",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.item",
+        "path": "QuestionnaireResponse.item.item",
+        "mustSupport": true
       }
     ]
   }
