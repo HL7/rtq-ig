@@ -99,16 +99,6 @@
         "profile": [
           "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaireResponse"
         ]
-      },
-      {
-        "reference": {
-          "reference": "Questionnaire/brr-regulatory-qa-questionnaire"
-        },
-        "name": "Responses to Question Set ID001",
-        "isExample": true,
-        "profile": [
-          "http://hl7.org/fhir/uv/brr/StructureDefinition/RegulatoryQuestionnaire"
-        ]
       }
     ],
     "page": {

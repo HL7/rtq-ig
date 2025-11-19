@@ -3,4 +3,3 @@
 [RegulatoryQuestionnaire]: StructureDefinition-RegulatoryQuestionnaire.html
 [RegulatoryQuestionnaireResponse]: StructureDefinition-RegulatoryQuestionnaireResponse.html
 [RegulatoryQA-ID001-Response]: QuestionnaireResponse-RegulatoryQA-ID001-Response.html
-[brr-regulatory-qa-questionnaire]: Questionnaire-brr-regulatory-qa-questionnaire.html
