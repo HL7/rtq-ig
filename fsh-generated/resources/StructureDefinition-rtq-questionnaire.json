@@ -1,0 +1,168 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "rtq-questionnaire",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-implements",
+      "valueUri": "http://hl7.org/fhir/StructureDefinition/MetadataResource"
+    }
+  ],
+  "url": "https://build.fhir.org/ig/HL7/rtq-ig/StructureDefinition/rtq-questionnaire",
+  "name": "RtqQuestionnaire",
+  "title": "Regulatory Questionnaire",
+  "status": "draft",
+  "description": "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences (e.g., medicinal product identification, strength, dose form, indications).",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Questionnaire",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Questionnaire.item",
+        "path": "Questionnaire.item",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "linkId"
+            }
+          ],
+          "rules": "closed",
+          "ordered": false
+        },
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.item.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:product-identifier",
+        "path": "Questionnaire.item",
+        "sliceName": "product-identifier",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:product-identifier.linkId",
+        "path": "Questionnaire.item.linkId",
+        "patternString": "product-identifier"
+      },
+      {
+        "id": "Questionnaire.item:product-identifier.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:product-name",
+        "path": "Questionnaire.item",
+        "sliceName": "product-name",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:product-name.linkId",
+        "path": "Questionnaire.item.linkId",
+        "patternString": "product-name"
+      },
+      {
+        "id": "Questionnaire.item:product-name.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:strength",
+        "path": "Questionnaire.item",
+        "sliceName": "strength",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:strength.linkId",
+        "path": "Questionnaire.item.linkId",
+        "patternString": "strength"
+      },
+      {
+        "id": "Questionnaire.item:strength.repeats",
+        "path": "Questionnaire.item.repeats",
+        "patternBoolean": true
+      },
+      {
+        "id": "Questionnaire.item:strength.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:pharmaceutical-form",
+        "path": "Questionnaire.item",
+        "sliceName": "pharmaceutical-form",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:pharmaceutical-form.linkId",
+        "path": "Questionnaire.item.linkId",
+        "patternString": "pharmaceutical-form"
+      },
+      {
+        "id": "Questionnaire.item:pharmaceutical-form.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:route-of-administration",
+        "path": "Questionnaire.item",
+        "sliceName": "route-of-administration",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:route-of-administration.linkId",
+        "path": "Questionnaire.item.linkId",
+        "patternString": "route-of-administration"
+      },
+      {
+        "id": "Questionnaire.item:route-of-administration.repeats",
+        "path": "Questionnaire.item.repeats",
+        "patternBoolean": true
+      },
+      {
+        "id": "Questionnaire.item:route-of-administration.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:therapeutic-indication",
+        "path": "Questionnaire.item",
+        "sliceName": "therapeutic-indication",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item:therapeutic-indication.linkId",
+        "path": "Questionnaire.item.linkId",
+        "patternString": "therapeutic-indication"
+      },
+      {
+        "id": "Questionnaire.item:therapeutic-indication.repeats",
+        "path": "Questionnaire.item.repeats",
+        "patternBoolean": true
+      },
+      {
+        "id": "Questionnaire.item:therapeutic-indication.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      }
+    ]
+  }
+}

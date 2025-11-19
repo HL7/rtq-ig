@@ -1,0 +1,3 @@
+Output File                                         Name                      Type     FSH File                       Lines
+StructureDefinition-rtq-questionnaire.json          RtqQuestionnaire          Profile  rtq-questionnaire.fsh          1 - 30
+StructureDefinition-rtq-questionnaireresponse.json  RtqQuestionnaireResponse  Profile  rtq-questionnaireresponse.fsh  1 - 40
