@@ -26,14 +26,12 @@ pages:
     title: Response Example
   response.md:
     title: Response Structure
-  terminology.md:
-    title: Terminology
+    
 menu:
   Home: index.html
   Use Case: use-case.html
   Question Structure: question.html
   Response Structure: response.html
-  Terminology: terminology.html
   Artifacts: artifacts.html
 
 resources:

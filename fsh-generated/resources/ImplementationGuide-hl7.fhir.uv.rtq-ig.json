@@ -150,12 +150,6 @@
           "generation": "markdown",
           "name": "response.html",
           "sourceUrl": "response.html"
-        },
-        {
-          "title": "Terminology",
-          "generation": "markdown",
-          "name": "terminology.html",
-          "sourceUrl": "terminology.html"
         }
       ],
       "name": "toc.html",
