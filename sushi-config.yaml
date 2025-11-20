@@ -37,8 +37,12 @@ menu:
 resources:
   CodeSystem/ctd-categories-full:
     name: CTD Question Categories Full
-  StructureDefinition/RegulatoryQuestionnaire:
-    name: Regulatory Questionnaire
+
+  StructureDefinition/rtq-questionnaire:
+    name: RTQ Regulatory Questionnaire (R5 Base)
+
+  StructureDefinition/regulatory-questionnaire-narrative:
+    name: Regulatory Questionnaire - Narrative Only
 
 dependencies:
   hl7.fhir.r5.core: 5.0.0
