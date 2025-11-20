@@ -78,7 +78,7 @@
         "reference": {
           "reference": "StructureDefinition/RegulatoryQuestionnaire"
         },
-        "description": "A FHIR R5 Questionnaire specialized for regulatory use in life sciences and healthcare. It supports structured capture of medicinal product information across quality, nonclinical, and clinical domains using modular sections, coded regulatory questions, hierarchical relationships, enabling conditions, visibility control, and provenance tracking.",
+        "description": "A profiled Questionnaire for representing structured regulatory questions issued by health authorities to sponsors/applicants in the context of medicinal product review and lifecycle management.",
         "name": "Regulatory Questionnaire",
         "isExample": false
       },
@@ -92,16 +92,16 @@
       },
       {
         "reference": {
-          "reference": "QuestionnaireResponse/RegulatoryQA-ID001"
+          "reference": "QuestionnaireResponse/RegulatoryQA-ID001-Response"
         },
-        "name": "RegulatoryQA-ID001",
+        "name": "RegulatoryQA-ID001-Response",
         "isExample": true
       },
       {
         "reference": {
-          "reference": "QuestionnaireResponse/RegulatoryQA-ID001-Response"
+          "reference": "Questionnaire/brr-regulatory-qa-questionnaire"
         },
-        "name": "RegulatoryQA-ID001-Response",
+        "name": "Responses to Question Set ID001",
         "isExample": true
       }
     ],
