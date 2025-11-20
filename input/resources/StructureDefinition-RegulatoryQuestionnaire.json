@@ -18,7 +18,7 @@
       ]
     }
   ],
-  "description": "A FHIR R5 Questionnaire specialized for biopharmaceutical regulatory submissions in life sciences and healthcare, supporting structured questions for medicinal product quality, nonclinical, and clinical data.",
+  "description": "A FHIR R5 Questionnaire specialized for regulatory use in life sciences and healthcare. It supports structured capture of medicinal product information across quality, nonclinical, and clinical domains using modular sections, coded regulatory questions, hierarchical relationships, enabling conditions, visibility control, and provenance tracking.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -27,6 +27,19 @@
   "derivation": "constraint",
   "differential": {
     "element": [
+      {
+        "id": "Questionnaire.extension",
+        "path": "Questionnaire.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
+      },
       {
         "id": "Questionnaire.extension:regulatoryModule",
         "path": "Questionnaire.extension",
@@ -60,6 +73,11 @@
         "mustSupport": true
       },
       {
+        "id": "Questionnaire.item",
+        "path": "Questionnaire.item",
+        "mustSupport": true
+      },
+      {
         "id": "Questionnaire.item.linkId",
         "path": "Questionnaire.item.linkId",
         "min": 1,
@@ -68,37 +86,38 @@
       {
         "id": "Questionnaire.item.code",
         "path": "Questionnaire.item.code",
+        "min": 0,
+        "max": "*",
         "mustSupport": true
       },
       {
         "id": "Questionnaire.item.type",
         "path": "Questionnaire.item.type",
         "min": 1,
-        "mustSupport": true,
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "http://hl7.org/fhir/ValueSet/item-type|5.0.0"
-        }
-      },
-      {
-        "id": "Questionnaire.item.required",
-        "path": "Questionnaire.item.required",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.repeats",
-        "path": "Questionnaire.item.repeats",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.readOnly",
-        "path": "Questionnaire.item.readOnly",
         "mustSupport": true
       },
       {
         "id": "Questionnaire.item.enableWhen",
         "path": "Questionnaire.item.enableWhen",
         "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.enableBehavior",
+        "path": "Questionnaire.item.enableBehavior",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.extension",
+        "path": "Questionnaire.item.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
       },
       {
         "id": "Questionnaire.item.extension:regulatoryModule",
@@ -197,6 +216,24 @@
         "mustSupport": true
       },
       {
+        "id": "Questionnaire.item.item",
+        "path": "Questionnaire.item.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.item.extension",
+        "path": "Questionnaire.item.item.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
         "id": "Questionnaire.item.item.extension:parentQuestion",
         "path": "Questionnaire.item.item.extension",
         "sliceName": "parentQuestion",
@@ -263,7 +300,8 @@
       {
         "id": "Questionnaire.purpose",
         "path": "Questionnaire.purpose",
-        "short": "Regulatory purpose of the questionnaire (e.g., initial marketing authorisation, variation, renewal, PSUR, etc.)"
+        "short": "Regulatory purpose and context of this questionnaire (e.g., initial MAA, variation, renewal, signal evaluation, PSUR, etc.)",
+        "mustSupport": true
       }
     ]
   }
