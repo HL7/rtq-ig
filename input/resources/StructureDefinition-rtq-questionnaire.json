@@ -1,0 +1,62 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire",
+  "name": "RTQQuestionnaire",
+  "title": "RTQ Regulatory Questionnaire (R5)",
+  "status": "draft",
+  "experimental": true,
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Questionnaire",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
+  "derivation": "constraint",
+  "id": "rtq-questionnaire",
+  "version": "0.1.0",
+  "publisher": "HL7 International / Biomedical Research & Regulation",
+  "contact": [
+    {
+      "name": "Biomedical Research & Regulation",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/rcrim"
+        }
+      ]
+    }
+  ],
+  "description": "Base regulatory questionnaire profile aligned to FHIR R5 for medicinal product quality submissions.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methodology/m49",
+          "code": "001"
+        }
+      ]
+    }
+  ],
+  "differential": {
+    "element": [
+      { "id": "Questionnaire.identifier", "path": "Questionnaire.identifier", "min": 1, "mustSupport": true },
+      { "id": "Questionnaire.title",       "path": "Questionnaire.title",       "min": 1, "mustSupport": true },
+      { "id": "Questionnaire.status",      "path": "Questionnaire.status",      "min": 1, "mustSupport": true },
+      { "id": "Questionnaire.date",        "path": "Questionnaire.date",        "min": 1, "mustSupport": true },
+      { "id": "Questionnaire.publisher",   "path": "Questionnaire.publisher",   "min": 1, "mustSupport": true },
+      {
+        "id": "Questionnaire.subjectType",
+        "path": "Questionnaire.subjectType",
+        "mustSupport": true,
+        "fixedCode": [
+          "MedicinalProductDefinition",
+          "PackagedProductDefinition",
+          "ManufacturedItemDefinition",
+          "AdministrableProductDefinition",
+          "Organization"
+        ]
+      },
+      { "id": "Questionnaire.item.linkId", "path": "Questionnaire.item.linkId", "min": 1, "mustSupport": true },
+      { "id": "Questionnaire.item.text",   "path": "Questionnaire.item.text",   "min": 1, "mustSupport": true }
+    ]
+  }
+}

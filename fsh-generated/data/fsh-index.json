@@ -1,10 +1,1 @@
-[
-  {
-    "outputFile": "StructureDefinition-RegulatoryQuestionnaireResponse.json",
-    "fshName": "RegulatoryQuestionnaireResponse",
-    "fshType": "Profile",
-    "fshFile": "rtq-questionnaireresponse.fsh",
-    "startLine": 1,
-    "endLine": 40
-  }
-]
+[]
