@@ -13,12 +13,12 @@
       "telecom": [
         {
           "system": "url",
-          "value": "http://www.hl7.org/Special/committees/rcrim/index.cfm"
+          "value": "http://www.hl7.org/Special/committees/rcrim"
         }
       ]
     }
   ],
-  "description": "A FHIR R5 Questionnaire specialized for regulatory use in life sciences and healthcare. It supports structured capture of medicinal product information across quality, nonclinical, and clinical domains using modular sections, coded regulatory questions, hierarchical relationships, enabling conditions, visibility control, and provenance tracking.",
+  "description": "A profiled Questionnaire for representing structured regulatory questions issued by health authorities to sponsors/applicants in the context of medicinal product review and lifecycle management.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -28,17 +28,9 @@
   "differential": {
     "element": [
       {
-        "id": "Questionnaire.extension",
-        "path": "Questionnaire.extension",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "url"
-            }
-          ],
-          "rules": "open"
-        }
+        "id": "Questionnaire",
+        "path": "Questionnaire",
+        "short": "Regulatory Questionnaire for health authority questions"
       },
       {
         "id": "Questionnaire.extension:regulatoryModule",
@@ -53,8 +45,7 @@
               "http://hl7.org/fhir/uv/rtq/StructureDefinition/questionnaire-regulatoryModule"
             ]
           }
-        ],
-        "mustSupport": true
+        ]
       },
       {
         "id": "Questionnaire.extension:question",
@@ -69,61 +60,31 @@
               "http://hl7.org/fhir/uv/rtq/StructureDefinition/questionnaire-question"
             ]
           }
-        ],
-        "mustSupport": true
+        ]
       },
       {
-        "id": "Questionnaire.item",
-        "path": "Questionnaire.item",
+        "id": "Questionnaire.purpose",
+        "path": "Questionnaire.purpose",
+        "min": 0,
+        "max": "1",
         "mustSupport": true
       },
       {
         "id": "Questionnaire.item.linkId",
         "path": "Questionnaire.item.linkId",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.code",
-        "path": "Questionnaire.item.code",
-        "min": 0,
-        "max": "*",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.type",
-        "path": "Questionnaire.item.type",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.enableWhen",
-        "path": "Questionnaire.item.enableWhen",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.enableBehavior",
-        "path": "Questionnaire.item.enableBehavior",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.extension",
-        "path": "Questionnaire.item.extension",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "url"
-            }
-          ],
-          "rules": "open"
-        }
+        "constraint": [
+          {
+            "key": "que-15",
+            "severity": "warning",
+            "human": "linkId shall be 255 characters or less",
+            "expression": "length() <= 255"
+          }
+        ]
       },
       {
         "id": "Questionnaire.item.extension:regulatoryModule",
         "path": "Questionnaire.item.extension",
         "sliceName": "regulatoryModule",
-        "min": 0,
         "max": "1",
         "type": [
           {
@@ -155,7 +116,6 @@
         "id": "Questionnaire.item.extension:parentQuestion",
         "path": "Questionnaire.item.extension",
         "sliceName": "parentQuestion",
-        "min": 0,
         "max": "1",
         "type": [
           {
@@ -187,7 +147,6 @@
         "id": "Questionnaire.item.extension:hidden",
         "path": "Questionnaire.item.extension",
         "sliceName": "hidden",
-        "min": 0,
         "max": "1",
         "type": [
           {
@@ -203,7 +162,6 @@
         "id": "Questionnaire.item.extension:informationSource",
         "path": "Questionnaire.item.extension",
         "sliceName": "informationSource",
-        "min": 0,
         "max": "1",
         "type": [
           {
@@ -216,92 +174,46 @@
         "mustSupport": true
       },
       {
-        "id": "Questionnaire.item.item",
-        "path": "Questionnaire.item.item",
+        "id": "Questionnaire.item",
+        "path": "Questionnaire.item",
         "mustSupport": true
       },
       {
-        "id": "Questionnaire.item.item.extension",
-        "path": "Questionnaire.item.item.extension",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "url"
-            }
-          ],
-          "rules": "open"
-        }
+        "id": "Questionnaire.item.linkId",
+        "path": "Questionnaire.item.linkId",
+        "mustSupport": true
       },
       {
-        "id": "Questionnaire.item.item.extension:parentQuestion",
-        "path": "Questionnaire.item.item.extension",
-        "sliceName": "parentQuestion",
-        "min": 0,
-        "max": "1",
-        "type": [
+        "id": "Questionnaire.item.type",
+        "path": "Questionnaire.item.type",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.code",
+        "path": "Questionnaire.item.code",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.enableWhen",
+        "path": "Questionnaire.item.enableWhen",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.enableBehavior",
+        "path": "Questionnaire.item.enableBehavior",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire",
+        "path": "Questionnaire",
+        "constraint": [
           {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/rtq/StructureDefinition/questionnaire-parentQuestion"
-            ]
+            "key": "que-2",
+            "severity": "error",
+            "human": "LinkIds must be unique across all items and descendants",
+            "expression": "descendants().linkId.isDistinct()"
           }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.item.extension:enablingCondition",
-        "path": "Questionnaire.item.item.extension",
-        "sliceName": "enablingCondition",
-        "min": 0,
-        "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/rtq/StructureDefinition/questionnaire-enablingCondition"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.item.extension:hidden",
-        "path": "Questionnaire.item.item.extension",
-        "sliceName": "hidden",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/rtq/StructureDefinition/questionnaire-hidden"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.item.extension:informationSource",
-        "path": "Questionnaire.item.item.extension",
-        "sliceName": "informationSource",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/rtq/StructureDefinition/questionnaire-informationSource"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.purpose",
-        "path": "Questionnaire.purpose",
-        "short": "Regulatory purpose and context of this questionnaire (e.g., initial MAA, variation, renewal, signal evaluation, PSUR, etc.)",
-        "mustSupport": true
+        ]
       }
     ]
   }
