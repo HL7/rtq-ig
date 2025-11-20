@@ -47,7 +47,10 @@
           "reference": "QuestionnaireResponse/QuestionnaireResponse"
         },
         "name": "QuestionnaireResponse",
-        "isExample": true
+        "isExample": true,
+        "profile": [
+          "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse"
+        ]
       },
       {
         "reference": {
@@ -55,6 +58,14 @@
         },
         "name": "Responses to Question Set ID001",
         "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rtq-questionnaireresponse"
+        },
+        "description": "Profile of QuestionnaireResponse for structured responses to regulatory questions and answers in the context of medicinal product variations and other regulatory procedures.",
+        "name": "RTQ QuestionnaireResponse Profile",
+        "isExample": false
       },
       {
         "reference": {
