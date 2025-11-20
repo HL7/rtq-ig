@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "RegulatoryQANarrativeProfile",
-  "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/RegulatoryQANarrativeProfile",
+  "url": "http://hl7.org/fhir/uv/rtq/StructureDefinitionRegulatoryQANarrativeProfile",
   "version": "0.1.0",
   "name": "RegulatoryQANarrativeProfile",
   "title": "Regulatory QA Narrative Questionnaire Profile",
@@ -75,12 +75,28 @@
         }
       },
       {
+        "id": "Questionnaire.item.type",
+        "path": "Questionnaire.item.type"
+      },
+      {
         "id": "Questionnaire.item.type.constraint",
         "path": "Questionnaire.item.type",
         "key": "rtq-1",
         "severity": "error",
         "human": "Item type must be group, display, text or attachment",
         "expression": "value.memberOf('http://hl7.org/fhir/ValueSet/item-type|5.0.0', 'group', 'display', 'text', 'attachment')"
+      },
+      {
+        "id": "Questionnaire.item:item.group",
+        "path": "Questionnaire.item.item",
+        "sliceName": "group",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Group"
+          }
+        ]
       },
       {
         "id": "Questionnaire.item.item",
@@ -100,21 +116,36 @@
         "path": "Questionnaire.item.item",
         "sliceName": "display",
         "min": 0,
-        "max": "*"
+        "max": "*",
+        "type": [
+          {
+            "code": "display"
+          }
+        ]
       },
       {
         "id": "Questionnaire.item.item.text",
         "path": "Questionnaire.item.item",
         "sliceName": "text",
         "min": 0,
-        "max": "1"
+        "max": "1",
+        "type": [
+          {
+            "code": "text"
+          }
+        ]
       },
       {
         "id": "Questionnaire.item.item.attachment",
         "path": "Questionnaire.item.item",
         "sliceName": "attachment",
         "min": 0,
-        "max": "*"
+        "max": "*",
+        "type": [
+          {
+            "code": "attachment"
+          }
+        ]
       },
       {
         "id": "Questionnaire.item.extension:itemControl",

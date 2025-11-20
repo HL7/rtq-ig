@@ -76,11 +76,17 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/RegulatoryQANarrativeProfile"
+        },
+        "description": "Constrained Questionnaire profile for regulatory quality-assurance questions that are purely narrative with optional attachments. Uses human-readable hierarchical numbering in prefix, UUIDs in linkId, and requires CTD section coding.",
+        "name": "Regulatory QA Narrative Questionnaire Profile",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/RegulatoryQuestionnaire"
         },
-        "description": "A profiled Questionnaire for representing structured regulatory questions issued by health authorities to sponsors/applicants in the context of medicinal product review and lifecycle management.",
-        "name": "Regulatory Questionnaire",
-        "isExample": false
+        "name": "Regulatory Questionnaire"
       },
       {
         "reference": {
