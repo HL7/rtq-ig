@@ -1,3 +1,2 @@
 Output File                                               Name                             Type     FSH File                       Lines
-StructureDefinition-RegulatoryQuestionnaire.json          RegulatoryQuestionnaire          Profile  rtq-questionnaire.fsh          1 - 30
 StructureDefinition-RegulatoryQuestionnaireResponse.json  RegulatoryQuestionnaireResponse  Profile  rtq-questionnaireresponse.fsh  1 - 40

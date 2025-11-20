@@ -78,8 +78,8 @@
         "reference": {
           "reference": "StructureDefinition/RegulatoryQuestionnaire"
         },
+        "description": "A FHIR R5 Questionnaire specialized for biopharmaceutical regulatory submissions in life sciences and healthcare, supporting structured questions for medicinal product quality, nonclinical, and clinical data.",
         "name": "Regulatory Questionnaire",
-        "description": "A Questionnaire constrained for structured regulatory Q&A in biopharmaceutical and life sciences (e.g., medicinal product identification, strength, dose form, indications).",
         "isExample": false
       },
       {
