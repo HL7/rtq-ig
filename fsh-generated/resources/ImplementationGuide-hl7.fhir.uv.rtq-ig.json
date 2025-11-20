@@ -44,14 +44,14 @@
       },
       {
         "reference": {
-          "reference": "QuestionnaireResponse/QuestionnaireResponse-RegulatoryQA-ID001-RichText-FullOrg"
+          "reference": "QuestionnaireResponse/QuestionnaireResponse"
         },
-        "name": "QuestionnaireResponse-RegulatoryQA-ID001-RichText-FullOrg",
+        "name": "QuestionnaireResponse",
         "isExample": true
       },
       {
         "reference": {
-          "reference": "Questionnaire/brr-regulatory-qa-questionnaire"
+          "reference": "Questionnaire/questionnaire_ID001"
         },
         "name": "Responses to Question Set ID001",
         "isExample": true

@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuestionnaireResponse xmlns="http://hl7.org/fhir">
-  <id value="QuestionnaireResponse-RegulatoryQA-ID001-RichText-FullOrg"/>
+  <resourceType value="QuestionnaireResponse"/>
+  <id value="QuestionnaireResponse"/>
   <meta>
     <versionId value="1"/>
-    <lastUpdated value="2025-11-20T10:30:00+01:00"/>
+    <lastUpdated value="2025-11-20T22:30:00Z"/>
     <profile value="http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse"/>
   </meta>
-
+    <identifier>
+        <system value="http://hl7.org/fhir/uv/brr/identifier/qa-request"/>
+        <value value="ID001"/>
+    </identifier>
+    <identifier>
+        <system value="https://ema.europa.eu/procedure-number"/>
+        <value value="EMEA/H/C/005432/II/0023"/>
+    </identifier>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +24,7 @@
     </div>
   </text>
 
-  <questionnaire value="Questionnaire/Questionnaire-RegulatoryQA-ID001"/>
+  <questionnaire value="questionnaire_ID001"/>
   <status value="completed"/>
   <subject>
     <reference value="MedicinalProductDefinition/MedicinalProduct-ExampleDrug"/>
