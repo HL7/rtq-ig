@@ -33,20 +33,3 @@ menu:
   Question Structure: question.html
   Response Structure: response.html
   Artifacts: artifacts.html
-
-resources:
-  CodeSystem/ctd-categories-full:
-    name: CTD Question Categories Full
-
-  StructureDefinition/rtq-questionnaire:
-    name: RTQ Regulatory Questionnaire (R5 Base)
-
-  StructureDefinition/regulatory-questionnaire-narrative:
-    name: Regulatory Questionnaire - Narrative Only
-
-dependencies:
-  hl7.fhir.r5.core: 5.0.0
-  hl7.terminology.r5: 5.5.0
-  hl7.fhir.uv.extensions.r5: 1.0.0
-  hl7.fhir.pubpack: 0.2.3
-  hl7.fhir.xver-extensions: 0.1.0
