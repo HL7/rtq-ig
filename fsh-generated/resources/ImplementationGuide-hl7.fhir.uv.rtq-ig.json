@@ -76,6 +76,13 @@
       },
       {
         "reference": {
+          "reference": "QuestionnaireResponse/QuestionnaireResponse-RegulatoryQA-ID001-RichText-FullOrg"
+        },
+        "name": "QuestionnaireResponse-RegulatoryQA-ID001-RichText-FullOrg",
+        "isExample": true
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/RegulatoryQANarrativeProfile"
         },
         "description": "Constrained Questionnaire profile for regulatory quality-assurance questions that are purely narrative with optional attachments. Uses human-readable hierarchical numbering in prefix, UUIDs in linkId, and requires CTD section coding.",
@@ -95,13 +102,6 @@
         "name": "Regulatory Questionnaire Response",
         "description": "A QuestionnaireResponse constrained for regulatory Q&A use in biopharmaceutical and life sciences submissions \n(e.g., medicinal product identification, strength, pharmaceutical form, routes, indications).",
         "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "QuestionnaireResponse/RegulatoryQA-ID001-Response"
-        },
-        "name": "RegulatoryQA-ID001-Response",
-        "isExample": true
       },
       {
         "reference": {
