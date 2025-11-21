@@ -76,8 +76,6 @@
         "path": "Questionnaire.publisher",
         "max": "0"
       },
-
-      
       {
         "id": "Questionnaire.contact",
         "path": "Questionnaire.contact",
@@ -87,7 +85,7 @@
           "discriminator": [
             {
               "type": "value",
-              "path": "name"
+              "path": "organization.name"
             }
           ],
           "rules": "closed"
@@ -95,25 +93,12 @@
         "mustSupport": true
       },
       {
-        "id": "Questionnaire.contact.name",
-        "path": "Questionnaire.contact.name",
-        "min": 1,
-        "mustSupport": true
-      },
-
-      
-      {
         "id": "Questionnaire.contact:sender",
         "path": "Questionnaire.contact",
         "sliceName": "sender",
         "min": 1,
         "max": "1",
         "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.name",
-        "path": "Questionnaire.contact.name",
-        "fixedString": "Sender"
       },
       {
         "id": "Questionnaire.contact:sender.organization",
@@ -254,8 +239,6 @@
         "path": "Questionnaire.contact.organization.contact.telecom.value",
         "min": 1
       },
-
-      
       {
         "id": "Questionnaire.contact:receiver",
         "path": "Questionnaire.contact",
@@ -263,11 +246,6 @@
         "min": 1,
         "max": "1",
         "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.name",
-        "path": "Questionnaire.contact.name",
-        "fixedString": "Receiver"
       },
       {
         "id": "Questionnaire.contact:receiver.organization",
@@ -408,8 +386,6 @@
         "path": "Questionnaire.contact.organization.contact.telecom.value",
         "min": 1
       },
-
-      
       {
         "id": "Questionnaire.item",
         "path": "Questionnaire.item",
