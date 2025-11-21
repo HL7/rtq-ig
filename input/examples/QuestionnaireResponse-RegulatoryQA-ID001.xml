@@ -111,7 +111,7 @@
   <authored value="2025-06-25T14:00:00+02:00" />
 
 <item>
-  <linkId value="admin-1"/>
+  <linkId value="1"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
     <valueXhtml>
       <div xmlns="http://www.w3.org/1999/xhtml">
@@ -131,69 +131,205 @@
 </item>
 
 <item>
-  <linkId value="2"/>   <!-- e.g., 2.4.1 or 3.2.P.5.2 -->
-
-  <!-- Rich version of the question/label (replaces .text) -->
+  <linkId value="2"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
     <valueXhtml>
       <div xmlns="http://www.w3.org/1999/xhtml">
-        <!-- ==== QUESTION / SECTION TITLE AND INSTRUCTIONS ==== -->
-        <h3>REPLACE_WITH_SECTION_TITLE</h3>
-        <p>REPLACE_WITH_INSTRUCTIONS_OR_PROMPT</p>
-
-        <!-- Example of a starter/table prompt (optional) -->
-        <table border="1">
-          <thead>
-            <tr>
-              <th>Column 1</th><th>Column 2</th><th>Column 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td></td><td></td><td></td></tr>
-          </tbody>
-        </table>
+        <p>Are all required metadata fields in the application form complete?</p>
       </div>
     </valueXhtml>
   </extension>
-
-  <!-- One or more answers – each answer can contain fully formatted rich content -->
   <answer>
-    <!-- Rich answer content (replaces answer.value[x]) -->
     <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
       <valueXhtml>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <!-- ==== YOUR ACTUAL RESPONSE CONTENT GOES HERE ==== -->
-
-          <p>Summary text, conclusions, or narrative response.</p>
-
-          <!-- Example table -->
-          <h4>Table Title</h4>
-          <table border="1">
-            <thead>
-              <tr>
-                <th>Header 1</th><th>Header 2</th><th>Header 3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Data</td><td>Data</td><td>Data</td></tr>
-              <!-- add more rows as needed -->
-            </tbody>
-          </table>
-
-          <!-- Optional figure/image (base64-embedded or external CID/reference in Bundle) -->
-          <p><b>Figure X:</b> Figure caption/description</p>
-          <img src="data:image/png;base64,BASE64_ENCODED_IMAGE_HERE" alt="Descriptive alt text"/>
-
-          <!-- Additional narrative, lists, headings, etc. -->
-          <ul>
-            <li>Bullet point 1</li>
-            <li>Bullet point 2</li>
-          </ul>
-
+          <p>All metadata fields are complete, as verified against EMA guidelines.</p>
         </div>
       </valueXhtml>
     </extension>
   </answer>
-
 </item>
+
+<item>
+  <linkId value="3"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Do the updated storage conditions (2-8°C for 36 months) require additional patient guidance?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>No additional guidance is needed; the ePI clearly states storage at 2-8°C for 36 months.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="4"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Is the patient leaflet revised to clarify the extended shelf life?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>Yes, the patient leaflet has been updated to reflect the 36-month shelf life.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="5"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Is the updated ePI text sufficiently clear for all EU languages?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>The ePI text has been translated and reviewed for clarity in all EU languages.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="6"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Are there any new stability studies conducted, or the submission includes only the data available from additional timepoints from previously submitted studies?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>The current submission contains both additional timepoints from previously submitted batches and new data from two recently initiated stability studies.</p>
+          <ul>
+            <li><b>Additional timepoints:</b> Long-term data for three primary batches (Batch A-001, Batch A-002, and Batch A-003) have been extended from 24 months to 36 months, per the long-term stability protocol.</li>
+            <li><b>New studies:</b> Two new stability studies were initiated to support the change in the product's primary packaging. These studies involve pilot-scale batches (Batch B-001 and Batch B-002) in the new container/closure system. The submission includes the initial 6-month accelerated stability data and 6-month long-term data for these new batches.</li>
+          </ul>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="7"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Does the data support all intended climatic zones?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>Yes, the submitted data supports the intended use in all applicable ICH climatic zones, including Zone IV.</p>
+          <ul>
+            <li><b>Climatic Zone I/II (Temperate/Mediterranean):</b> The long-term stability data at 25°C/60% RH and accelerated data at 40°C/75% RH are sufficient to cover these conditions, as per ICH Q1 guidelines.</li>
+            <li><b>Climatic Zone III/IV (Hot/Hot and humid):</b> Stability studies were specifically conducted at 30°C/65% RH to support the product's shelf-life in hotter regions, aligning with WHO recommendations. The submitted data confirms the product remains within specifications under these more strenuous conditions.</li>
+          </ul>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="8"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Are the test methods used the same as in the previously submitted stability information?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>Yes, the test methods used for the newly submitted data are identical to the methods validated and used for previously submitted stability information.</p>
+          <ul>
+            <li>All analytical test procedures, including methods for assay, impurities, and dissolution, were performed according to the protocols established in the original marketing authorization application (MAA).</li>
+            <li>The methods are validated as stability-indicating to ensure accurate quantification of the active substance and its degradants over time.</li>
+          </ul>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="9"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Are there any new degradation products identified within the newly submitted data?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>No, no new degradation products have been identified in the newly submitted data.</p>
+          <ul>
+            <li>All impurity peaks observed during the extended stability studies correspond to degradation products previously identified and qualified during the original development and stability testing.</li>
+            <li>The levels of known impurities remain well below the ICH identification thresholds throughout the stability period.</li>
+            <li>Chromatographic comparisons confirm that no new peaks exceeding the reporting threshold were detected.</li>
+          </ul>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="10"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Any changes in the packaging configuration and/or storage of the samples during stability?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>Yes, new stability studies were initiated specifically to address a change in packaging configuration.</p>
+          <ul>
+            <li><b>Original packaging:</b> The original studies were conducted using a blister pack with PVC/PVDC film.</li>
+            <li><b>New packaging:</b> The new batches (Batch B-001 and Batch B-002) are packaged in a more robust aluminum/aluminum blister, which is documented in the submitted reports.</li>
+            <li><b>Storage conditions:</b> Storage conditions for all stability studies remained consistent with the approved protocols and ICH guidelines, with no deviations in temperature, humidity, or sample handling. All samples were stored in controlled and monitored stability chambers to ensure data integrity.</li>
+          </ul>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
 </QuestionnaireResponse>
