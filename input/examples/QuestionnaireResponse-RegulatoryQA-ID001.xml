@@ -110,118 +110,6 @@
 
   <authored value="2025-06-25T14:00:00+02:00" />
 
-<?xml version="1.0" encoding="UTF-8"?>
-<QuestionnaireResponse xmlns="http://hl7.org/fhir">
-  <resourceType value="QuestionnaireResponse" />
-  <id value="QuestionnaireResponse" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2025-11-20T22:30:00Z" />
-    <profile value="http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse" />
-  </meta>
-  <identifier>
-    <system value="http://hl7.org/fhir/uv/brr/identifier/qa-request" />
-    <value value="ID001" />
-  </identifier>
-  <identifier>
-    <system value="https://ema.europa.eu/procedure-number" />
-    <value value="EMEA/H/C/005432/II/0023" />
-  </identifier>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Dear Assessment Team,</p>
-      <p>Please find below the structured responses to the List of Questions issued on 2025-05-20
-        for the Type II variation (EMEA/H/C/005432/II/0023) concerning ExampleDrug 10 mg Tablets.</p>
-      <p>Yours sincerely,<br />Dr. John Doe<br />Head of Regulatory Affairs<br />SynthPharma AG</p>
-    </div>
-  </text>
-
-  <questionnaire value="questionnaire_ID001" />
-  <status value="completed" />
-  <subject>
-    <reference value="MedicinalProductDefinition/MedicinalProduct-ExampleDrug" />
-    <display value="ExampleDrug 10 mg Tablets" />
-  </subject>
-
-  <!-- Author = Regulatory Authority (EMA) – full inline Organization -->
-  <author>
-    <type value="Organization" />
-    <identifier>
-      <system value="https://ema.europa.eu/organization-id" />
-      <value value="EMA" />
-    </identifier>
-    <name value="European Medicines Agency" />
-    <contact>
-      <name>
-        <family value="Doe" />
-        <given value="Jane" />
-        <prefix value="Dr." />
-      </name>
-      <telecom>
-        <system value="phone" />
-        <value value="+31-88-781-6000" />
-        <use value="work" />
-      </telecom>
-      <telecom>
-        <system value="email" />
-        <value value="jane.doe@ema.example.eu" />
-        <use value="work" />
-      </telecom>
-      <telecom>
-        <system value="url" />
-        <value value="https://www.ema.europa.eu" />
-      </telecom>
-      <address>
-        <use value="work" />
-        <line value="Domenico Scarlattilaan 6" />
-        <city value="Amsterdam" />
-        <postalCode value="1083 HS" />
-        <country value="NL" />
-      </address>
-    </contact>
-  </author>
-
-  <!-- Source = Marketing Authorisation Holder (SynthPharma AG) – full inline Organization -->
-  <source>
-    <type value="Organization" />
-    <identifier>
-      <system value="https://www.zefix.ch/en/SwissCompanyRegistry/UID" />
-      <value value="CHE-123.456.789" />
-    </identifier>
-    <name value="SynthPharma AG" />
-    <contact>
-      <name>
-        <family value="Doe" />
-        <given value="John" />
-        <prefix value="Dr." />
-      </name>
-      <telecom>
-        <system value="phone" />
-        <value value="+41-44-123-45-67" />
-        <use value="work" />
-      </telecom>
-      <telecom>
-        <system value="email" />
-        <value value="john.doe@synthpharma.ch" />
-        <use value="work" />
-      </telecom>
-      <telecom>
-        <system value="url" />
-        <value value="https://www.synthpharma.ch" />
-      </telecom>
-      <address>
-        <use value="work" />
-        <line value="Industriestrasse 12" />
-        <city value="Basel" />
-        <postalCode value="4056" />
-        <country value="CH" />
-      </address>
-    </contact>
-  </source>
-
-  <authored value="2025-06-25T14:00:00+02:00" />
-
 <item>
   <linkId value="admin-1"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
@@ -379,7 +267,5 @@
     </extension>
   </answer>
 </item>
-
-</QuestionnaireResponse>
 
 </QuestionnaireResponse>
