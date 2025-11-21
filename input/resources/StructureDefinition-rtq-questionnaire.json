@@ -8,7 +8,7 @@
   "status": "draft",
   "experimental": true,
   "date": "2025-11-21",
-  "description": "Profile of Questionnaire representing regulatory questions from a health authority.",
+  "description": "Profile of Questionnaire for regulatory exchange of questions, issues and information requests between regulators and industry in the medicinal product lifecycle.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -86,26 +86,41 @@
           "discriminator": [
             {
               "type": "value",
-              "path": "purpose.coding.code"
+              "path": "extension('http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-contact-role').value.coding.code"
             }
           ],
-          "ordered": false,
           "rules": "closed"
         },
         "mustSupport": true
       },
       {
-        "id": "Questionnaire.contact.purpose",
-        "path": "Questionnaire.contact.purpose",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
+        "id": "Questionnaire.contact.extension",
+        "path": "Questionnaire.contact.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
       },
       {
-        "id": "Questionnaire.contact.purpose.coding.system",
-        "path": "Questionnaire.contact.purpose.coding.system",
+        "id": "Questionnaire.contact.extension:contactRole",
+        "path": "Questionnaire.contact.extension",
+        "sliceName": "contactRole",
         "min": 1,
-        "fixedUri": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-contact-purpose"
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-contact-role"
+            ]
+          }
+        ],
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.contact.organization",
@@ -134,30 +149,15 @@
         "max": "1"
       },
       {
-        "id": "Questionnaire.contact:sender.purpose.coding.code",
-        "path": "Questionnaire.contact.purpose.coding.code",
-        "fixedCode": "SENDER"
-      },
-      {
-        "id": "Questionnaire.contact:sender.purpose.coding.display",
-        "path": "Questionnaire.contact.purpose.coding.display",
-        "fixedString": "Sender"
-      },
-      {
-        "id": "Questionnaire.contact:sender.telecom",
-        "path": "Questionnaire.contact.telecom",
-        "min": 2,
-        "max": "2"
-      },
-      {
-        "id": "Questionnaire.contact:sender.telecom.system",
-        "path": "Questionnaire.contact.telecom.system",
-        "patternCode": "email"
-      },
-      {
-        "id": "Questionnaire.contact:sender.telecom.system",
-        "path": "Questionnaire.contact.telecom.system",
-        "patternCode": "phone"
+        "id": "Questionnaire.contact:sender.extension:contactRole.value[x]:valueCodeableConcept.coding",
+        "path": "Questionnaire.contact.extension.valueCodeableConcept.coding",
+        "min": 1,
+        "max": "1",
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-contact-role",
+          "code": "SENDER",
+          "display": "Sender"
+        }
       },
       {
         "id": "Questionnaire.contact:receiver",
@@ -167,30 +167,15 @@
         "max": "1"
       },
       {
-        "id": "Questionnaire.contact:receiver.purpose.coding.code",
-        "path": "Questionnaire.contact.purpose.coding.code",
-        "fixedCode": "RECEIVER"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.purpose.coding.display",
-        "path": "Questionnaire.contact.purpose.coding.display",
-        "fixedString": "Receiver"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.telecom",
-        "path": "Questionnaire.contact.telecom",
-        "min": 2,
-        "max": "2"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.telecom.system",
-        "path": "Questionnaire.contact.telecom.system",
-        "patternCode": "email"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.telecom.system",
-        "path": "Questionnaire.contact.telecom.system",
-        "patternCode": "phone"
+        "id": "Questionnaire.contact:receiver.extension:contactRole.value[x]:valueCodeableConcept.coding",
+        "path": "Questionnaire.contact.extension.valueCodeableConcept.coding",
+        "min": 1,
+        "max": "1",
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-contact-role",
+          "code": "RECEIVER",
+          "display": "Receiver"
+        }
       },
       {
         "id": "Questionnaire.item",
