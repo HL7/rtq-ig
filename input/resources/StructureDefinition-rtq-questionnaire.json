@@ -77,6 +77,7 @@
         "max": "0"
       },
 
+      
       {
         "id": "Questionnaire.contact",
         "path": "Questionnaire.contact",
@@ -99,6 +100,8 @@
         "min": 1,
         "mustSupport": true
       },
+
+      
       {
         "id": "Questionnaire.contact:sender",
         "path": "Questionnaire.contact",
@@ -131,6 +134,52 @@
         "mustSupport": true
       },
       {
+        "id": "Questionnaire.contact:sender.organization.address",
+        "path": "Questionnaire.contact.organization.address",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.address.text",
+        "path": "Questionnaire.contact.organization.address.text",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.address.line",
+        "path": "Questionnaire.contact.organization.address.line",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.address.city",
+        "path": "Questionnaire.contact.organization.address.city",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.address.district",
+        "path": "Questionnaire.contact.organization.address.district",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.address.state",
+        "path": "Questionnaire.contact.organization.address.state",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.address.postalCode",
+        "path": "Questionnaire.contact.organization.address.postalCode",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.address.country",
+        "path": "Questionnaire.contact.organization.address.country",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
         "id": "Questionnaire.contact:sender.organization.contact",
         "path": "Questionnaire.contact.organization.contact",
         "min": 1,
@@ -143,19 +192,70 @@
         "mustSupport": true
       },
       {
+        "id": "Questionnaire.contact:sender.organization.contact.name.text",
+        "path": "Questionnaire.contact.organization.contact.name.text",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.name.family",
+        "path": "Questionnaire.contact.organization.contact.name.family",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.name.given",
+        "path": "Questionnaire.contact.organization.contact.name.given",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
         "id": "Questionnaire.contact:sender.organization.contact.telecom",
         "path": "Questionnaire.contact.organization.contact.telecom",
         "min": 2,
         "max": "2",
+        "slicing": {
+          "discriminator": [{ "type": "value", "path": "system" }],
+          "rules": "closed"
+        },
         "mustSupport": true
       },
       {
-        "id": "Questionnaire.contact:sender.telecom",
-        "path": "Questionnaire.contact.telecom",
-        "min": 2,
-        "max": "2",
-        "mustSupport": true
+        "id": "Questionnaire.contact:sender.organization.contact.telecom:email",
+        "path": "Questionnaire.contact.organization.contact.telecom",
+        "sliceName": "email",
+        "min": 1,
+        "max": "1"
       },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.telecom:email.system",
+        "path": "Questionnaire.contact.organization.contact.telecom.system",
+        "fixedCode": "email"
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.telecom:email.value",
+        "path": "Questionnaire.contact.organization.contact.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone",
+        "path": "Questionnaire.contact.organization.contact.telecom",
+        "sliceName": "phone",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.system",
+        "path": "Questionnaire.contact.organization.contact.telecom.system",
+        "fixedCode": "phone"
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.value",
+        "path": "Questionnaire.contact.organization.contact.telecom.value",
+        "min": 1
+      },
+
+      
       {
         "id": "Questionnaire.contact:receiver",
         "path": "Questionnaire.contact",
@@ -188,6 +288,52 @@
         "mustSupport": true
       },
       {
+        "id": "Questionnaire.contact:receiver.organization.address",
+        "path": "Questionnaire.contact.organization.address",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.address.text",
+        "path": "Questionnaire.contact.organization.address.text",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.address.line",
+        "path": "Questionnaire.contact.organization.address.line",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.address.city",
+        "path": "Questionnaire.contact.organization.address.city",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.address.district",
+        "path": "Questionnaire.contact.organization.address.district",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.address.state",
+        "path": "Questionnaire.contact.organization.address.state",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.address.postalCode",
+        "path": "Questionnaire.contact.organization.address.postalCode",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.address.country",
+        "path": "Questionnaire.contact.organization.address.country",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
         "id": "Questionnaire.contact:receiver.organization.contact",
         "path": "Questionnaire.contact.organization.contact",
         "min": 1,
@@ -200,19 +346,70 @@
         "mustSupport": true
       },
       {
+        "id": "Questionnaire.contact:receiver.organization.contact.name.text",
+        "path": "Questionnaire.contact.organization.contact.name.text",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.name.family",
+        "path": "Questionnaire.contact.organization.contact.name.family",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.name.given",
+        "path": "Questionnaire.contact.organization.contact.name.given",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
         "id": "Questionnaire.contact:receiver.organization.contact.telecom",
         "path": "Questionnaire.contact.organization.contact.telecom",
         "min": 2,
         "max": "2",
+        "slicing": {
+          "discriminator": [{ "type": "value", "path": "system" }],
+          "rules": "closed"
+        },
         "mustSupport": true
       },
       {
-        "id": "Questionnaire.contact:receiver.telecom",
-        "path": "Questionnaire.contact.telecom",
-        "min": 2,
-        "max": "2",
-        "mustSupport": true
+        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email",
+        "path": "Questionnaire.contact.organization.contact.telecom",
+        "sliceName": "email",
+        "min": 1,
+        "max": "1"
       },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.system",
+        "path": "Questionnaire.contact.organization.contact.telecom.system",
+        "fixedCode": "email"
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.value",
+        "path": "Questionnaire.contact.organization.contact.telecom.value",
+        "min": 1
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone",
+        "path": "Questionnaire.contact.organization.contact.telecom",
+        "sliceName": "phone",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.system",
+        "path": "Questionnaire.contact.organization.contact.telecom.system",
+        "fixedCode": "phone"
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.value",
+        "path": "Questionnaire.contact.organization.contact.telecom.value",
+        "min": 1
+      },
+
+      
       {
         "id": "Questionnaire.item",
         "path": "Questionnaire.item",
@@ -252,12 +449,7 @@
         "id": "Questionnaire.item.text.extension",
         "path": "Questionnaire.item.text.extension",
         "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "url"
-            }
-          ],
+          "discriminator": [{ "type": "value", "path": "url" }],
           "rules": "open"
         },
         "min": 1
@@ -268,14 +460,10 @@
         "sliceName": "rendering-xhtml",
         "min": 1,
         "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
-            ]
-          }
-        ],
+        "type": [{
+          "code": "Extension",
+          "profile": ["http://hl7.org/fhir/StructureDefinition/rendering-xhtml"]
+        }],
         "mustSupport": true
       }
     ]
