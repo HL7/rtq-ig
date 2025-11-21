@@ -44,6 +44,13 @@
       },
       {
         "reference": {
+          "reference": "Questionnaire/questionnaire_ID001"
+        },
+        "name": "Question Set ID001",
+        "isExample": true
+      },
+      {
+        "reference": {
           "reference": "QuestionnaireResponse/QuestionnaireResponse"
         },
         "name": "QuestionnaireResponse",
@@ -51,13 +58,6 @@
         "profile": [
           "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse"
         ]
-      },
-      {
-        "reference": {
-          "reference": "Questionnaire/questionnaire_ID001"
-        },
-        "name": "Responses to Question Set ID001",
-        "isExample": true
       },
       {
         "reference": {

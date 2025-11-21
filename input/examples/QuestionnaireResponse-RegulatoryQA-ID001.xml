@@ -110,60 +110,276 @@
 
   <authored value="2025-06-25T14:00:00+02:00" />
 
-<item>
-  <linkId value="2.4.1"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionnaireResponse xmlns="http://hl7.org/fhir">
+  <resourceType value="QuestionnaireResponse" />
+  <id value="QuestionnaireResponse" />
+  <meta>
+    <versionId value="1" />
+    <lastUpdated value="2025-11-20T22:30:00Z" />
+    <profile value="http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse" />
+  </meta>
+  <identifier>
+    <system value="http://hl7.org/fhir/uv/brr/identifier/qa-request" />
+    <value value="ID001" />
+  </identifier>
+  <identifier>
+    <system value="https://ema.europa.eu/procedure-number" />
+    <value value="EMEA/H/C/005432/II/0023" />
+  </identifier>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Dear Assessment Team,</p>
+      <p>Please find below the structured responses to the List of Questions issued on 2025-05-20
+        for the Type II variation (EMEA/H/C/005432/II/0023) concerning ExampleDrug 10 mg Tablets.</p>
+      <p>Yours sincerely,<br />Dr. John Doe<br />Head of Regulatory Affairs<br />SynthPharma AG</p>
+    </div>
+  </text>
 
-  <!-- Rich version of the QUESTION / LABEL (replaces .text) -->
+  <questionnaire value="questionnaire_ID001" />
+  <status value="completed" />
+  <subject>
+    <reference value="MedicinalProductDefinition/MedicinalProduct-ExampleDrug" />
+    <display value="ExampleDrug 10 mg Tablets" />
+  </subject>
+
+  <!-- Author = Regulatory Authority (EMA) – full inline Organization -->
+  <author>
+    <type value="Organization" />
+    <identifier>
+      <system value="https://ema.europa.eu/organization-id" />
+      <value value="EMA" />
+    </identifier>
+    <name value="European Medicines Agency" />
+    <contact>
+      <name>
+        <family value="Doe" />
+        <given value="Jane" />
+        <prefix value="Dr." />
+      </name>
+      <telecom>
+        <system value="phone" />
+        <value value="+31-88-781-6000" />
+        <use value="work" />
+      </telecom>
+      <telecom>
+        <system value="email" />
+        <value value="jane.doe@ema.example.eu" />
+        <use value="work" />
+      </telecom>
+      <telecom>
+        <system value="url" />
+        <value value="https://www.ema.europa.eu" />
+      </telecom>
+      <address>
+        <use value="work" />
+        <line value="Domenico Scarlattilaan 6" />
+        <city value="Amsterdam" />
+        <postalCode value="1083 HS" />
+        <country value="NL" />
+      </address>
+    </contact>
+  </author>
+
+  <!-- Source = Marketing Authorisation Holder (SynthPharma AG) – full inline Organization -->
+  <source>
+    <type value="Organization" />
+    <identifier>
+      <system value="https://www.zefix.ch/en/SwissCompanyRegistry/UID" />
+      <value value="CHE-123.456.789" />
+    </identifier>
+    <name value="SynthPharma AG" />
+    <contact>
+      <name>
+        <family value="Doe" />
+        <given value="John" />
+        <prefix value="Dr." />
+      </name>
+      <telecom>
+        <system value="phone" />
+        <value value="+41-44-123-45-67" />
+        <use value="work" />
+      </telecom>
+      <telecom>
+        <system value="email" />
+        <value value="john.doe@synthpharma.ch" />
+        <use value="work" />
+      </telecom>
+      <telecom>
+        <system value="url" />
+        <value value="https://www.synthpharma.ch" />
+      </telecom>
+      <address>
+        <use value="work" />
+        <line value="Industriestrasse 12" />
+        <city value="Basel" />
+        <postalCode value="4056" />
+        <country value="CH" />
+      </address>
+    </contact>
+  </source>
+
+  <authored value="2025-06-25T14:00:00+02:00" />
+
+<item>
+  <linkId value="admin-1"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
     <valueXhtml>
       <div xmlns="http://www.w3.org/1999/xhtml">
-        <h3>2.4.1 Summary of clinical pharmacology studies</h3>
-        <p>Provide a tabular overview to include the following information for each study:</p>
-        <ul>
-          <li>Study identifier</li>
-          <li>Objectives</li>
-          <li>Design</li>
-          <li>Population</li>
-          <li>Key results</li>
-        </ul>
-        <table border="1">
-          <thead>
-            <tr><th>Study ID</th><th>Phase</th><th>Primary endpoint</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>ABC-101</td><td>Phase 1</td><td>Safety and PK</td></tr>
-          </tbody>
-        </table>
+        <p>Has the variation fee been paid?</p>
       </div>
     </valueXhtml>
   </extension>
-
-  <!-- One or more answers – each can have its own rich XHTML (replaces answer.value[x]) -->
   <answer>
     <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
       <valueXhtml>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Clinical pharmacology studies demonstrated dose-proportional pharmacokinetics across the dose range of 100–800 mg.</p>
-          
-          <h4>Key pharmacokinetic parameters (single dose)</h4>
-          <table border="1">
-            <thead>
-              <tr><th>Dose</th><th>Cmax (ng/mL)</th><th>AUC0-∞ (ng·h/mL)</th><th>t½ (h)</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>100 mg</td><td>1,250</td><td>12,400</td><td>8.2</td></tr>
-              <tr><td>400 mg</td><td>5,100</td><td>48,900</td><td>8.5</td></tr>
-              <tr><td>800 mg</td><td>10,800</td><td>102,300</td><td>8.7</td></tr>
-            </tbody>
-          </table>
-          
-          <p><b>Figure 1:</b> Mean plasma concentration-time profiles</p>
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." alt="PK profile"/>
+          <p>Yes, the fee was paid on <b>June 25, 2025</b>. Payment confirmation and receipt are included in the application form (see Section 1.1).</p>
         </div>
       </valueXhtml>
     </extension>
   </answer>
-
 </item>
+
+<item>
+  <linkId value="admin-2"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Are all required administrative metadata fields completed (MAH, product name, procedure number, submission date)?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>Yes, all required metadata fields are complete:</p>
+          <ul>
+            <li><b>MAH:</b> SynthPharma AG</li>
+            <li><b>Product:</b> ExampleDrug 10 mg Tablets</li>
+            <li><b>Procedure:</b> EMEA/H/C/005432/II/0023</li>
+            <li><b>Submission Date:</b> 2025-06-25</li>
+          </ul>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="labeling-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Does the extended shelf-life require additional patient guidance (e.g., special storage instructions)?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>No additional patient guidance is required. The ePI clearly states: “Store in a refrigerator (2°C – 8°C). Do not freeze.” The 36-month shelf-life is supported by stability data and does not alter patient handling instructions.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="quality-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Has the container closure system changed?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p><b>Yes.</b> The primary packaging has been changed from PVC/PVDC blister to cold-form aluminium blister for improved moisture protection.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+<item>
+  <linkId value="quality-2"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Provide extractables and leachables data for the new container closure system.</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>A full extractables study according to ISO 10993-18 and a leachables study over 36 months have been performed. No leachables were detected above the AET (0.1 µg/day). Full reports are provided in Module 3.2.P.7.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+    <valueAttachment>
+      <contentType value="application/pdf"/>
+      <data value="JVBERi0xLjQKMyAwIG9iajA8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhlbi1VUikgPj4KZW5kb2J4"/>
+      <title value="Extractables-Leachables Report – Cold-form Alu Blister.pdf"/>
+      <creation value="2025-05-15"/>
+    </valueAttachment>
+  </answer>
+</item>
+
+<item>
+  <linkId value="stability-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Provide the updated stability protocol and data supporting the proposed shelf-life of 36 months.</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>36-month long-term (25°C/60% RH) and 6-month accelerated (40°C/75% RH) data are available for three commercial-scale batches in the new packaging. All parameters remain within specification. The updated stability report is attached.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+    <valueAttachment>
+      <contentType value="application/pdf"/>
+      <data value="JVBERi0xLjQKMyAwIG9iajA8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhlbi1VUikgPj4KZW5kb2J4"/>
+      <title value="Stability Summary Report – 36 months (new packaging).pdf"/>
+      <creation value="2025-06-10"/>
+    </valueAttachment>
+  </answer>
+</item>
+
+<item>
+  <linkId value="stability-2"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+    <valueXhtml>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Are there any other quality-related changes the applicant wishes to declare?</p>
+      </div>
+    </valueXhtml>
+  </extension>
+  <answer>
+    <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
+      <valueXhtml>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <p>No other quality-related changes are introduced with this variation.</p>
+        </div>
+      </valueXhtml>
+    </extension>
+  </answer>
+</item>
+
+</QuestionnaireResponse>
 
 </QuestionnaireResponse>
