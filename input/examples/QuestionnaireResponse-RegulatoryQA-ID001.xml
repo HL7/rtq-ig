@@ -111,8 +111,7 @@
   <authored value="2025-06-25T14:00:00+02:00" />
 
 <item>
-  <linkId value="1"/>   <!-- e.g., 2.4.1 or 3.2.P.5.2 -->
-  <!-- Rich version of the question/label (replaces .text) -->
+  <linkId value="admin-1"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
     <valueXhtml>
       <div xmlns="http://www.w3.org/1999/xhtml">
@@ -120,9 +119,7 @@
       </div>
     </valueXhtml>
   </extension>
-  <!-- One or more answers – each answer can contain fully formatted rich content -->
   <answer>
-    <!-- Rich answer content (replaces answer.value[x]) -->
     <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
       <valueXhtml>
         <div xmlns="http://www.w3.org/1999/xhtml">
