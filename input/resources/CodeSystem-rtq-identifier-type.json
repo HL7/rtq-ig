@@ -1,0 +1,23 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "rtq-identifier-type",
+  "url": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type",
+  "version": "0.1.0",
+  "name": "RtqIdentifierTypeCS",
+  "title": "RTQ Identifier Type Code System",
+  "status": "draft",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "company-id",
+      "display": "Company-issued Identifier",
+      "definition": "Identifier assigned by the marketing authorisation holder or sponsor."
+    },
+    {
+      "code": "regulator-id",
+      "display": "Regulator-issued Identifier",
+      "definition": "Identifier assigned by the reviewing health authority (e.g., procedure number, case ID)."
+    }
+  ]
+}

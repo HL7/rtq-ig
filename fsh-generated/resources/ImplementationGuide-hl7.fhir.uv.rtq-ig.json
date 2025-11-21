@@ -69,6 +69,13 @@
       },
       {
         "reference": {
+          "reference": "CodeSystem/rtq-identifier-type"
+        },
+        "name": "RTQ Identifier Type Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/rtq-questionnaire-type-cs"
         },
         "description": "Code system defining the high-level types of regulatory questionnaires exchanged between industry and health authorities.",
