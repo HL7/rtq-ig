@@ -1,62 +1,172 @@
 {
   "resourceType": "StructureDefinition",
+  "id": "rtq-questionnaire",
   "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire",
+  "version": "0.1.0",  
   "name": "RTQQuestionnaire",
-  "title": "RTQ Regulatory Questionnaire (R5)",
+  "title": "Regulatory Questionnaire",
   "status": "draft",
-  "experimental": true,
+  "date": "2025-11-21",  
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
   "type": "Questionnaire",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
   "derivation": "constraint",
-  "id": "rtq-questionnaire",
-  "version": "0.1.0",
-  "publisher": "HL7 International / Biomedical Research & Regulation",
-  "contact": [
-    {
-      "name": "Biomedical Research & Regulation",
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/rcrim"
-        }
-      ]
-    }
-  ],
-  "description": "Base regulatory questionnaire profile aligned to FHIR R5 for medicinal product quality submissions.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "http://unstats.un.org/unsd/methodology/m49",
-          "code": "001"
-        }
-      ]
-    }
-  ],
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2025-11-21T12:00:00Z",
+    "profile": [
+      "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire"
+    ]
+  },
   "differential": {
     "element": [
-      { "id": "Questionnaire.identifier", "path": "Questionnaire.identifier", "min": 1, "mustSupport": true },
-      { "id": "Questionnaire.title",       "path": "Questionnaire.title",       "min": 1, "mustSupport": true },
-      { "id": "Questionnaire.status",      "path": "Questionnaire.status",      "min": 1, "mustSupport": true },
-      { "id": "Questionnaire.date",        "path": "Questionnaire.date",        "min": 1, "mustSupport": true },
-      { "id": "Questionnaire.publisher",   "path": "Questionnaire.publisher",   "min": 1, "mustSupport": true },
+      {
+        "id": "Questionnaire.meta",
+        "path": "Questionnaire.meta",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.meta.versionId",
+        "path": "Questionnaire.meta.versionId",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.meta.lastUpdated",
+        "path": "Questionnaire.meta.lastUpdated",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.meta.profile",
+        "path": "Questionnaire.meta.profile",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "canonical"
+          }
+        ],
+        "mustSupport": true,
+        "fixedCanonical": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire"
+      },
+      {
+        "id": "Questionnaire.identifier",
+        "path": "Questionnaire.identifier",
+        "min": 2,
+        "max": "*",
+        "mustSupport": true,
+        "comment": "Two identifiers are required: one issued by the company (sender) and one issued by the regulator (receiver)."
+      },
+      {
+        "id": "Questionnaire.version",
+        "path": "Questionnaire.version",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.text",
+        "path": "Questionnaire.text",
+        "min": 1,
+        "mustSupport": true
+      },
       {
         "id": "Questionnaire.subjectType",
         "path": "Questionnaire.subjectType",
+        "min": 1,
+        "max": "*",
         "mustSupport": true,
-        "fixedCode": [
-          "MedicinalProductDefinition",
-          "PackagedProductDefinition",
-          "ManufacturedItemDefinition",
-          "AdministrableProductDefinition",
-          "Organization"
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/uv/rtq/ValueSet/rtq-questionnaire-type-vs"
+        },
+        "comment": "Allowed values include: List of Questions, List of Issues, Information Request, etc."
+      },
+      {
+        "id": "Questionnaire.publisher",
+        "path": "Questionnaire.publisher",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.contact",
+        "path": "Questionnaire.contact",
+        "min": 2,
+        "max": "2",
+        "mustSupport": true,
+        "comment": "Exactly two contacts: one for the sender (company) and one for the receiver (regulator)."
+      },
+      {
+        "id": "Questionnaire.item",
+        "path": "Questionnaire.item",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.code",
+        "path": "Questionnaire.item.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.code.system",
+        "path": "Questionnaire.item.code.system",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.code.code",
+        "path": "Questionnaire.item.code.code",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.code.display",
+        "path": "Questionnaire.item.code.display",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.text",
+        "path": "Questionnaire.item.text",
+        "min": 1,
+        "mustSupport": true,
+        "type": [
+          {
+            "code": "markdown"
+          }
         ]
       },
-      { "id": "Questionnaire.item.linkId", "path": "Questionnaire.item.linkId", "min": 1, "mustSupport": true },
-      { "id": "Questionnaire.item.text",   "path": "Questionnaire.item.text",   "min": 1, "mustSupport": true }
+      {
+        "id": "Questionnaire.item.text.extension",
+        "path": "Questionnaire.item.text.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "Questionnaire.item.text.extension:valueXhtml",
+        "path": "Questionnaire.item.text.extension",
+        "sliceName": "valueXhtml",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/valueXhtml"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
     ]
   }
 }

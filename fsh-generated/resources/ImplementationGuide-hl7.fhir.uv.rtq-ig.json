@@ -61,18 +61,17 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/rtq-questionnaireresponse"
+          "reference": "StructureDefinition/rtq-questionnaire"
         },
-        "description": "Profile of QuestionnaireResponse for structured responses to regulatory questions and answers in the context of medicinal product variations and other regulatory procedures.",
-        "name": "RTQ QuestionnaireResponse Profile",
+        "name": "Regulatory Questionnaire",
         "isExample": false
       },
       {
         "reference": {
-          "reference": "StructureDefinition/rtq-questionnaire"
+          "reference": "StructureDefinition/rtq-questionnaireresponse"
         },
-        "description": "Base regulatory questionnaire profile aligned to FHIR R5 for medicinal product quality submissions.",
-        "name": "RTQ Regulatory Questionnaire (R5)",
+        "description": "Profile of QuestionnaireResponse for structured responses to regulatory questions and answers in the context of medicinal product variations and other regulatory procedures.",
+        "name": "RTQ QuestionnaireResponse Profile",
         "isExample": false
       }
     ],
