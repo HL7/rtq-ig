@@ -47,7 +47,6 @@
         "id": "Questionnaire.identifier",
         "path": "Questionnaire.identifier",
         "min": 2,
-        "max": "*",
         "mustSupport": true
       },
       {
@@ -77,6 +76,7 @@
         "path": "Questionnaire.publisher",
         "max": "0"
       },
+
       {
         "id": "Questionnaire.contact",
         "path": "Questionnaire.contact",
@@ -86,7 +86,7 @@
           "discriminator": [
             {
               "type": "value",
-              "path": "extension('http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-contact-role').value.coding.code"
+              "path": "name"
             }
           ],
           "rules": "closed"
@@ -94,50 +94,8 @@
         "mustSupport": true
       },
       {
-        "id": "Questionnaire.contact.extension",
-        "path": "Questionnaire.contact.extension",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "url"
-            }
-          ],
-          "rules": "open"
-        }
-      },
-      {
-        "id": "Questionnaire.contact.extension:contactRole",
-        "path": "Questionnaire.contact.extension",
-        "sliceName": "contactRole",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-contact-role"
-            ]
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact.organization",
-        "path": "Questionnaire.contact.organization",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact.telecom",
-        "path": "Questionnaire.contact.telecom",
-        "min": 2,
-        "max": "2",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact.telecom.system",
-        "path": "Questionnaire.contact.telecom.system",
+        "id": "Questionnaire.contact.name",
+        "path": "Questionnaire.contact.name",
         "min": 1,
         "mustSupport": true
       },
@@ -146,36 +104,114 @@
         "path": "Questionnaire.contact",
         "sliceName": "sender",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "mustSupport": true
       },
       {
-        "id": "Questionnaire.contact:sender.extension:contactRole.value[x]:valueCodeableConcept.coding",
-        "path": "Questionnaire.contact.extension.valueCodeableConcept.coding",
+        "id": "Questionnaire.contact:sender.name",
+        "path": "Questionnaire.contact.name",
+        "fixedString": "Sender"
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization",
+        "path": "Questionnaire.contact.organization",
         "min": 1,
-        "max": "1",
-        "fixedCoding": {
-          "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-contact-role",
-          "code": "SENDER",
-          "display": "Sender"
-        }
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.identifier",
+        "path": "Questionnaire.contact.organization.identifier",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.name",
+        "path": "Questionnaire.contact.organization.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact",
+        "path": "Questionnaire.contact.organization.contact",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.name",
+        "path": "Questionnaire.contact.organization.contact.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.organization.contact.telecom",
+        "path": "Questionnaire.contact.organization.contact.telecom",
+        "min": 2,
+        "max": "2",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.telecom",
+        "path": "Questionnaire.contact.telecom",
+        "min": 2,
+        "max": "2",
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.contact:receiver",
         "path": "Questionnaire.contact",
         "sliceName": "receiver",
         "min": 1,
-        "max": "1"
+        "max": "1",
+        "mustSupport": true
       },
       {
-        "id": "Questionnaire.contact:receiver.extension:contactRole.value[x]:valueCodeableConcept.coding",
-        "path": "Questionnaire.contact.extension.valueCodeableConcept.coding",
+        "id": "Questionnaire.contact:receiver.name",
+        "path": "Questionnaire.contact.name",
+        "fixedString": "Receiver"
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization",
+        "path": "Questionnaire.contact.organization",
         "min": 1,
-        "max": "1",
-        "fixedCoding": {
-          "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-contact-role",
-          "code": "RECEIVER",
-          "display": "Receiver"
-        }
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.identifier",
+        "path": "Questionnaire.contact.organization.identifier",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.name",
+        "path": "Questionnaire.contact.organization.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact",
+        "path": "Questionnaire.contact.organization.contact",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.name",
+        "path": "Questionnaire.contact.organization.contact.name",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.organization.contact.telecom",
+        "path": "Questionnaire.contact.organization.contact.telecom",
+        "min": 2,
+        "max": "2",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:receiver.telecom",
+        "path": "Questionnaire.contact.telecom",
+        "min": 2,
+        "max": "2",
+        "mustSupport": true
       },
       {
         "id": "Questionnaire.item",
