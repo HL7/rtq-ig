@@ -8,7 +8,7 @@
   "status": "draft",
   "experimental": true,
   "date": "2025-11-21",
-  "description": "Profile of Questionnaire for regulatory exchange of questions, issues and information requests between regulators and industry in the medicinal product lifecycle.",
+  "description": "Profile of Questionnaire representing regulatory questions from a health authority.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
