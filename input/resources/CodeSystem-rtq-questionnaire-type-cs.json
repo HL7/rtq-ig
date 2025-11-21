@@ -1,0 +1,63 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "rtq-questionnaire-type-cs",
+  "url": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-questionnaire-type-cs",
+  "version": "0.1.0",
+  "name": "RtqQuestionnaireTypeCS",
+  "title": "RTQ Questionnaire Type Code System",
+  "status": "draft",
+  "experimental": true,
+  "date": "2025-11-21",
+  "publisher": "HL7 International - Biomedical Research & Regulation Work Group",
+  "contact": [
+    {
+      "name": "HL7 BR&R Work Group",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://hl7.org/Special/committees/brr"
+        }
+      ]
+    }
+  ],
+  "description": "Code system defining the high-level types of regulatory questionnaires exchanged between industry and health authorities.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "list-of-questions",
+      "display": "List of Questions",
+      "definition": "A formal list of questions raised by a regulator requiring a written response from the marketing authorisation holder."
+    },
+    {
+      "code": "list-of-issues",
+      "display": "List of Issues",
+      "definition": "A consolidated list of major and minor issues identified during assessment that must be resolved before approval or variation."
+    },
+    {
+      "code": "information-request",
+      "display": "Information Request",
+      "definition": "A formal request for additional information or clarification during evaluation of a submission (e.g., EMA Day 120/180 LoQ, FDA IR, Health Canada Clarifax)."
+    },
+    {
+      "code": "request-for-clarification",
+      "display": "Request for Clarification",
+      "definition": "Request seeking clarification on specific points in a submission (often used by PMDA, Health Canada, Swissmedic)."
+    },
+    {
+      "code": "request-for-supplementary-information",
+      "display": "Request for Supplementary Information",
+      "definition": "Used by some regulators (e.g., Swissmedic RSI, Saudi SFDA) for additional data requests."
+    },
+    {
+      "code": "deficiency-letter",
+      "display": "Deficiency Letter",
+      "definition": "Formal notification of deficiencies that must be addressed (common in some national procedures)."
+    },
+    {
+      "code": "consolidated-list-of-questions",
+      "display": "Consolidated List of Questions",
+      "definition": "A single consolidated set of questions from multiple assessment teams (e.g., EMA PRAC/RAPPS/CHMP consolidated LoQ)."
+    }
+  ]
+}

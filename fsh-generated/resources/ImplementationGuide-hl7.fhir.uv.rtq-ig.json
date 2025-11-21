@@ -69,6 +69,14 @@
       },
       {
         "reference": {
+          "reference": "CodeSystem/rtq-questionnaire-type-cs"
+        },
+        "description": "Code system defining the high-level types of regulatory questionnaires exchanged between industry and health authorities.",
+        "name": "RTQ Questionnaire Type Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rtq-questionnaireresponse"
         },
         "description": "Profile of QuestionnaireResponse for structured responses to regulatory questions and answers in the context of medicinal product variations and other regulatory procedures.",
