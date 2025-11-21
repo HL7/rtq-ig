@@ -112,69 +112,25 @@
 
 <item>
   <linkId value="1"/>   <!-- e.g., 2.4.1 or 3.2.P.5.2 -->
-
   <!-- Rich version of the question/label (replaces .text) -->
   <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
     <valueXhtml>
       <div xmlns="http://www.w3.org/1999/xhtml">
-        <!-- ==== QUESTION / SECTION TITLE AND INSTRUCTIONS ==== -->
-        <h3>REPLACE_WITH_SECTION_TITLE</h3>
-        <p>REPLACE_WITH_INSTRUCTIONS_OR_PROMPT</p>
-
-        <!-- Example of a starter/table prompt (optional) -->
-        <table border="1">
-          <thead>
-            <tr>
-              <th>Column 1</th><th>Column 2</th><th>Column 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td></td><td></td><td></td></tr>
-          </tbody>
-        </table>
+        <p>Is the fee for the Type II variation fully paid and documented?</p>
       </div>
     </valueXhtml>
   </extension>
-
   <!-- One or more answers – each answer can contain fully formatted rich content -->
   <answer>
     <!-- Rich answer content (replaces answer.value[x]) -->
     <extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
       <valueXhtml>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <!-- ==== YOUR ACTUAL RESPONSE CONTENT GOES HERE ==== -->
-
-          <p>Summary text, conclusions, or narrative response.</p>
-
-          <!-- Example table -->
-          <h4>Table Title</h4>
-          <table border="1">
-            <thead>
-              <tr>
-                <th>Header 1</th><th>Header 2</th><th>Header 3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>Data</td><td>Data</td><td>Data</td></tr>
-              <!-- add more rows as needed -->
-            </tbody>
-          </table>
-
-          <!-- Optional figure/image (base64-embedded or external CID/reference in Bundle) -->
-          <p><b>Figure X:</b> Figure caption/description</p>
-          <img src="data:image/png;base64,BASE64_ENCODED_IMAGE_HERE" alt="Descriptive alt text"/>
-
-          <!-- Additional narrative, lists, headings, etc. -->
-          <ul>
-            <li>Bullet point 1</li>
-            <li>Bullet point 2</li>
-          </ul>
-
+          <p>Yes, the fee was paid on <b>June 25, 2025</b>, with documentation included in the application form.</p>
         </div>
       </valueXhtml>
     </extension>
   </answer>
-
 </item>
 
 <item>
