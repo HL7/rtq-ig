@@ -15,6 +15,11 @@
   "type": "Questionnaire",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
   "derivation": "constraint",
+  "example": [
+    {
+      "name": "RegulatoryQA-ID001: Questionnaire issued by EMA to PharmaCo AG (centralised procedure)"
+    }
+  ],
   "differential": {
     "element": [
       {
