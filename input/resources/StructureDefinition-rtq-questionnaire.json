@@ -137,326 +137,222 @@
         "path": "Questionnaire.publisher",
         "max": "0"
       },
-      {
-        "id": "Questionnaire.contact",
-        "path": "Questionnaire.contact",
-        "min": 2,
-        "max": "2",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "organization.name"
-            }
-          ],
-          "rules": "closed"
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender",
-        "path": "Questionnaire.contact",
-        "sliceName": "sender",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization",
-        "path": "Questionnaire.contact.organization",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.identifier",
-        "path": "Questionnaire.contact.organization.identifier",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.name",
-        "path": "Questionnaire.contact.organization.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address",
-        "path": "Questionnaire.contact.organization.address",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.text",
-        "path": "Questionnaire.contact.organization.address.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.line",
-        "path": "Questionnaire.contact.organization.address.line",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.city",
-        "path": "Questionnaire.contact.organization.address.city",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.district",
-        "path": "Questionnaire.contact.organization.address.district",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.state",
-        "path": "Questionnaire.contact.organization.address.state",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.postalCode",
-        "path": "Questionnaire.contact.organization.address.postalCode",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.country",
-        "path": "Questionnaire.contact.organization.address.country",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact",
-        "path": "Questionnaire.contact.organization.contact",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name",
-        "path": "Questionnaire.contact.organization.contact.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name.text",
-        "path": "Questionnaire.contact.organization.contact.name.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name.family",
-        "path": "Questionnaire.contact.organization.contact.name.family",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name.given",
-        "path": "Questionnaire.contact.organization.contact.name.given",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "min": 2,
-        "max": "2",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "system"
-            }
-          ],
-          "rules": "closed"
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:email",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "email",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:email.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "email"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:email.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "phone",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "phone"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
-      {
-        "id": "Questionnaire.contact:receiver",
-        "path": "Questionnaire.contact",
-        "sliceName": "receiver",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization",
-        "path": "Questionnaire.contact.organization",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.identifier",
-        "path": "Questionnaire.contact.organization.identifier",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.name",
-        "path": "Questionnaire.contact.organization.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address",
-        "path": "Questionnaire.contact.organization.address",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.text",
-        "path": "Questionnaire.contact.organization.address.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.line",
-        "path": "Questionnaire.contact.organization.address.line",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.city",
-        "path": "Questionnaire.contact.organization.address.city",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.district",
-        "path": "Questionnaire.contact.organization.address.district",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.state",
-        "path": "Questionnaire.contact.organization.address.state",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.postalCode",
-        "path": "Questionnaire.contact.organization.address.postalCode",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.country",
-        "path": "Questionnaire.contact.organization.address.country",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact",
-        "path": "Questionnaire.contact.organization.contact",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name",
-        "path": "Questionnaire.contact.organization.contact.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name.text",
-        "path": "Questionnaire.contact.organization.contact.name.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name.family",
-        "path": "Questionnaire.contact.organization.contact.name.family",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name.given",
-        "path": "Questionnaire.contact.organization.contact.name.given",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "min": 2,
-        "max": "2",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "system"
-            }
-          ],
-          "rules": "closed"
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "email",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "email"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "phone",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "phone"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
+  {
+    "id": "Questionnaire.contact",
+    "path": "Questionnaire.contact",
+    "min": 2,
+    "max": "2",
+    "slicing": {
+      "discriminator": [
+        {
+          "type": "value",
+          "path": "organization.name"
+        }
+      ],
+      "rules": "closed"
+    },
+    "mustSupport": true,
+    "short": "Sender (issuing regulatory authority) and receiver (MAH/sponsor) contact details",
+    "definition": "Exactly two contacts shall be present: one identifying the competent authority that issued the Request to Qualify Questionnaire (sender) and one identifying the marketing authorisation holder or sponsor that is required to complete and return the QuestionnaireResponse (receiver). Slicing is based on organization.name to distinguish the two parties."
+  },
+  {
+    "id": "Questionnaire.contact:sender",
+    "path": "Questionnaire.contact",
+    "sliceName": "sender",
+    "min": 1,
+    "max": "1",
+    "mustSupport": true,
+    "short": "Contact details of the issuing competent authority (regulator)",
+    "definition": "Identifies the regulatory authority or agency that has created and sent this Request to Qualify Questionnaire to the marketing authorisation holder."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization",
+    "path": "Questionnaire.contact.organization",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Issuing competent authority",
+    "definition": "The regulatory agency (e.g., EMA, national competent authority) responsible for issuing the RTQ Questionnaire."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.identifier",
+    "path": "Questionnaire.contact.organization.identifier",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Regulatory authority identifier (e.g., OMS Location ID)",
+    "definition": "Official identifier of the issuing competent authority as registered in OMS or equivalent master data system."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.name",
+    "path": "Questionnaire.contact.organization.name",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Official name of the issuing regulatory authority",
+    "definition": "Full official name of the competent authority issuing the Questionnaire (e.g., European Medicines Agency, Health Products Regulatory Authority)."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.address",
+    "path": "Questionnaire.contact.organization.address",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Official address of the issuing regulatory authority",
+    "definition": "Public registered address of the competent authority that issued the RTQ."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact",
+    "path": "Questionnaire.contact.organization.contact",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Primary contact or functional mailbox at the issuing authority",
+    "definition": "Designated contact person or role within the regulatory authority responsible for this RTQ procedure and for receiving the completed response."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact.telecom",
+    "path": "Questionnaire.contact.organization.contact.telecom",
+    "min": 2,
+    "max": "2",
+    "slicing": {
+      "discriminator": [{ "type": "value", "path": "system" }],
+      "rules": "closed"
+    },
+    "mustSupport": true
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact.telecom:email",
+    "path": "Questionnaire.contact.organization.contact.telecom",
+    "sliceName": "email",
+    "min": 1,
+    "max": "1",
+    "short": "Official email for the designated regulatory contact",
+    "definition": "Dedicated email address of the issuing authority."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact.telecom:email.system",
+    "path": "Questionnaire.contact.organization.contact.telecom.system",
+    "fixedCode": "email"
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact.telecom:email.value",
+    "path": "Questionnaire.contact.organization.contact.telecom.value",
+    "min": 1
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact.telecom:phone",
+    "path": "Questionnaire.contact.organization.contact.telecom",
+    "sliceName": "phone",
+    "min": 0,
+    "max": "1",
+    "short": "Telephone number for the responsible regulatory contact",
+    "definition": "Telephone number for the responsible regulatory contact."
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.system",
+    "path": "Questionnaire.contact.organization.contact.telecom.system",
+    "fixedCode": "phone"
+  },
+  {
+    "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.value",
+    "path": "Questionnaire.contact.organization.contact.telecom.value",
+    "min": 1
+  },
+  {
+    "id": "Questionnaire.contact:receiver",
+    "path": "Questionnaire.contact",
+    "sliceName": "receiver",
+    "min": 1,
+    "max": "1",
+    "mustSupport": true,
+    "short": "Contact details of the marketing authorisation holder/applicant",
+    "definition": "Identifies the pharmaceutical company, marketing authorisation holder, applicant, submitter or sponsor that is the recipient of this Questionnaire and is obliged to provide the completed response."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization",
+    "path": "Questionnaire.contact.organization",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Marketing authorisation holder / sponsor organisation",
+    "definition": "The legal entity (MAH or sponsor) to whom the RTQ Questionnaire is addressed."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.identifier",
+    "path": "Questionnaire.contact.organization.identifier",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Organisation identifier of the MAH/sponsor (e.g., OMS Organization ID)",
+    "definition": "Official identifier of the receiving organisation as registered in OMS or equivalent authoritative system."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.name",
+    "path": "Questionnaire.contact.organization.name",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Legal name of the MAH/sponsor",
+    "definition": "Full legal name of the marketing authorisation holder or sponsor exactly as registered in the master data repository."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.address",
+    "path": "Questionnaire.contact.organization.address",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Registered address of the MAH/sponsor",
+    "definition": "Official registered address of the marketing authorisation holder or sponsor organisation."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact",
+    "path": "Questionnaire.contact.organization.contact",
+    "min": 1,
+    "mustSupport": true,
+    "short": "Regulatory affairs contact person at the MAH/sponsor",
+    "definition": "Individual or role within the MAH/sponsor responsible for completing and returning the RTQ response."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact.telecom",
+    "path": "Questionnaire.contact.organization.contact.telecom",
+    "min": 2,
+    "max": "2",
+    "slicing": {
+      "discriminator": [{ "type": "value", "path": "system" }],
+      "rules": "closed"
+    },
+    "mustSupport": true
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact.telecom:email",
+    "path": "Questionnaire.contact.organization.contact.telecom",
+    "sliceName": "email",
+    "min": 1,
+    "max": "1",
+    "short": "Regulatory contact email of the MAH/sponsor",
+    "definition": "Email address of the person or team at the MAH/sponsor responsible for regulatory correspondence related to this RTQ."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.system",
+    "path": "Questionnaire.contact.organization.contact.telecom.system",
+    "fixedCode": "email"
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.value",
+    "path": "Questionnaire.contact.organization.contact.telecom.value",
+    "min": 1
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone",
+    "path": "Questionnaire.contact.organization.contact.telecom",
+    "sliceName": "phone",
+    "min": 1,
+    "max": "1",
+    "short": "Telephone number of the regulatory contact at the MAH/sponsor",
+    "definition": "Direct telephone number (with country code) of the regulatory contact person at the receiving organisation."
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.system",
+    "path": "Questionnaire.contact.organization.contact.telecom.system",
+    "fixedCode": "phone"
+  },
+  {
+    "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.value",
+    "path": "Questionnaire.contact.organization.contact.telecom.value",
+    "min": 1
+  },
       {
         "id": "Questionnaire.item",
         "path": "Questionnaire.item",
