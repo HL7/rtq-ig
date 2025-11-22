@@ -175,12 +175,94 @@
   "definition": "The full name of the individual representing the regulator, used to personalize and route communications in regulatory affairs workflows."
 },
 {
+  "id": "Questionnaire.contact:sender.name",
+  "path": "Questionnaire.contact.name",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Name of the regulatory contact person",
+  "definition": "Structured name of the individual representing the regulator (e.g., FDA, EMA, PMDA) responsible for the questionnaire."
+},
+{
   "id": "Questionnaire.contact:sender.name.text",
   "path": "Questionnaire.contact.name.text",
   "min": 1,
+  "max": "1",
   "mustSupport": true,
-  "short": "Full name and job title of the regulatory contact",
-  "definition": "The complete name of the regulatory contact, with the text used to capture the person's job title (e.g., 'Dr. Jane Smith, Regulatory Project Manager') for role-based identification in life sciences regulatory interactions."
+  "short": "Job title of the regulatory contact",
+  "definition": "The official job title or role of the regulatory contact person (e.g., Regulatory Project Lead)."
+},
+{
+  "id": "Questionnaire.contact:sender.name.family",
+  "path": "Questionnaire.contact.name.family",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Family name (surname) of the regulatory contact",
+  "definition": "The family name (surname/last name) of the individual at the regulatory authority."
+},
+{
+  "id": "Questionnaire.contact:sender.name.given",
+  "path": "Questionnaire.contact.name.given",
+  "min": 1,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Given name(s) of the regulatory contact",
+  "definition": "The given name(s) (first name(s) and any middle names) of the individual at the regulatory authority."
+},
+{
+  "id": "Questionnaire.contact:sender.name.prefix",
+  "path": "Questionnaire.contact.name.prefix",
+  "min": 0,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Prefix (e.g., Dr., Prof., Mr., Ms.)",
+  "definition": "Honorific prefix or title of the regulatory contact (e.g., Dr., Prof., Mr., Ms.), used for formal addressing in regulatory correspondence."
+},
+{
+  "id": "Questionnaire.contact:receiver.name",
+  "path": "Questionnaire.contact.name",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Name of the Market Authorization Holder (MAH) contact person",
+  "definition": "Structured name of the individual representing the Market Authorization Holder (MAH) or applicant."
+},
+{
+  "id": "Questionnaire.contact:receiver.name.text",
+  "path": "Questionnaire.contact.name.text",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Job title of the MAH contact",
+  "definition": "The official job title or role of the MAH contact person (e.g., 'Head of Regulatory Affairs', 'Global Regulatory Lead', 'CMC Director')."
+},
+{
+  "id": "Questionnaire.contact:receiver.name.family",
+  "path": "Questionnaire.contact.name.family",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Family name (surname) of the MAH contact",
+  "definition": "The family name (surname/last name) of the individual representing the Market Authorization Holder."
+},
+{
+  "id": "Questionnaire.contact:receiver.name.given",
+  "path": "Questionnaire.contact.name.given",
+  "min": 1,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Given name(s) of the MAH contact",
+  "definition": "The given name(s) (first name(s) and any middle names) of the individual at the MAH."
+},
+{
+  "id": "Questionnaire.contact:receiver.name.prefix",
+  "path": "Questionnaire.contact.name.prefix",
+  "min": 0,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Prefix (e.g., Dr., Prof., Mr., Ms.)",
+  "definition": "Honorific prefix or title of the MAH contact (e.g., Dr., Prof., Mr., Ms.), used in formal regulatory communication."
 },
 {
   "id": "Questionnaire.contact:sender.telecom",
