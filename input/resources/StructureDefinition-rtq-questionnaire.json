@@ -448,34 +448,47 @@
         "min": 1
       },
       {
-        "id": "Questionnaire.item",
-        "path": "Questionnaire.item",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.code",
-        "path": "Questionnaire.item.code",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.code.system",
-        "path": "Questionnaire.item.code.system",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.code.code",
-        "path": "Questionnaire.item.code.code",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.item.code.display",
-        "path": "Questionnaire.item.code.display",
-        "min": 1,
-        "mustSupport": true
-      },
+  "id": "Questionnaire.item",
+  "path": "Questionnaire.item",
+  "mustSupport": true,
+  "short": "Question or group in the regulatory questionnaire"
+},
+{
+  "id": "Questionnaire.item.code",
+  "path": "Questionnaire.item.code",
+  "min": 1,
+  "max": "*",
+  "mustSupport": true,
+  "short": "CTD-based category code that classifies the regulatory topic of this question/group",
+  "definition": "A required code from the RTQ CTD Categories CodeSystem (or an allowed extension of it) that identifies which section, subsection, or specific regulatory topic within a medicinal product dossier this questionnaire item pertains to. This enables precise mapping and automated routing in regulatory processes.",
+  "comment": "Examples: '2-3-s-4-2' = Nonclinical Overview, '3-2-p-5-3' = Microbiological quality control, etc.",
+  "binding": {
+    "strength": "extensible",
+    "description": "Codes from the full CTD hierarchy as defined in the RTQ CTD Categories CodeSystem. Additional codes beyond the standard CTD structure may be defined locally or in future versions of the CodeSystem when new regulatory topics are required.",
+    "valueSet": "http://hl7.org/fhir/uv/rtq/ValueSet/ctd-categories-full"
+  }
+},
+{
+  "id": "Questionnaire.item.code.system",
+  "path": "Questionnaire.item.code.system",
+  "min": 1,
+  "fixedUri": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+  "mustSupport": true
+},
+{
+  "id": "Questionnaire.item.code.code",
+  "path": "Questionnaire.item.code.code",
+  "min": 1,
+  "mustSupport": true,
+  "short": "CTD section/subsection code (e.g., 2-3-s-4-2-1)"
+},
+{
+  "id": "Questionnaire.item.code.display",
+  "path": "Questionnaire.item.code.display",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Human-readable title of the CTD category"
+},
       {
         "id": "Questionnaire.item.text",
         "path": "Questionnaire.item.text",
