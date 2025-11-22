@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "-rtq-questionnaire",
+  "id": "rtq-questionnaire",
   "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire",
   "version": "0.1.0",
   "name": "RTQQuestionnaire",
@@ -178,8 +178,8 @@
         "min": 1,
         "max": "1",
         "mustSupport": true,
-        "short": "Job title",
-        "definition": "Contains the job title of the contact person (e.g., 'Senior Scientific Reviewer', 'Head of Regulatory Affairs', 'Pharmacovigilance Lead')."
+        "short": "Job title ONLY",
+        "definition": "Contains ONLY the job title of the contact person (e.g., 'Senior Scientific Reviewer', 'Head of Regulatory Affairs', 'CMC Lead'). This field MUST NOT contain the person's name."
       },
       {
         "id": "Questionnaire.contact.name.family",
@@ -206,19 +206,20 @@
         "short": "Prefix (e.g., Dr., Mr., Ms., Prof.)"
       },
       {
-        "id": "Questionnaire.contact:sender.telecom",
+        "id": "Questionnaire.contact.telecom",
         "path": "Questionnaire.contact.telecom",
         "min": 1,
         "max": "*",
-        "mustSupport": true,
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.contact:sender.telecom",
+        "path": "Questionnaire.contact.telecom",
         "short": "Communication channels for the regulator"
       },
       {
         "id": "Questionnaire.contact:receiver.telecom",
         "path": "Questionnaire.contact.telecom",
-        "min": 1,
-        "max": "*",
-        "mustSupport": true,
         "short": "Communication channels for the MAH"
       },
       {
@@ -273,7 +274,12 @@
         "id": "Questionnaire.item.text.extension",
         "path": "Questionnaire.item.text.extension",
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "url" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
           "rules": "open"
         },
         "min": 1
@@ -284,10 +290,14 @@
         "sliceName": "rendering-xhtml",
         "min": 1,
         "max": "1",
-        "type": [{
-          "code": "Extension",
-          "profile": ["http://hl7.org/fhir/StructureDefinition/rendering-xhtml"]
-        }],
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+            ]
+          }
+        ],
         "mustSupport": true
       }
     ]

@@ -61,7 +61,7 @@
       },
       {
         "reference": {
-          "reference": "StructureDefinition/-rtq-questionnaire"
+          "reference": "StructureDefinition/rtq-questionnaire"
         },
         "description": "Profile of Questionnaire for regulatory exchange of questions, issues and information requests between regulators and industry in the medicinal product lifecycle.",
         "name": "Regulatory Questionnaire",
