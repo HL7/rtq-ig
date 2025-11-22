@@ -152,8 +152,8 @@
       "rules": "closed"
     },
     "mustSupport": true,
-    "short": "Sender (issuing regulatory authority) and receiver (MAH/sponsor) contact details",
-    "definition": "Exactly two contacts shall be present: one identifying the competent authority that issued the Request to Qualify Questionnaire (sender) and one identifying the marketing authorisation holder or sponsor that is required to complete and return the QuestionnaireResponse (receiver). Slicing is based on organization.name to distinguish the two parties."
+    "short": "Sender (issuing regulatory authority) and receiver (MAH/applicant) contact details",
+    "definition": "Exactly two contacts shall be present: one identifying the competent authority that issued the Request to Qualify Questionnaire (sender) and one identifying the marketing authorisation holder or applicant that is required to complete and return the QuestionnaireResponse (receiver). Slicing is based on organization.name to distinguish the two parties."
   },
   {
     "id": "Questionnaire.contact:sender",
@@ -163,7 +163,7 @@
     "max": "1",
     "mustSupport": true,
     "short": "Contact details of the issuing competent authority (regulator)",
-    "definition": "Identifies the regulatory authority or agency that has created and sent this Request to Qualify Questionnaire to the marketing authorisation holder."
+    "definition": "Identifies the regulatory authority or agency that has created and sent this Questionnaire to the marketing authorisation holder."
   },
   {
     "id": "Questionnaire.contact:sender.organization",
@@ -171,7 +171,7 @@
     "min": 1,
     "mustSupport": true,
     "short": "Issuing competent authority",
-    "definition": "The regulatory agency (e.g., EMA, national competent authority) responsible for issuing the RTQ Questionnaire."
+    "definition": "The regulatory agency (e.g., EMA, national competent authority) responsible for issuing Questionnaire."
   },
   {
     "id": "Questionnaire.contact:sender.organization.identifier",
@@ -179,7 +179,7 @@
     "min": 1,
     "mustSupport": true,
     "short": "Regulatory authority identifier (e.g., OMS Location ID)",
-    "definition": "Official identifier of the issuing competent authority as registered in OMS or equivalent master data system."
+    "definition": "Official identifier of the issuing competent authority."
   },
   {
     "id": "Questionnaire.contact:sender.organization.name",
@@ -187,23 +187,81 @@
     "min": 1,
     "mustSupport": true,
     "short": "Official name of the issuing regulatory authority",
-    "definition": "Full official name of the competent authority issuing the Questionnaire (e.g., European Medicines Agency, Health Products Regulatory Authority)."
+    "definition": "Full official name of the competent authority issuing the Questionnaire (e.g., European Medicines Agency)."
   },
-  {
-    "id": "Questionnaire.contact:sender.organization.address",
-    "path": "Questionnaire.contact.organization.address",
-    "min": 1,
-    "mustSupport": true,
-    "short": "Official address of the issuing regulatory authority",
-    "definition": "Public registered address of the competent authority that issued the RTQ."
-  },
+{
+  "id": "Questionnaire.contact:sender.organization.address",
+  "path": "Questionnaire.contact.organization.address",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Official address of the issuing competent authority",
+  "definition": "Complete official address of the regulatory authority that issued the Questionnaire."
+},
+{
+  "id": "Questionnaire.contact:sender.organization.address.text",
+  "path": "Questionnaire.contact.organization.address.text",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Full formatted address of the issuing authority",
+  "definition": "Complete address of the competent authority as a single human-readable string (for display and verification purposes)."
+},
+{
+  "id": "Questionnaire.contact:sender.organization.address.line",
+  "path": "Questionnaire.contact.organization.address.line",
+  "min": 1,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Street address lines of the issuing authority",
+  "definition": "Street address (including building, floor, department, P.O. Box, etc.) of the regulatory authority."
+},
+{
+  "id": "Questionnaire.contact:sender.organization.address.city",
+  "path": "Questionnaire.contact.organization.address.city",
+  "min": 1,
+  "mustSupport": true,
+  "short": "City of the issuing competent authority",
+  "definition": "City or municipality where the regulatory authority is located."
+},
+{
+  "id": "Questionnaire.contact:sender.organization.address.district",
+  "path": "Questionnaire.contact.organization.address.district",
+  "min": 0,
+  "mustSupport": true,
+  "short": "District (sub-division of city) of the issuing authority",
+  "definition": "District or borough within the city (if applicable)."
+},
+{
+  "id": "Questionnaire.contact:sender.organization.address.state",
+  "path": "Questionnaire.contact.organization.address.state",
+  "min": 0,
+  "mustSupport": true,
+  "short": "State, province or region of the issuing authority",
+  "definition": "State, province, canton or equivalent administrative region of the regulatory authority (required when applicable, e.g., for national agencies in federal countries)."
+},
+{
+  "id": "Questionnaire.contact:sender.organization.address.postalCode",
+  "path": "Questionnaire.contact.organization.address.postalCode",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Postal code of the issuing authority",
+  "definition": "Postal or ZIP code of the regulatory authority’s address."
+},
+{
+  "id": "Questionnaire.contact:sender.organization.address.country",
+  "path": "Questionnaire.contact.organization.address.country",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Country of the issuing competent authority",
+  "definition": "ISO 3166-1 alpha-2 country code of the country in which the regulatory authority is established (e.g., 'NL' for Netherlands, 'GB' for United Kingdom)."
+},
   {
     "id": "Questionnaire.contact:sender.organization.contact",
     "path": "Questionnaire.contact.organization.contact",
     "min": 1,
     "mustSupport": true,
-    "short": "Primary contact or functional mailbox at the issuing authority",
-    "definition": "Designated contact person or role within the regulatory authority responsible for this RTQ procedure and for receiving the completed response."
+    "short": "Primary contact at the issuing authority",
+    "definition": "Designated contact person or role within the regulatory authority responsible for this Questionnaire and for receiving the completed response."
   },
   {
     "id": "Questionnaire.contact:sender.organization.contact.telecom",
@@ -223,7 +281,7 @@
     "min": 1,
     "max": "1",
     "short": "Official email for the designated regulatory contact",
-    "definition": "Dedicated email address of the issuing authority."
+    "definition": "Official email for the designated regulatory contact"
   },
   {
     "id": "Questionnaire.contact:sender.organization.contact.telecom:email.system",
@@ -262,47 +320,105 @@
     "max": "1",
     "mustSupport": true,
     "short": "Contact details of the marketing authorisation holder/applicant",
-    "definition": "Identifies the pharmaceutical company, marketing authorisation holder, applicant, submitter or sponsor that is the recipient of this Questionnaire and is obliged to provide the completed response."
+    "definition": "Identifies the pharmaceutical company, marketing authorisation holder, submitter or applicant that is the recipient of this Questionnaire and is obliged to provide the completed response."
   },
   {
     "id": "Questionnaire.contact:receiver.organization",
     "path": "Questionnaire.contact.organization",
     "min": 1,
     "mustSupport": true,
-    "short": "Marketing authorisation holder / sponsor organisation",
-    "definition": "The legal entity (MAH or sponsor) to whom the RTQ Questionnaire is addressed."
+    "short": "Marketing authorisation holder / applicant organisation",
+    "definition": "The legal entity (MAH or applicant) to whom the Questionnaire is addressed."
   },
   {
     "id": "Questionnaire.contact:receiver.organization.identifier",
     "path": "Questionnaire.contact.organization.identifier",
     "min": 1,
     "mustSupport": true,
-    "short": "Organisation identifier of the MAH/sponsor (e.g., OMS Organization ID)",
-    "definition": "Official identifier of the receiving organisation as registered in OMS or equivalent authoritative system."
+    "short": "Organisation identifier of the MAH/applicant (e.g., OMS Organization ID)",
+    "definition": "Official identifier of the receiving organisation as registered in an authoritative system."
   },
   {
     "id": "Questionnaire.contact:receiver.organization.name",
     "path": "Questionnaire.contact.organization.name",
     "min": 1,
     "mustSupport": true,
-    "short": "Legal name of the MAH/sponsor",
-    "definition": "Full legal name of the marketing authorisation holder or sponsor exactly as registered in the master data repository."
+    "short": "Legal name of the MAH/applicant",
+    "definition": "Full legal name of the marketing authorisation holder or applicant."
   },
-  {
-    "id": "Questionnaire.contact:receiver.organization.address",
-    "path": "Questionnaire.contact.organization.address",
-    "min": 1,
-    "mustSupport": true,
-    "short": "Registered address of the MAH/sponsor",
-    "definition": "Official registered address of the marketing authorisation holder or sponsor organisation."
-  },
+{
+  "id": "Questionnaire.contact:receiver.organization.address",
+  "path": "Questionnaire.contact.organization.address",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Official registered address of the marketing authorisation holder/sponsor",
+  "definition": "Complete official registered address of the MAH or sponsor organisation to whom the Questionnaire is addressed."
+},
+{
+  "id": "Questionnaire.contact:receiver.organization.address.text",
+  "path": "Questionnaire.contact.organization.address.text",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Full formatted address of the MAH/sponsor (human-readable)",
+  "definition": "Complete address of the marketing authorisation holder or sponsor as a single formatted string for display, verification, and correspondence purposes."
+},
+{
+  "id": "Questionnaire.contact:receiver.organization.address.line",
+  "path": "Questionnaire.contact.organization.address.line",
+  "min": 1,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Street address lines of the MAH/sponsor",
+  "definition": "One or more lines containing the street address, building name/number, floor, department, P.O. Box, etc., of the marketing authorisation holder or sponsor as registered in OMS or equivalent authoritative source."
+},
+{
+  "id": "Questionnaire.contact:receiver.organization.address.city",
+  "path": "Questionnaire.contact.organization.address.city",
+  "min": 1,
+  "mustSupport": true,
+  "short": "City of the MAH/sponsor registered address",
+  "definition": "City or municipality in which the marketing authorisation holder or sponsor is legally registered."
+},
+{
+  "id": "Questionnaire.contact:receiver.organization.address.district",
+  "path": "Questionnaire.contact.organization.address.district",
+  "min": 0,
+  "mustSupport": true,
+  "short": "District or borough (if applicable)",
+  "definition": "District, borough or sub-division of the city in which the MAH/sponsor is located (used when relevant, e.g., in large metropolitan areas)."
+},
+{
+  "id": "Questionnaire.contact:receiver.organization.address.state",
+  "path": "Questionnaire.contact.organization.address.state",
+  "min": 0,
+  "mustSupport": true,
+  "short": "State, province or region of the MAH/sponsor",
+  "definition": "State, province, canton, or equivalent administrative region of the MAH/sponsor’s registered address (required when the country has such subdivisions)."
+},
+{
+  "id": "Questionnaire.contact:receiver.organization.address.postalCode",
+  "path": "Questionnaire.contact.organization.address.postalCode",
+  "min": 1,
+  "mustSupport": true,
+  "|short": "Postal/ZIP code of the MAH/sponsor",
+  "definition": "Postal code or ZIP code of the marketing authorisation holder or sponsor’s registered address."
+},
+{
+  "id": "Questionnaire.contact:receiver.organization.address.country",
+  "path": "Questionnaire.contact.organization.address.country",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Country of the MAH/sponsor registered address",
+  "definition": "ISO 3166-1 alpha-2 country code of the country in which the marketing authorisation holder or sponsor is legally established (e.g., 'DE' for Germany, 'US' for United States)."
+},
   {
     "id": "Questionnaire.contact:receiver.organization.contact",
     "path": "Questionnaire.contact.organization.contact",
     "min": 1,
     "mustSupport": true,
-    "short": "Regulatory affairs contact person at the MAH/sponsor",
-    "definition": "Individual or role within the MAH/sponsor responsible for completing and returning the RTQ response."
+    "short": "Regulatory affairs contact person at the MAH/applicant",
+    "definition": "Individual or role within the MAH/applicant responsible for completing and returning the response."
   },
   {
     "id": "Questionnaire.contact:receiver.organization.contact.telecom",
@@ -321,8 +437,8 @@
     "sliceName": "email",
     "min": 1,
     "max": "1",
-    "short": "Regulatory contact email of the MAH/sponsor",
-    "definition": "Email address of the person or team at the MAH/sponsor responsible for regulatory correspondence related to this RTQ."
+    "short": "Regulatory contact email of the MAH/applicant",
+    "definition": "Email address of the person or team at the MAH/applicant responsible for regulatory correspondence related to this regulatory activity."
   },
   {
     "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.system",
@@ -340,7 +456,7 @@
     "sliceName": "phone",
     "min": 1,
     "max": "1",
-    "short": "Telephone number of the regulatory contact at the MAH/sponsor",
+    "short": "Telephone number of the regulatory contact at the MAH/applicant",
     "definition": "Direct telephone number (with country code) of the regulatory contact person at the receiving organisation."
   },
   {
