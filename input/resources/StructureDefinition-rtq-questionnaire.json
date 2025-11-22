@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "rtq-questionnaire",
+  "id": "-rtq-questionnaire",
   "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire",
   "version": "0.1.0",
   "name": "RTQQuestionnaire",
@@ -43,73 +43,61 @@
         "fixedCanonical": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire",
         "mustSupport": true
       },
-{
-  "id": "Questionnaire.identifier",
-  "path": "Questionnaire.identifier",
-  "min": 1,
-  "max": "2",
-  "slicing": {
-    "discriminator": [
       {
-        "type": "value",
-        "path": "type.coding.code"
-      }
-    ],
-    "ordered": false,
-    "rules": "closed"
-  },
-  "mustSupport": true
-},
-{
-  "id": "Questionnaire.identifier:company",
-  "path": "Questionnaire.identifier",
-  "sliceName": "company",
-  "min": 0,
-  "max": "1",
-  "mustSupport": true
-},
-{
-  "id": "Questionnaire.identifier:company.type",
-  "path": "Questionnaire.identifier.type",
-  "min": 1,
-  "mustSupport": true
-},
-{
-  "id": "Questionnaire.identifier:company.type.coding",
-  "path": "Questionnaire.identifier.type.coding",
-  "min": 1,
-  "max": "1",
-  "fixedCoding": {
-    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type",
-    "code": "company-id",
-    "display": "Company-issued Identifier"
-  }
-},
-{
-  "id": "Questionnaire.identifier:regulator",
-  "path": "Questionnaire.identifier",
-  "sliceName": "regulator",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true
-},
-{
-  "id": "Questionnaire.identifier:regulator.type",
-  "path": "Questionnaire.identifier.type",
-  "min": 1,
-  "mustSupport": true
-},
-{
-  "id": "Questionnaire.identifier:regulator.type.coding",
-  "path": "Questionnaire.identifier.type.coding",
-  "min": 1,
-  "max": "1",
-  "fixedCoding": {
-    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type",
-    "code": "regulator-id",
-    "display": "Regulator-issued Identifier"
-  }
-},
+        "id": "Questionnaire.identifier",
+        "path": "Questionnaire.identifier",
+        "min": 1,
+        "max": "2",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type.coding.code"
+            }
+          ],
+          "ordered": false,
+          "rules": "closed"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.identifier:company",
+        "path": "Questionnaire.identifier",
+        "sliceName": "company",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.identifier:company.type.coding",
+        "path": "Questionnaire.identifier.type.coding",
+        "min": 1,
+        "max": "1",
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type",
+          "code": "company-id",
+          "display": "Company-issued Identifier"
+        }
+      },
+      {
+        "id": "Questionnaire.identifier:regulator",
+        "path": "Questionnaire.identifier",
+        "sliceName": "regulator",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.identifier:regulator.type.coding",
+        "path": "Questionnaire.identifier.type.coding",
+        "min": 1,
+        "max": "1",
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type",
+          "code": "regulator-id",
+          "display": "Regulator-issued Identifier"
+        }
+      },
       {
         "id": "Questionnaire.version",
         "path": "Questionnaire.version",
@@ -138,386 +126,143 @@
         "max": "0"
       },
       {
-  "id": "Questionnaire.contact",
-  "path": "Questionnaire.contact",
-  "slicing": {
-    "discriminator": [
+        "id": "Questionnaire.contact",
+        "path": "Questionnaire.contact",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "type.coding.code"
+            }
+          ],
+          "ordered": false,
+          "rules": "closed"
+        },
+        "min": 2,
+        "max": "2",
+        "mustSupport": true,
+        "short": "Contact parties for regulatory questionnaire exchange",
+        "definition": "Exactly two contacts must be present: the regulator (sender) and the Market Authorization Holder (receiver)."
+      },
       {
-        "type": "value",
-        "path": "type.coding.code"
-      }
-    ],
-    "ordered": false,
-    "rules": "closed"
-  },
-  "min": 2,
-  "max": "2",
-  "mustSupport": true,
-  "short": "Contact parties for regulatory questionnaire exchange",
-  "definition": "Contact details for parties involved in the creation, review, or submission of the questionnaire, such as the regulator and market authorization holder, to enable secure communication in medicinal product regulatory processes."
-},
-{
-  "id": "Questionnaire.contact:sender",
-  "path": "Questionnaire.contact",
-  "sliceName": "sender",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Contact details for the Regulator",
-  "definition": "Contact information for the regulatory authority (e.g., FDA, EMA, PMDA) sending or reviewing the questionnaire, including name, title, and communication channels for official regulated product assessments."
-},
-{
-  "id": "Questionnaire.contact:sender.name",
-  "path": "Questionnaire.contact.name",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Name of the regulatory contact person",
-  "definition": "Structured name of the individual representing the regulator (e.g., FDA, EMA, PMDA) responsible for the questionnaire."
-},
-{
-  "id": "Questionnaire.contact:sender.name.text",
-  "path": "Questionnaire.contact.name.text",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Job title of the regulatory contact",
-  "definition": "The official job title or role of the regulatory contact person (e.g., Regulatory Project Lead)."
-},
-{
-  "id": "Questionnaire.contact:sender.name.family",
-  "path": "Questionnaire.contact.name.family",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Family name (surname) of the regulatory contact",
-  "definition": "The family name (surname/last name) of the individual at the regulatory authority."
-},
-{
-  "id": "Questionnaire.contact:sender.name.given",
-  "path": "Questionnaire.contact.name.given",
-  "min": 1,
-  "max": "*",
-  "mustSupport": true,
-  "short": "Given name(s) of the regulatory contact",
-  "definition": "The given name(s) (first name(s) and any middle names) of the individual at the regulatory authority."
-},
-{
-  "id": "Questionnaire.contact:sender.name.prefix",
-  "path": "Questionnaire.contact.name.prefix",
-  "min": 0,
-  "max": "*",
-  "mustSupport": true,
-  "short": "Prefix (e.g., Dr., Prof., Mr., Ms.)",
-  "definition": "Honorific prefix or title of the regulatory contact (e.g., Dr., Prof., Mr., Ms.), used for formal addressing in regulatory correspondence."
-},
-{
-  "id": "Questionnaire.contact:receiver.name",
-  "path": "Questionnaire.contact.name",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Name of the Market Authorization Holder (MAH) contact person",
-  "definition": "Structured name of the individual representing the Market Authorization Holder (MAH) or applicant."
-},
-{
-  "id": "Questionnaire.contact:receiver.name.text",
-  "path": "Questionnaire.contact.name.text",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Job title of the MAH contact",
-  "definition": "The official job title or role of the MAH contact person (e.g., 'Head of Regulatory Affairs', 'Global Regulatory Lead', 'CMC Director')."
-},
-{
-  "id": "Questionnaire.contact:receiver.name.family",
-  "path": "Questionnaire.contact.name.family",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Family name (surname) of the MAH contact",
-  "definition": "The family name (surname/last name) of the individual representing the Market Authorization Holder."
-},
-{
-  "id": "Questionnaire.contact:receiver.name.given",
-  "path": "Questionnaire.contact.name.given",
-  "min": 1,
-  "max": "*",
-  "mustSupport": true,
-  "short": "Given name(s) of the MAH contact",
-  "definition": "The given name(s) (first name(s) and any middle names) of the individual at the MAH."
-},
-{
-  "id": "Questionnaire.contact:receiver.name.prefix",
-  "path": "Questionnaire.contact.name.prefix",
-  "min": 0,
-  "max": "*",
-  "mustSupport": true,
-  "short": "Prefix (e.g., Dr., Prof., Mr., Ms.)",
-  "definition": "Honorific prefix or title of the MAH contact (e.g., Dr., Prof., Mr., Ms.), used in formal regulatory communication."
-},
-{
-  "id": "Questionnaire.contact:sender.telecom",
-  "path": "Questionnaire.contact.telecom",
-  "min": 1,
-  "max": "*",
-  "mustSupport": true,
-  "short": "Communication channels for the regulator",
-  "definition": "Contact methods (e.g., email, phone) for the regulatory authority, ensuring reliable exchange of questionnaire data and responses in medicinal product submissions."
-},
-{
-  "id": "Questionnaire.contact:sender.telecom.system",
-  "path": "Questionnaire.contact.telecom.system",
-  "min": 1,
-  "mustSupport": true,
-  "short": "Type of telecommunication (e.g., email, phone)",
-  "definition": "The type of telecommunication system used for contacting the regulator, such as 'email' for secure document transmission or 'phone' for urgent clarifications."
-},
-{
-  "id": "Questionnaire.contact:sender.telecom.value",
-  "path": "Questionnaire.contact.telecom.value",
-  "min": 1,
-  "mustSupport": true,
-  "short": "Actual contact details (e.g., email address)",
-  "definition": "The actual telecommunication value, such as an email address or phone number, for direct outreach to the regulatory contact in biopharmaceutical processes."
-},
-{
-  "id": "Questionnaire.contact:sender.telecom.use",
-  "path": "Questionnaire.contact.telecom.use",
-  "short": "Purpose of this contact method (i.e., work)",
-  "definition": "Identifies the intended use of the telecommunication channel for official regulatory communications."
-},
-{
-  "id": "Questionnaire.contact:sender.telecom.rank",
-  "path": "Questionnaire.contact.telecom.rank",
-  "short": "Order of preference for contact methods",
-  "definition": "The relative importance or order of preference for using this telecommunication channel when multiple options are available for regulator contact."
-},
-{
-  "id": "Questionnaire.contact:sender.address",
-  "path": "Questionnaire.contact.address",
-  "short": "Physical address for the regulator",
-  "definition": "Mailing or physical address of the regulatory authority, useful for formal correspondence or document submissions in healthcare regulatory affairs."
-},
-{
-  "id": "Questionnaire.contact:sender.address.use",
-  "path": "Questionnaire.contact.address.use",
-  "short": "Classification of the address (i.e., work)",
-  "definition": "The purpose of the address for the official regulatory office location in life sciences contexts."
-},
-{
-  "id": "Questionnaire.contact:sender.address.type",
-  "path": "Questionnaire.contact.address.type",
-  "short": "Type of address (postal, physical, both)",
-  "definition": "Specifies whether the address is postal, physical, or both, for accurate routing of regulatory materials."
-},
-{
-  "id": "Questionnaire.contact:sender.address.text",
-  "path": "Questionnaire.contact.address.text",
-  "short": "Full formatted address string",
-  "definition": "A human-readable formatted version of the address for the regulator, combining all components for quick reference."
-},
-{
-  "id": "Questionnaire.contact:sender.address.line",
-  "path": "Questionnaire.contact.address.line",
-  "short": "Street address lines",
-  "definition": "Address lines for street, suite, or other sub-address details of the regulatory office."
-},
-{
-  "id": "Questionnaire.contact:sender.address.city",
-  "path": "Questionnaire.contact.address.city",
-  "short": "City or district",
-  "definition": "The city or locality where the regulatory contact is based."
-},
-{
-  "id": "Questionnaire.contact:sender.address.district",
-  "path": "Questionnaire.contact.address.district",
-  "short": "District or neighborhood",
-  "definition": "The district or sub-region within the city for the regulator's address."
-},
-{
-  "id": "Questionnaire.contact:sender.address.state",
-  "path": "Questionnaire.contact.address.state",
-  "short": "State or province",
-  "definition": "The state, province, or equivalent for the regulatory authority's location."
-},
-{
-  "id": "Questionnaire.contact:sender.address.postalCode",
-  "path": "Questionnaire.contact.address.postalCode",
-  "short": "Postal code",
-  "definition": "The postal or ZIP code for the regulator's address."
-},
-{
-  "id": "Questionnaire.contact:sender.address.country",
-  "path": "Questionnaire.contact.address.country",
-  "short": "Country code",
-  "definition": "The country where the regulatory contact is located, using ISO 3166-1 alpha-2 codes."
-},
-{
-  "id": "Questionnaire.contact:receiver",
-  "path": "Questionnaire.contact",
-  "sliceName": "receiver",
-  "min": 1,
-  "max": "1",
-  "mustSupport": true,
-  "short": "Contact details for the Market Authorization Holder (MAH)",
-  "definition": "Contact information for the Market Authorization Holder (MAH) or applicant receiving the questionnaire, including name, title, and communication channels for medicinal product lifecycle management."
-},
-{
-  "id": "Questionnaire.contact:receiver.name",
-  "path": "Questionnaire.contact.name",
-  "min": 1,
-  "mustSupport": true,
-  "short": "Name of the MAH contact",
-  "definition": "The full name of the individual representing the MAH, used for accountability in regulatory submissions."
-},
-{
-  "id": "Questionnaire.contact:receiver.name.text",
-  "path": "Questionnaire.contact.name.text",
-  "min": 1,
-  "mustSupport": true,
-  "short": "Full name and job title of the MAH contact",
-  "definition": "The complete name of the MAH contact, with the text used to capture the person's job title (e.g., 'John Doe, Regulatory Affairs Manager') for role-based identification in regulatory workflows."
-},
-{
-  "id": "Questionnaire.contact:receiver.telecom",
-  "path": "Questionnaire.contact.telecom",
-  "min": 1,
-  "max": "*",
-  "mustSupport": true,
-  "short": "Communication channels for the MAH",
-  "definition": "Contact methods (e.g., email, phone) for the MAH, supporting efficient response to regulatory questionnaires."
-},
-{
-  "id": "Questionnaire.contact:receiver.telecom.system",
-  "path": "Questionnaire.contact.telecom.system",
-  "min": 1,
-  "mustSupport": true,
-  "short": "Type of telecommunication (e.g., email, phone)",
-  "definition": "The type of telecommunication system used for contacting the MAH, such as 'email' for submission portals."
-},
-{
-  "id": "Questionnaire.contact:receiver.telecom.value",
-  "path": "Questionnaire.contact.telecom.value",
-  "min": 1,
-  "mustSupport": true,
-  "short": "Actual contact details (e.g., email address)",
-  "definition": "The actual telecommunication value for the MAH contact, enabling direct regulatory coordination."
-},
-{
-  "id": "Questionnaire.contact:receiver.telecom.use",
-  "path": "Questionnaire.contact.telecom.use",
-  "short": "Purpose of this contact method (i.e., work)",
-  "definition": "Identifies the intended use of the telecommunication channel for MAH business operations."
-},
-{
-  "id": "Questionnaire.contact:receiver.telecom.rank",
-  "path": "Questionnaire.contact.telecom.rank",
-  "short": "Order of preference for contact methods",
-  "definition": "The relative importance or order of preference for using this telecommunication channel for MAH responses."
-},
-{
-  "id": "Questionnaire.contact:receiver.address",
-  "path": "Questionnaire.contact.address",
-  "short": "Physical address for the MAH",
-  "definition": "Mailing or physical address of the MAH, for formal regulatory documentation."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.use",
-  "path": "Questionnaire.contact.address.use",
-  "short": "Classification of the address (i.e., work)",
-  "definition": "The purpose of the address for the MAH's corporate headquarters."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.type",
-  "path": "Questionnaire.contact.address.type",
-  "short": "Type of address (postal, physical, both)",
-  "definition": "Specifies whether the address is postal, physical, or both, for MAH correspondence."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.text",
-  "path": "Questionnaire.contact.address.text",
-  "short": "Full formatted address string",
-  "definition": "A human-readable formatted version of the MAH address for quick reference."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.line",
-  "path": "Questionnaire.contact.address.line",
-  "short": "Street address lines",
-  "definition": "Address lines for street, suite, or other sub-address details of the MAH."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.city",
-  "path": "Questionnaire.contact.address.city",
-  "short": "City or district",
-  "definition": "The city or locality where the MAH contact is based."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.district",
-  "path": "Questionnaire.contact.address.district",
-  "short": "District or neighborhood",
-  "definition": "The district or sub-region within the city for the MAH's address."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.state",
-  "path": "Questionnaire.contact.address.state",
-  "short": "State or province",
-  "definition": "The state, province, or equivalent for the MAH's location."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.postalCode",
-  "path": "Questionnaire.contact.address.postalCode",
-  "short": "Postal code",
-  "definition": "The postal or ZIP code for the MAH's address."
-},
-{
-  "id": "Questionnaire.contact:receiver.address.country",
-  "path": "Questionnaire.contact.address.country",
-  "short": "Country code",
-  "definition": "The country where the MAH is located, using ISO 3166-1 alpha-2."
-},
+        "id": "Questionnaire.contact:sender",
+        "path": "Questionnaire.contact",
+        "sliceName": "sender",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "short": "Contact details for the Regulator",
+        "definition": "Contact information for the regulatory authority (e.g., FDA, EMA, PMDA) sending or reviewing the questionnaire."
+      },
       {
-  "id": "Questionnaire.item",
-  "path": "Questionnaire.item",
-  "mustSupport": true,
-  "short": "Question in the regulatory questionnaire"
-},
-{
-  "id": "Questionnaire.item.code",
-  "path": "Questionnaire.item.code",
-  "min": 1,
-  "max": "*",
-  "mustSupport": true,
-  "short": "CTD-based category code that classifies the regulatory topic of this question/group",
-  "definition": "A required code from the RTQ CTD Categories CodeSystem (or an allowed extension of it) that identifies which section, subsection, or specific regulatory topic within a medicinal product dossier this questionnaire item pertains to. This enables precise mapping and automated routing in regulatory processes.",
-  "comment": "Examples: '2-3-s-4-2' = Nonclinical Overview, '3-2-p-5-3' = Microbiological quality control, etc.",
-  "binding": {
-    "strength": "extensible",
-    "description": "Codes from the full CTD hierarchy as defined in the RTQ CTD Categories CodeSystem. Additional codes beyond the standard CTD structure may be defined locally or in future versions of the CodeSystem when new regulatory topics are required.",
-    "valueSet": "http://hl7.org/fhir/uv/rtq/ValueSet/ctd-categories-full"
-  }
-},
-{
-  "id": "Questionnaire.item.code.system",
-  "path": "Questionnaire.item.code.system",
-  "min": 1,
-  "fixedUri": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
-  "mustSupport": true
-},
-{
-  "id": "Questionnaire.item.code.code",
-  "path": "Questionnaire.item.code.code",
-  "min": 1,
-  "mustSupport": true,
-  "short": "CTD section/subsection code (e.g., 2-3-s-4-2-1)"
-},
-{
-  "id": "Questionnaire.item.code.display",
-  "path": "Questionnaire.item.code.display",
-  "min": 1,
-  "mustSupport": true,
-  "short": "Human-readable title of the CTD category"
-},
+        "id": "Questionnaire.contact:receiver",
+        "path": "Questionnaire.contact",
+        "sliceName": "receiver",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "short": "Contact details for the Market Authorization Holder (MAH)",
+        "definition": "Contact information for the Market Authorization Holder (MAH) or applicant receiving the questionnaire."
+      },
+      {
+        "id": "Questionnaire.contact.name",
+        "path": "Questionnaire.contact.name",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "short": "Structured name of the contact person"
+      },
+      {
+        "id": "Questionnaire.contact.name.text",
+        "path": "Questionnaire.contact.name.text",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "short": "Job title",
+        "definition": "Contains the job title of the contact person (e.g., 'Senior Scientific Reviewer', 'Head of Regulatory Affairs', 'Pharmacovigilance Lead')."
+      },
+      {
+        "id": "Questionnaire.contact.name.family",
+        "path": "Questionnaire.contact.name.family",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true,
+        "short": "Family name / surname"
+      },
+      {
+        "id": "Questionnaire.contact.name.given",
+        "path": "Questionnaire.contact.name.given",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true,
+        "short": "Given name(s)"
+      },
+      {
+        "id": "Questionnaire.contact.name.prefix",
+        "path": "Questionnaire.contact.name.prefix",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true,
+        "short": "Prefix (e.g., Dr., Mr., Ms., Prof.)"
+      },
+      {
+        "id": "Questionnaire.contact:sender.telecom",
+        "path": "Questionnaire.contact.telecom",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true,
+        "short": "Communication channels for the regulator"
+      },
+      {
+        "id": "Questionnaire.contact:receiver.telecom",
+        "path": "Questionnaire.contact.telecom",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true,
+        "short": "Communication channels for the MAH"
+      },
+      {
+        "id": "Questionnaire.item",
+        "path": "Questionnaire.item",
+        "mustSupport": true,
+        "short": "Question in the regulatory questionnaire"
+      },
+      {
+        "id": "Questionnaire.item.code",
+        "path": "Questionnaire.item.code",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true,
+        "short": "CTD-based category code that classifies the regulatory topic of this question/group",
+        "definition": "A required code from the RTQ CTD Categories CodeSystem (or an allowed extension of it) that identifies which section, subsection, or specific regulatory topic within a medicinal product dossier this questionnaire item pertains to. This enables precise mapping and automated routing in regulatory processes.",
+        "comment": "Examples: '2-3-s-4-2' = Nonclinical Overview, '3-2-p-5-3' = Microbiological quality control, etc.",
+        "binding": {
+          "strength": "extensible",
+          "description": "Codes from the full CTD hierarchy as defined in the RTQ CTD Categories CodeSystem. Additional codes beyond the standard CTD structure may be defined locally or in future versions of the CodeSystem when new regulatory topics are required.",
+          "valueSet": "http://hl7.org/fhir/uv/rtq/ValueSet/ctd-categories-full"
+        }
+      },
+      {
+        "id": "Questionnaire.item.code.system",
+        "path": "Questionnaire.item.code.system",
+        "min": 1,
+        "fixedUri": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+        "mustSupport": true
+      },
+      {
+        "id": "Questionnaire.item.code.code",
+        "path": "Questionnaire.item.code.code",
+        "min": 1,
+        "mustSupport": true,
+        "short": "CTD section/subsection code (e.g., 2-3-s-4-2-1)"
+      },
+      {
+        "id": "Questionnaire.item.code.display",
+        "path": "Questionnaire.item.code.display",
+        "min": 1,
+        "mustSupport": true,
+        "short": "Human-readable title of the CTD category"
+      },
       {
         "id": "Questionnaire.item.text",
         "path": "Questionnaire.item.text",
