@@ -17,8 +17,8 @@
   "derivation": "constraint",
   "example": [
 {
-    "label": "Example Questionnaire from a Regulator",
-    "name": "Questionnaire-RegulatoryQA-ID001.xml"
+    "label": "RegulatoryQA-ID00",
+    "name": "Example Questionnaire from a Regulator"
   }
   ],
   "differential": {
