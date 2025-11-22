@@ -138,320 +138,275 @@
         "max": "0"
       },
       {
-        "id": "Questionnaire.contact",
-        "path": "Questionnaire.contact",
-        "min": 2,
-        "max": "2",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "organization.name"
-            }
-          ],
-          "rules": "closed"
-        },
-        "mustSupport": true
-      },
+  "id": "Questionnaire.contact",
+  "path": "Questionnaire.contact",
+  "slicing": {
+    "discriminator": [
       {
-        "id": "Questionnaire.contact:sender",
-        "path": "Questionnaire.contact",
-        "sliceName": "sender",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization",
-        "path": "Questionnaire.contact.organization",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.identifier",
-        "path": "Questionnaire.contact.organization.identifier",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.name",
-        "path": "Questionnaire.contact.organization.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address",
-        "path": "Questionnaire.contact.organization.address",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.text",
-        "path": "Questionnaire.contact.organization.address.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.line",
-        "path": "Questionnaire.contact.organization.address.line",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.city",
-        "path": "Questionnaire.contact.organization.address.city",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.district",
-        "path": "Questionnaire.contact.organization.address.district",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.state",
-        "path": "Questionnaire.contact.organization.address.state",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.postalCode",
-        "path": "Questionnaire.contact.organization.address.postalCode",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.address.country",
-        "path": "Questionnaire.contact.organization.address.country",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact",
-        "path": "Questionnaire.contact.organization.contact",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name",
-        "path": "Questionnaire.contact.organization.contact.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name.text",
-        "path": "Questionnaire.contact.organization.contact.name.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name.family",
-        "path": "Questionnaire.contact.organization.contact.name.family",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.name.given",
-        "path": "Questionnaire.contact.organization.contact.name.given",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "min": 2,
-        "max": "2",
-        "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
-          "rules": "closed"
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:email",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "email",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:email.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "email"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:email.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "phone",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "phone"
-      },
-      {
-        "id": "Questionnaire.contact:sender.organization.contact.telecom:phone.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
-      {
-        "id": "Questionnaire.contact:receiver",
-        "path": "Questionnaire.contact",
-        "sliceName": "receiver",
-        "min": 1,
-        "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization",
-        "path": "Questionnaire.contact.organization",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.identifier",
-        "path": "Questionnaire.contact.organization.identifier",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.name",
-        "path": "Questionnaire.contact.organization.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address",
-        "path": "Questionnaire.contact.organization.address",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.text",
-        "path": "Questionnaire.contact.organization.address.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.line",
-        "path": "Questionnaire.contact.organization.address.line",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.city",
-        "path": "Questionnaire.contact.organization.address.city",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.district",
-        "path": "Questionnaire.contact.organization.address.district",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.state",
-        "path": "Questionnaire.contact.organization.address.state",
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.postalCode",
-        "path": "Questionnaire.contact.organization.address.postalCode",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.address.country",
-        "path": "Questionnaire.contact.organization.address.country",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact",
-        "path": "Questionnaire.contact.organization.contact",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name",
-        "path": "Questionnaire.contact.organization.contact.name",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name.text",
-        "path": "Questionnaire.contact.organization.contact.name.text",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name.family",
-        "path": "Questionnaire.contact.organization.contact.name.family",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.name.given",
-        "path": "Questionnaire.contact.organization.contact.name.given",
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "min": 2,
-        "max": "2",
-        "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
-          "rules": "closed"
-        },
-        "mustSupport": true
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "email",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "email"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:email.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone",
-        "path": "Questionnaire.contact.organization.contact.telecom",
-        "sliceName": "phone",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.system",
-        "path": "Questionnaire.contact.organization.contact.telecom.system",
-        "fixedCode": "phone"
-      },
-      {
-        "id": "Questionnaire.contact:receiver.organization.contact.telecom:phone.value",
-        "path": "Questionnaire.contact.organization.contact.telecom.value",
-        "min": 1
-      },
+        "type": "value",
+        "path": "type.coding.code"
+      }
+    ],
+    "ordered": false,
+    "rules": "closed"
+  },
+  "min": 2,
+  "max": "2",
+  "mustSupport": true,
+  "short": "Contact parties for regulatory questionnaire exchange",
+  "definition": "Contact details for parties involved in the creation, review, or submission of the questionnaire, such as the regulator and market authorization holder, to enable secure communication in medicinal product regulatory processes."
+},
+{
+  "id": "Questionnaire.contact:sender",
+  "path": "Questionnaire.contact",
+  "sliceName": "sender",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Contact details for the Regulator",
+  "definition": "Contact information for the regulatory authority (e.g., FDA, EMA, PMDA) sending or reviewing the questionnaire, including name, title, and communication channels for official regulated product assessments."
+},
+{
+  "id": "Questionnaire.contact:sender.name",
+  "path": "Questionnaire.contact.name",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Name of the regulatory contact",
+  "definition": "The full name of the individual representing the regulator, used to personalize and route communications in regulatory affairs workflows."
+},
+{
+  "id": "Questionnaire.contact:sender.name.text",
+  "path": "Questionnaire.contact.name.text",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Full name and job title of the regulatory contact",
+  "definition": "The complete name of the regulatory contact, with the text used to capture the person's job title (e.g., 'Dr. Jane Smith, Regulatory Project Manager') for role-based identification in life sciences regulatory interactions."
+},
+{
+  "id": "Questionnaire.contact:sender.telecom",
+  "path": "Questionnaire.contact.telecom",
+  "min": 1,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Communication channels for the regulator",
+  "definition": "Contact methods (e.g., email, phone) for the regulatory authority, ensuring reliable exchange of questionnaire data and responses in medicinal product submissions."
+},
+{
+  "id": "Questionnaire.contact:sender.telecom.system",
+  "path": "Questionnaire.contact.telecom.system",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Type of telecommunication (e.g., email, phone)",
+  "definition": "The type of telecommunication system used for contacting the regulator, such as 'email' for secure document transmission or 'phone' for urgent clarifications."
+},
+{
+  "id": "Questionnaire.contact:sender.telecom.value",
+  "path": "Questionnaire.contact.telecom.value",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Actual contact details (e.g., email address)",
+  "definition": "The actual telecommunication value, such as an email address or phone number, for direct outreach to the regulatory contact in biopharmaceutical processes."
+},
+{
+  "id": "Questionnaire.contact:sender.telecom.use",
+  "path": "Questionnaire.contact.telecom.use",
+  "short": "Purpose of this contact method (i.e., work)",
+  "definition": "Identifies the intended use of the telecommunication channel for official regulatory communications."
+},
+{
+  "id": "Questionnaire.contact:sender.telecom.rank",
+  "path": "Questionnaire.contact.telecom.rank",
+  "short": "Order of preference for contact methods",
+  "definition": "The relative importance or order of preference for using this telecommunication channel when multiple options are available for regulator contact."
+},
+{
+  "id": "Questionnaire.contact:sender.address",
+  "path": "Questionnaire.contact.address",
+  "short": "Physical address for the regulator",
+  "definition": "Mailing or physical address of the regulatory authority, useful for formal correspondence or document submissions in healthcare regulatory affairs."
+},
+{
+  "id": "Questionnaire.contact:sender.address.use",
+  "path": "Questionnaire.contact.address.use",
+  "short": "Classification of the address (i.e., work)",
+  "definition": "The purpose of the address for the official regulatory office location in life sciences contexts."
+},
+{
+  "id": "Questionnaire.contact:sender.address.type",
+  "path": "Questionnaire.contact.address.type",
+  "short": "Type of address (postal, physical, both)",
+  "definition": "Specifies whether the address is postal, physical, or both, for accurate routing of regulatory materials."
+},
+{
+  "id": "Questionnaire.contact:sender.address.text",
+  "path": "Questionnaire.contact.address.text",
+  "short": "Full formatted address string",
+  "definition": "A human-readable formatted version of the address for the regulator, combining all components for quick reference."
+},
+{
+  "id": "Questionnaire.contact:sender.address.line",
+  "path": "Questionnaire.contact.address.line",
+  "short": "Street address lines",
+  "definition": "Address lines for street, suite, or other sub-address details of the regulatory office."
+},
+{
+  "id": "Questionnaire.contact:sender.address.city",
+  "path": "Questionnaire.contact.address.city",
+  "short": "City or district",
+  "definition": "The city or locality where the regulatory contact is based."
+},
+{
+  "id": "Questionnaire.contact:sender.address.district",
+  "path": "Questionnaire.contact.address.district",
+  "short": "District or neighborhood",
+  "definition": "The district or sub-region within the city for the regulator's address."
+},
+{
+  "id": "Questionnaire.contact:sender.address.state",
+  "path": "Questionnaire.contact.address.state",
+  "short": "State or province",
+  "definition": "The state, province, or equivalent for the regulatory authority's location."
+},
+{
+  "id": "Questionnaire.contact:sender.address.postalCode",
+  "path": "Questionnaire.contact.address.postalCode",
+  "short": "Postal code",
+  "definition": "The postal or ZIP code for the regulator's address."
+},
+{
+  "id": "Questionnaire.contact:sender.address.country",
+  "path": "Questionnaire.contact.address.country",
+  "short": "Country code",
+  "definition": "The country where the regulatory contact is located, using ISO 3166-1 alpha-2 codes."
+},
+{
+  "id": "Questionnaire.contact:receiver",
+  "path": "Questionnaire.contact",
+  "sliceName": "receiver",
+  "min": 1,
+  "max": "1",
+  "mustSupport": true,
+  "short": "Contact details for the Market Authorization Holder (MAH)",
+  "definition": "Contact information for the Market Authorization Holder (MAH) or applicant receiving the questionnaire, including name, title, and communication channels for medicinal product lifecycle management."
+},
+{
+  "id": "Questionnaire.contact:receiver.name",
+  "path": "Questionnaire.contact.name",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Name of the MAH contact",
+  "definition": "The full name of the individual representing the MAH, used for accountability in regulatory submissions."
+},
+{
+  "id": "Questionnaire.contact:receiver.name.text",
+  "path": "Questionnaire.contact.name.text",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Full name and job title of the MAH contact",
+  "definition": "The complete name of the MAH contact, with the text used to capture the person's job title (e.g., 'John Doe, Regulatory Affairs Manager') for role-based identification in regulatory workflows."
+},
+{
+  "id": "Questionnaire.contact:receiver.telecom",
+  "path": "Questionnaire.contact.telecom",
+  "min": 1,
+  "max": "*",
+  "mustSupport": true,
+  "short": "Communication channels for the MAH",
+  "definition": "Contact methods (e.g., email, phone) for the MAH, supporting efficient response to regulatory questionnaires."
+},
+{
+  "id": "Questionnaire.contact:receiver.telecom.system",
+  "path": "Questionnaire.contact.telecom.system",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Type of telecommunication (e.g., email, phone)",
+  "definition": "The type of telecommunication system used for contacting the MAH, such as 'email' for submission portals."
+},
+{
+  "id": "Questionnaire.contact:receiver.telecom.value",
+  "path": "Questionnaire.contact.telecom.value",
+  "min": 1,
+  "mustSupport": true,
+  "short": "Actual contact details (e.g., email address)",
+  "definition": "The actual telecommunication value for the MAH contact, enabling direct regulatory coordination."
+},
+{
+  "id": "Questionnaire.contact:receiver.telecom.use",
+  "path": "Questionnaire.contact.telecom.use",
+  "short": "Purpose of this contact method (i.e., work)",
+  "definition": "Identifies the intended use of the telecommunication channel for MAH business operations."
+},
+{
+  "id": "Questionnaire.contact:receiver.telecom.rank",
+  "path": "Questionnaire.contact.telecom.rank",
+  "short": "Order of preference for contact methods",
+  "definition": "The relative importance or order of preference for using this telecommunication channel for MAH responses."
+},
+{
+  "id": "Questionnaire.contact:receiver.address",
+  "path": "Questionnaire.contact.address",
+  "short": "Physical address for the MAH",
+  "definition": "Mailing or physical address of the MAH, for formal regulatory documentation."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.use",
+  "path": "Questionnaire.contact.address.use",
+  "short": "Classification of the address (i.e., work)",
+  "definition": "The purpose of the address for the MAH's corporate headquarters."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.type",
+  "path": "Questionnaire.contact.address.type",
+  "short": "Type of address (postal, physical, both)",
+  "definition": "Specifies whether the address is postal, physical, or both, for MAH correspondence."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.text",
+  "path": "Questionnaire.contact.address.text",
+  "short": "Full formatted address string",
+  "definition": "A human-readable formatted version of the MAH address for quick reference."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.line",
+  "path": "Questionnaire.contact.address.line",
+  "short": "Street address lines",
+  "definition": "Address lines for street, suite, or other sub-address details of the MAH."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.city",
+  "path": "Questionnaire.contact.address.city",
+  "short": "City or district",
+  "definition": "The city or locality where the MAH contact is based."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.district",
+  "path": "Questionnaire.contact.address.district",
+  "short": "District or neighborhood",
+  "definition": "The district or sub-region within the city for the MAH's address."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.state",
+  "path": "Questionnaire.contact.address.state",
+  "short": "State or province",
+  "definition": "The state, province, or equivalent for the MAH's location."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.postalCode",
+  "path": "Questionnaire.contact.address.postalCode",
+  "short": "Postal code",
+  "definition": "The postal or ZIP code for the MAH's address."
+},
+{
+  "id": "Questionnaire.contact:receiver.address.country",
+  "path": "Questionnaire.contact.address.country",
+  "short": "Country code",
+  "definition": "The country where the MAH is located, using ISO 3166-1 alpha-2."
+},
       {
   "id": "Questionnaire.item",
   "path": "Questionnaire.item",
   "mustSupport": true,
-  "short": "Question or group in the regulatory questionnaire"
+  "short": "Question in the regulatory questionnaire"
 },
 {
   "id": "Questionnaire.item.code",
