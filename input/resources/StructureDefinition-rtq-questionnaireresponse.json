@@ -1,26 +1,10 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rtq-questionnaireresponse",
-  "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse",
-  "version": "0.1.0",
+  "url": "http://hl7.org/fhir/rtq/StructureDefinition/rtq-questionnaireresponse",
   "name": "RTQQuestionnaireResponse",
-  "title": "RTQ QuestionnaireResponse Profile",
+  "title": "RTQ QuestionnaireResponse",
   "status": "draft",
-  "experimental": true,
-  "date": "2025-11-20",
-  "publisher": "HL7 International - Biomedical Research & Regulation Work Group",
-  "contact": [
-    {
-      "name": "HL7 International - Biomedical Research & Regulation",
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/rcrim"
-        }
-      ]
-    }
-  ],
-  "description": "Profile of QuestionnaireResponse for structured responses to regulatory questions and answers in the context of medicinal product variations and other regulatory procedures.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
@@ -32,80 +16,192 @@
       {
         "id": "QuestionnaireResponse",
         "path": "QuestionnaireResponse",
-        "short": "RTQ-structured regulatory Q&A response",
-        "mustSupport": true
+        "short": "RTQ QuestionnaireResponse for regulatory submissions"
       },
       {
-        "id": "QuestionnaireResponse.questionnaire",
-        "path": "QuestionnaireResponse.questionnaire",
+        "id": "QuestionnaireResponse.meta",
+        "path": "QuestionnaireResponse.meta",
         "min": 1,
         "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.status",
-        "path": "QuestionnaireResponse.status",
+        "id": "QuestionnaireResponse.meta.versionId",
+        "path": "QuestionnaireResponse.meta.versionId",
         "min": 1,
-        "fixedCode": "completed",
         "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.subject",
-        "path": "QuestionnaireResponse.subject",
+        "id": "QuestionnaireResponse.meta.lastUpdated",
+        "path": "QuestionnaireResponse.meta.lastUpdated",
         "min": 1,
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"
-            ]
-          }
-        ],
         "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.meta.profile",
+        "path": "QuestionnaireResponse.meta.profile",
+        "min": 1,
+        "fixedCanonical": "http://hl7.org/fhir/rtq/StructureDefinition/rtq-questionnaireresponse",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.identifier",
+        "path": "QuestionnaireResponse.identifier",
+        "slicing": {
+          "discriminator": {
+            "type": "value",
+            "path": "type.coding.code"
+          },
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.identifier:company",
+        "path": "QuestionnaireResponse.identifier",
+        "sliceName": "company",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.identifier:company.type",
+        "path": "QuestionnaireResponse.identifier.type",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.identifier:company.type.coding",
+        "path": "QuestionnaireResponse.identifier.type.coding",
+        "min": 1,
+        "max": "1",
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/rtq/CodeSystem/rtq-identifier-type",
+          "code": "company",
+          "display": "Company Identifier"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.identifier:regulator",
+        "path": "QuestionnaireResponse.identifier",
+        "sliceName": "regulator",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.identifier:regulator.type",
+        "path": "QuestionnaireResponse.identifier.type",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.identifier:regulator.type.coding",
+        "path": "QuestionnaireResponse.identifier.type.coding",
+        "min": 1,
+        "max": "1",
+        "fixedCoding": {
+          "system": "http://hl7.org/fhir/rtq/CodeSystem/rtq-identifier-type",
+          "code": "regulator",
+          "display": "Regulatory Authority Identifier"
+        }
       },
       {
         "id": "QuestionnaireResponse.author",
         "path": "QuestionnaireResponse.author",
-        "min": 1,
+        "slicing": {
+          "discriminator": {
+            "type": "type",
+            "path": "$this"
+          },
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization",
+        "path": "QuestionnaireResponse.author",
+        "sliceName": "organization",
+        "min": 0,
+        "max": "1",
         "type": [
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Organization"
+              "http://hl7.org/fhir/rtq/StructureDefinition/rtq-organization"
             ]
           }
         ],
+        "mustSupport": true,
+        "short": "Regulatory Authority that authored the response"
+      },
+      {
+        "id": "QuestionnaireResponse.source",
+        "path": "QuestionnaireResponse.source",
+        "slicing": {
+          "discriminator": {
+            "type": "type",
+            "path": "$this"
+          },
+          "rules": "open"
+        },
         "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.authored",
-        "path": "QuestionnaireResponse.authored",
+        "id": "QuestionnaireResponse.source:organization",
+        "path": "QuestionnaireResponse.source",
+        "sliceName": "organization",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/rtq/StructureDefinition/rtq-organization"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "short": "Marketing Authorization Holder or Applicant who submitted the response"
+      },
+      {
+        "id": "QuestionnaireResponse.item.linkId",
+        "path": "QuestionnaireResponse.item.linkId",
         "min": 1,
         "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.item.extension:rtq-rendered-text",
-        "path": "QuestionnaireResponse.item.extension",
-        "sliceName": "rtq-rendered-text",
+        "id": "QuestionnaireResponse.item.text",
+        "path": "QuestionnaireResponse.item.text",
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.text.extension:rendering-xhtml",
+        "path": "QuestionnaireResponse.item.text.extension",
+        "sliceName": "rendering-xhtml",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-rendered-text"
+              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
             ]
           }
         ],
         "mustSupport": true
       },
       {
-        "id": "QuestionnaireResponse.item.answer.valueAttachment",
-        "path": "QuestionnaireResponse.item.answer.valueAttachment",
-        "mustSupport": true
-      },
-      {
-        "id": "QuestionnaireResponse.item.answer.valueString",
-        "path": "QuestionnaireResponse.item.answer.valueString",
+        "id": "QuestionnaireResponse.item.answer.extension:rendering-xhtml",
+        "path": "QuestionnaireResponse.item.answer.extension",
+        "sliceName": "rendering-xhtml",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+            ]
+          }
+        ],
         "mustSupport": true
       }
     ]
