@@ -8,19 +8,13 @@
   "status": "draft",
   "experimental": true,
   "date": "2025-11-21",
-  "description": "Profile of Questionnaire for regulatory exchange of questions, issues and information requests between regulators and industry in the medicinal product lifecycle.",
+  "description": "Profile for a set of Questions issued from a regulator to a market authorization holder/applicant during the regulated product application lifecycle.",
   "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
   "type": "Questionnaire",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
   "derivation": "constraint",
-  "example": [
-{
-    "label": "RegulatoryQA-ID00",
-    "name": "Example Questionnaire from a Regulator"
-  }
-  ],
   "differential": {
     "element": [
       {

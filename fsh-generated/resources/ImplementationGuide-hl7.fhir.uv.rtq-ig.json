@@ -38,8 +38,8 @@
         "reference": {
           "reference": "CodeSystem/ctd-categories-full"
         },
-        "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions in Structured Regulatory Correspondence (SRC). Supports multi-level granularity for EMA, FDA, and Health Canada harmonization.",
-        "name": "CTD-Based Regulatory Question Categories (Full Granularity)",
+        "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions. Supports multi-level granularity for international harmonization.",
+        "name": "CTD-Based Regulatory Question Categories",
         "isExample": false
       },
       {
@@ -48,6 +48,14 @@
         },
         "name": "Question Set ID001",
         "isExample": true
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rtq-questionnaireresponse"
+        },
+        "description": "Profile for a Response to Questions submitted to a regulator from a market authorization holder/applicant during the regulated  product application lifecycle.",
+        "name": "Questionnaire Response",
+        "isExample": false
       },
       {
         "reference": {
@@ -60,7 +68,7 @@
         "reference": {
           "reference": "StructureDefinition/rtq-questionnaire"
         },
-        "description": "Profile of Questionnaire for regulatory exchange of questions, issues and information requests between regulators and industry in the medicinal product lifecycle.",
+        "description": "Profile for a set of Questions issued from a regulator to a market authorization holder/applicant during the regulated product application lifecycle.",
         "name": "Regulatory Questionnaire",
         "isExample": false
       },
@@ -77,13 +85,6 @@
         },
         "description": "Code system defining the high-level types of regulatory questionnaires exchanged between industry and health authorities.",
         "name": "RTQ Questionnaire Type Code System",
-        "isExample": false
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/rtq-questionnaireresponse"
-        },
-        "name": "RTQ QuestionnaireResponse",
         "isExample": false
       }
     ],

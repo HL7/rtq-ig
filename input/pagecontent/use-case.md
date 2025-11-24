@@ -41,7 +41,7 @@
       <td style="border: 1px solid #ddd; padding: 12px;">Predictive Regulatory Analytics</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Both</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Analyze centralized repository of past questions and responses to predict likely deficiencies before submission.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Reduces follow-up questions by 50–70 %</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Reduces the chance of receiving follow-up questions</td>
     </tr>
     <tr>
       <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">5</td>

@@ -4,23 +4,11 @@
   "url": "http://hl7.org/fhir/uv/src-ig/CodeSystem/ctd-categories-full",
   "version": "0.2.0",
   "name": "CTDQuestionCategoriesFull",
-  "title": "CTD-Based Regulatory Question Categories (Full Granularity)",
+  "title": "CTD-Based Regulatory Question Categories",
   "status": "draft",
   "experimental": true,
   "date": "2025-11-11",
-  "publisher": "HL7 BR&R Work Group – SRC Project",
-  "contact": [
-    {
-      "name": "HL7 BR&R Work Group",
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/rcrim/index.cfm"
-        }
-      ]
-    }
-  ],
-  "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions in Structured Regulatory Correspondence (SRC). Supports multi-level granularity for EMA, FDA, and Health Canada harmonization.",
+  "description": "Hierarchical terminology derived from ICH CTD Modules 2-5 for classifying regulator-to-sponsor questions. Supports multi-level granularity for international harmonization.",
   "jurisdiction": [
     {
       "coding": [
