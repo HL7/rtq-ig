@@ -1,3 +1,4 @@
+### Introduction
 The Response to Question (RTQ) Implementation Guide provides a standardized, FHIR R5-based framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return, using only the `Questionnaire` and `QuestionnaireResponse` resources.
 
 This IG enables:
