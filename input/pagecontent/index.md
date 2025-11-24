@@ -17,7 +17,6 @@ Built exclusively on HL7 FHIR R5 `Questionnaire` and `QuestionnaireResponse`, RT
 ### Out of Scope
 - Use of any FHIR resources other than `Questionnaire` and `QuestionnaireResponse`
 - Full submission packaging, gateway protocols, or exchange mechanisms for the question and response (refer to the [API for Exchange of Medicinal Product Information (APIX) Implementation Guide](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html))
-- Long-term document archiving
 
 ### Background
 In biopharmaceutical regulatory affairs, health authorities routinely issue formal questions to sponsors during the review of marketing authorization applications, variations, and other submissions for medicinal products. These questions are traditionally exchanged as Word or PDF documents via email or portals, resulting in high manual effort, limited traceability, and poor searchability.
