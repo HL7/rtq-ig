@@ -214,7 +214,7 @@
         "sliceName": "email",
         "short": "Email address",
         "description": "Email contact for the regulatory authority.",
-        "max": "*",
+        "min": 1,
         "mustSupport": true
       },
       {
@@ -222,6 +222,7 @@
         "path": "QuestionnaireResponse.author.contained.contact.telecom.system",
         "short": "Contact type = email",
         "description": "Fixed value identifying this as an email address.",
+        "min": 1,
         "fixedCode": "email"
       },
       {
@@ -238,7 +239,6 @@
         "sliceName": "phone",
         "short": "Phone number",
         "description": "Phone contact for the regulatory authority.",
-        "max": "*",
         "mustSupport": true
       },
       {
@@ -246,6 +246,7 @@
         "path": "QuestionnaireResponse.author.contained.contact.telecom.system",
         "short": "Contact type = phone",
         "description": "Fixed value identifying this as a phone number.",
+        "min": 1,
         "fixedCode": "phone"
       },
       {
@@ -351,6 +352,7 @@
       {
         "id": "QuestionnaireResponse.source.contained.contact.telecom",
         "path": "QuestionnaireResponse.source.contained.contact.telecom",
+        "min": 1,
         "short": "Company contact points",
         "description": "Contact details (email and phone) for the submitting company.",
         "mustSupport": true,
@@ -365,12 +367,13 @@
         "sliceName": "email",
         "short": "Company email",
         "description": "Email contact for regulatory correspondence.",
-        "max": "*",
+        "min": 1,
         "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.source.contained.contact.telecom:email.system",
         "path": "QuestionnaireResponse.source.contained.contact.telecom.system",
+        "min": 1,
         "short": "Contact type = email",
         "description": "Fixed value indicating email.",
         "fixedCode": "email"
@@ -389,7 +392,6 @@
         "sliceName": "phone",
         "short": "Company phone",
         "description": "Phone contact for the company.",
-        "max": "*",
         "mustSupport": true
       },
       {
@@ -397,6 +399,7 @@
         "path": "QuestionnaireResponse.source.contained.contact.telecom.system",
         "short": "Contact type = phone",
         "description": "Fixed value indicating phone.",
+        "min": 1,
         "fixedCode": "phone"
       },
       {
