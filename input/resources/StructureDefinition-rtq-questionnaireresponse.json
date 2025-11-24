@@ -16,57 +16,55 @@
       {
         "id": "QuestionnaireResponse",
         "path": "QuestionnaireResponse",
-        "short": "RTQ QuestionnaireResponse for regulatory submissions"
+        "short": "RTQ QuestionnaireResponse for regulatory submissions",
+        "description": "A structured set of answers to a regulatory questionnaire in the context of regulated product submissions and lifecycle management."
       },
       {
         "id": "QuestionnaireResponse.meta",
         "path": "QuestionnaireResponse.meta",
         "min": 1,
-        "mustSupport": true
+        "mustSupport": true,
+        "description": "Metadata about the resource, required for versioning and tracking in regulatory systems."
       },
       {
         "id": "QuestionnaireResponse.meta.versionId",
         "path": "QuestionnaireResponse.meta.versionId",
         "min": 1,
-        "mustSupport": true
+        "mustSupport": true,
+        "description": "Version-specific identifier for the QuestionnaireResponse, required for audit and traceability."
       },
       {
         "id": "QuestionnaireResponse.meta.lastUpdated",
         "path": "QuestionnaireResponse.meta.lastUpdated",
         "min": 1,
-        "mustSupport": true
+        "mustSupport": true,
+        "description": "Timestamp when the QuestionnaireResponse was last modified, required for regulatory tracking."
       },
       {
         "id": "QuestionnaireResponse.meta.profile",
         "path": "QuestionnaireResponse.meta.profile",
         "min": 1,
         "fixedCanonical": "http://hl7.org/fhir/rtq/StructureDefinition/rtq-questionnaireresponse",
-        "mustSupport": true
+        "mustSupport": true,
+        "description": "Declares that this QuestionnaireResponse conforms to the RTQ regulatory profile."
       },
       {
         "id": "QuestionnaireResponse.identifier",
         "path": "QuestionnaireResponse.identifier",
+        "mustSupport": true,
+        "description": "Business identifiers assigned to the QuestionnaireResponse by company or regulator.",
         "slicing": {
-          "discriminator": {
-            "type": "value",
-            "path": "type.coding.code"
-          },
+          "discriminator": { "type": "value", "path": "type.coding.code" },
           "rules": "open"
-        },
-        "mustSupport": true
+        }
       },
       {
         "id": "QuestionnaireResponse.identifier:company",
         "path": "QuestionnaireResponse.identifier",
         "sliceName": "company",
-        "min": 0,
         "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "QuestionnaireResponse.identifier:company.type",
-        "path": "QuestionnaireResponse.identifier.type",
-        "min": 1
+        "mustSupport": true,
+        "description": "Identifier assigned by the marketing authorization holder or applicant."
       },
       {
         "id": "QuestionnaireResponse.identifier:company.type.coding",
@@ -77,20 +75,16 @@
           "system": "http://hl7.org/fhir/rtq/CodeSystem/rtq-identifier-type",
           "code": "company",
           "display": "Company Identifier"
-        }
+        },
+        "description": "Fixed type indicating the identifier originates from the company/MAH."
       },
       {
         "id": "QuestionnaireResponse.identifier:regulator",
         "path": "QuestionnaireResponse.identifier",
         "sliceName": "regulator",
-        "min": 0,
         "max": "1",
-        "mustSupport": true
-      },
-      {
-        "id": "QuestionnaireResponse.identifier:regulator.type",
-        "path": "QuestionnaireResponse.identifier.type",
-        "min": 1
+        "mustSupport": true,
+        "description": "Identifier assigned by the regulatory authority (e.g., procedure or application number)."
       },
       {
         "id": "QuestionnaireResponse.identifier:regulator.type.coding",
@@ -101,19 +95,18 @@
           "system": "http://hl7.org/fhir/rtq/CodeSystem/rtq-identifier-type",
           "code": "regulator",
           "display": "Regulatory Authority Identifier"
-        }
+        },
+        "description": "Fixed type indicating the identifier originates from the regulatory authority."
       },
       {
         "id": "QuestionnaireResponse.author",
         "path": "QuestionnaireResponse.author",
+        "mustSupport": true,
+        "description": "The regulatory authority or organization that authored or approved the response.",
         "slicing": {
-          "discriminator": {
-            "type": "type",
-            "path": "$this"
-          },
+          "discriminator": { "type": "type", "path": "$this" },
           "rules": "open"
-        },
-        "mustSupport": true
+        }
       },
       {
         "id": "QuestionnaireResponse.author:organization",
@@ -121,28 +114,140 @@
         "sliceName": "organization",
         "min": 0,
         "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/rtq/StructureDefinition/rtq-organization"
-            ]
-          }
-        ],
+        "type": [{ "code": "Reference" }],
         "mustSupport": true,
-        "short": "Regulatory Authority that authored the response"
+        "short": "Regulatory Authority (contained Organization)",
+        "description": "Reference to a contained Organization representing the regulatory authority that authored the question."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained",
+        "path": "QuestionnaireResponse.author.contained",
+        "type": [{ "code": "Organization" }],
+        "mustSupport": true,
+        "description": "Inline (contained) Organization resource describing the regulatory authority."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.identifier",
+        "path": "QuestionnaireResponse.author.contained.identifier",
+        "mustSupport": true,
+        "description": "Official identifier(s) of the regulatory authority (e.g., OID, agency code)."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.name",
+        "path": "QuestionnaireResponse.author.contained.name",
+        "min": 1,
+        "mustSupport": true,
+        "description": "Official name of the regulatory authority (e.g., European Medicines Agency)."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address",
+        "path": "QuestionnaireResponse.author.contained.address",
+        "mustSupport": true,
+        "description": "Physical address of the regulatory authority."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address.text",
+        "path": "QuestionnaireResponse.author.contained.address.text",
+        "mustSupport": true,
+        "description": "Full formatted address as a single string."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address.line",
+        "path": "QuestionnaireResponse.author.contained.address.line",
+        "mustSupport": true,
+        "description": "Street address lines (e.g., building, street)."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address.city",
+        "path": "QuestionnaireResponse.author.contained.address.city",
+        "mustSupport": true,
+        "description": "City or municipality of the regulatory authority."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address.district",
+        "path": "QuestionnaireResponse.author.contained.address.district",
+        "mustSupport": true,
+        "description": "District or sub-division within the city."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address.state",
+        "path": "QuestionnaireResponse.author.contained.address.state",
+        "mustSupport": true,
+        "description": "State, province, or region."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address.postalCode",
+        "path": "QuestionnaireResponse.author.contained.address.postalCode",
+        "mustSupport": true,
+        "description": "Postal or ZIP code."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.address.country",
+        "path": "QuestionnaireResponse.author.contained.address.country",
+        "mustSupport": true,
+        "description": "Country of the regulatory authority (ISO 3166-1 alpha-2)."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.contact.telecom",
+        "path": "QuestionnaireResponse.author.contained.contact.telecom",
+        "mustSupport": true,
+        "description": "Contact details (email and phone) for the regulatory authority.",
+        "slicing": {
+          "discriminator": [{ "type": "value", "path": "system" }],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.contact.telecom:email",
+        "path": "QuestionnaireResponse.author.contained.contact.telecom",
+        "sliceName": "email",
+        "max": "*",
+        "mustSupport": true,
+        "description": "Email contact for the regulatory authority."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.contact.telecom:email.system",
+        "path": "QuestionnaireResponse.author.contained.contact.telecom.system",
+        "fixedCode": "email",
+        "description": "Identifies this telecom as an email address."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.contact.telecom:email.value",
+        "path": "QuestionnaireResponse.author.contained.contact.telecom.value",
+        "min": 1,
+        "mustSupport": true,
+        "description": "The actual email address."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.contact.telecom:phone",
+        "path": "QuestionnaireResponse.author.contained.contact.telecom",
+        "sliceName": "phone",
+        "max": "*",
+        "mustSupport": true,
+        "description": "Phone contact for the regulatory authority."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.contact.telecom:phone.system",
+        "path": "QuestionnaireResponse.author.contained.contact.telecom.system",
+        "fixedCode": "phone",
+        "description": "Identifies this telecom as a phone number."
+      },
+      {
+        "id": "QuestionnaireResponse.author:organization.contained.contact.telecom:phone.value",
+        "path": "QuestionnaireResponse.author.contained.contact.telecom.value",
+        "min": 1,
+        "mustSupport": true,
+        "description": "The actual phone number (E.164 format recommended)."
       },
       {
         "id": "QuestionnaireResponse.source",
         "path": "QuestionnaireResponse.source",
+        "mustSupport": true,
+        "description": "The organization (MAH or applicant) that submitted the QuestionnaireResponse.",
         "slicing": {
-          "discriminator": {
-            "type": "type",
-            "path": "$this"
-          },
+          "discriminator": { "type": "type", "path": "$this" },
           "rules": "open"
-        },
-        "mustSupport": true
+        }
       },
       {
         "id": "QuestionnaireResponse.source:organization",
@@ -150,59 +255,161 @@
         "sliceName": "organization",
         "min": 0,
         "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/rtq/StructureDefinition/rtq-organization"
-            ]
-          }
-        ],
+        "type": [{ "code": "Reference" }],
         "mustSupport": true,
-        "short": "Marketing Authorization Holder or Applicant who submitted the response"
+        "short": "Marketing Authorization Holder / Applicant (contained Organization)",
+        "description": "Reference to a contained Organization representing the company that submitted the response."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained",
+        "path": "QuestionnaireResponse.source.contained",
+        "type": [{ "code": "Organization" }],
+        "mustSupport": true,
+        "description": "Inline (contained) Organization resource describing the submitting company."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.identifier",
+        "path": "QuestionnaireResponse.source.contained.identifier",
+        "mustSupport": true,
+        "description": "Company identifier(s) (e.g., DUNS, EMA Org ID)."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.name",
+        "path": "QuestionnaireResponse.source.contained.name",
+        "min": 1,
+        "mustSupport": true,
+        "description": "Legal name of the marketing authorization holder or applicant."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address",
+        "path": "QuestionnaireResponse.source.contained.address",
+        "mustSupport": true,
+        "description": "Registered address of the company."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address.text",
+        "path": "QuestionnaireResponse.source.contained.address.text",
+        "mustSupport": true,
+        "description": "Full formatted company address."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address.line",
+        "path": "QuestionnaireResponse.source.contained.address.line",
+        "mustSupport": true,
+        "description": "Street address components."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address.city",
+        "path": "QuestionnaireResponse.source.contained.address.city",
+        "mustSupport": true,
+        "description": "City of the company headquarters or registered office."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address.district",
+        "path": "QuestionnaireResponse.source.contained.address.district",
+        "mustSupport": true,
+        "description": "District or sub-division within the city."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address.state",
+        "path": "QuestionnaireResponse.source.contained.address.state",
+        "mustSupport": true,
+        "description": "State, province, or region."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address.postalCode",
+        "path": "QuestionnaireResponse.source.contained.address.postalCode",
+        "mustSupport": true,
+        "description": "Postal or ZIP code."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.address.country",
+        "path": "QuestionnaireResponse.source.contained.address.country",
+        "mustSupport": true,
+        "description": "Country of the regulatory authority (ISO 3166-1 alpha-2)."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.contact.telecom",
+        "path": "QuestionnaireResponse.source.contained.contact.telecom",
+        "mustSupport": true,
+        "description": "Contact details (email and phone) for the submitting company.",
+        "slicing": {
+          "discriminator": [{ "type": "value", "path": "system" }],
+          "rules": "open"
+        }
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.contact.telecom:email",
+        "path": "QuestionnaireResponse.source.contained.contact.telecom",
+        "sliceName": "email",
+        "max": "*",
+        "mustSupport": true,
+        "description": "Email contact for regulatory correspondence."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.contact.telecom:email.system",
+        "path": "QuestionnaireResponse.source.contained.contact.telecom.system",
+        "fixedCode": "email",
+        "description": "Indicates this is an email address."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.contact.telecom:email.value",
+        "path": "QuestionnaireResponse.source.contained.contact.telecom.value",
+        "min": 1,
+        "mustSupport": true,
+        "description": "The actual email address for submission-related communication."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.contact.telecom:phone",
+        "path": "QuestionnaireResponse.source.contained.contact.telecom",
+        "sliceName": "phone",
+        "max": "*",
+        "mustSupport": true,
+        "description": "Phone contact for the company."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.contact.telecom:phone.system",
+        "path": "QuestionnaireResponse.source.contained.contact.telecom.system",
+        "fixedCode": "phone",
+        "description": "Indicates this is a phone number."
+      },
+      {
+        "id": "QuestionnaireResponse.source:organization.contained.contact.telecom:phone.value",
+        "path": "QuestionnaireResponse.source.contained.contact.telecom.value",
+        "min": 1,
+        "mustSupport": true,
+        "description": "The actual phone number."
       },
       {
         "id": "QuestionnaireResponse.item.linkId",
         "path": "QuestionnaireResponse.item.linkId",
         "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "QuestionnaireResponse.item.text",
-        "path": "QuestionnaireResponse.item.text",
-        "mustSupport": true
+        "mustSupport": true,
+        "description": "Required linkId to match the question in the corresponding Questionnaire."
       },
       {
         "id": "QuestionnaireResponse.item.text.extension:rendering-xhtml",
         "path": "QuestionnaireResponse.item.text.extension",
         "sliceName": "rendering-xhtml",
-        "min": 0,
         "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
-            ]
-          }
-        ],
-        "mustSupport": true
+        "type": [{
+          "code": "Extension",
+          "profile": ["http://hl7.org/fhir/StructureDefinition/rendering-xhtml"]
+        }],
+        "mustSupport": true,
+        "description": "Allows rich formatting (e.g., tables, bold) of the question text using XHTML."
       },
       {
         "id": "QuestionnaireResponse.item.answer.extension:rendering-xhtml",
         "path": "QuestionnaireResponse.item.answer.extension",
         "sliceName": "rendering-xhtml",
-        "min": 0,
         "max": "*",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
-            ]
-          }
-        ],
-        "mustSupport": true
+        "type": [{
+          "code": "Extension",
+          "profile": ["http://hl7.org/fhir/StructureDefinition/rendering-xhtml"]
+        }],
+        "mustSupport": true,
+        "description": "Allows rich formatting of the rsponse text (e.g., detailed explanations, tables) using XHTML."
       }
     ]
   }
