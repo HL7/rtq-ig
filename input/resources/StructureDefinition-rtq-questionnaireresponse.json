@@ -208,6 +208,8 @@
         "path": "QuestionnaireResponse.author.contained.contact.telecom",
         "short": "Authority contact for this questionnaire response",
         "description": "Contact details (email and phone) for the regulatory authority.",
+        "min": 1,
+        "max": "1",
         "mustSupport": true,
         "slicing": {
           "discriminator": [{ "type": "value", "path": "system" }],
@@ -248,6 +250,8 @@
         "sliceName": "phone",
         "short": "Phone number",
         "description": "Phone contact for the regulatory authority.",
+        "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -364,6 +368,7 @@
         "id": "QuestionnaireResponse.source.contained.contact.telecom",
         "path": "QuestionnaireResponse.source.contained.contact.telecom",
         "min": 1,
+        "max": "1",
         "short": "Company contact points",
         "description": "Contact details (email and phone) for the submitting company.",
         "mustSupport": true,
