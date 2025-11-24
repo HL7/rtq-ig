@@ -57,6 +57,8 @@
         "path": "QuestionnaireResponse.identifier",
         "short": "Business identifier(s)",
         "description": "Business identifiers assigned to the QuestionnaireResponse by company or regulator.",
+        "min": 1,
+        "max": "1",
         "mustSupport": true,
         "slicing": {
           "discriminator": { "type": "value", "path": "type.coding.code" },
@@ -69,6 +71,7 @@
         "sliceName": "company",
         "short": "Company-assigned identifier",
         "description": "Identifier assigned by the marketing authorization holder or applicant.",
+        "min": 1,
         "max": "1",
         "mustSupport": true
       },
@@ -91,6 +94,7 @@
         "sliceName": "regulator",
         "short": "Regulator-assigned identifier",
         "description": "Identifier assigned by the regulatory authority (e.g., procedure or submission number).",
+        "min": 1,
         "max": "1",
         "mustSupport": true
       },
@@ -131,6 +135,7 @@
         "short": "Identifier of the Regulatory authority",
         "description": "Official identifier(s) of the regulatory authority (e.g., OID, ORG-ID, DUNS).",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -139,6 +144,7 @@
         "short": "Regulatory authority name",
         "description": "Official name of the regulatory authority (e.g., European Medicines Agency).",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -215,6 +221,7 @@
         "short": "Email address",
         "description": "Email contact for the regulatory authority.",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -223,6 +230,7 @@
         "short": "Contact type = email",
         "description": "Fixed value identifying this as an email address.",
         "min": 1,
+        "max": "1",
         "fixedCode": "email"
       },
       {
@@ -231,6 +239,7 @@
         "short": "Email address value",
         "description": "The actual email address.",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -247,6 +256,7 @@
         "short": "Contact type = phone",
         "description": "Fixed value identifying this as a phone number.",
         "min": 1,
+        "max": "1",
         "fixedCode": "phone"
       },
       {
@@ -255,6 +265,7 @@
         "short": "Phone number value",
         "description": "The actual phone number (E.164 format recommended).",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -368,12 +379,14 @@
         "short": "Company email",
         "description": "Email contact for regulatory correspondence.",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
         "id": "QuestionnaireResponse.source.contained.contact.telecom:email.system",
         "path": "QuestionnaireResponse.source.contained.contact.telecom.system",
         "min": 1,
+        "max": "1",
         "short": "Contact type = email",
         "description": "Fixed value indicating email.",
         "fixedCode": "email"
@@ -384,6 +397,7 @@
         "short": "Email address",
         "description": "The actual email address for submission-related communication.",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -400,6 +414,7 @@
         "short": "Contact type = phone",
         "description": "Fixed value indicating phone.",
         "min": 1,
+        "max": "1",
         "fixedCode": "phone"
       },
       {
@@ -408,6 +423,7 @@
         "short": "Phone number",
         "description": "The actual phone number.",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -416,6 +432,7 @@
         "short": "Question link ID",
         "description": "Required linkId to match the question in the corresponding Questionnaire.",
         "min": 1,
+        "max": "1",
         "mustSupport": true
       },
       {
@@ -437,7 +454,7 @@
         "sliceName": "rendering-xhtml",
         "short": "Rich text answer",
         "description": "Allows rich formatting of the answer (e.g., detailed explanations, tables) using XHTML.",
-        "max": "*",
+        "max": "1",
         "type": [{
           "code": "Extension",
           "profile": ["http://hl7.org/fhir/StructureDefinition/rendering-xhtml"]
