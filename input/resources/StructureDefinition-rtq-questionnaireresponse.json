@@ -115,7 +115,7 @@
         "id": "QuestionnaireResponse.author",
         "path": "QuestionnaireResponse.author",
         "short": "Regulatory Authority contact details",
-        "description": "The regulatory authority that authored or approved the originating question.",
+        "description": "The regulatory authority that authored the originating question.",
         "min": 1,
         "max": "1",
         "type": [{ "code": "Reference" }],
