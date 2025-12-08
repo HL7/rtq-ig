@@ -96,7 +96,7 @@ With this profile:
 
 - Health Authority: Generate Questionnaire from review tool; include rich text and CTD codes
 - MAH (Sponsor): Import into RIM system; assign owners; link responses via `QuestionnaireResponse`
-- Vendors: Support structured authoring of the question and export to a FHIR-compliant XML or JSON file for submission via email or portal; or incorporate into a `Task` resource for submission via API [Refer to APIX IG for details](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html)
+- Vendors: Support structured authoring of the question and export to a FHIR-compliant XML or JSON file for submission via email or portal; or incorporate into a `Task` resource for submission via API [Refer to APIX IG for details](http://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/index.html)
 
 ---
 

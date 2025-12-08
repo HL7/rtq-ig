@@ -6,7 +6,7 @@ This example demonstrates a synthetic regulatory questionnaire issued during a T
 * Responses are captured in a `QuestionnaireResponse` resource (due 2025-12-11).
 * Supports multilingual ePI updates, stability data, and ICH/WHO zone alignment.
 
-[View the underlying FHIR Questionnaire resource](https://github.com/HL7/rtq-ig/blob/333ec32aea8ef989ed4c655f5916dda4132f12d8/input/examples/Questionnaire-RegulatoryQA-ID001.xml) (generated via FSH).
+[View the underlying FHIR Questionnaire resource](Questionnaire-questionnaire-ID001.html) (generated via FSH).
 
 {% include questionex1-fragment.html %}
 

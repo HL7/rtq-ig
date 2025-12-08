@@ -4,6 +4,6 @@ This example demonstrates a **synthetic regulatory questionnaire response** subm
 * Each answer maps to a `QuestionnaireResponse.item` with a `linkId` matching the original question (e.g., `"admin-1"`).
 * The response links to the original `Questionnaire` and includes submission timestamp (`authored`).
 * Supports rich text answers, updated ePI translations, new stability data, and ICH/WHO climatic zone confirmation.
-[View the underlying FHIR QuestionnaireResponse resource](https://github.com/HL7/rtq-ig/blob/d21d3deed114aa4d9df43982beeb8fba5a2c0c5a/input/examples/QuestionnaireResponse-RegulatoryQA-ID001.xml).
+[View the underlying FHIR QuestionnaireResponse resource](QuestionnaireResponse-questionnaireresponse-ID001.html).
 
 {% include questionnaire-response-id001-response-fragment.html %}

@@ -71,8 +71,13 @@ The following is an HTML rendering of a FHIR QuestionnaireResponse:
 </tr>
 <tr>
 <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.value[x]</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">The MAH's answer in rich text (XHTML)</td>
+<td style="padding: 8px; border: 1px solid #ddd;">The MAH's answer in rich text (XHTML) or reference to a document</td>
 <td style="padding: 8px; border: 1px solid #ddd;">Includes bold, lists, tables, images, and references</td>
+</tr>
+<tr>
+<td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
+<td style="padding: 8px; border: 1px solid #ddd;">Link to a supporting <code>DocumentReference</code> (compliant with APIX profile)</td>
+<td style="padding: 8px; border: 1px solid #ddd;">References a PDF attachment (e.g., fee receipt, study report)</td>
 </tr>
 </tbody>
 </table>
@@ -100,6 +105,6 @@ With this profile:
 ---
 
 ### Related Resources
-- [Questionnaire Structure](question-structure.html) – For an overview of the original question format
+- [Questionnaire Structure](question.html) – For an overview of the original question format
 - [CTD Section Code System](CodeSystem-ctd-categories-full.html) – Full hierarchy
 - [Contact Purpose Code System](CodeSystem-contact-purpose.html) – SENDER / RECIPIENT

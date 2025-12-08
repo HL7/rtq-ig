@@ -61,6 +61,14 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rtq-questionnaire"
+        },
+        "description": "Profile for a set of Questions issued from a regulator to a market authorization holder/applicant during the regulated product application lifecycle.",
+        "name": "Questionnaire",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "StructureDefinition/rtq-questionnaireresponse"
         },
         "description": "Profile for a Response to Questions submitted to a regulator from a market authorization holder/applicant during the regulated  product application lifecycle.",
@@ -76,14 +84,6 @@
         "profile": [
           "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse"
         ]
-      },
-      {
-        "reference": {
-          "reference": "StructureDefinition/rtq-questionnaire"
-        },
-        "description": "Profile for a set of Questions issued from a regulator to a market authorization holder/applicant during the regulated product application lifecycle.",
-        "name": "Regulatory Questionnaire",
-        "isExample": false
       },
       {
         "reference": {
