@@ -2,6 +2,58 @@
 
 <p>This structured approach delivers transformative benefits for both health authorities and industry, dramatically reducing manual effort, and enabling proactive regulatory strategies.</p>
 
+<h3>Visual Workflow: The RTQ Loop</h3>
+
+<div style="width:100%; overflow-x:auto; margin: 20px 0;">
+<pre class="mermaid">
+sequenceDiagram
+    autonumber
+    participant Regulator as Health Authority
+    participant Gateway as Regulatory Gateway
+    participant SponsorSys as Sponsor RIM/Safety System
+    participant Admin as Triage Agent (AI/Human)
+    participant Expert as SME (CMC/Clinical)
+
+    Note over Regulator, SponsorSys: Standardized Question
+
+    Regulator->>Gateway: Issue Question (Questionnaire)
+    Gateway->>SponsorSys: Forward via API/Message
+    SponsorSys->>SponsorSys: Parse CTD Codes & Metadata
+
+    rect rgb(240, 248, 255)
+    Note over SponsorSys, Expert: Automated Triage & Draughting
+    SponsorSys->>Admin: Alert: New Priority Question
+    Admin->>SponsorSys: Search Knowledge Base
+    SponsorSys-->>Admin: Suggest Similar Past Responses (95% Match)
+    Admin->>Expert: Assign Task with Draft
+    end
+
+    Expert->>Expert: Review & Finalize Response
+    Expert->>SponsorSys: Approve Response (QuestionnaireResponse)
+
+    Note over Regulator, SponsorSys: Structured Reply
+
+    SponsorSys->>Gateway: Submit Response (QuestionnaireResponse)
+    Gateway->>Regulator: Ingest & Route to Assessor
+</pre>
+</div>
+
+<h3>Real-World Scenarios</h3>
+
+<h4>Scenario A: The 24-Hour Clarification (Speed)</h4>
+<p><strong>Context:</strong> During a Type II variation review, the EMA reviewer notices a minor discrepancy in the reported batch numbers for a stability study.</p>
+<ul>
+    <li><strong>Old Way:</strong> Reviewer drafts an email/PDF. EMA admin sends it. Sponsor admin receives it next day, manually logs it, emails CMC lead. CMC lead checks data, drafts email reply. Sponsor admin formats to PDF, sends back. <strong>Total time: 3-5 days.</strong></li>
+    <li><strong>RTQ Way:</strong> Reviewer types question into a FHIR-compliant structured authoring system. RTQ <code>Questionnaire</code> is generated, added to an APIX Task (<a href="http://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/index.html">refer to APIX IG for detail</a>), and sent to the sponsor via API. Sponsor system receives it instantly, reads CTD code <code>3.2.P.8</code>, and auto-assigns to the Stability Lead via Teams/Slack. Lead confirms batch number in the system, clicks "Approve" on the auto-drafted correction. Response sent. <strong>Total time: &lt; 2 hours.</strong><br><em>Note: Regulators can also send the RTQ Questionnaire via email if they do not yet have an APIX-compliant system.</em></li>
+</ul>
+
+<h4>Scenario B: The Complex Clinical Query (Reuse)</h4>
+<p><strong>Context:</strong> The FDA asks a complex question about efficacy in a specific elderly sub-population for a new oncology drug.</p>
+<ul>
+    <li><strong>Old Way:</strong> Clinical team treats it as a new request. Starts analysis from scratch. Weeks of work. Risk of inconsistency with answers given to PMDA (Japan) last month.</li>
+    <li><strong>RTQ Way:</strong> When the question arrives, the Sponsor's AI agent scans the <code>Questionnaire</code> text and semantic meaning against the global RTQ repository. It finds a <strong>92% match</strong> with a response sent to PMDA 4 weeks ago. The system presents this previous answer to the Clinical Lead. One minor edit for US-specific context, and the response is ready. <strong>Result: Consistent global regulatory position and 90% effort reduction.</strong></li>
+</ul>
+
 <h3>Key Benefits and Use Cases</h3>
 
 <table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif;">
