@@ -133,48 +133,4 @@ sequenceDiagram
   </tbody>
 </table>
 
-<h3>Illustrative KPI Improvements</h3>
-<p><em>(Representative. To be defined during pilot implementations and industry benchmarks)</em></p>
 
-<table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif; margin-top: 20px;">
-  <thead>
-    <tr style="background-color: #f2f2f2; text-align: left;">
-      <th style="border: 1px solid #ddd; padding: 12px;">KPI</th>
-      <th style="border: 1px solid #ddd; padding: 12px;">Current Unstructured Process</th>
-      <th style="border: 1px solid #ddd; padding: 12px;">With RTQ Structured FHIR Process</th>
-      <th style="border: 1px solid #ddd; padding: 12px;">Typical Improvement</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px;">Time to triage questions/responses</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">2–5 days</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">&lt; 1 minute</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">&gt; 99 % faster</td>
-    </tr>
-    <tr style="background-color: #fafafa;">
-      <td style="border: 1px solid #ddd; padding: 12px;">Time to first draft response</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">3–10 days</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">4–12 hours</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">80–95 % faster</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px;">% of responses reusable from history</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">&lt; 20 %</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">60–90 %</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">3–5× reuse</td>
-    </tr>
-    <tr style="background-color: #fafafa;">
-      <td style="border: 1px solid #ddd; padding: 12px;">Questions processed per analyst/week</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">20–40</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">150–300+</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">5–10× capacity</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px;">Follow-up clarification cycles</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">1.5–3 per submission</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">0.5–1 per submission</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">50–70 % reduction</td>
-    </tr>
-  </tbody>
-</table>
