@@ -125,6 +125,12 @@
                             "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, the fee was paid on <b>June 25, 2025</b>, with documentation included in the application form.</p></div>"
                         }
                     ]
+                },
+                {
+                    "valueReference": {
+                        "reference": "DocumentReference/example-docref",
+                        "display": "Fee Payment Receipt"
+                    }
                 }
             ]
         },

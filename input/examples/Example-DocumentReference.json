@@ -1,0 +1,34 @@
+{
+    "resourceType": "DocumentReference",
+    "id": "example-docref",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+        ]
+    },
+    "masterIdentifier": {
+        "system": "urn:ietf:rfc:3986",
+        "value": "urn:oid:1.2.3.4.5"
+    },
+    "status": "current",
+    "type": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                "code": "1.2",
+                "display": "Administrative Information"
+            }
+        ]
+    },
+    "date": "2025-11-20T10:00:00Z",
+    "content": [
+        {
+            "attachment": {
+                "contentType": "application/pdf",
+                "title": "Fee Payment Receipt",
+                "creation": "2025-11-19T15:00:00Z",
+                "data": "JVBERi0xLjQKJcOkw7zDtsOxdHJhaWxlcjw8L1Jvb3Q8PC9QYWdlczw8L0tpZHMW4+PC9NZWRpYUJveFswIDAgNTk1LjI4IDg0MS44OV0+Pj4+Pj47Cg=="
+            }
+        }
+    ]
+}

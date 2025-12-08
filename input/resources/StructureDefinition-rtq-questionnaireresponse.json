@@ -506,6 +506,35 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer.value[x]",
+        "path": "QuestionnaireResponse.item.answer.value[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer.value[x]:valueReference",
+        "path": "QuestionnaireResponse.item.answer.value[x]",
+        "sliceName": "valueReference",
+        "short": "Reference to supporting document",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+            ]
+          }
+        ],
+        "mustSupport": true
       }
     ]
   }

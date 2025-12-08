@@ -44,6 +44,13 @@
       },
       {
         "reference": {
+          "reference": "DocumentReference/example-docref"
+        },
+        "name": "example-docref",
+        "isExample": true
+      },
+      {
+        "reference": {
           "reference": "Questionnaire/questionnaire-ID001"
         },
         "name": "Question Set ID001",
