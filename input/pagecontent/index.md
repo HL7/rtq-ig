@@ -1,33 +1,52 @@
 ### Introduction
-The Response to Question (RTQ) Implementation Guide provides a standardized, FHIR R5-based framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return, using only the `Questionnaire` and `QuestionnaireResponse` resources.
 
-This IG enables:
-- **Health Authority Questions**: Structured, uniquely identified questionnaires issued during regulatory review of regulated product applications, including harmonized templates supporting initial marketing authorizations, variations, and post-authorization procedures.
-- **Sponsor Responses**: Complete, traceable answers submitted via `QuestionnaireResponse`, with support for evidence, references, and attachments.
-- **Regulatory Traceability**: Direct, item-level linkage between each question and its corresponding response, ensuring full auditability and compliance throughout the product lifecycle.
+The **Response to Question (RTQ)** Implementation Guide is the standardized framework for the **structured, algorithmic exchange** of regulatory questions and responses. Built on HL7 FHIR R5, it replaces static Word and PDF documents with traceable, machine-readable resources—enabling precise tracking, automated triage, and global harmonization.
 
-Built exclusively on HL7 FHIR R5 `Questionnaire` and `QuestionnaireResponse`, RTQ delivers semantic precision, regulatory alignment, and seamless integration within life sciences and healthcare information systems.
+*This guide defines the technical framework to create a seamless Q&A loop between Regulators and Applicants.*
 
-### Scope
-- Profiling of `Questionnaire` for health authority question sets
-- Profiling of `QuestionnaireResponse` for sponsor/applicant replies
-- Extension definitions for regulatory metadata (e.g., question ID, due date, response status, submission context, procedure tracking)
-- Item-level guidance on structure, coding, and linkage
-- Example `Questionnaire`/`QuestionnaireResponse` pairs for typical regulatory scenarios, including initial marketing authorization applications, type I/II variations, and post-authorization commitments/fulfillments
+### Why Adopt RTQ?
 
-### Out of Scope
-- Use of any FHIR resources other than `Questionnaire` and `QuestionnaireResponse`
-- Full submission packaging, gateway protocols, or exchange mechanisms for the question and response (refer to the [API for Exchange of Medicinal Product Information (APIX) Implementation Guide](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html))
+1.  **Structured & Traceable**
+    Every question is a discrete `Questionnaire` item; every answer is a linked `QuestionnaireResponse`. No more lost questions or ambiguous email threads.
+
+2.  **Harmonized Across Agencies**
+    One standard format for FDA, EMA, PMDA, and other health authorities. Build your system once to handle questions from any regulator.
+
+3.  **Analytics-Ready**
+    Because questions are structured data, you can instantly visualize trends: response cycle times, most frequent question topics, and regional variances.
+
+4.  **Automated Workflow**
+    APIs can automatically route questions to the correct Subject Matter Expert (SME) based on metadata (e.g., "Quality", "Clinical"), reducing triage time from days to minutes.
 
 ### Background
-In biopharmaceutical regulatory affairs, health authorities routinely issue formal questions to sponsors during the review of marketing authorization applications, variations, and other submissions for medicinal products. These questions are traditionally exchanged as Word or PDF documents via email or portals, resulting in high manual effort, limited traceability, and poor searchability.
 
-The absence of a standardized digital format hinders automation (e.g., question triage, duplicate detection) and prevents meaningful analytics on regulatory trends across procedures and authorities. This Implementation Guide addresses these gaps by leveraging FHIR R5 `Questionnaire` and `QuestionnaireResponse` resources to model questions as reusable, itemized templates and responses as versioned, machine-readable instances.
+In biopharmaceutical regulatory affairs, health authorities routinely issue formal questions during the review of marketing authorization applications. Traditionally, these are exchanged as unstructured Word or PDF documents via email or portals. This results in high manual effort, limited traceability, and "dead data" that cannot be analyzed.
 
-By enabling structured, machine-readable Q&A exchange, RTQ supports efficient lifecycle management, cross-authority harmonization, and data-driven insights into regulatory review patterns.
+RTQ changes that by modeling questions as reusable **FHIR Questionnaires** and responses as versioned **QuestionnaireResponses**, aligning regulatory Q&A with the modern digital ecosystem of healthcare.
 
-### Target Audience
-- Regulatory affairs teams in biopharmaceutical organizations
-- Health authority question coordinators, project managers, and reviewers
-- IT system architects building regulatory exchange platforms
-- Software vendors developing structured authoring tools and FHIR-compliant systems for regulators and life science companies
+This aligns with the broader strategy defined in the **APIX Implementation Guide**: moving towards the "Real-time algorithmic exchange" envisioned in the 2023 *International Journal of Pharmaceutics* framework [(click to read)](https://www.sciencedirect.com/science/article/pii/S0378517323007627). 
+
+Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, RTQ + APIX harmonizes the regulatory dialogue—standardizing the *content* (RTQ) and the *exchange* (APIX) to unlock sub-second decision making.
+
+### In Scope
+
+- **Health Authority Questions**: Profiling of `Questionnaire` for widely used regulatory templates (Validation issues, Major Objections, Request for Information).
+- **Sponsor Responses**: Profiling of `QuestionnaireResponse` for applicant replies, supporting evidence attachments, and cross-references.
+- **Regulatory Metadata**: Standardized extensions for due dates, severity, and review status.
+
+### Out of Scope
+
+- The full submission packaging and transport layer (see the [APIX Implementation Guide](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html) for instructions on how to package and transport the questionnaire and questionnaire response).
+
+### Governance & Collaboration
+
+RTQ is developed under the **HL7's Biomedical Research and Regulation (BR&R) Working Group** with active participation from regulators, pharmaceutical companies, and technology vendors.
+
+All meetings are public; notes and recordings are available via [HL7 BR&R Working Group's RTQ project page](https://confluence.hl7.org/spaces/BRR/pages/358267438/Response+to+Health+Authority+Questions+RTQ).
+
+### Get Involved
+
+- Join the weekly calls.
+- Test the reference implementation.
+
+We welcome industry, solution providers, and regulators from every region to contribute to this global standard.

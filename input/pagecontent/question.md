@@ -15,7 +15,7 @@ This resource enables automated routing, tracking, and response management while
 ---
 ### HTML presentation example
 
-The following is a HTML rendering of a FHIR Questionnaire with synthetic Quality: <a href="questionex1.html">Sample question from a regulator to a market authorization</a>
+The following is a HTML rendering of a FHIR Questionnaire with synthetic content: <a href="questionex1.html">Sample question from a regulator to a market authorization</a>
 
 ---
 

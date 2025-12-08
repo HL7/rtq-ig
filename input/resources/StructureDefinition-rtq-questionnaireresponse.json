@@ -1,7 +1,7 @@
 {
   "resourceType": "StructureDefinition",
   "id": "rtq-questionnaireresponse",
-  "url": "http://hl7.org/fhir/rtq/StructureDefinition/rtq-questionnaireresponse",
+  "url": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse",
   "version": "0.1.0",
   "name": "RTQQuestionnaireResponse",
   "title": "Questionnaire Response",
@@ -53,7 +53,7 @@
         "short": "Conformance to RTQ profile",
         "description": "Declares that this QuestionnaireResponse conforms to the RTQ regulatory profile.",
         "min": 1,
-        "fixedCanonical": "http://hl7.org/fhir/rtq/StructureDefinition/rtq-questionnaireresponse",
+        "fixedCanonical": "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse",
         "mustSupport": true
       },
       {
@@ -65,7 +65,10 @@
         "max": "1",
         "mustSupport": true,
         "slicing": {
-          "discriminator": { "type": "value", "path": "type.coding.code" },
+          "discriminator": {
+            "type": "value",
+            "path": "type.coding.code"
+          },
           "rules": "open"
         }
       },
@@ -122,7 +125,11 @@
         "description": "The regulatory authority that authored the originating question.",
         "min": 1,
         "max": "1",
-        "type": [{ "code": "Reference" }],
+        "type": [
+          {
+            "code": "Reference"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -130,7 +137,11 @@
         "path": "QuestionnaireResponse.author.contained",
         "short": "Contained regulatory authority",
         "description": "Inline (contained) Organization resource describing the regulatory authority.",
-        "type": [{ "code": "Organization" }],
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -216,7 +227,12 @@
         "max": "1",
         "mustSupport": true,
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
           "rules": "open"
         }
       },
@@ -283,7 +299,11 @@
         "description": "The company (MAH or applicant) that submitted the QuestionnaireResponse — provided as a contained Organization.",
         "min": 1,
         "max": "1",
-        "type": [{ "code": "Reference" }],
+        "type": [
+          {
+            "code": "Reference"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -291,7 +311,11 @@
         "path": "QuestionnaireResponse.source.contained",
         "short": "Contained submitting company",
         "description": "Inline (contained) Organization resource describing the submitting company.",
-        "type": [{ "code": "Organization" }],
+        "type": [
+          {
+            "code": "Organization"
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -377,7 +401,12 @@
         "description": "Contact details (email and phone) for the submitting company.",
         "mustSupport": true,
         "slicing": {
-          "discriminator": [{ "type": "value", "path": "system" }],
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
           "rules": "open"
         }
       },
@@ -451,10 +480,14 @@
         "short": "Rich text question",
         "description": "Allows rich formatting (e.g., tables, bold) of the question text using XHTML.",
         "max": "1",
-        "type": [{
-          "code": "Extension",
-          "profile": ["http://hl7.org/fhir/StructureDefinition/rendering-xhtml"]
-        }],
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+            ]
+          }
+        ],
         "mustSupport": true
       },
       {
@@ -464,10 +497,14 @@
         "short": "Rich text answer",
         "description": "Allows rich formatting of the answer (e.g., detailed explanations, tables) using XHTML.",
         "max": "1",
-        "type": [{
-          "code": "Extension",
-          "profile": ["http://hl7.org/fhir/StructureDefinition/rendering-xhtml"]
-        }],
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
+            ]
+          }
+        ],
         "mustSupport": true
       }
     ]

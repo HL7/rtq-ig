@@ -1,0 +1,176 @@
+{
+    "resourceType": "Questionnaire",
+    "id": "questionnaire-ID001",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2025-11-11T22:30:00Z",
+        "profile": [
+            "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire"
+        ]
+    },
+    "identifier": [
+        {
+            "system": "http://hl7.org/fhir/uv/brr/identifier/qa-request",
+            "value": "ID001",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type",
+                        "code": "regulator-id",
+                        "display": "Regulator-issued Identifier"
+                    }
+                ]
+            }
+        },
+        {
+            "system": "https://ema.europa.eu/procedure-number",
+            "value": "EMEA/H/C/005432/II/0023",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type",
+                        "code": "regulator-id",
+                        "display": "Regulator-issued Identifier"
+                    }
+                ]
+            }
+        }
+    ],
+    "version": "1.1.5",
+    "name": "BRRRegulatoryQAQuestionnaire",
+    "title": "Question Set ID001",
+    "status": "active",
+    "subjectType": [
+        "MedicinalProductDefinition"
+    ],
+    "date": "2025-11-11",
+    "contact": [
+        {
+            "purpose": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose",
+                        "code": "SENDER",
+                        "display": "Sender (Health Authority)"
+                    }
+                ]
+            },
+            "organization": {
+                "reference": "Organization/ema",
+                "identifier": {
+                    "system": "https://ema.europa.eu/organization-id",
+                    "value": "EMA-ORG-001"
+                },
+                "display": "European Medicines Agency",
+                "name": "European Medicines Agency",
+                "address": {
+                    "line": [
+                        "Domenico Scarlattilaan 6"
+                    ],
+                    "city": "Amsterdam",
+                    "postalCode": "1083 HS",
+                    "country": "NL"
+                },
+                "contact": [
+                    {
+                        "telecom": [
+                            {
+                                "system": "email",
+                                "value": "jane.doe@ema.europa.eu"
+                            },
+                            {
+                                "system": "phone",
+                                "value": "+31-88-781-6000"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "purpose": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose",
+                        "code": "RECIPIENT",
+                        "display": "Recipient (Marketing Authorization Holder)"
+                    }
+                ]
+            },
+            "organization": {
+                "reference": "Organization/synthpharma",
+                "identifier": {
+                    "system": "urn:oid:1.3.6.1.4.1.519.1",
+                    "value": "DUNS-123456789"
+                },
+                "display": "SynthPharma AG",
+                "name": "SynthPharma AG",
+                "address": {
+                    "line": [
+                        "123 Synthetic Research Blvd"
+                    ],
+                    "city": "Basel",
+                    "postalCode": "4000",
+                    "country": "CH"
+                },
+                "contact": [
+                    {
+                        "telecom": [
+                            {
+                                "system": "email",
+                                "value": "john.doe@synthpharma.example"
+                            },
+                            {
+                                "system": "phone",
+                                "value": "+41-61-123-4567"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "item": [
+        {
+            "linkId": "admin-1",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.0",
+                    "display": "1.0 Administrative Information"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.1",
+                    "display": "1.1 Application Form"
+                }
+            ],
+            "type": "question",
+            "text": "Is the fee for the Type II variation fully paid and documented?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the <b>fee for the Type II variation</b> fully paid and documented?</p><p style=\"font-size:0.9em; color:#555;\">See <a href=\"https://www.ema.europa.eu/en/documents/regulatory-procedural-guidance/fees-payable-european-medicines-agency_en.pdf\">EMA Fee Guidance</a> for payment confirmation requirements.</p></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "labeling-1",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.3",
+                    "display": "1.3 Product Information"
+                }
+            ],
+            "type": "question",
+            "text": "Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Do the updated storage conditions (<b>2–8°C for 36 months</b>) require <i>additional patient guidance</i>?</p><p style=\"margin-top:8px;\">Current ePI states: “Store in a refrigerator (2°C – 8°C). Do not freeze.”</p></div>"
+                }
+            ]
+        }
+    ]
+}
