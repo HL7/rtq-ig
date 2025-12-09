@@ -149,7 +149,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "Yes, the fee was paid on June 25, 2025.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -175,7 +174,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "Yes, all required metadata fields are complete.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -195,7 +193,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "No additional guidance is needed.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -215,7 +212,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "Yes, the patient leaflet has been updated.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -235,7 +231,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "Yes, the ePI text has been translated into all EU languages.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -255,7 +250,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "The submission includes both additional timepoints and new stability studies.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -275,7 +269,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "Yes, the data supports all ICH climatic zones, including Zone IVb.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -295,7 +288,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "Yes, all test methods are identical to those validated in the original MAA.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -315,7 +307,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "No new degradation products were identified.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -335,7 +326,6 @@
             ],
             "answer": [
                 {
-                    "valueString": "Yes, a change in packaging configuration was implemented.",
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
