@@ -65,14 +65,14 @@ The following is an HTML rendering of a FHIR QuestionnaireResponse:
 <td style=" telle:8px; border: 1px solid #ddd;"><code>3.2.P.8</code> → <code>3.2.P.8.1 Stability Summary</code></td>
 </tr>
 <tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>item.text</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">The original question (shown exactly as received)</td>
-<td style="padding: 8px; border: 1px solid #ddd;">“Are there any new stability studies conducted…?”</td>
+<td style="padding: 8px; border: 1px solid #ddd;"><code>item.text.extension</code></td>
+<td style="padding: 8px; border: 1px solid #ddd;">The original question in rich text (XHTML)</td>
+<td style="padding: 8px; border: 1px solid #ddd;">“Are there any new <b>stability studies</b> conducted…?”</td>
 </tr>
 <tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.value[x]</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">The MAH's answer in rich text (XHTML) or reference to a document</td>
-<td style="padding: 8px; border: 1px solid #ddd;">Includes bold, lists, tables, images, and references</td>
+<td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.extension</code></td>
+<td style="padding: 8px; border: 1px solid #ddd;">The MAH's answer in rich text (XHTML)</td>
+<td style="padding: 8px; border: 1px solid #ddd;">Includes bold, lists, tables, images (no <code>valueString</code> needed)</td>
 </tr>
 <tr>
 <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
