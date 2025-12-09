@@ -141,7 +141,6 @@
     "item": [
         {
             "linkId": "admin-1",
-            "text": "Is the fee for the Type II variation fully paid and documented?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -168,7 +167,6 @@
         },
         {
             "linkId": "admin-2",
-            "text": "Are all required metadata fields in the application form complete?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -189,7 +187,6 @@
         },
         {
             "linkId": "product-1",
-            "text": "Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -210,7 +207,6 @@
         },
         {
             "linkId": "product-2",
-            "text": "Is the patient leaflet revised to clarify the extended shelf life?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -231,7 +227,6 @@
         },
         {
             "linkId": "product-3",
-            "text": "Is the updated ePI text sufficiently clear for all EU languages?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -252,7 +247,6 @@
         },
         {
             "linkId": "quality-1",
-            "text": "Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -273,7 +267,6 @@
         },
         {
             "linkId": "quality-2",
-            "text": "Does the data support all intended climatic zones?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -294,7 +287,6 @@
         },
         {
             "linkId": "quality-3",
-            "text": "Are the test methods used the same as in the previously submitted stability information?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -315,7 +307,6 @@
         },
         {
             "linkId": "quality-4",
-            "text": "Are there any new degradation products identified within the newly submitted data?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
@@ -336,7 +327,6 @@
         },
         {
             "linkId": "quality-5",
-            "text": "Any changes in the packaging configuration and/or storage of the samples during stability?",
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
