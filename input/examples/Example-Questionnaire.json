@@ -150,17 +150,45 @@
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
-                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the <b>fee for the Type II variation</b> fully paid and documented?</p><p style=\"font-size:0.9em; color:#555;\">See <a href=\"https://www.ema.europa.eu/en/documents/regulatory-procedural-guidance/fees-payable-european-medicines-agency_en.pdf\">EMA Fee Guidance</a> for payment confirmation requirements.</p></div>"
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the fee for the Type II variation fully paid and documented?</p><p style=\"font-size:0.9em; color:#555;\">See <a href=\"https://www.ema.europa.eu/en/documents/regulatory-procedural-guidance/fees-payable-european-medicines-agency_en.pdf\">EMA Fee Guidance</a> for payment confirmation requirements.</p></div>"
                 }
             ]
         },
         {
-            "linkId": "labeling-1",
+            "linkId": "admin-2",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.0",
+                    "display": "Administrative Information"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.1",
+                    "display": "Application Form"
+                }
+            ],
+            "type": "group",
+            "text": "Are all required metadata fields in the application form complete?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are all required metadata fields in the application form complete?</p><ul><li>Marketing Authorisation Holder</li><li>Product Name (INN)</li><li>Procedure Number</li><li>Submission Date</li></ul></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "product-1",
             "code": [
                 {
                     "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
                     "code": "1.3",
                     "display": "1.3 Product Information"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.3.1",
+                    "display": "SmPC, Labelling and Package Leaflet"
                 }
             ],
             "type": "question",
@@ -168,7 +196,163 @@
             "extension": [
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
-                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Do the updated storage conditions (<b>2–8°C for 36 months</b>) require <i>additional patient guidance</i>?</p><p style=\"margin-top:8px;\">Current ePI states: “Store in a refrigerator (2°C – 8°C). Do not freeze.”</p></div>"
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?</p><p>Current ePI states: “Store in a refrigerator (2°C – 8°C). Do not freeze.”</p></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "product-2",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.3",
+                    "display": "Product Information"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.3.1",
+                    "display": "SmPC, Labelling and Package Leaflet"
+                }
+            ],
+            "type": "question",
+            "text": "Is the patient leaflet revised to clarify the extended shelf life?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the patient leaflet revised to clarify the extended shelf life?</p><p style=\"font-style:italic\">“Shelf life after first opening: 36 months when stored at 2–8°C”</p></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "product-3",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.3",
+                    "display": "Product Information"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "1.3.1",
+                    "display": "SmPC, Labelling and Package Leaflet"
+                }
+            ],
+            "type": "question",
+            "text": "Is the updated ePI text sufficiently clear for all EU languages?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the updated ePI text sufficiently clear for all EU languages?</p><table><tr><th>Language</th><th>Status</th></tr><tr><td>English</td><td>Approved</td></tr><tr><td>French</td><td>Under Review</td></tr><tr><td>German</td><td>Pending</td></tr></table></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "quality-1",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.8",
+                    "display": "Stability"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.8.1",
+                    "display": "Stability Summary and Conclusion"
+                }
+            ],
+            "type": "question",
+            "text": "Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?</p><ul><li>Include protocol deviations if any.</li><li>Reference: <a href=\"https://www.ich.org/page/ich-guidelines\">ICH Q1A(R2)</a></li></ul></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "quality-2",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.8",
+                    "display": "Stability"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.8.1",
+                    "display": "Stability Summary and Conclusion"
+                }
+            ],
+            "type": "question",
+            "text": "Does the data support all intended climatic zones?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Does the data support all intended climatic zones?</p><div class=\"rtq-note\"><b>Note:</b> Confirm coverage for Zone IVb (30°C/75% RH) per <a href=\"https://www.who.int/publications/i/item/9789240011922\">WHO TRS 1010</a></div></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "quality-3",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.5",
+                    "display": "Control of Drug Product"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.5.2",
+                    "display": "Analytical Procedures"
+                }
+            ],
+            "type": "question",
+            "text": "Are the test methods used the same as in the previously submitted stability information?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are the test methods used the same as in the previously submitted stability information?</p><p style=\"color:#d32f2f\">If changed: justify and provide validation data.</p></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "quality-4",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.5",
+                    "display": "Control of Drug Product"
+                },
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.5.4",
+                    "display": "Impurities"
+                }
+            ],
+            "type": "question",
+            "text": "Are there any new degradation products identified within the newly submitted data?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new degradation products identified within the newly submitted data?</p><p style=\"font-size:0.9em\">Threshold: <b>&gt;0.10%</b> per <a href=\"https://www.ich.org/page/quality-guidelines\">ICH Q3B(R2)</a></p></div>"
+                }
+            ]
+        },
+        {
+            "linkId": "quality-5",
+            "code": [
+                {
+                    "system": "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full",
+                    "code": "3.2.P.7",
+                    "display": "Container Closure System"
+                }
+            ],
+            "type": "question",
+            "text": "Any changes in the packaging configuration and/or storage of the samples during stability?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Any changes in the packaging configuration and/or storage of the samples during stability?</p><p style=\"font-size:0.9em;color:#555\"><b>Figure 1:</b> Cross-section of new Alu/Alu blister showing foil thickness and sealing layer.</p><table><tr><th>Original</th><th>New</th></tr><tr><td>PVC/PVDC Blister</td><td>Alu/Alu Blister</td></tr><tr><td>25°C/60% RH</td><td>Unchanged</td></tr></table></div>"
                 }
             ]
         }

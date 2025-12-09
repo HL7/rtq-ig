@@ -21,6 +21,106 @@
             ]
         }
     },
+    "contained": [
+        {
+            "resourceType": "Organization",
+            "id": "org-regulator",
+            "identifier": [
+                {
+                    "system": "https://ema.europa.eu/organization-id",
+                    "value": "EMA"
+                }
+            ],
+            "name": "European Medicines Agency",
+            "address": [
+                {
+                    "text": "Domenico Scarlattilaan 6, 1083 HS Amsterdam, NL",
+                    "line": [
+                        "Domenico Scarlattilaan 6"
+                    ],
+                    "city": "Amsterdam",
+                    "postalCode": "1083 HS",
+                    "country": "NL"
+                }
+            ],
+            "contact": [
+                {
+                    "telecom": [
+                        {
+                            "system": "email",
+                            "value": "jane.doe@ema.example.eu"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "resourceType": "Organization",
+            "id": "org-mah",
+            "identifier": [
+                {
+                    "system": "https://www.zefix.ch/en/SwissCompanyRegistry/UID",
+                    "value": "CHE-123.456.789"
+                }
+            ],
+            "name": "SynthPharma AG",
+            "address": [
+                {
+                    "text": "Industriestrasse 12, 4056 Basel, CH",
+                    "line": [
+                        "Industriestrasse 12"
+                    ],
+                    "city": "Basel",
+                    "postalCode": "4056",
+                    "country": "CH"
+                }
+            ],
+            "contact": [
+                {
+                    "telecom": [
+                        {
+                            "system": "email",
+                            "value": "john.doe@synthpharma.ch"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "resourceType": "DocumentReference",
+            "id": "example-docref",
+            "meta": {
+                "profile": [
+                    "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+                ]
+            },
+            "masterIdentifier": {
+                "system": "urn:ietf:rfc:3986",
+                "value": "urn:oid:1.2.3.4.5"
+            },
+            "status": "current",
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/uv/apix/CodeSystem/ctd-section",
+                        "code": "1.2",
+                        "display": "Administrative Information"
+                    }
+                ]
+            },
+            "date": "2025-11-20T10:00:00Z",
+            "content": [
+                {
+                    "attachment": {
+                        "contentType": "application/pdf",
+                        "title": "Fee Payment Receipt",
+                        "creation": "2025-11-19T15:00:00Z",
+                        "data": "JVBERi0xLjQKJcOkw7zDtsOxdHJhaWxlcjw8L1Jvb3Q8PC9QYWdlczw8L0tpZHMW4+PC9NZWRpYUJveFswIDAgNTk1LjI4IDg0MS44OV0+Pj4+Pj47Cg=="
+                    }
+                }
+            ]
+        }
+    ],
     "questionnaire": "Questionnaire/questionnaire-ID001",
     "status": "completed",
     "subject": {
@@ -30,80 +130,12 @@
     "author": {
         "type": "Organization",
         "reference": "#org-regulator",
-        "display": "European Medicines Agency",
-        "contained": [
-            {
-                "resourceType": "Organization",
-                "id": "org-regulator",
-                "identifier": [
-                    {
-                        "system": "https://ema.europa.eu/organization-id",
-                        "value": "EMA"
-                    }
-                ],
-                "name": "European Medicines Agency",
-                "address": [
-                    {
-                        "text": "Domenico Scarlattilaan 6, 1083 HS Amsterdam, NL",
-                        "line": [
-                            "Domenico Scarlattilaan 6"
-                        ],
-                        "city": "Amsterdam",
-                        "postalCode": "1083 HS",
-                        "country": "NL"
-                    }
-                ],
-                "contact": [
-                    {
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "jane.doe@ema.example.eu"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
+        "display": "European Medicines Agency"
     },
     "source": {
         "type": "Organization",
         "reference": "#org-mah",
-        "display": "SynthPharma AG",
-        "contained": [
-            {
-                "resourceType": "Organization",
-                "id": "org-mah",
-                "identifier": [
-                    {
-                        "system": "https://www.zefix.ch/en/SwissCompanyRegistry/UID",
-                        "value": "CHE-123.456.789"
-                    }
-                ],
-                "name": "SynthPharma AG",
-                "address": [
-                    {
-                        "text": "Industriestrasse 12, 4056 Basel, CH",
-                        "line": [
-                            "Industriestrasse 12"
-                        ],
-                        "city": "Basel",
-                        "postalCode": "4056",
-                        "country": "CH"
-                    }
-                ],
-                "contact": [
-                    {
-                        "telecom": [
-                            {
-                                "system": "email",
-                                "value": "john.doe@synthpharma.ch"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
+        "display": "SynthPharma AG"
     },
     "authored": "2025-06-25T14:00:00+02:00",
     "item": [
@@ -122,20 +154,41 @@
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
-                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, the fee was paid on <b>June 25, 2025</b>, with documentation included in the application form.</p></div>"
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, the fee was paid on <b>June 25, 2025</b>. Payment confirmation and receipt are included in the application form (see Section 1.1).</p></div>"
                         }
                     ]
                 },
                 {
                     "valueReference": {
-                        "reference": "DocumentReference/example-docref",
+                        "reference": "#example-docref",
                         "display": "Fee Payment Receipt"
                     }
                 }
             ]
         },
         {
-            "linkId": "labeling-1",
+            "linkId": "admin-2",
+            "text": "Are all required metadata fields in the application form complete?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are all required metadata fields in the application form complete?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "Yes, all required metadata fields are complete.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, all required metadata fields are complete:</p><ul><li><strong>MAH:</strong> SynthPharma AG</li><li><strong>Product:</strong> ExampleDrug 10 mg Tablets</li><li><strong>Procedure:</strong> EMEA/H/C/005432/II/0023</li><li><strong>Submission Date:</strong> 2025-06-25</li></ul></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "product-1",
             "text": "Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?",
             "extension": [
                 {
@@ -149,7 +202,154 @@
                     "extension": [
                         {
                             "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
-                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No additional guidance is needed; the ePI clearly states storage at 2-8°C for 36 months.</p></div>"
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No additional patient guidance is required. The ePI clearly states: 'Store in a refrigerator (2°C – 8°C). Do not freeze.' The 36-month shelf life is supported by stability data and does not alter patient handling instructions.</p></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "product-2",
+            "text": "Is the patient leaflet revised to clarify the extended shelf life?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the patient leaflet revised to clarify the extended shelf life?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "Yes, the patient leaflet has been updated.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, the patient leaflet has been updated to state: 'Shelf life after first opening: 36 months when stored at 2–8°C'. The revised leaflet is included in the submission.</p></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "product-3",
+            "text": "Is the updated ePI text sufficiently clear for all EU languages?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the updated ePI text sufficiently clear for all EU languages?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "Yes, the ePI text has been translated into all EU languages.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, the ePI text has been translated into all EU languages and reviewed for clarity. All versions are linguistically validated. Status: English (Approved), French (Approved), German (Approved), others (Final review completed).</p></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "quality-1",
+            "text": "Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "The submission includes both additional timepoints and new stability studies.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The submission includes both:</p><ul><li><strong>Additional timepoints:</strong> Long-term data extended to 36 months for primary batches A-001, A-002, A-003.</li><li><strong>New stability studies:</strong> Two pilot-scale batches (B-001, B-002) in new Alu/Alu packaging, with 6-month accelerated (40°C/75% RH) and long-term (25°C/60% RH) data.</li></ul><p>No protocol deviations occurred. All studies follow ICH Q1A(R2).</p></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "quality-2",
+            "text": "Does the data support all intended climatic zones?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Does the data support all intended climatic zones?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "Yes, the data supports all ICH climatic zones, including Zone IVb.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, the data supports all ICH climatic zones, including Zone IVb:</p><ul><li><strong>Zone I/II:</strong> 25°C/60% RH (long-term), 40°C/75% RH (accelerated)</li><li><strong>Zone IVb:</strong> 30°C/75% RH (long-term) — data confirms compliance per WHO TRS 1010.</li></ul><p>All batches remain within specification.</p></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "quality-3",
+            "text": "Are the test methods used the same as in the previously submitted stability information?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are the test methods used the same as in the previously submitted stability information?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "Yes, all test methods are identical to those validated in the original MAA.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, all test methods are identical to those validated in the original MAA. No changes were made. Methods remain stability-indicating for assay, impurities, and dissolution.</p></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "quality-4",
+            "text": "Are there any new degradation products identified within the newly submitted data?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new degradation products identified within the newly submitted data?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "No new degradation products were identified.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No new degradation products were identified. All observed impurities correspond to previously qualified degradants. Levels remain below 0.10% (ICH Q3B(R2) threshold). No peaks above reporting threshold detected.</p></div>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "linkId": "quality-5",
+            "text": "Any changes in the packaging configuration and/or storage of the samples during stability?",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                    "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Any changes in the packaging configuration and/or storage of the samples during stability?</p></div>"
+                }
+            ],
+            "answer": [
+                {
+                    "valueString": "Yes, a change in packaging configuration was implemented.",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinition/rendering-xhtml",
+                            "valueXhtml": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Yes, a change in packaging configuration was implemented:</p><ul><li><strong>Original:</strong> PVC/PVDC blister pack</li><li><strong>New:</strong> Aluminum/aluminum (Alu/Alu) blister pack</li></ul><p>New stability studies (B-001, B-002) were initiated in the Alu/Alu system. Storage conditions remain unchanged: 25°C/60% RH (long-term), 40°C/75% RH (accelerated).</p><div style=\"background:#e5e5ea;border:1px dashed #999;padding:10px;text-align:center;color:#666;\">[Figure 1: Cross-section of new Alu/Alu blister pack]</div><p style=\"font-size:0.9em;color:#555\"><b>Figure 1:</b> Cross-section of new Alu/Alu blister showing foil thickness and sealing layer.</p><table><tr><th>Parameter</th><th>Original</th><th>New</th></tr><tr><td>Material</td><td>PVC/PVDC</td><td>Alu/Alu</td></tr><tr><td>Storage Condition</td><td>25°C/60% RH</td><td>Unchanged</td></tr></table></div>"
                         }
                     ]
                 }
