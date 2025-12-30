@@ -1,9 +1,25 @@
 This page provides a technical outline of the **Regulatory Questionnaire** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of regulatory questions while preserving rich formatting and traceability to the Common Technical Document (CTD) structure.
 
 ---
-### HTML presentation example
 
-The following is a HTML rendering of a FHIR Questionnaire with synthetic content: <a href="questionex1.html">Sample question from a regulator to a market authorization holder</a>
+### Example: EMA Regulatory Question
+
+The following demonstrates a synthetic regulatory questionnaire issued during a Type II variation procedure.
+
+#### [NEW] [HTML presentation sample](questionex1.html)
+
+> [!TIP]
+> **Open the sample in a new tab** to experience the full "Modern SaaS" dashboard layout with sticky navigation:
+> <a href="questionex1.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a>
+
+#### FHIR Integration Highlights
+
+*   **CTD Mapping**: Each question maps to a `Questionnaire.item` with a `linkId` (e.g., `"1"`) and a CTD section code.
+*   **Rich Text**: Employs the `rendering-xhtml` extension to support bold text, tables, and links within questions.
+*   **Organizational Context**: Includes detailed contact information for both the regulator (Sender) and MAH (Recipient).
+*   **Traceability**: Links directly to the regulatory procedure via business identifiers.
+
+[View the underlying FHIR Questionnaire resource](Questionnaire-questionnaire-ID001.html)
 
 ---
 

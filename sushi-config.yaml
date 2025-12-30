@@ -19,13 +19,9 @@ pages:
   use-case.md:
     title: Use Case
   question.md:
-    title: Question Structure
-  questionex1.md:
-    title: Question Example
-  responseex1.md:
-    title: Response Example
+    title: Question Profile & Example
   response.md:
-    title: Response Structure
+    title: Response Profile & Example
 
 menu:
   Home: index.html

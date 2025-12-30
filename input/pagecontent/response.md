@@ -1,9 +1,25 @@
 This page provides a technical outline of the **Regulatory Questionnaire Response** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of answers from a Marketing Authorization Holder (MAH) back to a regulator.
 
 ---
-### HTML presentation example
 
-The following is a HTML rendering of a FHIR QuestionnaireResponse with synthetic content: <a href="responseex1.html">Sample response from a market authorization to a regulator</a>
+### Example: EMA Regulatory Response
+
+The following demonstrates a **synthetic regulatory questionnaire response** submitted by a marketing authorization holder (MAH) during a Type II variation procedure.
+
+#### [NEW] [HTML presentation sample](responseex1.html)
+
+> [!TIP]
+> **Open the sample in a new tab** to experience the full "Modern SaaS" dashboard layout with sticky navigation:
+> <a href="responseex1.html" target="_blank">Sample response from a market authorization to a regulator (Full Page)</a>
+
+#### FHIR Integration Highlights
+
+*   **Traceable Answers**: Each answer maps to a `QuestionnaireResponse.item` with a `linkId` matching the original question (e.g., `"1"`).
+*   **Response Context**: Explicitly links to the original `Questionnaire` and includes a submission timestamp.
+*   **Rich Content**: Supports rich text answers (via extension), updated ePI translations, and technical data like climatic zone confirmation.
+*   **Attachments**: References supporting documents (e.g., PDFs) using the APIX DocumentReference profile.
+
+[View the underlying FHIR QuestionnaireResponse resource](Questionnaire-questionnaireresponse-ID001.html)
 
 ---
 
