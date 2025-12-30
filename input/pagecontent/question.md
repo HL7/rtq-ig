@@ -11,14 +11,13 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 *   **Organizational Context**: Includes detailed contact information for both the regulator (Sender) and MAH (Recipient).
 *   **Traceability**: Links directly to the regulatory procedure via business identifiers.
 
-[View the underlying FHIR Questionnaire resource (GitHub)](https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-Questionnaire.json)
-
 ---
 
-### Rendered Example
+### Example
 
-View the fully rendered HTML example below to see the interactive dashboard in action:
-- [Regulatory Questionnaire (Full Page)](examples/question-sample.html)
+View the example below:
+- [View the Regulatory Questionnaire example (HTML)](examples/question-sample.html)
+- [View the underlying Regulatory Questionnaire code (JSON)](https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-Questionnaire.json)
 
 ---
 
