@@ -254,15 +254,79 @@ body {
     font-weight: 600;
 }
 
-.img-ph {
-    background: #f1f5f9;
-    border: 1px dashed #cbd5e1;
+
+.img-box {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.img-box img {
+    max-width: 100%;
+    height: auto;
     border-radius: 8px;
-    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.img-ph {
+    padding: 60px;
     text-align: center;
     color: #94a3b8;
+    font-size: 0.9rem;
     font-style: italic;
-    margin: 15px 0;
+    background: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+}
+
+/* Answer Card Styles */
+.answer-card {
+    margin: 0 0 40px 0;
+    /* No indentation, more space between pairs */
+    padding: 24px;
+    border-radius: 0 0 12px 12px;
+    background: #f1f5f9;
+    /* Darker background for stronger differentiation */
+    border: 1px solid var(--border);
+    border-top: none;
+    border-left: 6px solid #475569;
+    /* Darker, thicker accent border */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Subtle inner shadow for 'filled' feel */
+}
+
+.answer-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.answer-label::before {
+    content: '→';
+    font-size: 1rem;
+}
+
+.answer-text {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.answer-text p {
+    margin: 0 0 10px;
+}
+
+.answer-text p:last-child {
+    margin-bottom: 0;
 }
 
 .footer {
