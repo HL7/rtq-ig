@@ -5,8 +5,8 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 ### Example
 
 View the example below:
-- [View the Regulatory Response example (HTML)](examples/response-sample.html)
-- [View the underlying Regulatory Response code (JSON)](https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-QuestionnaireResponse.json)
+- <a href="examples/response-sample.html" target="_blank">View the Regulatory Response example (HTML)</a>
+- <a href="https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-QuestionnaireResponse.json" target="_blank">View the underlying Regulatory Response code (JSON)</a>
 
 ---
 

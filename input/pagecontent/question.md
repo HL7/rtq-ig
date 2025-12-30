@@ -5,8 +5,8 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 ### Example
 
 View the example below:
-- [View the Regulatory Questionnaire example (HTML)](examples/question-sample.html)
-- [View the underlying Regulatory Questionnaire code (JSON)](https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-Questionnaire.json)
+- <a href="examples/question-sample.html" target="_blank">View the Regulatory Questionnaire example (HTML)</a>
+- <a href="https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-Questionnaire.json" target="_blank">View the underlying Regulatory Questionnaire code (JSON)</a>
 
 ---
 
