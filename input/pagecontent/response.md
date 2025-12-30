@@ -2,17 +2,6 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 
 ---
 
-### Example: EMA Regulatory Response
-
-The following demonstrates a **synthetic regulatory questionnaire response** submitted by a marketing authorization holder (MAH) during a Type II variation procedure.
-
-#### [NEW] [HTML presentation sample](assets/response-sample.html)
-
-<div class="markdown-alert markdown-alert-tip">
-<p class="markdown-alert-title">Tip</p>
-<p><strong>Open the sample in a new tab</strong> to experience the full "Modern SaaS" dashboard layout:</p>
-<p><a href="assets/response-sample.html" target="_blank">Sample response from a market authorization to a regulator (Full Page)</a></p>
-</div>
 
 
 #### FHIR Integration Highlights
