@@ -128,18 +128,6 @@
           "generation": "markdown",
           "name": "response.html",
           "sourceUrl": "response.html"
-        },
-        {
-          "title": "Questionnaire Sample (Full Page)",
-          "generation": "html",
-          "name": "question-sample.html",
-          "sourceUrl": "question-sample.html"
-        },
-        {
-          "title": "QuestionnaireResponse Sample (Full Page)",
-          "generation": "html",
-          "name": "response-sample.html",
-          "sourceUrl": "response-sample.html"
         }
       ],
       "name": "toc.html",

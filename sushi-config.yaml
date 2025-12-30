@@ -22,10 +22,6 @@ pages:
     title: Question Profile & Example
   response.md:
     title: Response Profile & Example
-  question-sample.html:
-    title: Questionnaire Sample (Full Page)
-  response-sample.html:
-    title: QuestionnaireResponse Sample (Full Page)
 
 menu:
   Home: index.html
@@ -33,6 +29,6 @@ menu:
   Question Structure: question.html
   Response Structure: response.html
   Samples:
-    Question Sample: question-sample.html
-    Response Sample: response-sample.html
+    Question Sample: assets/question-sample.html
+    Response Sample: assets/response-sample.html
   Artifacts: artifacts.html
