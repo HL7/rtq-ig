@@ -79,4 +79,4 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 ### Rendered Example
 
 View the fully rendered HTML example below to see the interactive dashboard in action:
-- [Regulatory Questionnaire (Full Page)](assets/question-sample.html)
+- [Regulatory Questionnaire (Full Page)](examples/question-sample.html)

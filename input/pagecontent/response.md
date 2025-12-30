@@ -79,4 +79,4 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 ### Rendered Example
 
 View the fully rendered HTML example below to see the interactive dashboard in action:
-- [Regulatory Response (Full Page)](assets/response-sample.html)
+- [Regulatory Response (Full Page)](examples/response-sample.html)
