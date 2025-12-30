@@ -76,19 +76,7 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 
 ---
 
-### Example: Regulatory Question
+### Rendered Example
 
-The following demonstrates a synthetic regulatory questionnaire issued during a Type II variation procedure.
-
-#### [NEW] [HTML presentation sample](assets/question-sample.html)
-
-<div class="markdown-alert markdown-alert-tip">
-<p class="markdown-alert-title">Tip</p>
-<p><strong>Open the sample in a new tab</strong> to experience the full "Modern SaaS" dashboard layout:</p>
-<p><a href="assets/question-sample.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a></p>
-</div>
-
----
-
-### Dashboard Preview
-<iframe src="assets/question-sample.html" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 8px;"></iframe>
+View the fully rendered HTML example below to see the interactive dashboard in action:
+- [Regulatory Questionnaire Dashboard (Full Page)](assets/question-sample.html)
