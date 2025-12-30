@@ -118,25 +118,13 @@
           "sourceUrl": "use-case.html"
         },
         {
-          "title": "Question Structure",
+          "title": "Question Profile & Example",
           "generation": "markdown",
           "name": "question.html",
           "sourceUrl": "question.html"
         },
         {
-          "title": "Question Example",
-          "generation": "markdown",
-          "name": "questionex1.html",
-          "sourceUrl": "questionex1.html"
-        },
-        {
-          "title": "Response Example",
-          "generation": "markdown",
-          "name": "responseex1.html",
-          "sourceUrl": "responseex1.html"
-        },
-        {
-          "title": "Response Structure",
+          "title": "Response Profile & Example",
           "generation": "markdown",
           "name": "response.html",
           "sourceUrl": "response.html"
