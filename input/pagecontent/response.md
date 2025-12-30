@@ -3,7 +3,7 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 ---
 ### HTML presentation example
 
-The following is a HTML rendering of a FHIR QuestionnaireResponse with synthetic content: <a href="QuestionnaireResponse-RegulatoryQA-ID001-Response.html">Sample response from a market authorization to a regulator</a>
+The following is a HTML rendering of a FHIR QuestionnaireResponse with synthetic content: <a href="responseex1.html">Sample response from a market authorization to a regulator</a>
 
 ---
 
