@@ -22,9 +22,9 @@ pages:
     title: Question Profile & Example
   response.md:
     title: Response Profile & Example
-  question-sample.md:
+  question-sample.html:
     title: Questionnaire Sample (Full Page)
-  response-sample.md:
+  response-sample.html:
     title: QuestionnaireResponse Sample (Full Page)
 
 menu:

@@ -1,0 +1,631 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Questionnaire - EMA List of Questions (ID001)</title>
+    <style>
+        /* RTQ IG Universal Stylesheet - Modern SaaS Theme */
+
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: white;
+            border-right: 1px solid var(--border);
+            padding: 32px 20px;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .nav-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 4px;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-item:hover {
+            background: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        .nav-item.active {
+            background: #eff6ff;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .count-pill {
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Main Content Area */
+        .main {
+            flex: 1;
+            padding: 40px 60px;
+            max-width: 1000px;
+        }
+
+        .top-bar {
+            margin-bottom: 30px;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 1.875rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        .top-bar p {
+            margin: 8px 0 0;
+            color: var(--text-muted);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 40px;
+        }
+
+        /* Grid for Participant Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            font-size: 0.875rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 60px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            scroll-margin-top: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            height: 1px;
+            background: var(--border);
+            flex: 1;
+        }
+
+        /* Question Card Styles */
+        .question-card {
+            margin-bottom: 24px;
+            padding: 24px;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .q-meta-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .q-ref {
+            font-family: 'SF Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+            background: #eff6ff;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .q-id {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .q-body {
+            display: flex;
+            gap: 20px;
+        }
+
+        .q-num {
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .q-content {
+            flex: 1;
+        }
+
+        .q-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--text-main);
+            margin: 0 0 10px;
+        }
+
+        .q-text {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .q-text ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .q-text table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.85rem;
+        }
+
+        .q-text th,
+        .q-text td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: left;
+        }
+
+        .q-text th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+
+        .img-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .img-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .img-ph {
+            padding: 60px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-style: italic;
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+        }
+
+        /* Answer Card Styles */
+        .answer-card {
+            margin: 0 0 40px 0;
+            padding: 24px;
+            border-radius: 0 0 12px 12px;
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-left: 6px solid #475569;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .answer-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .answer-label::before {
+            content: '→';
+            font-size: 1rem;
+        }
+
+        .answer-text {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .answer-text p {
+            margin: 0 0 10px;
+        }
+
+        .answer-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">Outline</div>
+
+        <div class="nav-label">Administrative</div>
+        <a href="#overview" class="nav-item"><span>Procedure Overview</span></a>
+        <a href="#participants" class="nav-item"><span>Participants</span></a>
+
+        <div class="nav-label" style="margin-top: 32px;">Questions</div>
+        <a href="#admin" class="nav-item"><span>1.0 Administrative</span> <span class="count-pill">2</span></a>
+        <a href="#product" class="nav-item"><span>1.3 Product Info</span> <span class="count-pill">3</span></a>
+        <a href="#stability" class="nav-item"><span>3.2.P.8 Stability</span> <span class="count-pill">2</span></a>
+        <a href="#control" class="nav-item"><span>3.2.P.5 Control</span> <span class="count-pill">2</span></a>
+        <a href="#container" class="nav-item"><span>3.2.P.7 Container</span> <span class="count-pill">1</span></a>
+    </aside>
+
+    <main class="main" id="overview">
+        <div class="top-bar">
+            <h1>Regulatory Questionnaire</h1>
+            <p>EMA List of Questions – Type II Variation (ID001)</p>
+            <p style="font-size: 0.9rem;">Procedure: EMEA/H/C/005432/II/0023 | Response due: 2025-12-11</p>
+        </div>
+
+        <div class="intro-text">
+            <p>The Regulatory Questionnaire profile defines a structured, machine-readable format for regulatory
+                questions. This resource enables automated routing, tracking, and response management while preserving
+                rich formatting and traceability to the Common Technical Document (CTD) structure.</p>
+        </div>
+
+        <div id="participants" class="section-title">Participants & Contacts</div>
+        <div class="contact-grid">
+            <div class="card">
+                <div class="card-header">SENDER (REGULATOR)</div>
+                <strong>European Medicines Agency</strong><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Scientific and Regulatory
+                    Management</span><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Human Medicines Evaluation
+                    Division</span><br>
+                <span style="font-size: 0.85rem; color: var(--primary);"><a href="mailto:jane.doe@ema.europa.eu"
+                        style="color: inherit; text-decoration: none;">jane.doe@ema.europa.eu</a></span>
+            </div>
+            <div class="card">
+                <div class="card-header">RECIPIENT (MAH)</div>
+                <strong>SynthPharma AG</strong><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Global Regulatory Strategy</span><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Basel, Switzerland</span><br>
+                <span style="font-size: 0.85rem; color: var(--primary);"><a href="mailto:john.doe@synthpharma.example"
+                        style="color: inherit; text-decoration: none;">john.doe@synthpharma.example</a></span>
+            </div>
+        </div>
+
+        <div id="admin" class="section-title">1.0 Administrative Information</div>
+
+        <!-- Question 1 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 1.1 Application Form</span>
+                <span class="q-id">ID: 1</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">1</div>
+                <div class="q-content">
+                    <div class="q-title">Is the fee for the Type II variation fully paid and documented?</div>
+                    <div class="q-text">
+                        <p style="font-size:0.9em;color:#555">
+                            See <a
+                                href="https://www.ema.europa.eu/en/documents/regulatory-procedural-guidance/fees-payable-european-medicines-agency_en.pdf">EMA
+                                Fee Guidance</a> for payment confirmation requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 1.1 Application Form</span>
+                <span class="q-id">ID: 2</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">2</div>
+                <div class="q-content">
+                    <div class="q-title">Are all required metadata fields in the application form complete?</div>
+                    <div class="q-text">
+                        <ul>
+                            <li>Marketing Authorisation Holder</li>
+                            <li>Product Name (INN)</li>
+                            <li>Procedure Number</li>
+                            <li>Submission Date</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="product" class="section-title">1.3 Product Information</div>
+
+        <!-- Question 3 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
+                <span class="q-id">ID: 3</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">3</div>
+                <div class="q-content">
+                    <div class="q-title">Do the updated storage conditions (2–8°C for 36 months) require additional
+                        patient guidance?</div>
+                    <div class="q-text">
+                        <p>Current ePI states: “Store in a refrigerator (2°C – 8°C). Do not freeze.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
+                <span class="q-id">ID: 4</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">4</div>
+                <div class="q-content">
+                    <div class="q-title">Is the patient leaflet revised to clarify the extended shelf life?</div>
+                    <div class="q-text">
+                        <p style="font-style:italic">“Shelf life after first opening: 36 months when stored at 2–8°C”
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
+                <span class="q-id">ID: 5</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">5</div>
+                <div class="q-content">
+                    <div class="q-title">Is the updated ePI text sufficiently clear for all EU languages?</div>
+                    <div class="q-text">
+                        <table>
+                            <tr>
+                                <th>Language</th>
+                                <th>Status</th>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td>Approved</td>
+                            </tr>
+                            <tr>
+                                <td>French</td>
+                                <td>Under Review</td>
+                            </tr>
+                            <tr>
+                                <td>German</td>
+                                <td>Pending</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="stability" class="section-title">3.2.P.8 Stability</div>
+
+        <!-- Question 6 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary and Conclusion</span>
+                <span class="q-id">ID: 6</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">6</div>
+                <div class="q-content">
+                    <div class="q-title">Are there any new stability studies conducted?</div>
+                    <div class="q-text">
+                        <ul>
+                            <li>Include protocol deviations if any.</li>
+                            <li>Reference: <a href="https://www.ich.org/page/ich-guidelines">ICH Q1A(R2)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary and Conclusion</span>
+                <span class="q-id">ID: 7</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">7</div>
+                <div class="q-content">
+                    <div class="q-title">Does the data support all intended climatic zones?</div>
+                    <div class="q-text">
+                        <p>Confirm coverage for Zone IVb (30°C/75% RH) per <a
+                                href="https://www.who.int/publications/i/item/9789240011922">WHO TRS 1010</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="control" class="section-title">3.2.P.5 Control of Drug Product</div>
+
+        <!-- Question 8 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.5.2 Analytical Procedures</span>
+                <span class="q-id">ID: 8</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">8</div>
+                <div class="q-content">
+                    <div class="q-title">Are the test methods used consistent with previous submissions?</div>
+                    <div class="q-text">
+                        <p>If changed: justify and provide validation data per ICH Q2(R1).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.5.4 Impurities</span>
+                <span class="q-id">ID: 9</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">9</div>
+                <div class="q-content">
+                    <div class="q-title">Are there any new degradation products identified?</div>
+                    <div class="q-text">
+                        <p style="font-size:0.9em">Threshold: <b>>0.10%</b> per <a
+                                href="https://www.ich.org/page/quality-guidelines">ICH Q3B(R2)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="container" class="section-title">3.2.P.7 Container Closure System</div>
+
+        <!-- Question 10 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.7 Container Closure</span>
+                <span class="q-id">ID: 10</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">10</div>
+                <div class="q-content">
+                    <div class="q-title">Any changes in the packaging configuration during stability?</div>
+                    <div class="q-text">
+                        <div class="img-ph">[Figure 1: Cross-section of proposed aluminum/aluminum blister pack]</div>
+                        <table>
+                            <tr>
+                                <th>Original</th>
+                                <th>New</th>
+                            </tr>
+                            <tr>
+                                <td>PVC/PVDC Blister</td>
+                                <td>Alu/Alu Blister</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Regulatory Questionnaire Standard (RTQ) • Enabling machine-readable regulatory Q&A
+        </div>
+    </main>
+
+</body>
+
+</html>

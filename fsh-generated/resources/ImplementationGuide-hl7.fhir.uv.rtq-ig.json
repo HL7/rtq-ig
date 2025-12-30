@@ -131,13 +131,13 @@
         },
         {
           "title": "Questionnaire Sample (Full Page)",
-          "generation": "markdown",
+          "generation": "html",
           "name": "question-sample.html",
           "sourceUrl": "question-sample.html"
         },
         {
           "title": "QuestionnaireResponse Sample (Full Page)",
-          "generation": "markdown",
+          "generation": "html",
           "name": "response-sample.html",
           "sourceUrl": "response-sample.html"
         }
