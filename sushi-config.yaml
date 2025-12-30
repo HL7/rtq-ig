@@ -22,10 +22,17 @@ pages:
     title: Question Profile & Example
   response.md:
     title: Response Profile & Example
+  question-sample.md:
+    title: Questionnaire Sample (Full Page)
+  response-sample.md:
+    title: QuestionnaireResponse Sample (Full Page)
 
 menu:
   Home: index.html
   Use Case: use-case.html
   Question Structure: question.html
   Response Structure: response.html
+  Samples:
+    Question Sample: question-sample.html
+    Response Sample: response-sample.html
   Artifacts: artifacts.html
