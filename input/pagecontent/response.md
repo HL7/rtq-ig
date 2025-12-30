@@ -21,8 +21,8 @@ The following is a live preview of the response dashboard. Use this view to see 
   <div style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">
     Live Dashboard Fragment
   </div>
-  <div style="padding: 0; max-height: 800px; overflow-y: auto;">
-    {% include sample-response.html %}
+  <div style="padding: 0; height: 800px; background-color: white;">
+    <iframe src="response-sample.html" style="width: 100%; height: 100%; border: none;"></iframe>
   </div>
 </div>
 

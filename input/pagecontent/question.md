@@ -21,8 +21,8 @@ The following is a live preview of the questionnaire dashboard. You can interact
   <div style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">
     Live Dashboard Fragment
   </div>
-  <div style="padding: 0; max-height: 800px; overflow-y: auto;">
-    {% include sample-question.html %}
+  <div style="padding: 0; height: 800px; background-color: white;">
+    <iframe src="question-sample.html" style="width: 100%; height: 100%; border: none;"></iframe>
   </div>
 </div>
 
