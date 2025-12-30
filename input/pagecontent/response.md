@@ -14,6 +14,18 @@ The following demonstrates a **synthetic regulatory questionnaire response** sub
 <p><a href="response-sample.html" target="_blank">Sample response from a market authorization to a regulator (Full Page)</a></p>
 </div>
 
+### Interactive Dashboard Preview
+The following is a live preview of the response dashboard. Use this view to see how a manufacturer provides structured answers and references back to the regulator.
+
+<div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin-top: 15px;">
+  <div style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">
+    Live Dashboard Fragment
+  </div>
+  <div style="padding: 0; max-height: 800px; overflow-y: auto;">
+    {% include sample-response.html %}
+  </div>
+</div>
+
 #### FHIR Integration Highlights
 
 *   **Traceable Answers**: Each answer maps to a `QuestionnaireResponse.item` with a `linkId` matching the original question (e.g., `"1"`).

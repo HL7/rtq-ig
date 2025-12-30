@@ -14,6 +14,18 @@ The following demonstrates a synthetic regulatory questionnaire issued during a 
 <p><a href="question-sample.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a></p>
 </div>
 
+### Interactive Dashboard Preview
+The following is a live preview of the questionnaire dashboard. You can interact with the navigation links below to see how a regulator presents questions to a manufacturer.
+
+<div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin-top: 15px;">
+  <div style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">
+    Live Dashboard Fragment
+  </div>
+  <div style="padding: 0; max-height: 800px; overflow-y: auto;">
+    {% include sample-question.html %}
+  </div>
+</div>
+
 #### FHIR Integration Highlights
 
 *   **CTD Mapping**: Each question maps to a `Questionnaire.item` with a `linkId` (e.g., `"1"`) and a CTD section code.
