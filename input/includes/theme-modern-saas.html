@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTQ Dashboard - Modern SaaS Design</title>
+    <link rel="stylesheet" href="../assets/css/rtq.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">Outline</div>
+
+        <div class="nav-label">Administrative</div>
+        <a href="#overview" class="nav-item"><span>Procedure Overview</span></a>
+        <a href="#participants" class="nav-item"><span>Participants</span></a>
+
+        <div class="nav-label" style="margin-top: 32px;">Questions</div>
+        <a href="#module1" class="nav-item"><span>1.0 Administrative</span> <span class="count-pill">2</span></a>
+        <a href="#module13" class="nav-item"><span>1.3 Product Info</span> <span class="count-pill">3</span></a>
+        <a href="#module3" class="nav-item active"><span>3.2.P.8 Stability</span> <span class="count-pill">2</span></a>
+        <a href="#module5" class="nav-item"><span>3.2.P.5 Control</span> <span class="count-pill">2</span></a>
+        <a href="#module7" class="nav-item"><span>3.2.P.7 Container</span> <span class="count-pill">1</span></a>
+    </aside>
+
+    <main class="main" id="overview">
+        <div class="top-bar">
+            <h1>EMA List of Questions</h1>
+            <p>ID001 – Shelf-life extension Type II Variation • Due 2025-12-11</p>
+        </div>
+
+        <div class="intro-text">
+            <p>The Regulatory Questionnaire profile defines a structured, machine-readable format for regulatory
+                questions issued by a health authority during the review of a regulatory submission. This resource
+                enables automated routing, tracking, and response management while preserving rich formatting and
+                traceability to the Common Technical Document (CTD) structure.</p>
+        </div>
+
+        <div id="participants" class="section-title">Participants & Contacts</div>
+        <div class="contact-grid">
+            <div class="card">
+                <div class="card-header">ISSUING AUTHORITY</div>
+                <strong>European Medicines Agency</strong><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Scientific and Regulatory Management
+                    Division</span><br>
+                <span style="font-size: 0.85rem; color: var(--primary);">EMA Amsterdam HQ</span>
+            </div>
+            <div class="card">
+                <div class="card-header">RECIPIENT MAH</div>
+                <strong>SynthPharma AG</strong><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Global Regulatory Affairs Group</span><br>
+                <span style="font-size: 0.85rem; color: var(--primary);">Basel, Switzerland</span>
+            </div>
+        </div>
+
+        <div id="module3" class="section-title">Module 3: Quality - Stability</div>
+
+        <!-- Question 7 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary</span>
+                <span class="q-id">ID: Q-STAB-07</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">7</div>
+                <div class="q-content">
+                    <div class="q-title">Does the data support all intended climatic zones?</div>
+                    <div class="q-text">
+                        <p>Confirm coverage for Zone IVb (30°C/75% RH) per WHO TRS 1010. Provide summary for all tested
+                            climatic conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary</span>
+                <span class="q-id">ID: Q-STAB-06</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">6</div>
+                <div class="q-content">
+                    <div class="q-title">Are there any new stability studies conducted or only additional timepoints?
+                    </div>
+                    <div class="q-text">
+                        <p>Reference: <a href="#">ICH Q1A(R2)</a>. Response provided on Dec 15, 2024.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="module1" class="section-title">Module 1: Administrative Information</div>
+
+        <!-- Question 1 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 1.1 Application Form</span>
+                <span class="q-id">ID: Q-ADMIN-01</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">1</div>
+                <div class="q-content">
+                    <div class="q-title">Is the variation fee fully paid and documented?</div>
+                    <div class="q-text">
+                        <p>Confirmation of payment received by EMA Finance on Dec 20, 2024.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="module7" class="section-title">Module 3.2.P.7: Container Closure System</div>
+
+        <!-- Question 10 -->
+        <div class="question-card">
+            <div class="q-meta-top">
+                <span class="q-ref">CTD Ref: 3.2.P.7 Container Closure</span>
+                <span class="q-id">ID: Q-PKG-10</span>
+            </div>
+            <div class="q-body">
+                <div class="q-num">10</div>
+                <div class="q-content">
+                    <div class="q-title">Any changes in the packaging configuration during stability?</div>
+                    <div class="q-text">
+                        <div class="img-ph">[Draft Figure: Alu/Alu Blister Cross-section]</div>
+                        <table>
+                            <tr>
+                                <th>Original Pack</th>
+                                <th>Proposed Pack</th>
+                            </tr>
+                            <tr>
+                                <td>PVC/PVDC Blister</td>
+                                <td>Alu/Alu Blister</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Regulatory Questionnaire Standard (RTQ) • HL7 FHIR Implementation
+        </div>
+    </main>
+
+</body>
+
+</html>
