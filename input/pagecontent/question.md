@@ -15,6 +15,13 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 
 ---
 
+### Rendered Example
+
+View the fully rendered HTML example below to see the interactive dashboard in action:
+- [Regulatory Questionnaire (Full Page)](examples/question-sample.html)
+
+---
+
 ### Key Elements of a Regulatory Question
 
 <table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
@@ -73,10 +80,3 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
     </tr>
   </tbody>
 </table>
-
----
-
-### Rendered Example
-
-View the fully rendered HTML example below to see the interactive dashboard in action:
-- [Regulatory Questionnaire (Full Page)](examples/question-sample.html)

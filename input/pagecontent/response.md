@@ -15,6 +15,13 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 
 ---
 
+### Rendered Example
+
+View the fully rendered HTML example below to see the interactive dashboard in action:
+- [Regulatory Response (Full Page)](examples/response-sample.html)
+
+---
+
 ### Key Elements of a Regulatory Response
 
 <table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
@@ -73,10 +80,3 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
     </tr>
   </tbody>
 </table>
-
----
-
-### Rendered Example
-
-View the fully rendered HTML example below to see the interactive dashboard in action:
-- [Regulatory Response (Full Page)](examples/response-sample.html)
