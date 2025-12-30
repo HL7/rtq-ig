@@ -10,7 +10,7 @@ The following demonstrates a **synthetic regulatory questionnaire response** sub
 
 <div class="markdown-alert markdown-alert-tip">
 <p class="markdown-alert-title">Tip</p>
-<p><strong>Open the sample in a new tab</strong> to experience the full "Modern SaaS" dashboard layout with sticky navigation:</p>
+<p><strong>Open the sample in a new tab</strong> to experience the full "Modern SaaS" dashboard layout:</p>
 <p><a href="assets/response-sample.html" target="_blank">Sample response from a market authorization to a regulator (Full Page)</a></p>
 </div>
 
