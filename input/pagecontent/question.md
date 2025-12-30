@@ -2,17 +2,6 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 
 ---
 
-
-
-#### FHIR Integration Highlights
-
-*   **CTD Mapping**: Each question maps to a `Questionnaire.item` with a `linkId` (e.g., `"1"`) and a CTD section code.
-*   **Rich Text**: Employs the `rendering-xhtml` extension to support bold text, tables, and links within questions.
-*   **Organizational Context**: Includes detailed contact information for both the regulator (Sender) and MAH (Recipient).
-*   **Traceability**: Links directly to the regulatory procedure via business identifiers.
-
----
-
 ### Example
 
 View the example below:
