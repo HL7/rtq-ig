@@ -10,13 +10,6 @@ View the example below:
 
 ---
 
-### Rendered Example
-
-View the fully rendered HTML example below to see the interactive dashboard in action:
-- [Regulatory Response (Full Page)](examples/response-sample.html)
-
----
-
 ### Key Elements of a Regulatory Response
 
 <table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
