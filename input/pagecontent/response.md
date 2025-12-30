@@ -12,6 +12,8 @@ View the example below:
 
 ### Key Elements of a Regulatory Response
 
+The following table maps the business requirements of a regulatory response to their technical implementation in the **RTQ QuestionnaireResponse** profile. It highlights mandatory fields, cardinality, and the specific FHIR elements used to convey the response data.
+
 <table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
   <thead style="background-color: #f5f5f5;">
     <tr>
