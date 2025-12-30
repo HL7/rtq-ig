@@ -2,16 +2,11 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 
 ---
 
+### Example
 
-
-#### FHIR Integration Highlights
-
-*   **Traceable Answers**: Each answer maps to a `QuestionnaireResponse.item` with a `linkId` matching the original question (e.g., `"1"`).
-*   **Response Context**: Explicitly links to the original `Questionnaire` and includes a submission timestamp.
-*   **Rich Content**: Supports rich text answers (via extension), updated ePI translations, and technical data like climatic zone confirmation.
-*   **Attachments**: References supporting documents (e.g., PDFs) using the APIX DocumentReference profile.
-
-[View the underlying FHIR QuestionnaireResponse resource (GitHub)](https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-QuestionnaireResponse.json)
+View the example below:
+- [View the Regulatory Response example (HTML)](examples/response-sample.html)
+- [View the underlying Regulatory Response code (JSON)](https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-QuestionnaireResponse.json)
 
 ---
 
