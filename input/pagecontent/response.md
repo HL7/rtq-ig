@@ -14,17 +14,6 @@ The following demonstrates a **synthetic regulatory questionnaire response** sub
 <p><a href="assets/response-sample.html" target="_blank">Sample response from a market authorization to a regulator (Full Page)</a></p>
 </div>
 
-### Interactive Dashboard Preview
-The following is a live preview of the response dashboard. Use this view to see how a manufacturer provides structured answers and references back to the regulator.
-
-<div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin-top: 15px;">
-  <div style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">
-    Live Dashboard Fragment
-  </div>
-  <div style="padding: 0; height: 800px; background-color: white;">
-    <iframe src="assets/response-sample.html" style="width: 100%; height: 100%; border: none;"></iframe>
-  </div>
-</div>
 
 #### FHIR Integration Highlights
 

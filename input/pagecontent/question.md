@@ -14,17 +14,6 @@ The following demonstrates a synthetic regulatory questionnaire issued during a 
 <p><a href="assets/question-sample.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a></p>
 </div>
 
-### Interactive Dashboard Preview
-The following is a live preview of the questionnaire dashboard. It demonstrates how a regulator presents questions to a manufacturer in a structured, user-friendly format.
-
-<div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin-top: 15px;">
-  <div style="background-color: #f8f9fa; padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;">
-    Live Dashboard Fragment
-  </div>
-  <div style="padding: 0; height: 800px; background-color: white;">
-    <iframe src="assets/question-sample.html" style="width: 100%; height: 100%; border: none;"></iframe>
-  </div>
-</div>
 
 #### FHIR Integration Highlights
 
