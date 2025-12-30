@@ -122,7 +122,7 @@
         "id": "QuestionnaireResponse.author",
         "path": "QuestionnaireResponse.author",
         "short": "Regulatory Authority contact details",
-        "description": "The regulatory authority that authored the originating question.",
+        "description": "The person or organization providing the responses (typically the MAH).",
         "min": 1,
         "max": "1",
         "type": [
@@ -534,6 +534,32 @@
             ]
           }
         ],
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.questionnaire",
+        "path": "QuestionnaireResponse.questionnaire",
+        "short": "Original questionnaire set",
+        "description": "The canonical URL of the RTQ Questionnaire that this response answers.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "canonical",
+            "targetProfile": [
+              "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "QuestionnaireResponse.text",
+        "path": "QuestionnaireResponse.text",
+        "short": "Narrative overview of the response",
+        "description": "A human-readable narrative (XHTML) providing an overview or summary of the entire response set.",
+        "min": 1,
+        "max": "1",
         "mustSupport": true
       }
     ]

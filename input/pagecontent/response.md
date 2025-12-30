@@ -1,110 +1,67 @@
-When a **marketing authorization holder (MAH)** receives a list of questions from a **health authority** (e.g., EMA, FDA, PMDA), they submit a **structured, machine-readable response** using the **RTQ (Response to Regulatory Questions)** FHIR profile.
-
-This resource enables automated routing, tracking, and review management while preserving rich formatting, organizational context, and traceability to the Common Technical Document (CTD) structure.
+This page provides a technical outline of the **Regulatory Questionnaire Response** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of answers from a Marketing Authorization Holder (MAH) back to a regulator.
 
 ---
+### HTML presentation example
 
-### Purpose & Business Value
-- **Standardized Communication**: Ensures consistent, unambiguous response format across sponsors and agencies
-- **Automated Workflow**: Enables integration with RIM systems, document management platforms, automation tools, and AI agents
-- **Audit Trail**: Full traceability of sender (MAH), recipient (authority), submission date, and coded categorization of each answer
-- **Rich Text Support**: Preserves bold, hyperlinks, tables, images, and formatting from standard authoring tools
-- **Global Interoperability**: Aligns with ICH, HL7 FHIR, and IDMP standards
-
----
-
-### HTML Presentation Example
-The following is an HTML rendering of a FHIR QuestionnaireResponse:  
-<a href="responseex1.html">Sample response from MAH to regulator</a>
+The following is a HTML rendering of a FHIR QuestionnaireResponse with synthetic content: <a href="QuestionnaireResponse-RegulatoryQA-ID001-Response.html">Sample response from a market authorization to a regulator</a>
 
 ---
 
 ### Key Elements of a Regulatory Response
+
 <table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
-<thead style="background-color: #f5f5f5;">
-<tr>
-<th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Element</th>
-<th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Purpose</th>
-<th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>identifier</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">Unique IDs for the response set and regulatory procedure</td>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>ID001</code>, <code>EMEA/H/C/005432/II/0023</code></td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>questionnaire</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">Link to the original question set</td>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>RegulatoryQA-ID001</code></td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>authored</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">Date and time the response was submitted</td>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>2025-11-15T14:59:00-05:00</code></td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>contact</code> (SENDER)</td>
-<td style="padding: 8px; border: 1px solid #ddd;">MAH submitting the response with full organizational context</td>
-<td style="padding: 8px; border: 1px solid #ddd;">SynthPharma AG, Dr. John Doe, Basel</td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>contact</code> (RECIPIENT)</td>
-<td style="padding: 8px; border: 1px solid #ddd;">Health authority receiving the response</td>
-<td style="padding: 8px; border: 1px solid #ddd;">EMA, Dr. Jane Doe, Amsterdam</td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>item.linkId</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">Matches the original question ID</td>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>cmc-1-DP-Stability</code></td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">CTD section mapping (hierarchical)</td>
-<td style=" telle:8px; border: 1px solid #ddd;"><code>3.2.P.8</code> → <code>3.2.P.8.1 Stability Summary</code></td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>item.text.extension</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">The original question in rich text (XHTML)</td>
-<td style="padding: 8px; border: 1px solid #ddd;">“Are there any new <b>stability studies</b> conducted…?”</td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.extension</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">The MAH's answer in rich text (XHTML)</td>
-<td style="padding: 8px; border: 1px solid #ddd;">Includes bold, lists, tables, images (no <code>valueString</code> needed)</td>
-</tr>
-<tr>
-<td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
-<td style="padding: 8px; border: 1px solid #ddd;">Link to a supporting <code>DocumentReference</code> (compliant with APIX profile)</td>
-<td style="padding: 8px; border: 1px solid #ddd;">References a PDF attachment (e.g., fee receipt, study report)</td>
-</tr>
-</tbody>
+  <thead style="background-color: #f5f5f5;">
+    <tr>
+      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Element</th>
+      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Cardinality</th>
+      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Purpose / Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>meta.profile</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Fixed to <code>http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse</code> to ensure conformance and API routing.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>identifier</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..2</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Unique IDs. Slices: <code>regulator-id</code> (Mandatory) and <code>company-id</code> (Optional).</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>questionnaire</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Canonical reference to the original <code>rtq-questionnaire</code> being answered.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>status</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Lifecycle state (e.g., <code>completed</code> for final submissions).</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>text</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Human-readable narrative (XHTML) containing the overview of the whole response.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>author</code> (SENDER/MAH)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">The Marketing Authorization Holder or applicant providing the response.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.linkId</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Matches the <code>linkId</code> of the corresponding question in the source Questionnaire.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.extension</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">The answer text. <strong>Requires</strong> the <code>rendering-xhtml</code> extension for formatted content like tables or lists.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Reference to supporting documents (e.g., PDFs) using the <strong>APIX DocumentReference</strong> profile.</td>
+    </tr>
+  </tbody>
 </table>
-
----
-
-### Example Use Case: EMA Type II Variation
-**Scenario**: MAH receives 10 questions on stability and labeling during review of a shelf-life extension.
-
-With this profile:
-- Original questions are preserved exactly
-- Each answer maps to the same CTD section
-- Regulatory system auto-routes responses to reviewers
-- Submission date is tracked
-- Full audit trail from MAH to authority
-
----
-
-### How to Use This Profile
-- **MAH (Sponsor)**: Import questions into RIM system; prepare answers; export as FHIR RTQ Response
-- **Health Authority**: Receive structured response; auto-match to original questions; route to reviewers
-- **Vendors**: Support structured authoring of answers and export to FHIR-compliant XML or JSON for submission via email, portal, or API  
-  [Refer to APIX IG for details](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html)
-
----
-
-### Related Resources
-- [Questionnaire Structure](question.html) – For an overview of the original question format
-- [CTD Section Code System](CodeSystem-ctd-categories-full.html) – Full hierarchy
-- [Contact Purpose Code System](CodeSystem-contact-purpose.html) – SENDER / RECIPIENT
