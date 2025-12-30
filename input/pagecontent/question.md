@@ -6,11 +6,11 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 
 The following demonstrates a synthetic regulatory questionnaire issued during a Type II variation procedure.
 
-#### [NEW] [HTML presentation sample](questionex1.html)
+#### [NEW] [HTML presentation sample](assets/questionex1.html)
 
 > [!TIP]
 > **Open the sample in a new tab** to experience the full "Modern SaaS" dashboard layout with sticky navigation:
-> <a href="questionex1.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a>
+> <a href="assets/questionex1.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a>
 
 #### FHIR Integration Highlights
 
@@ -19,7 +19,7 @@ The following demonstrates a synthetic regulatory questionnaire issued during a 
 *   **Organizational Context**: Includes detailed contact information for both the regulator (Sender) and MAH (Recipient).
 *   **Traceability**: Links directly to the regulatory procedure via business identifiers.
 
-[View the underlying FHIR Questionnaire resource](Questionnaire-questionnaire-ID001.html)
+[View the underlying FHIR Questionnaire resource (GitHub)](https://github.com/HL7/rtq-ig/blob/main/input/examples/Example-Questionnaire.json)
 
 ---
 
