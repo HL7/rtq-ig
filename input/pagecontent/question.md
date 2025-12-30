@@ -6,12 +6,12 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 
 The following demonstrates a synthetic regulatory questionnaire issued during a Type II variation procedure.
 
-#### [NEW] [HTML presentation sample](assets/question-sample.html)
+#### [NEW] [HTML presentation sample](question-sample.html)
 
 <div class="markdown-alert markdown-alert-tip">
 <p class="markdown-alert-title">Tip</p>
 <p><strong>Open the sample in a new tab</strong> to experience the full "Modern SaaS" dashboard layout with sticky navigation:</p>
-<p><a href="assets/question-sample.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a></p>
+<p><a href="question-sample.html" target="_blank">Sample question from a regulator to a market authorization holder (Full Page)</a></p>
 </div>
 
 #### FHIR Integration Highlights
