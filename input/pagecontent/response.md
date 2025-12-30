@@ -6,11 +6,13 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 
 The following demonstrates a **synthetic regulatory questionnaire response** submitted by a marketing authorization holder (MAH) during a Type II variation procedure.
 
-#### [NEW] [HTML presentation sample](assets/responseex1.html)
+#### [NEW] [HTML presentation sample](response-sample.html)
 
-> [!TIP]
-> **Open the sample in a new tab** to experience the full "Modern SaaS" dashboard layout with sticky navigation:
-> <a href="assets/responseex1.html" target="_blank">Sample response from a market authorization to a regulator (Full Page)</a>
+<div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title">Tip</p>
+<p><strong>Open the sample in a new tab</strong> to experience the full "Modern SaaS" dashboard layout with sticky navigation:</p>
+<p><a href="response-sample.html" target="_blank">Sample response from a market authorization to a regulator (Full Page)</a></p>
+</div>
 
 #### FHIR Integration Highlights
 
@@ -19,7 +21,7 @@ The following demonstrates a **synthetic regulatory questionnaire response** sub
 *   **Rich Content**: Supports rich text answers (via extension), updated ePI translations, and technical data like climatic zone confirmation.
 *   **Attachments**: References supporting documents (e.g., PDFs) using the APIX DocumentReference profile.
 
-[View the underlying FHIR QuestionnaireResponse resource (GitHub)](https://github.com/HL7/rtq-ig/blob/main/input/examples/Example-QuestionnaireResponse.json)
+[View the underlying FHIR QuestionnaireResponse resource (GitHub)](https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-QuestionnaireResponse.json)
 
 ---
 
