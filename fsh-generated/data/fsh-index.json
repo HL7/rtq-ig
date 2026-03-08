@@ -56,12 +56,28 @@
     "endLine": 81
   },
   {
+    "outputFile": "StructureDefinition-rtq-documentreference.json",
+    "fshName": "RTQDocumentReference",
+    "fshType": "Profile",
+    "fshFile": "profiles/RTQDocumentReference.fsh",
+    "startLine": 1,
+    "endLine": 22
+  },
+  {
+    "outputFile": "StructureDefinition-rtq-item-reference.json",
+    "fshName": "RTQItemReferenceExtension",
+    "fshType": "Extension",
+    "fshFile": "profiles/RTQQuestionnaire.fsh",
+    "startLine": 1,
+    "endLine": 6
+  },
+  {
     "outputFile": "StructureDefinition-rtq-questionnaire.json",
     "fshName": "RTQQuestionnaire",
     "fshType": "Profile",
     "fshFile": "profiles/RTQQuestionnaire.fsh",
-    "startLine": 1,
-    "endLine": 170
+    "startLine": 8,
+    "endLine": 179
   },
   {
     "outputFile": "StructureDefinition-rtq-questionnaireresponse.json",
@@ -69,6 +85,6 @@
     "fshType": "Profile",
     "fshFile": "profiles/RTQQuestionnaireResponse.fsh",
     "startLine": 1,
-    "endLine": 146
+    "endLine": 149
   }
 ]

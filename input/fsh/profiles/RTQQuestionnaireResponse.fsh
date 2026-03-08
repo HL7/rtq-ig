@@ -17,6 +17,9 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * meta.profile 1.. MS
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse" (exactly)
 * meta.profile ^short = "Conformance to RTQ profile"
+* status 1..1 MS
+* authored 1..1 MS
+* authored ^short = "Date the full response was finalized"
 * identifier ..2 MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type.coding.code"
@@ -135,7 +138,7 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * item.answer.value[x] ^slicing.discriminator.type = #type
 * item.answer.value[x] ^slicing.discriminator.path = "$this"
 * item.answer.value[x] ^slicing.rules = #open
-* item.answer.valueReference only Reference($apix-documentreference)
+* item.answer.valueReference only Reference(RTQDocumentReference)
 * item.answer.valueReference MS
 * item.answer.valueReference ^sliceName = "valueReference"
 * item.answer.valueReference ^short = "Reference to supporting document"

@@ -24,14 +24,6 @@
   "fhirVersion": [
     "5.0.0"
   ],
-  "dependsOn": [
-    {
-      "packageId": "hl7.fhir.uv.apix",
-      "version": "current",
-      "uri": "http://hl7.org/fhir/uv/apix/ImplementationGuide/hl7.fhir.uv.apix",
-      "id": "hl7_fhir_uv_apix"
-    }
-  ],
   "definition": {
     "resource": [
       {
@@ -89,9 +81,25 @@
       },
       {
         "reference": {
+          "reference": "StructureDefinition/rtq-documentreference"
+        },
+        "name": "RTQ Document Reference",
+        "description": "A profile on the DocumentReference resource for use within the Response to Regulatory Questions (RTQ) process to attach supporting documents.",
+        "isExample": false
+      },
+      {
+        "reference": {
           "reference": "CodeSystem/rtq-identifier-type"
         },
         "name": "RTQ Identifier Type Code System",
+        "isExample": false
+      },
+      {
+        "reference": {
+          "reference": "StructureDefinition/rtq-item-reference"
+        },
+        "name": "RTQ Item Reference Extension",
+        "description": "An extension to allow referencing an RTQDocumentReference from a Questionnaire item (the question).",
         "isExample": false
       },
       {

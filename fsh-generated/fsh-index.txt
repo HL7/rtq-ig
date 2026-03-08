@@ -6,5 +6,7 @@ CodeSystem-rtq-questionnaire-type-cs.json               RtqQuestionnaireTypeCS  
 DocumentReference-example-docref.json                   example-docref               Instance    instances/example-docref.fsh               1 - 15
 Questionnaire-questionnaire-ID001.json                  questionnaire-ID001          Instance    instances/questionnaire-ID001.fsh          1 - 119
 QuestionnaireResponse-questionnaireresponse-ID001.json  questionnaireresponse-ID001  Instance    instances/questionnaireresponse-ID001.fsh  1 - 81
-StructureDefinition-rtq-questionnaire.json              RTQQuestionnaire             Profile     profiles/RTQQuestionnaire.fsh              1 - 170
-StructureDefinition-rtq-questionnaireresponse.json      RTQQuestionnaireResponse     Profile     profiles/RTQQuestionnaireResponse.fsh      1 - 146
+StructureDefinition-rtq-documentreference.json          RTQDocumentReference         Profile     profiles/RTQDocumentReference.fsh          1 - 22
+StructureDefinition-rtq-item-reference.json             RTQItemReferenceExtension    Extension   profiles/RTQQuestionnaire.fsh              1 - 6
+StructureDefinition-rtq-questionnaire.json              RTQQuestionnaire             Profile     profiles/RTQQuestionnaire.fsh              8 - 179
+StructureDefinition-rtq-questionnaireresponse.json      RTQQuestionnaireResponse     Profile     profiles/RTQQuestionnaireResponse.fsh      1 - 149

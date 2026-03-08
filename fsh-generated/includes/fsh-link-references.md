@@ -5,5 +5,7 @@
 [RTQQuestionnaire]: StructureDefinition-rtq-questionnaire.html
 [RTQQuestionnaireResponse]: StructureDefinition-rtq-questionnaireresponse.html
 [questionnaireresponse-ID001]: QuestionnaireResponse-questionnaireresponse-ID001.html
+[RTQDocumentReference]: StructureDefinition-rtq-documentreference.html
 [RtqIdentifierTypeCS]: CodeSystem-rtq-identifier-type.html
+[RTQItemReferenceExtension]: StructureDefinition-rtq-item-reference.html
 [RtqQuestionnaireTypeCS]: CodeSystem-rtq-questionnaire-type-cs.html

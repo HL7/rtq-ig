@@ -1,3 +1,10 @@
+Extension: RTQItemReferenceExtension
+Id: rtq-item-reference
+Title: "RTQ Item Reference Extension"
+Description: "An extension to allow referencing an RTQDocumentReference from a Questionnaire item (the question)."
+* value[x] only Reference(RTQDocumentReference)
+* valueReference 1..1 MS
+
 Profile: RTQQuestionnaire
 Parent: Questionnaire
 Id: rtq-questionnaire
@@ -152,6 +159,8 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * item MS
 * item ^short = "Question in the regulatory questionnaire"
 * item.code 1..* MS
+* item.extension contains RTQItemReferenceExtension named itemReference 0..* MS
+* item.extension[itemReference] ^short = "Supporting document(s) for this question"
 * item.code from $ctd-categories-full (extensible)
 * item.code ^short = "CTD-based category code that classifies the regulatory topic of this question/group"
 * item.code ^definition = "A required code from the RTQ CTD Categories CodeSystem (or an allowed extension of it) that identifies which section, subsection, or specific regulatory topic within a medicinal product dossier this questionnaire item pertains to. This enables precise mapping and automated routing in regulatory processes."

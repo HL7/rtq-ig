@@ -1,7 +1,7 @@
 Instance: example-docref
 InstanceOf: DocumentReference
 Usage: #example
-* meta.profile = "http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference"
+* meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-documentreference"
 // // * masterIdentifier.system = "urn:ietf:rfc:3986"
 // * masterIdentifier.value = "urn:uuid:12345678-1234-5678-1234-567812345678"
 * identifier.system = "urn:ietf:rfc:3986"
