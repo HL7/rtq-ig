@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "outputFile": "CodeSystem-contact-purpose.json",
+    "fshName": "ContactPurpose",
+    "fshType": "CodeSystem",
+    "fshFile": "codesystems/ContactPurpose.fsh",
+    "startLine": 1,
+    "endLine": 18
+  },
+  {
+    "outputFile": "CodeSystem-ctd-categories-full.json",
+    "fshName": "CTDQuestionCategoriesFull",
+    "fshType": "CodeSystem",
+    "fshFile": "codesystems/CTDQuestionCategoriesFull.fsh",
+    "startLine": 1,
+    "endLine": 153
+  },
+  {
+    "outputFile": "CodeSystem-rtq-identifier-type.json",
+    "fshName": "RtqIdentifierTypeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "codesystems/RtqIdentifierTypeCS.fsh",
+    "startLine": 1,
+    "endLine": 9
+  },
+  {
+    "outputFile": "CodeSystem-rtq-questionnaire-type-cs.json",
+    "fshName": "RtqQuestionnaireTypeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "codesystems/RtqQuestionnaireTypeCS.fsh",
+    "startLine": 1,
+    "endLine": 17
+  },
+  {
+    "outputFile": "DocumentReference-example-docref.json",
+    "fshName": "example-docref",
+    "fshType": "Instance",
+    "fshFile": "instances/example-docref.fsh",
+    "startLine": 1,
+    "endLine": 15
+  },
+  {
+    "outputFile": "Questionnaire-questionnaire-ID001.json",
+    "fshName": "questionnaire-ID001",
+    "fshType": "Instance",
+    "fshFile": "instances/questionnaire-ID001.fsh",
+    "startLine": 1,
+    "endLine": 119
+  },
+  {
+    "outputFile": "QuestionnaireResponse-questionnaireresponse-ID001.json",
+    "fshName": "questionnaireresponse-ID001",
+    "fshType": "Instance",
+    "fshFile": "instances/questionnaireresponse-ID001.fsh",
+    "startLine": 1,
+    "endLine": 81
+  },
+  {
+    "outputFile": "StructureDefinition-rtq-questionnaire.json",
+    "fshName": "RTQQuestionnaire",
+    "fshType": "Profile",
+    "fshFile": "profiles/RTQQuestionnaire.fsh",
+    "startLine": 1,
+    "endLine": 170
+  },
+  {
+    "outputFile": "StructureDefinition-rtq-questionnaireresponse.json",
+    "fshName": "RTQQuestionnaireResponse",
+    "fshType": "Profile",
+    "fshFile": "profiles/RTQQuestionnaireResponse.fsh",
+    "startLine": 1,
+    "endLine": 146
+  }
+]

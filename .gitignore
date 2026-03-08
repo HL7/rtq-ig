@@ -1,0 +1,11 @@
+# FHIR IG Publisher artifacts
+output/
+temp/
+template/
+input-cache/
+fsh-generated/
+*.log
+
+# Custom scripts used for build
+mock-bin/
+fix*.js

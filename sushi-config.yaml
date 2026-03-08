@@ -13,6 +13,8 @@ publisher:
   url: http://www.hl7.org
 license: CC0-1.0
 
+dependencies:
+  hl7.fhir.uv.apix: current
 pages:
   index.md:
     title: Home
