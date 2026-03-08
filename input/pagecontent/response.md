@@ -5,8 +5,8 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 ### Example
 
 View the example below:
-- <a href="examples/response-sample.html" target="_blank">View the Regulatory Response example (HTML)</a>
-- <a href="https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-QuestionnaireResponse.json" target="_blank">View the underlying Regulatory Response code (JSON)</a>
+- <a href="QuestionnaireResponse-questionnaireresponse-ID001.html" target="_blank">View the Regulatory Response example</a>
+- <a href="QuestionnaireResponse-questionnaireresponse-ID001.json.html" target="_blank">View the underlying Regulatory Response code (JSON)</a>
 
 ---
 
@@ -44,6 +44,11 @@ The following table maps the business requirements of a regulatory response to t
       <td style="padding: 8px; border: 1px solid #ddd;">Lifecycle state (e.g., <code>completed</code> for final submissions).</td>
     </tr>
     <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>authored</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Date the full response was finalized.</td>
+    </tr>
+    <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>text</code></td>
       <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
       <td style="padding: 8px; border: 1px solid #ddd;">Human-readable narrative (XHTML) containing the overview of the whole response.</td>
@@ -66,7 +71,7 @@ The following table maps the business requirements of a regulatory response to t
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
       <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Reference to supporting documents (e.g., PDFs) using the <strong>APIX DocumentReference</strong> profile.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Reference to supporting documents (e.g., PDFs) using the <strong>RTQ DocumentReference</strong> profile.</td>
     </tr>
   </tbody>
 </table>

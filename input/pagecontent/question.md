@@ -5,8 +5,8 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 ### Example
 
 View the example below:
-- <a href="examples/question-sample.html" target="_blank">View the Regulatory Questionnaire example (HTML)</a>
-- <a href="https://raw.githubusercontent.com/HL7/rtq-ig/main/input/examples/Example-Questionnaire.json" target="_blank">View the underlying Regulatory Questionnaire code (JSON)</a>
+- <a href="Questionnaire-questionnaire-ID001.html" target="_blank">View the Regulatory Questionnaire example</a>
+- <a href="Questionnaire-questionnaire-ID001.json.html" target="_blank">View the underlying Regulatory Questionnaire code (JSON)</a>
 
 ---
 
@@ -62,6 +62,11 @@ The following table maps the technical components of a regulatory question to th
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code></td>
       <td style="padding: 8px; border: 1px solid #ddd;">1..*</td>
       <td style="padding: 8px; border: 1px solid #ddd;"><strong>Mandatory</strong> CTD section mapping (e.g., <code>3.2.P.8.1</code>) using the RTQ CTD Categories CodeSystem.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.extension</code> (itemReference)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Inline extension to explicitly attach an <strong>RTQ DocumentReference</strong> to this specific question.</td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.text</code></td>

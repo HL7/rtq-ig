@@ -22,19 +22,6 @@
   <li>
     <a href="response.html">Response Structure</a>
   </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Samples
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="assets/question-sample.html">Question Sample</a>
-      </li>
-      <li>
-        <a href="assets/response-sample.html">Response Sample</a>
-      </li>
-    </ul>
-  </li>
   <li>
     <a href="artifacts.html">Artifacts</a>
   </li>
