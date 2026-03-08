@@ -4,4 +4,3 @@ Alias: $ctd-categories-full = http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categori
 Alias: $rtq-identifier-type_1 = http://hl7.org/fhir/rtq/CodeSystem/rtq-identifier-type
 Alias: $m49.htm = http://unstats.un.org/unsd/methods/m49/m49.htm
 Alias: $rtq-questionnaire-type-vs = http://hl7.org/fhir/uv/rtq/ValueSet/rtq-questionnaire-type-vs
-Alias: $apix-documentreference = http://hl7.org/fhir/uv/apix/StructureDefinition/apix-documentreference

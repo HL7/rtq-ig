@@ -47,6 +47,7 @@
           "reference": "DocumentReference/example-docref"
         },
         "name": "example-docref",
+        "description": "Comprehensive validation of analytical procedures for the WonderDrug 10mg product lifecycle.",
         "isExample": true
       },
       {

@@ -7,8 +7,11 @@ Usage: #example
 * identifier.system = "urn:ietf:rfc:3986"
 * identifier.value = "urn:oid:1.2.3.4.5"
 * status = #current
+* docStatus = #final
+* version = "1.0"
 * type = $ctd-section#3-2-P-5-3 "3.2.P.5.3 Validation of Analytical Procedures"
-* subject = Reference(urn:uuid:3b52d929-ac2e-4b47-ba21-1b120fdb4a5b) "WonderDrug 10mg Tablets"
+* category = http://hl7.org/fhir/document-reference-status#current "Current"
+* description = "Comprehensive validation of analytical procedures for the WonderDrug 10mg product lifecycle."
 * date = "2025-11-20T10:00:00Z"
 * content.attachment.contentType = #application/pdf
 * content.attachment.title = "Validation Report for HPLC Method"
