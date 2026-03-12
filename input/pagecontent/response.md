@@ -5,7 +5,7 @@ This page provides a technical outline of the **Regulatory Questionnaire Respons
 ### Example
 
 View the example below:
-- <a href="images/examples/sample-response.html" target="_blank">👉 View the Interactive Modern SaaS Dashboard Example</a>
+- <a href="assets/examples/sample-response.html" target="_blank">👉 View the Interactive Modern SaaS Dashboard Example</a>
 - <a href="QuestionnaireResponse-questionnaireresponse-ID001.html" target="_blank">View the Regulatory Response example</a>
 - <a href="QuestionnaireResponse-questionnaireresponse-ID001.json.html" target="_blank">View the underlying Regulatory Response code (JSON)</a>
 
