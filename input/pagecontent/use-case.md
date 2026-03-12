@@ -85,7 +85,7 @@
 
 <h3>Real-World Scenarios</h3>
 
-<p style="padding: 1rem; background-color: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 4px;">    <strong>💡 See it in action:</strong> <a href="assets/examples/theme-modern-saas.html" target="_blank">View the interactive Modern SaaS Dashboard Example</a></p>
+<p style="padding: 1rem; background-color: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 4px;">    <strong>💡 See it in action:</strong> <a href="examples/theme-modern-saas.html" target="_blank">View the interactive Modern SaaS Dashboard Example</a></p>
 
 <h4>Scenario A: The 24-Hour Clarification (Speed)</h4>
 <p><strong>Context:</strong> During a Type II variation review, the EMA reviewer notices a minor discrepancy in the reported batch numbers for a stability study.</p>
