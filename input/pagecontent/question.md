@@ -5,6 +5,7 @@ This page provides a technical outline of the **Regulatory Questionnaire** profi
 ### Example
 
 View the example below:
+- <a href="sample-question.html" target="_blank">👉 View the Interactive Modern SaaS Dashboard Example</a>
 - <a href="Questionnaire-questionnaire-ID001.html" target="_blank">View the Regulatory Questionnaire example</a>
 - <a href="Questionnaire-questionnaire-ID001.json.html" target="_blank">View the underlying Regulatory Questionnaire code (JSON)</a>
 

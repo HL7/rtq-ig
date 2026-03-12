@@ -1,4 +1,4 @@
-This page provides an index of the technical examples for the Regulatory Questionnaire (RTQ) standard. These examples illustrate the end-to-end loop of a regulatory Q&A procedure.
+This page provides an index of the technical examples for the Response to Regulator Questionnaire (RTQ) standard. These examples illustrate the end-to-end loop of a regulatory Q&A procedure.
 
 ---
 
@@ -7,7 +7,8 @@ This page provides an index of the technical examples for the Regulatory Questio
 **Resource:** `Questionnaire`  
 **Scenario:** A regulator issues a formal "List of Questions" (LOQ) during a Type II variation assessment.
 
-*   **[Technical Profile & High-Fidelity Example](question.html)**: View the profile structure alongside a standalone "Modern SaaS" dashboard rendition of the question.
+*   **[Technical Profile & High-Fidelity Example](question.html)**: View the profile structure alongside a standalone "Modern SaaS" dashboard rendition of the question.  
+    *👉 **[View Interactive Dashboard (HTML)](sample-question.html)** ([JSON](Questionnaire-questionnaire-ID001.json.html))*
 *   **[Raw FHIR Resource](Questionnaire-questionnaire-ID001.html)**: View the underlying machine-readable JSON/XML.
 
 ---
@@ -17,7 +18,8 @@ This page provides an index of the technical examples for the Regulatory Questio
 **Resource:** `QuestionnaireResponse`  
 **Scenario:** The MAH submits structured answers, supporting evidence, and updated ePI translations back to the regulator.
 
-*   **[Technical Profile & High-Fidelity Example](response.html)**: View the profile structure alongside a standalone "Modern SaaS" dashboard rendition of the formatted response.
+*   **[Technical Profile & High-Fidelity Example](response.html)**: View the profile structure alongside a standalone "Modern SaaS" dashboard rendition of the formatted response.  
+    *👉 **[View Interactive Dashboard (HTML)](sample-response.html)** ([JSON](Questionnaire-questionnaireresponse-ID001.json.html))*
 *   **[Raw FHIR Resource](Questionnaire-questionnaireresponse-ID001.html)**: View the underlying machine-readable JSON/XML.
 
 ---
