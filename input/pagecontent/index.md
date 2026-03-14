@@ -15,24 +15,28 @@ The **Response to Question (RTQ)** Implementation Guide is the standardized fram
 
 ### Why Adopt RTQ?
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
-  <div style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: white;">
-    <h4 style="margin-top: 0; color: #2563eb; display: flex; align-items: center; gap: 8px;">📑 Structured & Traceable</h4>
-    <p style="margin: 0; font-size: 0.95rem; color: #475569;">Every question is a discrete <code>Questionnaire</code> item; every answer is a linked <code>QuestionnaireResponse</code>. No more lost questions or ambiguous email threads.</p>
+<div style="display: flex; gap: 0; margin-bottom: 28px; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; text-align: center;">
+  <div style="flex: 1; padding: 20px 16px; border-right: 1px solid #e2e8f0; background: #fafbff;">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">Days → Min</div>
+    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">Triage time with automated routing</div>
   </div>
-  <div style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: white;">
-    <h4 style="margin-top: 0; color: #2563eb; display: flex; align-items: center; gap: 8px;">🌍 Harmonized Agencies</h4>
-    <p style="margin: 0; font-size: 0.95rem; color: #475569;">One standard format for FDA, EMA, PMDA, and other health authorities. Build your system once to handle questions from any regulator.</p>
+  <div style="flex: 1; padding: 20px 16px; border-right: 1px solid #e2e8f0; background: #fafbff;">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">1 Format</div>
+    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">For FDA, EMA, PMDA &amp; more</div>
   </div>
-  <div style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: white;">
-    <h4 style="margin-top: 0; color: #2563eb; display: flex; align-items: center; gap: 8px;">📊 Analytics-Ready</h4>
-    <p style="margin: 0; font-size: 0.95rem; color: #475569;">Because questions are structured data, instantly visualize trends: response cycle times, most frequent question topics, and regional variances.</p>
-  </div>
-  <div style="border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; background: white;">
-    <h4 style="margin-top: 0; color: #2563eb; display: flex; align-items: center; gap: 8px;">⚡ Automated Workflow</h4>
-    <p style="margin: 0; font-size: 0.95rem; color: #475569;">APIs can route questions to the correct Subject Matter Expert (SME) based on metadata (e.g., "Quality"), reducing triage time from days to minutes.</p>
+  <div style="flex: 1; padding: 20px 16px; background: #fafbff;">
+    <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">100%</div>
+    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">Machine-readable responses</div>
   </div>
 </div>
+
+**Structured &amp; Traceable.** Every question is a discrete `Questionnaire` item; every answer is a linked `QuestionnaireResponse`. No more lost questions or ambiguous email threads.
+
+**Harmonized Across Agencies.** One standard format for FDA, EMA, PMDA, and other health authorities. Build your system once to handle questions from any regulator.
+
+**Analytics-Ready.** Because questions are structured data, instantly visualize trends: response cycle times, most frequent question topics, and regional variances.
+
+**Automated Workflow.** APIs can route questions to the correct SME based on metadata (e.g., "Quality"), reducing triage time from days to minutes.
 
 ### Background
 
@@ -40,23 +44,10 @@ In biopharmaceutical regulatory affairs, health authorities routinely issue form
 
 RTQ changes that by modeling questions as reusable **Questionnaires** and responses as versioned **QuestionnaireResponses**, aligning regulatory Q&A with the modern digital ecosystem of healthcare.
 
-```mermaid
-sequenceDiagram
-    participant HA as Health Authority (Regulator)
-    participant MAH as Applicant (Sponsor)
-    
-    Note over HA,MAH: Traditional Review: Manual Data Entry & Lost Time
-    HA->>MAH: E-mail PDF "Request for Information"
-    MAH->>MAH: SME Triage & Word Document Drafting
-    MAH->>HA: E-mail PDF "Response Document"
-    
-    Note over HA,MAH: Future RTQ Flow: Automated & Traceable
-    rect rgb(239, 246, 255)
-    HA->>MAH: FHIR `Questionnaire` (ID: Q-001)
-    MAH-->>MAH: Automated routing to SME via API
-    MAH->>HA: FHIR `QuestionnaireResponse` (Answers Q-001)
-    end
-```
+<div style="text-align: center; margin: 32px 0;">
+  <img src="rtq-vs-pdf-diagram.png" alt="Circular diagram comparing today's manual PDF process (weeks, manual, error-prone) versus FHIR RTQ (real-time, automated, machine-readable)" style="max-width: 560px; width: 100%;" />
+  <p style="font-size: 0.85rem; color: #64748b; margin-top: 8px; font-style: italic;">Figure 1: Manual PDF exchange vs. FHIR RTQ — from weeks to real-time</p>
+</div>
 
 This aligns with the broader strategy defined in the [APIX Implementation Guide](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html): moving towards the "Real-time algorithmic exchange" envisioned in the 2023 *International Journal of Pharmaceutics* framework [(click to read)](https://www.sciencedirect.com/science/article/pii/S0378517323007627). 
 
