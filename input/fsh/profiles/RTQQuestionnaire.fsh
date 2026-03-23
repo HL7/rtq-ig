@@ -57,7 +57,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 // * contact[sender].organization.identifier ^definition = "Official identifier of the issuing competent authority."
 * contact[sender].name 1.. MS
 * contact[sender].name ^short = "Official name of the issuing regulatory authority"
-* contact[sender].name ^definition = "Full official name of the competent authority issuing the Questionnaire (e.g., European Medicines Agency)."
+* contact[sender].name ^definition = "Full official name of the competent authority issuing the Questionnaire (e.g., National Regulatory Authority)."
 // * contact[sender].organization.address 1..1 MS
 // * contact[sender].organization.address ^short = "Official address of the issuing competent authority"
 // * contact[sender].organization.address ^definition = "Complete official address of the regulatory authority that issued the Questionnaire."

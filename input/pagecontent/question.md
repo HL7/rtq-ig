@@ -1,4 +1,4 @@
-This page provides a technical outline of the **Regulatory Questionnaire** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of regulatory questions while preserving rich formatting and traceability to the Common Technical Document (CTD) structure.
+This page provides a technical outline of the **Regulatory Questionnaire** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of regulatory questions (including the accompanying cover letter, questions, supporting attachments, and metadata) while preserving rich formatting and traceability to the Common Technical Document (CTD) structure.
 
 ---
 
@@ -13,7 +13,7 @@ View the example below:
 
 ### Key Elements of a Regulatory Question
 
-The following table maps the technical components of a regulatory question to their implementation in the **RTQ Questionnaire** profile. This breakdown details the required data structures for CTD section mapping, rich-text rendering, and participant identification.
+The following table is a simplified view of the key elements of a regulatory question. It maps the technical components of a regulatory question to their implementation in the **RTQ Questionnaire** profile. This breakdown details the required data structures for CTD section mapping, rich-text rendering, and participant identification.
 
 <table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
   <thead style="background-color: #f5f5f5;">

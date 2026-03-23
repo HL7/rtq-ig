@@ -1,6 +1,10 @@
 ### Introduction
 
-The **Response to Question (RTQ)** Implementation Guide is the standardized framework for the **structured, algorithmic exchange** of regulatory questions and responses. Built on HL7 FHIR R5, it replaces static Word and PDF documents with traceable, machine-readable resources—enabling precise tracking, automated triage, and global harmonization.
+The **Response to Question (RTQ)** Implementation Guide is the standardized framework for **structuring regulatory questions and responses to regulatory questions**. 
+
+Built on HL7 FHIR R5, it replaces static Word and PDF question/response documents with traceable, machine-readable FHIR resources, enabling precise tracking, automated triage, and global harmonization.
+
+RTQ encapsulates the entire question (e.g., cover letter, questions, supporting attachments, and metadata) and the response to questions (e.g., cover letter, response to questions, supporting attachments, and metadata).
 
 *This guide defines the technical framework to create a seamless Q&A loop between Regulators and Applicants.*
 
@@ -22,27 +26,27 @@ The **Response to Question (RTQ)** Implementation Guide is the standardized fram
   </div>
   <div style="flex: 1; padding: 20px 16px; border-right: 1px solid #e2e8f0; background: #fafbff;">
     <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">1 Format</div>
-    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">For FDA, EMA, PMDA &amp; more</div>
+    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">For all regulators</div>
   </div>
   <div style="flex: 1; padding: 20px 16px; background: #fafbff;">
     <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">100%</div>
-    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">Machine-readable responses</div>
+    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">Machine-readable content</div>
   </div>
 </div>
 
 **Structured &amp; Traceable.** Every question is a discrete `Questionnaire` item; every answer is a linked `QuestionnaireResponse`. No more lost questions or ambiguous email threads.
 
-**Harmonized Across Agencies.** One standard format for FDA, EMA, PMDA, and other health authorities. Build your system once to handle questions from any regulator.
+**Harmonized Across Agencies.** One standard format for all international regulators. Build your system once to handle questions from all regulators.
 
-**Analytics-Ready.** Because questions are structured data, instantly visualize trends: response cycle times, most frequent question topics, and regional variances.
+**Analytics-Ready.** Because questions are structured data, instantly visualize trends: response cycle times, most frequent question topics, regional variances, and predict questions in advance or response quality.
 
-**Automated Workflow.** APIs can route questions to the correct SME based on metadata (e.g., "Quality"), reducing triage time from days to minutes.
+**Automated Workflow.** Route questions to the correct SME based on metadata (e.g., each question is tagged with a specific CTD section), reducing triage time from days to minutes.
 
 ### Background
 
-In biopharmaceutical regulatory affairs, health authorities routinely issue formal questions during the review of marketing authorization applications. Traditionally, these are exchanged as unstructured Word or PDF documents via email or portals. This results in high manual effort, limited traceability, and "dead data" that cannot be analyzed.
+In biopharmaceutical regulatory affairs, health authorities routinely issue formal questions during the review of regulatory applications. Traditionally, these are exchanged as unstructured Word or PDF documents via email or portals. This results in high manual effort, limited traceability, and "dead data" that cannot be analyzed.
 
-RTQ changes that by modeling questions as reusable **Questionnaires** and responses as versioned **QuestionnaireResponses**, aligning regulatory Q&A with the modern digital ecosystem of healthcare.
+RTQ changes that by modeling questions as **Questionnaires** and responses as versioned **QuestionnaireResponses**, leveraging the FHIR standard to align regulatory Q&A processes with the modern digital systems.
 
 <div style="text-align: center; margin: 32px 0;">
   <img src="rtq-vs-pdf-diagram.png" alt="Circular diagram comparing today's manual PDF process (weeks, manual, error-prone) versus FHIR RTQ (real-time, automated, machine-readable)" style="max-width: 560px; width: 100%;" />
@@ -51,7 +55,7 @@ RTQ changes that by modeling questions as reusable **Questionnaires** and respon
 
 This aligns with the broader strategy defined in the [APIX Implementation Guide](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html): moving towards the "Real-time algorithmic exchange" envisioned in the 2023 *International Journal of Pharmaceutics* framework [(click to read)](https://www.sciencedirect.com/science/article/pii/S0378517323007627). 
 
-Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, RTQ + APIX harmonizes the regulatory dialogue—standardizing the *content* (RTQ) and the *exchange* (APIX) to unlock sub-second decision making.
+Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, RTQ + APIX harmonizes the regulatory dialogue—standardizing the *content* (RTQ) and the *exchange* (APIX) to unlock sub-second workflows.
 
 <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
   <thead>
@@ -64,14 +68,14 @@ Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, RTQ + 
     <tr>
       <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
         <ul style="margin: 0; padding-left: 20px;">
-          <li style="margin-bottom: 8px;"><strong>Health Authority Questions:</strong> Profiling of <code>Questionnaire</code> for widely used regulatory templates (Validation issues, Major Objections, Request for Information).</li>
+          <li style="margin-bottom: 8px;"><strong>Health Authority Questions:</strong> Profiling of <code>Questionnaire</code> for widely used regulatory templates (Validation issues, Major Objections, List of Questions).</li>
           <li style="margin-bottom: 8px;"><strong>Sponsor Responses:</strong> Profiling of <code>QuestionnaireResponse</code> for applicant replies, supporting evidence attachments, and cross-references.</li>
-          <li><strong>Regulatory Metadata:</strong> Standardized extensions for due dates, severity, and review status.</li>
+          <li><strong>Regulatory Metadata:</strong> Tagging questions and responses with CTD sections, dates, unique identifiers, organization details.</li>
         </ul>
       </td>
       <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
         <ul style="margin: 0; padding-left: 20px;">
-          <li><strong>Transport Mechanisms:</strong> The full submission packaging and transport layer. For instructions on how to package and transport the questionnaire and response, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html">APIX Implementation Guide</a>.</li>
+          <li><strong>Transport Mechanisms:</strong> The full submission packaging and transport layer. For instructions on how to package and transport the questionnaire and response via API, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html">APIX Implementation Guide</a>.</li>
         </ul>
       </td>
     </tr>

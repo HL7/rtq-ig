@@ -1,4 +1,4 @@
-This page provides a technical outline of the **Regulatory Questionnaire Response** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of answers from a Marketing Authorization Holder (MAH) back to a regulator.
+This page provides a technical outline of the **Regulatory Questionnaire Response** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of responses to regulatory questions (including the accompanying cover letter, responses to questions, supporting attachments, and metadata) from a Marketing Authorization Holder (MAH) back to a regulator.
 
 ---
 

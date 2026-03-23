@@ -12,7 +12,7 @@ Description: "Defines the role of a contact in regulatory correspondence. Used t
 * ^contact.telecom.value = "http://www.hl7.org/Special/committees/brr"
 * ^caseSensitive = true
 * ^content = #complete
-* #SENDER "Sender (Health Authority)" "The contact represents the health authority issuing the regulatory questions (e.g., EMA, FDA)."
+* #SENDER "Sender (Health Authority)" "The contact represents the health authority issuing the regulatory questions."
 * #RECIPIENT "Recipient (Marketing Authorization Holder)" "The contact represents the sponsor or MAH responsible for responding to the questions."
 * #CC "Carbon Copy" "The contact is copied on the correspondence for information purposes (optional)."
 * #REVIEWER "Internal Reviewer" "An internal stakeholder (e.g., project lead, legal) involved in review but not primary sender/recipient."

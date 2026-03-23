@@ -3,7 +3,7 @@ This page provides an index of the technical examples for the Response to Regula
 ---
 
 ### Phase 1: The Regulatory Question
-**Issuer:** Regulator (e.g., EMA, FDA)  
+**Issuer:** Regulator (any health authority)  
 **Resource:** `Questionnaire`  
 **Scenario:** A regulator issues a formal "List of Questions" (LOQ) during a Type II variation assessment.
 
