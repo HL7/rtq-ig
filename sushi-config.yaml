@@ -23,6 +23,8 @@ pages:
     title: Question Profile & Example
   response.md:
     title: Response Profile & Example
+  acknowledgements.md:
+    title: Acknowledgements
 
 menu:
   Home: index.html
@@ -31,3 +33,4 @@ menu:
   Question Structure: question.html
   Response Structure: response.html
   Artifacts: artifacts.html
+  Acknowledgements: acknowledgements.html

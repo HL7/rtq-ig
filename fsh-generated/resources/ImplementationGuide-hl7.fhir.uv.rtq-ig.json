@@ -145,6 +145,12 @@
           "generation": "markdown",
           "name": "response.html",
           "sourceUrl": "response.html"
+        },
+        {
+          "title": "Acknowledgements",
+          "generation": "markdown",
+          "name": "acknowledgements.html",
+          "sourceUrl": "acknowledgements.html"
         }
       ],
       "name": "toc.html",
