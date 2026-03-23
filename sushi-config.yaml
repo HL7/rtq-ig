@@ -17,6 +17,8 @@ pages:
     title: Home
   use-case.md:
     title: Use Case
+  how-it-works.md:
+    title: How It Works
   question.md:
     title: Question Profile & Example
   response.md:
@@ -25,6 +27,7 @@ pages:
 menu:
   Home: index.html
   Use Case: use-case.html
+  How It Works: how-it-works.html
   Question Structure: question.html
   Response Structure: response.html
   Artifacts: artifacts.html

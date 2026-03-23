@@ -129,6 +129,12 @@
           "sourceUrl": "use-case.html"
         },
         {
+          "title": "How It Works",
+          "generation": "markdown",
+          "name": "how-it-works.html",
+          "sourceUrl": "how-it-works.html"
+        },
+        {
           "title": "Question Profile & Example",
           "generation": "markdown",
           "name": "question.html",
