@@ -45,7 +45,7 @@ This Implementation Guide was developed through a collaborative effort by a dedi
     </tr>
     <tr style="background-color: #fafafa;">
       <td style="border: 1px solid #ddd; padding: 12px;">European Medicines Agency (EMA)</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Panagiotis Talonis</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">CIO Office</td>
     </tr>
     <tr>
       <td style="border: 1px solid #ddd; padding: 12px;">Glemser</td>
