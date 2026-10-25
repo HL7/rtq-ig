@@ -3,6 +3,7 @@ Id: rtq-questionnaire-type-cs
 Title: "RTQ Questionnaire Type Code System"
 Description: "Code system defining the high-level types of regulatory questionnaires exchanged between industry and health authorities."
 * ^version = "0.1.0"
+* ^url = "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-questionnaire-type-cs"
 * ^status = #draft
 * ^experimental = true
 * ^date = "2025-11-21"

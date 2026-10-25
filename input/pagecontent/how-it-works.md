@@ -214,3 +214,27 @@
 
   </div>
 </div>
+
+<hr/>
+
+<h2>Part 3: Practical Topics</h2>
+
+<h3>Every question gets a response</h3>
+<p>A core rule of RTQ: <strong>every question in a question set must receive a response item</strong> — even when the answer is simply "No response required." or a cross-reference to another answer or document. This guarantees that the regulator's system is never left with an open question wondering whether a response was lost. Technically, every question in the RTQ <code>Questionnaire</code> is marked <em>required</em>, and the RTQ <code>QuestionnaireResponse</code> enforces that no reported item is empty. See <a href="lifecycle.html">Lifecycle &amp; Versioning</a> for the full set of rules.</p>
+
+<h3>Due dates</h3>
+<p>Health authority questions are always time-sensitive, so the question set carries a canonical due-date model (the <code>rtq-due-date</code> extension): the <strong>original due date</strong> assigned by the regulator, plus any <strong>negotiated due dates</strong> agreed afterwards. The current due date is the most recent negotiated date, or the original when none has been negotiated, and lateness is derivable by comparing the response's submission date to it. Reminders and escalation behaviour are the responsibility of each implementer's application — RTQ provides the dates that make them possible.</p>
+
+<h3>Question categories &amp; commitments</h3>
+<p>Beyond the mandatory CTD section code, each question can carry a <strong>category</strong> code expressing its regulatory significance: <em>major objection</em>, <em>minor concern</em>, <em>other consideration</em>, or <em>commitment</em>. Regulators are encouraged to adopt these categories as preferred terms to help international alignment, while keeping their own local terminology in the question text. Items categorized as <em>commitment</em> are intended to be tracked as post-approval commitments via linked <code>Task</code>/<code>Flag</code> resources — see the commitment-tracking pattern on the <a href="lifecycle.html">Lifecycle &amp; Versioning</a> page.</p>
+
+<h3>Attachments &amp; large documents</h3>
+<p>Supporting documents attach to questions and to answers through the <strong>RTQ DocumentReference</strong> profile, and all documents are treated the same way regardless of intent — an assessment report providing background to a question attaches exactly like a validation report supporting an answer, with the document's <code>type</code> and <code>category</code> conveying what it is.</p>
+<p>As a baseline best practice: <strong>embed</strong> documents of up to about <strong>10&nbsp;MB</strong> directly in the file (<code>attachment.data</code>); <strong>reference</strong> larger documents by URL (<code>attachment.url</code>) pointing to a repository accessible to both parties, such as a submission portal or shared document store. This threshold is guidance, not a conformance rule — implementers with different constraints are invited to share their experience so the guidance can evolve. Any file format may be attached (PDF, spreadsheets, images, structured datasets); over time, the direction of travel is from unstructured binary attachments toward structured data sets (see the PQI collaboration noted on the <a href="index.html">Home page</a>).</p>
+<p>When a question concerns existing structured content — for example the product information — the question or answer can also <strong>reference FHIR resources directly</strong> (an ePI <code>Bundle</code>, a <code>Composition</code>, or a <code>MedicinalProductDefinition</code>) instead of attaching a document copy. In a centralized system both parties resolve the same reference; in a decentralized exchange, referenced content should either be attached alongside or be resolvable by the receiver.</p>
+
+<h3>AI &amp; automation sit on top of the structure</h3>
+<p>RTQ provides the structured, machine-readable substrate; AI and automation are what implementers build on top of it — inbound question understanding, mapping to CTD sections and impacted systems, AI-assisted response drafting, completeness checks, consistency checks against previously approved data, and so on. How each organization applies AI and automation is an implementation choice and is out of scope for this specification: the standard harmonizes the data, and deliberately does not tell anyone how to use AI.</p>
+
+<h3>What the standard does — and what your application does</h3>
+<p>RTQ harmonizes <em>data structure only</em>. Features such as keyword or semantic search over historical questions, automated routing, reminders, dashboards, and analytics live in the application layer of each implementer's systems. The RTQ metadata — CTD codes, categories, identifiers, <code>linkId</code>s, dates — is what makes those features feasible and interoperable, but this guide does not specify them.</p>

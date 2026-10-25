@@ -1,8 +1,8 @@
 Extension: RTQItemReferenceExtension
 Id: rtq-item-reference
 Title: "RTQ Item Reference Extension"
-Description: "An extension to allow referencing an RTQDocumentReference from a Questionnaire item (the question)."
-* value[x] only Reference(RTQDocumentReference)
+Description: "An extension to allow referencing supporting content from a Questionnaire item (the question): an RTQDocumentReference for attached documents, or FHIR resources such as an ePI Bundle, a Composition (e.g., a section of the product information), or a MedicinalProductDefinition when the question concerns existing structured content."
+* value[x] only Reference(RTQDocumentReference or Bundle or Composition or MedicinalProductDefinition)
 * valueReference 1..1 MS
 
 Profile: RTQQuestionnaire
@@ -10,10 +10,19 @@ Parent: Questionnaire
 Id: rtq-questionnaire
 Title: "Questionnaire"
 Description: "Profile for a set of Questions issued from a regulator to a market authorization holder/applicant during the regulated product application lifecycle."
-* ^version = "0.1.0"
+* ^version = "0.2.0"
 * ^status = #draft
 * ^experimental = true
-* ^date = "2025-11-21"
+* ^date = "2026-08-08"
+* extension contains
+    RtqRegulatedContextExtension named regulatedContext 0..1 MS and
+    RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS and
+    RtqDueDateExtension named dueDate 0..1 MS and
+    RtqInResponseToExtension named inResponseTo 0..1 MS
+* extension[regulatedContext] ^short = "Medicinal product / marketing authorisation this question set concerns"
+* extension[procedureIdentifier] ^short = "Regulator-assigned identifier of the regulatory procedure instance (e.g., procedure number, eCTD sequence)"
+* extension[dueDate] ^short = "Original and negotiated response due dates"
+* extension[inResponseTo] ^short = "The prior response that triggered this follow-up question set (multi-round Q&A)"
 * meta 1.. MS
 * meta.versionId 1.. MS
 * meta.lastUpdated 1.. MS
@@ -34,21 +43,32 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * identifier[regulator].type.coding 1..1
 * identifier[regulator].type.coding = RtqIdentifierTypeCS#regulator-id "Regulator-issued Identifier" (exactly)
 * version 1.. MS
+* version ^short = "Business version of the question set (e.g., 1.0). An amended question set is issued as a new version linked via derivedFrom."
+* derivedFrom MS
+* derivedFrom ^short = "Canonical reference to the question set this one amends or supersedes"
 * text 1.. MS
 * subjectType 1.. MS
-* subjectType from $rtq-questionnaire-type-vs (required)
+* subjectType ^short = "Resource type(s) the question set is about (e.g., MedicinalProductDefinition)"
+* subjectType ^comment = "Per FHIR R5, subjectType is bound (required) to the ResourceType value set and must carry resource type codes. The regulatory template type of the question set (e.g., list-of-questions, information-request) is carried in Questionnaire.code; the procedure instance is carried in the rtq-procedure-identifier extension."
+* code 1..* MS
+* code from $rtq-questionnaire-type-vs (extensible)
+* code ^short = "Type of regulatory questionnaire (e.g., list-of-questions, information-request, deficiency-letter)"
+* code ^definition = "The regulatory template type this question set represents, drawn from the RTQ Questionnaire Type CodeSystem. This replaces the pre-0.2.0 (non-conformant) use of subjectType for this purpose."
 * publisher ..0
 * contact ..2 MS
+* contact.extension contains RtqContactPurposeExtension named purpose 1..1 MS
+* contact.extension[purpose] ^short = "Machine-readable contact role: SENDER (regulator) or RECIPIENT (MAH/applicant)"
 * contact ^slicing.discriminator.type = #value
-* contact ^slicing.discriminator.path = "organization.name"
+* contact ^slicing.discriminator.path = "extension('http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-contact-purpose').value"
 * contact ^slicing.rules = #closed
 * contact ^short = "Sender (issuing regulatory authority) and receiver (MAH/applicant) contact details"
-* contact ^definition = "Exactly two contacts shall be present: one identifying the competent authority that issued the Request to Qualify Questionnaire (sender) and one identifying the marketing authorisation holder or applicant that is required to complete and return the QuestionnaireResponse (receiver). Slicing is based on organization.name to distinguish the two parties."
+* contact ^definition = "Exactly two contacts shall be present: one identifying the competent authority that issued the Questionnaire (sender) and one identifying the marketing authorisation holder or applicant that is required to complete and return the QuestionnaireResponse (receiver). Slicing is based on the rtq-contact-purpose extension to distinguish the two parties."
 * contact contains
     sender 1..1 MS and
     receiver 1..1 MS
 * contact[sender] ^short = "Contact details of the issuing competent authority (regulator)"
 * contact[sender] ^definition = "Identifies the regulatory authority or agency that has created and sent this Questionnaire to the marketing authorisation holder."
+* contact[sender].extension[purpose].valueCoding = $contact-purpose#SENDER "Sender (Health Authority)"
 // * contact[sender].organization 1.. MS
 // * contact[sender].organization ^short = "Issuing competent authority"
 // * contact[sender].organization ^definition = "The regulatory agency (e.g., EMA, national competent authority) responsible for issuing Questionnaire."
@@ -104,6 +124,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * contact[sender].telecom[phone].value 1..
 * contact[receiver] ^short = "Contact details of the marketing authorisation holder/applicant"
 * contact[receiver] ^definition = "Identifies the pharmaceutical company, marketing authorisation holder, submitter or applicant that is the recipient of this Questionnaire and is obliged to provide the completed response."
+* contact[receiver].extension[purpose].valueCoding = $contact-purpose#RECIPIENT "Recipient (Marketing Authorization Holder)"
 // * contact[receiver].organization 1.. MS
 // * contact[receiver].organization ^short = "Marketing authorisation holder / applicant organisation"
 // * contact[receiver].organization ^definition = "The legal entity (MAH or applicant) to whom the Questionnaire is addressed."
@@ -158,20 +179,38 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * contact[receiver].telecom[phone].value 1..
 * item MS
 * item ^short = "Question in the regulatory questionnaire"
+* item.required 1..1 MS
+* item.required = true (exactly)
+* item.required ^short = "Always true: every question must be answered in the response"
+* item.required ^definition = "Fixed to true so that standard FHIR validation of a QuestionnaireResponse against this Questionnaire enforces that every question receives a response item. Where no substantive answer applies, the responder still provides an explicit answer (e.g., 'No response required.') or a cross-reference, so the regulator's system is never left with an unanswered question."
 * item.code 1..* MS
 * item.extension contains RTQItemReferenceExtension named itemReference 0..* MS
-* item.extension[itemReference] ^short = "Supporting document(s) for this question"
-* item.code from $ctd-categories-full (extensible)
-* item.code ^short = "CTD-based category code that classifies the regulatory topic of this question/group"
-* item.code ^definition = "A required code from the RTQ CTD Categories CodeSystem (or an allowed extension of it) that identifies which section, subsection, or specific regulatory topic within a medicinal product dossier this questionnaire item pertains to. This enables precise mapping and automated routing in regulatory processes."
-* item.code ^comment = "Examples: '2-3-s-4-2' = Nonclinical Overview, '3-2-p-5-3' = Microbiological quality control, etc."
-* item.code ^binding.description = "Codes from the full CTD hierarchy as defined in the RTQ CTD Categories CodeSystem. Additional codes beyond the standard CTD structure may be defined locally or in future versions of the CodeSystem when new regulatory topics are required."
-* item.code.system 1.. MS
-* item.code.system = "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full" (exactly)
-* item.code.code 1.. MS
-* item.code.code ^short = "CTD section/subsection code (e.g., 2-3-s-4-2-1)"
-* item.code.display 1.. MS
-* item.code.display ^short = "Human-readable title of the CTD category"
+* item.extension[itemReference] ^short = "Supporting document(s) or referenced FHIR resource(s) for this question"
+* item.code ^slicing.discriminator.type = #value
+* item.code ^slicing.discriminator.path = "system"
+* item.code ^slicing.rules = #open
+* item.code ^short = "CTD section code(s) (required) and question category code (optional)"
+* item.code contains
+    ctd 1..* MS and
+    category 0..* MS
+* item.code[ctd] from $ctd-categories-full (extensible)
+* item.code[ctd] ^short = "CTD-based category code that classifies the regulatory topic of this question/group"
+* item.code[ctd] ^definition = "A required code from the RTQ CTD Categories CodeSystem (or an allowed extension of it) that identifies which section, subsection, or specific regulatory topic within a medicinal product dossier this questionnaire item pertains to. This enables precise mapping and automated routing in regulatory processes."
+* item.code[ctd] ^comment = "Examples: '2-3-s-4-2' = Nonclinical Overview, '3-2-p-5-3' = Microbiological quality control, etc. The granularity of the CodeSystem follows the CTD section hierarchy; implementers who need finer granularity are invited to propose additional codes for inclusion (see Terminology page)."
+* item.code[ctd] ^binding.description = "Codes from the full CTD hierarchy as defined in the RTQ CTD Categories CodeSystem. Additional codes beyond the standard CTD structure may be defined locally or in future versions of the CodeSystem when new regulatory topics are required."
+* item.code[ctd].system 1.. MS
+* item.code[ctd].system = "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full" (exactly)
+* item.code[ctd].code 1.. MS
+* item.code[ctd].code ^short = "CTD section/subsection code (e.g., 2-3-s-4-2-1)"
+* item.code[ctd].display 1.. MS
+* item.code[ctd].display ^short = "Human-readable title of the CTD category"
+* item.code[category] from RtqQuestionCategoryVS (extensible)
+* item.code[category] ^short = "Regulatory significance of the question (e.g., major-objection, minor-concern, commitment)"
+* item.code[category] ^definition = "An optional additional coding classifying the regulatory significance of the question. Regulators are encouraged to adopt these categories as preferred terms for international alignment. Items coded 'commitment' are intended to be tracked as post-approval commitments via linked Task/Flag resources (see Lifecycle page)."
+* item.code[category].system 1.. MS
+* item.code[category].system = "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-question-category" (exactly)
+* item.code[category].code 1.. MS
+* item.code[category].display 1.. MS
 * item.text 1.. MS
 * item.text.extension ^slicing.discriminator.type = #value
 * item.text.extension ^slicing.discriminator.path = "url"

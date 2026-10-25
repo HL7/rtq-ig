@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" role="img" aria-labelledby="t d">
+  <title id="t">Today's Process vs With FHIR RTQ</title>
+  <desc id="d">Circular diagram comparing today's manual PDF process (weeks, manual, error-prone, no data extraction) with FHIR RTQ (real-time, automated, machine-readable, data analytics).</desc>
+  <rect width="640" height="640" fill="#fff"/>
+  <g font-family="Roboto, Arial, Helvetica, sans-serif">
+  <!-- Titles -->
+  <text x="46" y="115" font-size="33" font-weight="700" fill="#4a4a48" textLength="224" lengthAdjust="spacingAndGlyphs">Today's Process</text>
+  <text x="377" y="115" font-size="33" font-weight="700" fill="#1469b0" textLength="206" lengthAdjust="spacingAndGlyphs">With FHIR RTQ</text>
+
+  <!-- Divider with VS -->
+  <path d="M320,92 V271 M320,327 V567" stroke="#dbdbdb" stroke-width="2"/>
+  <text x="301" y="307" font-size="27" font-weight="700" fill="#000" textLength="36" lengthAdjust="spacingAndGlyphs">VS</text>
+
+  <!-- Today's process ring -->
+  <g>
+    <circle cx="156.5" cy="293.5" r="100.0" fill="none" stroke="#797979" stroke-width="64"/>
+    <polyline points="163.6,157.7 182.6,195.9 161.0,229.7" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <polyline points="292.5,295.9 254.9,316.2 220.5,295.7" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <polyline points="163.6,429.3 140.7,393.3 158.7,357.5" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <polyline points="20.5,293.5 57.7,272.5 92.5,292.4" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <circle cx="156.5" cy="293.5" r="67" fill="#fff"/>
+  </g>
+  <g transform="translate(137 185)" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M2,-11 H-10 V12 H10 V2"/>
+      <path d="M-6,-5 H1 M-6,0 H-1 M-6,5 H2"/>
+      <path d="M12,-12 L15,-9 L5,1 L1,2 L2,-2 Z"/>
+    </g>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="66.2" y="211" textLength="57.5" lengthAdjust="spacingAndGlyphs">Regulator</tspan><tspan x="70.8" y="226" textLength="36.5" lengthAdjust="spacingAndGlyphs">writes</tspan><tspan x="54.8" y="241" textLength="58.5" lengthAdjust="spacingAndGlyphs">questions</tspan></text>
+  <g transform="translate(215 203)">
+      <rect x="-13" y="-9" width="26" height="18" rx="1.5" fill="#fff"/>
+      <path d="M-12,-8 L0,2 L12,-8 M-12,8 L-4,-1 M12,8 L4,-1" fill="none" stroke="#797979" stroke-width="1.6" stroke-linejoin="round"/>
+    </g>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="201.0" y="232" textLength="61" lengthAdjust="spacingAndGlyphs">Email PDF</tspan><tspan x="213.0" y="246" textLength="44" lengthAdjust="spacingAndGlyphs">to MAH</tspan></text>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="210.5" y="356" textLength="29" lengthAdjust="spacingAndGlyphs">MAH</tspan><tspan x="197.2" y="371" textLength="53.5" lengthAdjust="spacingAndGlyphs">manually</tspan><tspan x="191.5" y="386" textLength="55" lengthAdjust="spacingAndGlyphs">responds</tspan></text>
+  <g transform="translate(65 328)">
+      <circle cx="0" cy="-8" r="6.5" fill="#fff"/>
+      <path d="M-13,12 V6 C-13,1 -8,-1 -4,-1 H4 C8,-1 13,1 13,6 V12 Z" fill="#fff"/>
+      <path d="M-5,0 V5 M5,0 V4 C5,7 8,7 8,4" fill="none" stroke="#797979" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="-5" cy="7" r="1.8" fill="none" stroke="#797979" stroke-width="1.4"/>
+    </g>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="58.0" y="361" textLength="57" lengthAdjust="spacingAndGlyphs">Regulator</tspan><tspan x="61.0" y="376" textLength="54" lengthAdjust="spacingAndGlyphs">manually</tspan><tspan x="69.8" y="390" textLength="45.5" lengthAdjust="spacingAndGlyphs">reviews</tspan></text>
+  <g transform="translate(156.5 275.5)" fill="none" stroke="#c8161c" stroke-width="3.6" stroke-linecap="round">
+    <circle r="17"/>
+    <path d="M0,-10 V0 L7,6"/>
+  </g>
+  <text x="124" y="326" font-size="23" font-weight="700" fill="#000" textLength="67" lengthAdjust="spacingAndGlyphs">Weeks</text>
+
+  <!-- FHIR RTQ ring -->
+  <g>
+    <circle cx="483.5" cy="293.5" r="100.0" fill="none" stroke="#126db4" stroke-width="64"/>
+    <polyline points="490.6,157.7 509.6,195.9 488.0,229.7" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <polyline points="619.5,295.9 581.9,316.2 547.5,295.7" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <polyline points="490.6,429.3 467.7,393.3 485.7,357.5" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <polyline points="347.5,293.5 384.7,272.5 419.5,292.4" fill="none" stroke="#fff" stroke-width="8" stroke-linejoin="miter" stroke-miterlimit="10"/>
+    <circle cx="483.5" cy="293.5" r="67" fill="#fff"/>
+  </g>
+  <g transform="translate(465 183)" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M-9,-13 H3 L9,-7 V13 H-9 Z M3,-13 V-7 H9"/>
+      <circle cx="0" cy="1" r="4.2"/>
+      <path d="M-2.5,4.5 L-3.5,10 L0,8 L3.5,10 L2.5,4.5"/>
+    </g>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="395.5" y="208" textLength="53" lengthAdjust="spacingAndGlyphs">Regulator</tspan><tspan x="389.2" y="223" textLength="57.5" lengthAdjust="spacingAndGlyphs">publishes</tspan><tspan x="371.0" y="237.5" textLength="76" lengthAdjust="spacingAndGlyphs">Questionnaire</tspan></text>
+  <path transform="translate(540 196)" d="M2,-13 L-8,2 H-1 L-3,13 L8,-2 H1 Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="530.5" y="226" textLength="53" lengthAdjust="spacingAndGlyphs">FHIR API</tspan><tspan x="538.2" y="240.5" textLength="45.5" lengthAdjust="spacingAndGlyphs">delivers</tspan><tspan x="542.5" y="255.5" textLength="51" lengthAdjust="spacingAndGlyphs">instantly</tspan></text>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="541.2" y="351" textLength="29.5" lengthAdjust="spacingAndGlyphs">MAH</tspan><tspan x="521.0" y="366" textLength="62" lengthAdjust="spacingAndGlyphs">structured</tspan><tspan x="529.0" y="381" textLength="36" lengthAdjust="spacingAndGlyphs">digital</tspan><tspan x="511.5" y="396" textLength="55" lengthAdjust="spacingAndGlyphs">response</tspan></text>
+  <g transform="translate(392 323)" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <circle r="10.5"/>
+      <rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(0)"/><rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(45)"/><rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(90)"/><rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(135)"/><rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(180)"/><rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(225)"/><rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(270)"/><rect x="-2.6" y="-15.5" width="5.2" height="5" fill="#fff" stroke="none" transform="rotate(315)"/>
+      <path d="M-7,4 L-2,-1 L1,2 L7,-4 M3,-4 H7 V0" stroke-width="2"/>
+    </g>
+  <text font-size="14" font-weight="600" fill="#fff"><tspan x="374.5" y="358.5" textLength="65" lengthAdjust="spacingAndGlyphs">Automated</tspan><tspan x="381.8" y="373.5" textLength="60.5" lengthAdjust="spacingAndGlyphs">analysis &amp;</tspan><tspan x="393.8" y="388.5" textLength="48.5" lengthAdjust="spacingAndGlyphs">tracking</tspan></text>
+  <path d="M488,255 L468,281 H482 L478,299 L498,271 H484 Z" fill="#2fa543" stroke="#2fa543" stroke-width="1.5" stroke-linejoin="round"/>
+  <text x="436" y="325" font-size="22" font-weight="700" fill="#000" textLength="96" lengthAdjust="spacingAndGlyphs">Real-time</text>
+
+  <!-- Outcome lists -->
+  <path d="M53,468 L69,484 M69,468 L53,484" stroke="#c8161c" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M53,503 L69,519 M69,503 L53,519" stroke="#c8161c" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M53,538 L69,554 M69,538 L53,554" stroke="#c8161c" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <g font-size="23" fill="#000">
+    <text x="84" y="484" textLength="70" lengthAdjust="spacingAndGlyphs">Manual</text>
+    <text x="84" y="519" textLength="109" lengthAdjust="spacingAndGlyphs">Error-prone</text>
+    <text x="84" y="554" textLength="181" lengthAdjust="spacingAndGlyphs">No data extraction</text>
+  </g>
+  <path d="M378,477 L385,484 L399,469" stroke="#2fa543" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M378,512 L385,519 L399,504" stroke="#2fa543" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M378,547 L385,554 L399,539" stroke="#2fa543" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g font-size="23" fill="#000">
+    <text x="409" y="484" textLength="108" lengthAdjust="spacingAndGlyphs">Automated</text>
+    <text x="411" y="519" textLength="176" lengthAdjust="spacingAndGlyphs">Machine-readable</text>
+    <text x="411" y="554" textLength="138" lengthAdjust="spacingAndGlyphs">Data analytics</text>
+  </g>
+  </g>
+</svg>

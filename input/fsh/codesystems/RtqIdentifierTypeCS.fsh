@@ -2,6 +2,7 @@ CodeSystem: RtqIdentifierTypeCS
 Id: rtq-identifier-type
 Title: "RTQ Identifier Type Code System"
 * ^version = "0.1.0"
+* ^url = "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-identifier-type"
 * ^status = #draft
 * ^caseSensitive = true
 * ^content = #complete

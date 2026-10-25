@@ -1,6 +1,6 @@
-<p>The Response to Regulatory Questions (RTQ) Implementation Guide defines structured FHIR profiles on <code>Questionnaire</code> and <code>QuestionnaireResponse</code> that turn regulatory questions and answers into fully machine-readable, interoperable data. By embedding CTD codes, due dates, sender/recipient information, and rich metadata directly into the resources, RTQ replaces unstructured PDF/Word/email exchanges with a standardized format that enables end-to-end automation, predictive analytics, and global harmonization.</p>
+The Response to Regulatory Questions (RTQ) Implementation Guide defines structured FHIR profiles on <code>Questionnaire</code> and <code>QuestionnaireResponse</code> that turn regulatory questions and answers into fully machine-readable, interoperable data. By embedding CTD codes, due dates, sender/recipient information, and rich metadata directly into the resources, RTQ replaces unstructured PDF/Word/email exchanges with a standardized format that enables end-to-end automation, predictive analytics, and global harmonization.
 
-<p>This structured approach delivers transformative benefits for both health authorities and industry, dramatically reducing manual effort, and enabling proactive regulatory strategies.</p>
+This structured approach delivers major benefits for both health authorities and industry, greatly reducing manual effort and enabling proactive regulatory strategies.
 
 <h3>Key Benefits and Use Cases</h3>
 
@@ -33,14 +33,14 @@
       <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">3</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Auto-Generation of Draft Responses</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">AI and templates auto-populate answers from validated data sources; human review reduce to new items.</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">AI and templates auto-populate answers from validated data sources; human authoring is reduced to new items, while human review confirms that reused content matches what was previously approved.</td>
       <td style="border: 1px solid #ddd; padding: 12px;">First draft ready in hours instead of days</td>
     </tr>
     <tr style="background-color: #fafafa;">
       <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">4</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Predictive Regulatory Analytics</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Regulators and Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Analyze centralized repository of past questions and responses to predict likely deficiencies before submission.</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Regulators can analyze centralized repository of past questions and responses to reduce the need to ask duplicate questions.</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Reduces the chance of receiving follow-up questions</td>
     </tr>
     <tr>
@@ -71,13 +71,6 @@
       <td style="border: 1px solid #ddd; padding: 12px;">Commitments automatically flagged and tracked via linked <code>Task</code>/<code>Flag</code> resources.</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Ensures reliable post-marketing commitment/follow-up reporting</td>
     </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">9</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">AI-Agent &amp; Advanced Analytics Support</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Regulators and Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Structured data powers AI agents, predictive models, question suggestion, and near-autonomous workflows.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Foundation for next-generation regulatory intelligence and “lights-out” processing</td>
-    </tr>
   </tbody>
 </table>
 
@@ -95,7 +88,7 @@
 <p><strong>Context:</strong> During a Type II variation review, the regulatory reviewer notices a minor discrepancy in the reported batch numbers for a stability study.</p>
 <ul>
     <li><strong>Old Way:</strong> Reviewer drafts an email/PDF. The health authority admin sends it. Sponsor admin receives it next day, manually logs it, emails CMC lead. CMC lead checks data, drafts email reply. Sponsor admin formats to PDF, sends back. <strong>Time scale: days or weeks.</strong></li>
-    <li><strong>RTQ Way:</strong> Reviewer types question into a FHIR-compliant structured authoring system. RTQ <code>Questionnaire</code> is generated, added to an APIX Task (<a href="http://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/index.html">refer to APIX IG for detail</a>), and sent to the sponsor via API. Sponsor system receives it instantly, reads CTD code <code>3.2.P.8</code>, and auto-assigns to the Stability Lead via Teams/Slack. Lead confirms batch number in the system, clicks "Approve" on the auto-drafted correction. Response sent. <strong>Time scale: hours.</strong><br><em>Note: Regulators can also send the RTQ Questionnaire via email if they do not yet have an APIX-compliant system.</em></li>
+    <li><strong>RTQ Way:</strong> Reviewer types question into a FHIR-compliant structured authoring system. RTQ <code>Questionnaire</code> is generated, added to an APIX Task (<a href="http://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/index.html">refer to APIX IG for detail</a>), and sent to the sponsor via API. Sponsor system receives it instantly, reads CTD code <code>3.2.P.8</code>, logs it automatically in the company's RIM system, and auto-assigns it to the Stability Lead through the company's preferred notification channel — no manual logging step. Lead confirms batch number in the system, clicks "Approve" on the auto-drafted correction. Response sent. <strong>Time scale: hours.</strong><br><em>Note: How the question is delivered to the responsible colleague is up to each company's own systems and process — RTQ only standardizes the data. Regulators can also send the RTQ Questionnaire via email if they do not yet have an APIX-compliant system.</em></li>
 </ul>
 
 <h4>Scenario B: The Complex Clinical Query (Reuse)</h4>
@@ -103,5 +96,23 @@
 <ul>
     <li><strong>Old Way:</strong> Clinical team treats it as a new request. Starts analysis from scratch. Weeks of work. Risk of inconsistency with answers given to another health authority last month.</li>
     <li><strong>RTQ Way:</strong> When the question arrives, the Sponsor's AI agent scans the <code>Questionnaire</code> text and semantic meaning against the global RTQ repository. It finds a <strong>92% match</strong> with a response sent to another health authority 4 weeks ago. The system presents this previous answer to the Clinical Lead. One minor edit for jurisdiction-specific context, and the response is ready. <strong>Result: Consistent global regulatory position and 90% effort reduction.</strong></li>
+</ul>
+
+<h4>Scenario C: CMC Quality Intelligence (Analytics)</h4>
+<p><strong>Context:</strong> A Quality/CMC organization wants to reduce the number of questions it receives on Module 3 and to understand the impact of incoming questions faster.</p>
+<ul>
+    <li><strong>Old Way:</strong> Question histories are buried in PDFs and email threads. Nobody can say which stability protocols attract the most objections, and assessing the cross-document impact of a new question takes days of manual searching.</li>
+    <li><strong>RTQ Way:</strong> Because every question carries a CTD section code and a category (e.g., major objection vs. minor concern), the company can visualize trends in frequent question topics — for example, recurring objections to specific stability protocols — and use them to improve future filing quality. When a new question arrives, the CTD metadata immediately identifies the affected documents and modules across the dossier, so the content impact is understood in minutes rather than days. <strong>Result: Fewer repeat deficiencies and immediate impact assessment for Quality modules.</strong></li>
+</ul>
+
+<h4>Future Potential: Pull-Through to Operations</h4>
+<p>Once an RTQ response is approved (for example, a shelf-life extension), the structured outcome could be pulled through to clinical and manufacturing settings using automated notifications and triggers, keeping operational systems synchronized with regulatory status in near real time. The mechanics of such notifications live in the application layer, not in this specification, but the structured RTQ data is what makes them possible.</p>
+
+<h3>Exchange, Migration &amp; Lifecycle</h3>
+<p>RTQ is a document standard, not a transport standard: an RTQ file can be exchanged over any current or future channel, exactly like today's DOCX/PDF question documents. For how RTQ is exchanged (email, portal, eCTD, API), how to adopt it alongside existing processes, and how multi-round question/response threads are versioned and tracked, see:</p>
+<ul>
+  <li><a href="implementation.html">Implementation &amp; Exchange</a> — minimum conformance recipe, exchange methods, migration and hybrid operation</li>
+  <li><a href="lifecycle.html">Lifecycle &amp; Versioning</a> — amendments, supplementary responses, multi-round threads, commitments</li>
+  <li><a href="architecture.html">Architecture</a> — how the RTQ resources relate to each other and to the wider regulatory FHIR ecosystem</li>
 </ul>
 

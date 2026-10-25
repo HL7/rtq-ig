@@ -31,8 +31,13 @@ The following table maps the business requirements of a regulatory response to t
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>identifier</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..2</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Unique IDs. Slices: <code>regulator-id</code> (Mandatory) and <code>company-id</code> (Optional).</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">2..2</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>Both mandatory:</strong> <code>company-id</code> (the responding company must identify its response) and <code>regulator-id</code> (echoed from the question set for traceability). Identifiers identify the <em>artifacts</em>, not the organizations — the responding organization is identified by the required <code>source</code> element.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>extension</code> (responseVersion)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Business version of the response (e.g., <code>1.0</code>). FHIR R5 <code>QuestionnaireResponse</code> has no native version element; supplements are issued as a new business version with status <code>amended</code>.</td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>questionnaire</code></td>
@@ -62,7 +67,7 @@ The following table maps the business requirements of a regulatory response to t
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.linkId</code></td>
       <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Matches the <code>linkId</code> of the corresponding question in the source Questionnaire.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Matches the <code>linkId</code> of the corresponding question in the source Questionnaire. <strong>Every question must have a matching response item</strong> — where no substantive answer applies, answer explicitly (e.g., "No response required.") or cross-reference. Enforced by <code>item.required</code> on the Questionnaire and invariant <code>rtq-qr-1</code> on this profile.</td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.extension</code></td>
@@ -72,7 +77,7 @@ The following table maps the business requirements of a regulatory response to t
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
       <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Reference to supporting documents (e.g., PDFs) using the <strong>RTQ DocumentReference</strong> profile.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Reference to supporting documents using the <strong>RTQ DocumentReference</strong> profile, or directly to FHIR resources such as an ePI <code>Bundle</code>, <code>Composition</code>, or <code>MedicinalProductDefinition</code>.</td>
     </tr>
   </tbody>
 </table>

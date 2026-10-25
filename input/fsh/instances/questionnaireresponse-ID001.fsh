@@ -4,9 +4,15 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-11-20T22:30:00Z"
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse"
-* identifier.system = "http://hl7.org/fhir/uv/brr/identifier/qa-request"
-* identifier.value = "ID001"
-* identifier.type = $rtq-identifier-type_1#regulator "Regulatory Authority Identifier"
+* extension[RtqResponseVersionExtension].valueString = "1.0"
+* extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
+* extension[RtqProcedureIdentifierExtension].valueIdentifier.value = "NRA/H/C/005432/II/0023"
+* identifier[+].system = "http://hl7.org/fhir/uv/brr/identifier/qa-request"
+* identifier[=].value = "ID001"
+* identifier[=].type = $rtq-identifier-type#regulator-id "Regulator-issued Identifier"
+* identifier[+].system = "https://synthpharma.example/identifier/rtq-response"
+* identifier[=].value = "SP-RTQ-2025-0148"
+* identifier[=].type = $rtq-identifier-type#company-id "Company-issued Identifier"
 * contained[0] = org-regulator
 * contained[+] = org-mah
 * contained[+] = example-docref
@@ -17,7 +23,7 @@ Usage: #example
 * author = Reference(org-regulator) "National Regulatory Authority"
 * source.type = "Organization"
 * source = Reference(org-mah) "SynthPharma AG"
-* authored = "2025-06-25T14:00:00+02:00"
+* authored = "2025-11-18T14:00:00+02:00"
 * item[+].linkId = "admin-1"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the fee for the Type II variation fully paid and documented?</p></div>"

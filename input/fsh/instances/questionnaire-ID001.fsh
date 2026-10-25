@@ -7,14 +7,19 @@ Usage: #example
 * identifier[+].system = "http://hl7.org/fhir/uv/brr/identifier/qa-request"
 * identifier[=].value = "ID001"
 * identifier[=].type = $rtq-identifier-type#regulator-id "Regulator-issued Identifier"
-* identifier[+].system = "https://example-nra.example.org/procedure-number"
-* identifier[=].value = "NRA/H/C/005432/II/0023"
-* identifier[=].type = $rtq-identifier-type#regulator-id "Regulator-issued Identifier"
-* version = "1.1.5"
+* extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
+* extension[RtqProcedureIdentifierExtension].valueIdentifier.value = "NRA/H/C/005432/II/0023"
+* extension[RtqDueDateExtension].extension[originalDueDate].valueDate = "2025-12-11"
+* extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.system = "https://example-nra.example.org/product-id"
+* extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.value = "MPID-EX-000123"
+* extension[RtqRegulatedContextExtension].extension[authorization].valueIdentifier.system = "https://example-nra.example.org/marketing-authorisation-number"
+* extension[RtqRegulatedContextExtension].extension[authorization].valueIdentifier.value = "NRA/H/C/005432"
+* version = "1.0"
 * name = "BRRRegulatoryQAQuestionnaire"
 * title = "Question Set ID001"
 * status = #active
 * subjectType = #MedicinalProductDefinition
+* code = $rtq-questionnaire-type-cs#list-of-questions "List of Questions"
 * date = "2025-11-11"
 // * contact[+].purpose.coding.system = "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose"
 // * contact[=].purpose.coding.code = "SENDER"
@@ -23,7 +28,8 @@ Usage: #example
 // * contact[=].organization.identifier.system = "https://example-nra.example.org/organization-id"
 // * contact[=].organization.identifier.value = "NRA-ORG-001"
 // * contact[=].organization.display = "National Regulatory Authority"
-* contact[+].name = "National Regulatory Authority"
+* contact[+].extension[RtqContactPurposeExtension].valueCoding = $contact-purpose#SENDER "Sender (Health Authority)"
+* contact[=].name = "National Regulatory Authority"
 // * contact[=].organization.address.line = "1 Regulatory Plaza"
 // * contact[=].organization.address.city = "Capital City"
 // * contact[=].organization.address.postalCode = "00001"
@@ -39,7 +45,8 @@ Usage: #example
 // * contact[=].organization.identifier.system = "urn:oid:1.3.6.1.4.1.519.1"
 // * contact[=].organization.identifier.value = "DUNS-123456789"
 // * contact[=].organization.display = "SynthPharma AG"
-* contact[+].name = "SynthPharma AG"
+* contact[+].extension[RtqContactPurposeExtension].valueCoding = $contact-purpose#RECIPIENT "Recipient (Marketing Authorization Holder)"
+* contact[=].name = "SynthPharma AG"
 // * contact[=].organization.address.line = "123 Synthetic Research Blvd"
 // * contact[=].organization.address.city = "Basel"
 // * contact[=].organization.address.postalCode = "4000"
@@ -52,13 +59,15 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#1.0 "1.0 Administrative Information"
 * item[=].code[+] = $ctd-categories-full#1.1 "1.1 Application Form"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Is the fee for the Type II variation fully paid and documented?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the fee for the Type II variation fully paid and documented?</p><p style=\"font-size:0.9em; color:#555;\">Please refer to your regulatory authority's fee guidance documentation for payment confirmation requirements.</p></div>"
 * item[+].linkId = "admin-2"
 * item[=].code[+] = $ctd-categories-full#1.0 "Administrative Information"
 * item[=].code[+] = $ctd-categories-full#1.1 "Application Form"
-* item[=].type = #group
+* item[=].type = #question
+* item[=].required = true
 * item[=].text = "Are all required metadata fields in the application form complete?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are all required metadata fields in the application form complete?</p><ul><li>Marketing Authorisation Holder</li><li>Product Name (INN)</li><li>Procedure Number</li><li>Submission Date</li></ul></div>"
@@ -66,6 +75,7 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#1.3 "1.3 Product Information"
 * item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?</p><p>Current ePI states: “Store in a refrigerator (2°C – 8°C). Do not freeze.”</p></div>"
@@ -73,13 +83,16 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#1.3 "Product Information"
 * item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Is the patient leaflet revised to clarify the extended shelf life?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the patient leaflet revised to clarify the extended shelf life?</p><p style=\"font-style:italic\">“Shelf life after first opening: 36 months when stored at 2–8°C”</p></div>"
 * item[+].linkId = "product-3"
 * item[=].code[+] = $ctd-categories-full#1.3 "Product Information"
 * item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
+* item[=].code[+] = $rtq-question-category#minor-concern "Minor Concern"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Is the updated ePI text sufficiently clear for all applicable languages?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the updated ePI text sufficiently clear for all applicable languages?</p><table><tr><th>Language</th><th>Status</th></tr><tr><td>English</td><td>Approved</td></tr><tr><td>French</td><td>Under Review</td></tr><tr><td>German</td><td>Pending</td></tr></table></div>"
@@ -87,6 +100,7 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#3.2.P.8 "Stability"
 * item[=].code[+] = $ctd-categories-full#3.2.P.8.1 "Stability Summary and Conclusion"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?</p><ul><li>Include protocol deviations if any.</li><li>Reference: <a href=\"https://www.ich.org/page/ich-guidelines\">ICH Q1A(R2)</a></li></ul></div>"
@@ -94,6 +108,7 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#3.2.P.8 "Stability"
 * item[=].code[+] = $ctd-categories-full#3.2.P.8.1 "Stability Summary and Conclusion"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Does the data support all intended climatic zones?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Does the data support all intended climatic zones?</p><div class=\"rtq-note\"><b>Note:</b> Confirm coverage for Zone IVb (30°C/75% RH) per <a href=\"https://www.who.int/publications/i/item/9789240011922\">WHO TRS 1010</a></div></div>"
@@ -101,19 +116,23 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#3.2.P.5 "Control of Drug Product"
 * item[=].code[+] = $ctd-categories-full#3.2.P.5.2 "Analytical Procedures"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Are the test methods used the same as in the previously submitted stability information?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are the test methods used the same as in the previously submitted stability information?</p><p style=\"color:#d32f2f\">If changed: justify and provide validation data.</p></div>"
 * item[+].linkId = "quality-4"
 * item[=].code[+] = $ctd-categories-full#3.2.P.5 "Control of Drug Product"
 * item[=].code[+] = $ctd-categories-full#3.2.P.5.4 "Impurities"
+* item[=].code[+] = $rtq-question-category#major-objection "Major Objection"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Are there any new degradation products identified within the newly submitted data?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new degradation products identified within the newly submitted data?</p><p style=\"font-size:0.9em\">Threshold: <b>&gt;0.10%</b> per <a href=\"https://www.ich.org/page/quality-guidelines\">ICH Q3B(R2)</a></p></div>"
 * item[+].linkId = "quality-5"
 * item[=].code = $ctd-categories-full#3.2.P.7 "Container Closure System"
 * item[=].type = #question
+* item[=].required = true
 * item[=].text = "Any changes in the packaging configuration and/or storage of the samples during stability?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Any changes in the packaging configuration and/or storage of the samples during stability?</p><p style=\"font-size:0.9em;color:#555\"><b>Figure 1:</b> Cross-section of new Alu/Alu blister showing foil thickness and sealing layer.</p><table><tr><th>Original</th><th>New</th></tr><tr><td>PVC/PVDC Blister</td><td>Alu/Alu Blister</td></tr><tr><td>25°C/60% RH</td><td>Unchanged</td></tr></table></div>"

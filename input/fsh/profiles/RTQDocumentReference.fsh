@@ -3,11 +3,12 @@ Parent: DocumentReference
 Id: rtq-documentreference
 Title: "RTQ Document Reference"
 Description: "A profile on the DocumentReference resource for use within the Response to Regulatory Questions (RTQ) process to attach supporting documents."
-* ^version = "0.1.0"
+* ^version = "0.2.0"
 * ^status = #draft
 * ^experimental = true
-* ^date = "2025-11-21"
+* ^date = "2026-08-08"
 * . ^short = "RTQ DocumentReference for attachments"
+* . ^comment = "Best practice for attachment size: embed the document in content.attachment.data when it is 10 MB or smaller; for larger documents, use content.attachment.url to reference content held in a repository accessible to both parties (e.g., a submission portal or shared document store). All supporting documents — including assessment reports provided as background to a question — attach through this profile uniformly; the type and category elements convey the document's intent."
 * identifier MS
 * status MS
 * docStatus MS
