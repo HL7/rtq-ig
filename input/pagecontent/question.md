@@ -1,113 +1,60 @@
-This page provides a technical outline of the **Regulatory Questionnaire** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of regulatory questions (including the accompanying cover letter, questions, supporting attachments, and metadata) while preserving rich formatting and traceability to the Common Technical Document (CTD) structure.
+{% include rtq-style.html %}
 
----
+The **RTQ Questionnaire** profile defines a regulatory question set: the cover letter, the individual questions, supporting attachments, and metadata, with rich formatting preserved. Full definition: [RTQ Questionnaire profile](StructureDefinition-rtq-questionnaire.html).
 
-### Example
+<div class="rtq-two">
+  <div class="rtq-card">
+    <div class="t">✓ Minimum to conform</div>
+    <ul class="rtq-check">
+      <li><code>meta.profile</code> set to the RTQ Questionnaire profile</li>
+      <li>A regulator-issued identifier and a business <code>version</code></li>
+      <li><code>status</code>, issue <code>date</code>, and a narrative <code>text</code> (the cover letter)</li>
+      <li>A questionnaire type in <code>code</code> and <code>subjectType</code> (e.g., MedicinalProductDefinition)</li>
+      <li>Two contacts, sender and recipient, each with a name, email, and (recipient) phone</li>
+      <li>One <code>item</code> per question: unique <code>linkId</code>, at least one category code, <code>required = true</code>, and the question text</li>
+    </ul>
+  </div>
+  <div class="rtq-card soft">
+    <div class="t">Examples</div>
+    <p>The three question sets in the worked example, from first round to closure:</p>
+    <ul>
+      <li><a href="Questionnaire-questionnaire-ID001.html">ID001</a>: round 1, ten questions</li>
+      <li><a href="Questionnaire-questionnaire-ID001-round2.html">ID001-R2</a>: assessment outcomes and follow-up questions</li>
+      <li><a href="Questionnaire-questionnaire-ID001-round3.html">ID001-R3</a>: closing set, all resolved</li>
+    </ul>
+    <p style="margin-top:10px"><a class="more" href="examples/sample-question.html" target="_blank">Interactive question example →</a><br/><a class="more" href="examples/sample-lifecycle.html" target="_blank">Lifecycle walkthrough →</a></p>
+  </div>
+</div>
 
-View the example below:
-- <a href="examples/sample-question.html" target="_blank">👉 View the Interactive Modern SaaS Dashboard Example</a>
-- <a href="Questionnaire-questionnaire-ID001.html" target="_blank">View the Regulatory Questionnaire example</a>
-- <a href="Questionnaire-questionnaire-ID001.json.html" target="_blank">View the underlying Regulatory Questionnaire code (JSON)</a>
+Everything beyond the minimum, such as product and procedure context, due dates, and attachments, is optional but Must-Support: systems that have the information populate it, and receiving systems use it when present.
 
----
+<div class="rtq-sec" id="key-elements">Key elements</div>
 
-### Key Elements of a Regulatory Question
-
-The following table is a simplified view of the key elements of a regulatory question. It maps the technical components of a regulatory question to their implementation in the **RTQ Questionnaire** profile. This breakdown details the required data structures for CTD section mapping, rich-text rendering, and participant identification.
-
-<table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
-  <thead style="background-color: #f5f5f5;">
-    <tr>
-      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Element</th>
-      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Cardinality</th>
-      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Purpose / Notes</th>
-    </tr>
-  </thead>
+<table class="rtq-table">
+  <thead><tr><th>Element</th><th>Card.</th><th>Purpose</th></tr></thead>
   <tbody>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>meta.profile</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Fixed to <code>http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire</code> to ensure conformance and API routing.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>identifier</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..2</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Unique IDs of the question set. Slices: <code>regulator-id</code> (Mandatory) and <code>company-id</code> (Optional). Note: identifiers identify the <em>artifact</em>, not the organizations — the parties are identified by the contact elements. The regulatory <em>procedure</em> number is carried separately in the procedure-identifier extension.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>version</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The business version of the questionnaire set (e.g., "1.0").</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>text</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Human-readable narrative (XHTML) containing the summary of the question set.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>subjectType</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The resource type(s) the questions are about — normally <code>MedicinalProductDefinition</code>. (Per FHIR R5 this element carries resource type codes; the questionnaire type and procedure are carried by <code>code</code> and the procedure-identifier extension below.)</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>code</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Type of regulatory questionnaire (e.g., <code>list-of-questions</code>, <code>information-request</code>, <code>deficiency-letter</code>) from the RTQ Questionnaire Type CodeSystem.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>extension</code> (procedureIdentifier)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The <strong>regulator-assigned procedure number</strong> (e.g., <code>NRA/H/C/005432/II/0023</code>) linking this question set to the regulatory procedure instance it belongs to.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>extension</code> (regulatedContext)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Product and marketing-authorisation context: references or identifiers for the <code>MedicinalProductDefinition</code> and <code>RegulatedAuthorization</code> concerned, enabling automatic matching in RIM systems.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>extension</code> (dueDate)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Canonical due-date model: the original due date plus any negotiated due dates (the latest negotiated date is the current one).</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>extension</code> (inResponseTo)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">For follow-up rounds: references the prior <code>QuestionnaireResponse</code> that triggered this question set. See <a href="lifecycle.html">Lifecycle &amp; Versioning</a>.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>contact</code> (SENDER)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Issuing health authority (Regulator) with full organizational IDs, address, and primary contact info.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>contact</code> (RECEIVER)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The pharmaceutical MAH or applicant expected to respond.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code> (category)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>At least one</strong> category code per question. Categories are regulator-defined: CTD section codes (e.g., <code>3.2.P.8.1</code>) and the regulatory significance codes (<code>major-objection</code>, <code>minor-concern</code>, <code>other-consideration</code>, <code>commitment</code>) are preferred, but a regulator may use its own code system, and non-CTD product domains (e.g., devices) use their own. A question may carry several categories.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code> (assessment)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Follow-up rounds only: the regulator's assessment of the previous response to this question: <code>resolved</code>, <code>not-resolved</code>, or <code>further-questions</code>. See <a href="lifecycle.html">Lifecycle &amp; Versioning</a>.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.required</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>true</code> for every open question, so every question must be answered. <code>false</code> only for a question re-issued as <code>resolved</code>, which needs no further answer.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.extension</code> (itemReference)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Inline extension to explicitly attach an <strong>RTQ DocumentReference</strong> to this specific question.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.text</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The question text. <strong>Requires</strong> the <code>rendering-xhtml</code> extension for formatted content like tables or lists.</td>
-    </tr>
+    <tr class="grp"><td colspan="3">Identity and version</td></tr>
+    <tr><td><code>identifier</code></td><td>1..2</td><td>Identifies the question set (not the organizations). <code>regulator-id</code> is mandatory; <code>company-id</code> is optional.</td></tr>
+    <tr><td><code>version</code></td><td>1..1</td><td>Business version, e.g., <code>1.0</code>. An amended question set is a new version linked by <code>derivedFrom</code>.</td></tr>
+    <tr><td><code>code</code></td><td>1..*</td><td>Questionnaire type: <code>list-of-questions</code>, <code>information-request</code>, <code>deficiency-letter</code>, and others.</td></tr>
+    <tr><td><code>date</code>, <code>status</code></td><td>1..1</td><td>Issue date and FHIR publication status.</td></tr>
+    <tr><td><code>text</code></td><td>1..1</td><td>Narrative summary; serves as the cover letter.</td></tr>
+    <tr class="grp"><td colspan="3">Context and dates</td></tr>
+    <tr><td><code>extension</code> (procedureIdentifier)</td><td>0..1</td><td>Regulator-assigned procedure number, e.g., <code>NRA/H/C/005432/II/0023</code>. The same number groups every round.</td></tr>
+    <tr><td><code>extension</code> (regulatedContext)</td><td>0..1</td><td>The product and marketing authorization concerned, as a reference (<code>MedicinalProductDefinition</code>, <code>RegulatedAuthorization</code>) or an identifier (e.g., MPID, MA number).</td></tr>
+    <tr><td><code>extension</code> (dueDate)</td><td>0..1</td><td>Original due date plus any negotiated due dates; the latest negotiated date is current. Omitted on a closing question set.</td></tr>
+    <tr><td><code>extension</code> (inResponseTo)</td><td>0..1</td><td>Follow-up rounds: the response this question set assesses.</td></tr>
+    <tr><td><code>subjectType</code></td><td>1..*</td><td>Resource type the questions are about, normally <code>MedicinalProductDefinition</code>.</td></tr>
+    <tr class="grp"><td colspan="3">Parties</td></tr>
+    <tr><td><code>contact</code> (sender)</td><td>1..1</td><td>The issuing authority: name, email, optional phone.</td></tr>
+    <tr><td><code>contact</code> (receiver)</td><td>1..1</td><td>The MAH or applicant: name, email, phone.</td></tr>
+    <tr class="grp"><td colspan="3">Questions</td></tr>
+    <tr><td><code>item.linkId</code></td><td>1..1</td><td>Unique question identifier. Stays the same in every round; follow-up questions extend it (e.g., <code>quality-4.1</code>).</td></tr>
+    <tr><td><code>item.text</code></td><td>1..1</td><td>The question wording, with the <code>rendering-xhtml</code> extension for tables, lists, and other formatting.</td></tr>
+    <tr><td><code>item.code</code> (category)</td><td>1..*</td><td>At least one regulator-defined category code. CTD sections and the RTQ significance codes (e.g., <code>major-objection</code>) are preferred; regulators may use their own. See <a href="terminology.html">Terminology</a>.</td></tr>
+    <tr><td><code>item.code</code> (assessment)</td><td>0..1</td><td>Follow-up rounds only: <code>resolved</code>, <code>not-resolved</code>, or <code>further-questions</code>. See <a href="lifecycle.html#assessment-of-responses">Lifecycle</a>.</td></tr>
+    <tr><td><code>item.required</code></td><td>1..1</td><td><code>true</code> for every open question; <code>false</code> only for a question marked <code>resolved</code>.</td></tr>
+    <tr><td><code>item.item</code></td><td>0..*</td><td>Nested items: parts of a multi-part question, follow-up questions under a <code>further-questions</code> outcome, or a display item with the assessor's comment.</td></tr>
+    <tr><td><code>item.extension</code> (itemReference)</td><td>0..*</td><td>Supporting content for the question: an RTQ DocumentReference, or existing FHIR content such as an ePI Bundle, Composition, or MedicinalProductDefinition.</td></tr>
   </tbody>
 </table>

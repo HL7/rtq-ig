@@ -4,31 +4,41 @@ name: RTQ_IG
 title: Response to Regulatory Questions (RTQ)
 description: The Response to Question (RTQ) Implementation Guide provides a standardized framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return.
 status: draft
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
+    valueCode: brr
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
+    valueInteger: 1
 version: 0.2.0
 fhirVersion: 5.0.0
 copyrightYear: 2025+
 releaseLabel: ci-build
+jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 publisher:
-  name: HL7 International
-  url: http://www.hl7.org
+  name: HL7 International / Biomedical Research and Regulation
+  url: http://www.hl7.org/Special/committees/rcrim
 license: CC0-1.0
+parameters:
+  apply-contact: true
+  apply-jurisdiction: true
+  apply-publisher: true
+  apply-version: true
+  apply-wg: true
 pages:
   index.md:
     title: Home
   use-case.md:
-    title: Use Case
+    title: Use Cases
   how-it-works.md:
     title: How It Works
-  architecture.md:
-    title: Architecture
-  implementation.md:
-    title: Implementation & Exchange
   lifecycle.md:
-    title: Lifecycle & Versioning
+    title: Lifecycle
   question.md:
-    title: Question Profile & Example
+    title: Question Structure
   response.md:
-    title: Response Profile & Example
+    title: Response Structure
   terminology.md:
     title: Terminology
   acknowledgements.md:
@@ -36,10 +46,8 @@ pages:
 
 menu:
   Home: index.html
-  Use Case: use-case.html
+  Use Cases: use-case.html
   How It Works: how-it-works.html
-  Architecture: architecture.html
-  Implementation: implementation.html
   Lifecycle: lifecycle.html
   Question Structure: question.html
   Response Structure: response.html

@@ -1,133 +1,80 @@
-The Response to Regulatory Questions (RTQ) Implementation Guide defines structured FHIR profiles on <code>Questionnaire</code> and <code>QuestionnaireResponse</code> that turn regulatory questions and answers into fully machine-readable, interoperable data. By embedding CTD codes, due dates, sender/recipient information, and rich metadata directly into the resources, RTQ replaces unstructured PDF/Word/email exchanges with a standardized format that enables end-to-end automation, predictive analytics, and global harmonization.
+{% include rtq-style.html %}
 
-This structured approach delivers major benefits for both health authorities and industry, greatly reducing manual effort and enabling proactive regulatory strategies.
+<div class="rtq-sec-c">
+  <div class="rtq-sec">What structured Q&amp;A makes possible</div>
+  <p>Five benefits for regulators and industry, and three examples of what they look like in practice.</p>
+</div>
 
-<h3>Key Benefits and Use Cases</h3>
+<div class="rtq-grid rtq-g3">
+  <div class="rtq-card">
+    <div class="ic">🧩</div><div class="tag">Regulators and industry</div>
+    <div class="t">1. Structured and machine-readable</div>
+    <p>Questions and answers become data instead of document pages. Systems can read, store, search, and analyze them without anyone retyping or copying text.</p>
+  </div>
+  <div class="rtq-card">
+    <div class="ic">⚙️</div><div class="tag">Regulators and industry</div>
+    <div class="t">2. Automation</div>
+    <p>Incoming question sets are logged, routed to the right expert by category, and tracked against their due dates automatically. Triage drops from days to minutes.</p>
+  </div>
+  <div class="rtq-card">
+    <div class="ic">📐</div><div class="tag">Regulators and industry</div>
+    <div class="t">3. Standardization</div>
+    <p>One template for question sets and responses across procedure types. Build your systems and processes once, rather than once per template.</p>
+  </div>
+  <div class="rtq-card">
+    <div class="ic">🌍</div><div class="tag">Regulators and industry</div>
+    <div class="t">4. Harmonized across regions</div>
+    <p>One structure for every authority, while each keeps its own wording and terminology. Consistent answers across agencies, and regulators can see past questions and answers to avoid asking the same thing twice.</p>
+  </div>
+  <div class="rtq-card">
+    <div class="ic">🔗</div><div class="tag">Regulators and industry</div>
+    <div class="t">5. Discrete, identified, linked</div>
+    <p>Every question is a discrete item with a unique identifier and category tags, and every answer is linked to its question. Nothing is lost between rounds, and every outcome is traceable.</p>
+  </div>
+  <div class="rtq-card soft">
+    <div class="ic">👀</div><div class="t">See it in action</div>
+    <p>The interactive examples show one procedure from first question to closure.</p>
+    <a class="more" href="examples/sample-question.html" target="_blank">Question example →</a>
+    <a class="more" href="examples/sample-response.html" target="_blank">Response example →</a>
+    <a class="more" href="examples/sample-lifecycle.html" target="_blank">Full lifecycle →</a>
+  </div>
+</div>
 
-<table style="width:100%; border-collapse: collapse; font-family: Arial, sans-serif;">
-  <thead>
-    <tr style="background-color: #f2f2f2; text-align: left;">
-      <th style="border: 1px solid #ddd; padding: 12px;">#</th>
-      <th style="border: 1px solid #ddd; padding: 12px;">Benefit</th>
-      <th style="border: 1px solid #ddd; padding: 12px;">Primary Stakeholder(s)</th>
-      <th style="border: 1px solid #ddd; padding: 12px;">Description</th>
-      <th style="border: 1px solid #ddd; padding: 12px;">Impact</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">1</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Automated Receipt &amp; Triage</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Regulators and Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Incoming questions or responses are instantly parsed, categorized by CTD section, prioritized, routed, and issues notifications.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Eliminates days or hours of manual handling</td>
-    </tr>
-    <tr style="background-color: #fafafa;">
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">2</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Identification &amp; Reuse of Prior Answers</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Search historical <code>QuestionnaireResponse</code> by <code>linkId</code>, CTD section, or semantics to retrieve previous answers.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Reuses 60–90 % of responses for recurring questions</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">3</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Auto-Generation of Draft Responses</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">AI and templates auto-populate answers from validated data sources; human authoring is reduced to new items, while human review confirms that reused content matches what was previously approved.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">First draft ready in hours instead of days</td>
-    </tr>
-    <tr style="background-color: #fafafa;">
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">4</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Predictive Regulatory Analytics</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Regulators and Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Regulators can analyze centralized repository of past questions and responses to reduce the need to ask duplicate questions.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Reduces the chance of receiving follow-up questions</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">5</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Standardized &amp; Harmonized Templates</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Regulators (questions)<br>Industry (responses)</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Consistent, reusable <code>Questionnaire</code> and <code>QuestionnaireResponse</code> templates with embedded CTD mappings.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Reduces ambiguity and ensures global consistency</td>
-    </tr>
-    <tr style="background-color: #fafafa;">
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">6</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Harmonized Structure Across Regulators</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Single system processes questions from all regulators using common metadata.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Simplifies multi-market submissions and operations</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">7</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Data Mining &amp; Regulatory Intelligence</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Regulators</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Queryable repository enables trend analysis, guidance updates, and risk-based prioritization.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Informs policy, training, and inspection planning</td>
-    </tr>
-    <tr style="background-color: #fafafa;">
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">8</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Commitment Flagging</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Regulators and Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Commitments are flagged in the structure itself: requested by the regulator (category code), offered by the company (commitment on the answer, with a due date), and accepted through the assessment outcome. Applications can track them from there.</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Ensures reliable post-marketing commitment/follow-up reporting</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">9</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Impact Assessment Across Documents</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Industry and Regulators</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Category codes and references to the affected content (e.g., an ePI <code>Composition</code> section) show at once which documents a question touches: downstream (SmPC → package leaflet → artwork) and upstream (company core data sheet and other products that share it).</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Impact understood in minutes; consistent updates across products and markets</td>
-    </tr>
-  </tbody>
-</table>
+<hr class="rtq-hr"/>
 
+<div class="rtq-sec">Scenarios</div>
 
+<div class="rtq-scn">
+  <div class="t">⚡ A: The 24-hour clarification</div>
+  <div class="ctx">During a Type II variation, a reviewer spots a discrepancy in the batch numbers reported for a stability study.</div>
+  <div class="rtq-ba">
+    <div class="before"><div class="h">Today</div>The reviewer drafts a PDF and an administrator emails it. The next day the company logs it by hand and forwards it to the CMC lead, who drafts a reply that is formatted to PDF and sent back. Days or weeks.</div>
+    <div class="after"><div class="h">With RTQ</div>The question arrives as structured data tagged with CTD section 3.2.P.8. The company's system logs it and assigns it to the Stability Lead automatically. The lead confirms the batch number and approves the drafted correction. Hours.</div>
+  </div>
+  <span class="rtq-pill">Automation · days to hours</span>
+</div>
 
-<h3>Real-World Scenarios</h3>
+<div class="rtq-scn">
+  <div class="t">♻️ B: The complex clinical query</div>
+  <div class="ctx">A health authority asks about efficacy in an elderly sub-population for a new oncology product.</div>
+  <div class="rtq-ba">
+    <div class="before"><div class="h">Today</div>The clinical team starts from scratch: weeks of work, and a risk of contradicting the answer given to another authority last month.</div>
+    <div class="after"><div class="h">With RTQ</div>The company's system matches the question against its library of earlier structured answers and finds a close match sent to another authority four weeks ago. One edit for local context and the answer is ready.</div>
+  </div>
+  <span class="rtq-pill">Reuse · consistent global position</span>
+</div>
 
-<p style="padding: 1rem; background-color: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 4px;">
-  <strong>💡 See it in action:</strong><br/>
-  <a href="examples/sample-question.html" target="_blank">👉 View the Interactive Question Structure Example</a><br/>
-  <a href="examples/sample-response.html" target="_blank">👉 View the Interactive Response Structure Example</a>
-</p>
+<div class="rtq-scn">
+  <div class="t">🔍 C: Labelling impact assessment</div>
+  <div class="ctx">An authority asks the company to strengthen the liver-injury warning in SmPC section 4.4 for one product in a therapy area where several products share the same company core data sheet.</div>
+  <div class="rtq-ba">
+    <div class="before"><div class="h">Today</div>The labelling team reads the PDF and searches by hand for every affected document: package leaflet, artwork, core data sheet, sister products in other markets. Days, and easy to miss one.</div>
+    <div class="after"><div class="h">With RTQ</div>The question carries category 1.3.1 and points to the exact ePI section. The company's labelling system lists the affected content at once: the leaflet section and artwork downstream, the core data sheet and every product sharing it upstream. One coordinated change.</div>
+  </div>
+  <span class="rtq-pill">Impact assessed in minutes</span>
+</div>
 
-<h4>Scenario A: The 24-Hour Clarification (Speed)</h4>
-<p><strong>Context:</strong> During a Type II variation review, the regulatory reviewer notices a minor discrepancy in the reported batch numbers for a stability study.</p>
-<ul>
-    <li><strong>Old Way:</strong> Reviewer drafts an email/PDF. The health authority admin sends it. Sponsor admin receives it next day, manually logs it, emails CMC lead. CMC lead checks data, drafts email reply. Sponsor admin formats to PDF, sends back. <strong>Time scale: days or weeks.</strong></li>
-    <li><strong>RTQ Way:</strong> Reviewer types question into a FHIR-compliant structured authoring system. RTQ <code>Questionnaire</code> is generated, added to an APIX Task (<a href="http://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/index.html">refer to APIX IG for detail</a>), and sent to the sponsor via API. Sponsor system receives it instantly, reads CTD code <code>3.2.P.8</code>, logs it automatically in the company's RIM system, and auto-assigns it to the Stability Lead through the company's preferred notification channel — no manual logging step. Lead confirms batch number in the system, clicks "Approve" on the auto-drafted correction. Response sent. <strong>Time scale: hours.</strong><br><em>Note: How the question is delivered to the responsible colleague is up to each company's own systems and process — RTQ only standardizes the data. Regulators can also send the RTQ Questionnaire via email if they do not yet have an APIX-compliant system.</em></li>
-</ul>
-
-<h4>Scenario B: The Complex Clinical Query (Reuse)</h4>
-<p><strong>Context:</strong> A health authority asks a complex question about efficacy in a specific elderly sub-population for a new oncology drug.</p>
-<ul>
-    <li><strong>Old Way:</strong> Clinical team treats it as a new request. Starts analysis from scratch. Weeks of work. Risk of inconsistency with answers given to another health authority last month.</li>
-    <li><strong>RTQ Way:</strong> When the question arrives, the Sponsor's AI agent scans the <code>Questionnaire</code> text and semantic meaning against the global RTQ repository. It finds a <strong>92% match</strong> with a response sent to another health authority 4 weeks ago. The system presents this previous answer to the Clinical Lead. One minor edit for jurisdiction-specific context, and the response is ready. <strong>Result: Consistent global regulatory position and 90% effort reduction.</strong></li>
-</ul>
-
-<h4>Scenario C: CMC Quality Intelligence (Analytics)</h4>
-<p><strong>Context:</strong> A Quality/CMC organization wants to reduce the number of questions it receives on Module 3 and to understand the impact of incoming questions faster.</p>
-<ul>
-    <li><strong>Old Way:</strong> Question histories are buried in PDFs and email threads. Nobody can say which stability protocols attract the most objections, and assessing the cross-document impact of a new question takes days of manual searching.</li>
-    <li><strong>RTQ Way:</strong> Because every question carries category codes, typically its CTD section and its significance (e.g., major objection vs. minor concern), the company can visualize trends in frequent question topics — for example, recurring objections to specific stability protocols — and use them to improve future filing quality. When a new question arrives, the CTD metadata immediately identifies the affected documents and modules across the dossier, so the content impact is understood in minutes rather than days. <strong>Result: Fewer repeat deficiencies and immediate impact assessment for Quality modules.</strong></li>
-</ul>
-
-<h4>Scenario D: Labelling Impact Assessment (Impact)</h4>
-<p><strong>Context:</strong> A health authority asks the company to strengthen the liver-injury warning in section 4.4 of the SmPC for one product in a therapy area where several products share the same company core data sheet.</p>
-<ul>
-    <li><strong>Old Way:</strong> The labelling team reads the PDF question, then searches manually for every document that might be affected: the package leaflet, the artwork, the company core data sheet, and the labelling of sister products in other markets. Impact assessment takes days, and a downstream document is easily missed.</li>
-    <li><strong>RTQ Way:</strong> The question carries the category code <code>1.3.1</code> (SmPC, Labelling and Package Leaflet) and a reference to the exact ePI <code>Composition</code> section it concerns. The company's labelling system uses these to list the affected content immediately: downstream, the matching package leaflet section and the artwork; upstream, the company core data sheet and every other product and market that shares it. The team decides on one coordinated change instead of a series of separate fixes. <strong>Result: Impact assessed in minutes and consistent safety wording across products.</strong></li>
-</ul>
-<p><em>The impact analysis itself is an application feature; RTQ supplies the category codes and content references that make it possible.</em></p>
-
-<h4>Future Potential: Pull-Through to Operations</h4>
-<p>Once an RTQ response is approved (for example, a shelf-life extension), the structured outcome could be pulled through to clinical and manufacturing settings using automated notifications and triggers, keeping operational systems synchronized with regulatory status in near real time. The mechanics of such notifications live in the application layer, not in this specification, but the structured RTQ data is what makes them possible.</p>
-
-<h3>Exchange, Migration &amp; Lifecycle</h3>
-<p>RTQ is a document standard, not a transport standard: an RTQ file can be exchanged over any current or future channel, exactly like today's DOCX/PDF question documents. For how RTQ is exchanged (email, portal, eCTD, API), how to adopt it alongside existing processes, and how multi-round question/response threads are versioned and tracked, see:</p>
-<ul>
-  <li><a href="implementation.html">Implementation &amp; Exchange</a> — minimum conformance recipe, exchange methods, migration and hybrid operation</li>
-  <li><a href="lifecycle.html">Lifecycle &amp; Versioning</a> — amendments, supplementary responses, multi-round threads, commitments</li>
-  <li><a href="architecture.html">Architecture</a> — how the RTQ resources relate to each other and to the wider regulatory FHIR ecosystem</li>
-</ul>
-
+<div class="rtq-callout amber">
+  <div class="ic">ℹ️</div>
+  <div>Routing, answer matching, impact analysis, and dashboards are features of each organization's own applications. RTQ provides the structured data that makes them possible and consistent across systems.</div>
+</div>

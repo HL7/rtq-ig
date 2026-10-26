@@ -1,88 +1,61 @@
-This page provides a technical outline of the **Regulatory Questionnaire Response** profile structure. Built on HL7 FHIR R5, this resource enables the structured, machine-readable exchange of responses to regulatory questions (including the accompanying cover letter, responses to questions, supporting attachments, and metadata) from a Marketing Authorization Holder (MAH) back to a regulator.
+{% include rtq-style.html %}
 
----
+The **RTQ QuestionnaireResponse** profile defines the response a marketing authorization holder (MAH) or applicant returns to a question set: the cover letter, one answer per open question, supporting attachments, commitments, and metadata. Full definition: [RTQ QuestionnaireResponse profile](StructureDefinition-rtq-questionnaireresponse.html).
 
-### Example
+<div class="rtq-two">
+  <div class="rtq-card">
+    <div class="t">✓ Minimum to conform</div>
+    <ul class="rtq-check">
+      <li><code>meta.profile</code> set to the RTQ QuestionnaireResponse profile</li>
+      <li>Both identifiers: your own response ID and the regulator's question set ID</li>
+      <li><code>questionnaire</code>: the question set being answered</li>
+      <li><code>status</code>, <code>authored</code> date, and a narrative <code>text</code> (the cover letter)</li>
+      <li><code>author</code> and <code>source</code>: your organization (the MAH or applicant)</li>
+      <li>One answer item for every open question, matched by <code>linkId</code></li>
+    </ul>
+  </div>
+  <div class="rtq-card soft">
+    <div class="t">Examples</div>
+    <p>The two responses in the worked example:</p>
+    <ul>
+      <li><a href="QuestionnaireResponse-questionnaireresponse-ID001.html">SP-RTQ-2025-0148</a>: answers all ten round-1 questions; offers a commitment</li>
+      <li><a href="QuestionnaireResponse-questionnaireresponse-ID001-round2.html">SP-RTQ-2025-0163</a>: answers only the open round-2 questions; offers a second commitment</li>
+    </ul>
+    <p style="margin-top:10px"><a class="more" href="examples/sample-response.html" target="_blank">Interactive response example →</a><br/><a class="more" href="examples/sample-lifecycle.html" target="_blank">Lifecycle walkthrough →</a></p>
+  </div>
+</div>
 
-View the example below:
-- <a href="examples/sample-response.html" target="_blank">👉 View the Interactive Modern SaaS Dashboard Example</a>
-- <a href="QuestionnaireResponse-questionnaireresponse-ID001.html" target="_blank">View the Regulatory Response example</a>
-- <a href="QuestionnaireResponse-questionnaireresponse-ID001.json.html" target="_blank">View the underlying Regulatory Response code (JSON)</a>
+<div class="rtq-sec" id="key-elements">Key elements</div>
 
----
-
-### Key Elements of a Regulatory Response
-
-The following table maps the business requirements of a regulatory response to their technical implementation in the **RTQ QuestionnaireResponse** profile. It highlights mandatory fields, cardinality, and the specific FHIR elements used to convey the response data.
-
-<table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
-  <thead style="background-color: #f5f5f5;">
-    <tr>
-      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Element</th>
-      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Cardinality</th>
-      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Purpose / Notes</th>
-    </tr>
-  </thead>
+<table class="rtq-table">
+  <thead><tr><th>Element</th><th>Card.</th><th>Purpose</th></tr></thead>
   <tbody>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>meta.profile</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Fixed to <code>http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse</code> to ensure conformance and API routing.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>identifier</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">2..2</td>
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>Both mandatory:</strong> <code>company-id</code> (the responding company must identify its response) and <code>regulator-id</code> (echoed from the question set for traceability). Identifiers identify the <em>artifacts</em>, not the organizations — the responding organization is identified by the required <code>source</code> element.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>extension</code> (responseVersion)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Business version of the response (e.g., <code>1.0</code>). FHIR R5 <code>QuestionnaireResponse</code> has no native version element; supplements are issued as a new business version with status <code>amended</code>.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>questionnaire</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Canonical reference to the original <code>rtq-questionnaire</code> being answered.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>status</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Lifecycle state (e.g., <code>completed</code> for final submissions).</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>authored</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Date the full response was finalized.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>text</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Human-readable narrative (XHTML) containing the overview of the whole response.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>author</code> (SENDER/MAH)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The Marketing Authorization Holder or applicant providing the response.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.linkId</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Matches the <code>linkId</code> of the corresponding question in the source Questionnaire. <strong>Every question must have a matching response item</strong> — where no substantive answer applies, answer explicitly (e.g., "No response required.") or cross-reference. Enforced by <code>item.required</code> on the Questionnaire and invariant <code>rtq-qr-1</code> on this profile.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.extension</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The answer text. <strong>Requires</strong> the <code>rendering-xhtml</code> extension for formatted content like tables or lists.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.extension</code> (commitment)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Commitment offered by the company in this answer: a description and an optional due date. The regulator accepts it through the assessment outcome in the next round. See <a href="lifecycle.html#commitments-and-follow-up-measures">Lifecycle &amp; Versioning</a>.</td>
-    </tr>
-    <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Reference to supporting documents using the <strong>RTQ DocumentReference</strong> profile, or directly to FHIR resources such as an ePI <code>Bundle</code>, <code>Composition</code>, or <code>MedicinalProductDefinition</code>.</td>
-    </tr>
+    <tr class="grp"><td colspan="3">Identity, version, and context</td></tr>
+    <tr><td><code>identifier</code></td><td>2..2</td><td>Both mandatory: <code>company-id</code> (your ID for the response) and <code>regulator-id</code> (echoed from the question set).</td></tr>
+    <tr><td><code>questionnaire</code></td><td>1..1</td><td>The question set being answered, including its round (e.g., ID001-R2).</td></tr>
+    <tr><td><code>extension</code> (responseVersion)</td><td>0..1</td><td>Business version, e.g., <code>1.0</code>. A supplement is a new version with status <code>amended</code>.</td></tr>
+    <tr><td><code>extension</code> (procedureIdentifier, regulatedContext)</td><td>0..1</td><td>The procedure number and product or authorization context, echoed from the question set.</td></tr>
+    <tr><td><code>status</code></td><td>1..1</td><td><code>in-progress</code>, <code>completed</code>, <code>amended</code>, <code>stopped</code>, or <code>entered-in-error</code>.</td></tr>
+    <tr><td><code>authored</code></td><td>1..1</td><td>Date the response was finalized.</td></tr>
+    <tr><td><code>text</code></td><td>1..1</td><td>Narrative overview; serves as the cover letter.</td></tr>
+    <tr><td><code>author</code>, <code>source</code></td><td>1..1</td><td>The MAH or applicant that prepared and answered the response. The regulator is identified on the question set.</td></tr>
+    <tr class="grp"><td colspan="3">Answers</td></tr>
+    <tr><td><code>item.linkId</code></td><td>1..1</td><td>The <code>linkId</code> of the question being answered. <strong>Every open question must have an answer</strong>; questions marked <code>resolved</code> need none.</td></tr>
+    <tr><td><code>item.answer</code></td><td>0..*</td><td>The answer to a question (a group carries nested items instead; invariant <code>rtq-qr-1</code> requires one or the other), with the <code>rendering-xhtml</code> extension for formatted text. Where there is nothing substantive to say, answer explicitly (e.g., "No response required.").</td></tr>
+    <tr><td><code>item.item</code></td><td>0..*</td><td>Answers to follow-up questions or parts of a multi-part question, nested under the parent question.</td></tr>
+    <tr><td><code>item.answer.valueReference</code></td><td>0..*</td><td>Supporting content: an RTQ DocumentReference, or existing FHIR content such as an ePI Bundle, Composition, or MedicinalProductDefinition.</td></tr>
+    <tr><td><code>item.extension</code> (commitment)</td><td>0..1</td><td>A commitment offered in this answer: what will be done and, optionally, by when. The regulator accepts it by marking the question <code>resolved</code> in the next round. See <a href="lifecycle.html#commitments">Lifecycle</a>.</td></tr>
   </tbody>
 </table>
+
+<div class="rtq-sec" id="attachments">Attachments and large documents</div>
+
+Supporting documents attach to answers (and to questions) through the [RTQ DocumentReference](StructureDefinition-rtq-documentreference.html) profile. All documents are handled the same way whatever their purpose; the document's `type` and `category` say what it is.
+
+<div class="rtq-grid rtq-g3">
+  <div class="rtq-card soft"><div class="t">Up to about 10 MB: embed</div><p>Include the document in the file itself (<code>attachment.data</code>).</p></div>
+  <div class="rtq-card soft"><div class="t">Larger: point to it</div><p>Reference the document by URL (<code>attachment.url</code>) in a repository both parties can reach, such as a submission portal or shared document store. Strongly preferred for very large datasets.</p></div>
+  <div class="rtq-card soft"><div class="t">Existing structured content: reference it</div><p>Point to the ePI or product data directly instead of attaching a copy. In a decentralized exchange, make sure the receiver can resolve the reference, or attach the content as well.</p></div>
+</div>
+
+The 10 MB threshold is guidance, not a conformance rule, and any file format can be attached. Over time the direction is from binary attachments toward structured data, in collaboration with the HL7 PQI project. CMC and manufacturing experts are invited to share real-world content, such as large stability datasets, to test this guidance.

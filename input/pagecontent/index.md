@@ -1,138 +1,142 @@
-### Introduction
+{% include rtq-style.html %}
 
-The **Response to Question (RTQ)** Implementation Guide is the standardized framework for **structuring regulatory questions and responses to regulatory questions**. 
-
-Built on HL7 FHIR R5, it replaces static Word and PDF question/response documents with traceable, machine-readable FHIR resources, enabling precise tracking, automated triage, and global harmonization.
-
-RTQ encapsulates the entire question (e.g., cover letter, questions, supporting attachments, and metadata) and the response to questions (e.g., cover letter, response to questions, supporting attachments, and metadata).
-
-*This guide defines the technical framework to create a seamless Q&A loop between Regulators and Applicants.*
-
-<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px; margin: 24px 0; text-align: center; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-  <h3 style="margin-top: 0; color: #166534; font-size: 1.25rem;">✨ See It In Action</h3>
-  <p style="color: #15803d; margin-bottom: 16px; font-size: 1rem;">Experience the power of structured FHIR data rendered into high-fidelity, interactive dashboards.</p>
-  <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-    <a href="examples/sample-question.html" target="_blank" style="background-color: #22c55e; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem;">View Regulator Question</a>
-    <a href="examples/sample-response.html" target="_blank" style="background-color: #3b82f6; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem;">View Applicant Response</a>
+<!-- HERO -->
+<div class="rtq-hero">
+  <div class="rtq-eyebrow">HL7 FHIR R5 · Global Standard</div>
+  <div class="rtq-h1">Regulatory questions,<br/><span class="rtq-grad">answered in structure.</span></div>
+  <p class="rtq-lead">Health authority questions and company responses are still exchanged as Word and PDF documents. RTQ turns every question and every answer into structured, machine-readable FHIR data: uniquely identified, categorized, linked to each other, and traceable from the first question to final resolution.</p>
+  <div class="rtq-btns">
+    <a class="rtq-btn" href="examples/sample-question.html" target="_blank">See an example</a>
+    <a class="rtq-btn alt" href="examples/sample-lifecycle.html" target="_blank">Walk through the lifecycle</a>
+    <a class="rtq-btn ghost" href="#get-involved">Get involved</a>
   </div>
 </div>
 
-### Why Adopt RTQ?
+<div class="rtq-figure">
+  <img src="rtq-vs-pdf-diagram.svg" width="560" alt="Today's process compared with FHIR RTQ. Today: the regulator writes questions, emails a PDF to the MAH, the MAH responds manually and the regulator reviews manually, taking weeks; manual, error-prone, no data extraction. With FHIR RTQ: the regulator publishes a Questionnaire, it is delivered instantly, the MAH returns a structured digital response, and analysis and tracking are automated, in real time; automated, machine-readable, data analytics."/>
+  <div class="cap">From weeks of manual PDF handling to structured, real-time Q&amp;A</div>
+</div>
 
-<div style="display: flex; gap: 0; margin-bottom: 28px; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; text-align: center;">
-  <div style="flex: 1; padding: 20px 16px; border-right: 1px solid #e2e8f0; background: #fafbff;">
-    <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">Days → Min</div>
-    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">Triage time with automated routing</div>
+<!-- ABOUT -->
+<div class="rtq-sec" id="about">About this IG</div>
+
+The **Response to Regulatory Questions (RTQ)** Implementation Guide standardizes the structure of regulatory questions from health authorities and the responses from marketing authorization holders (MAHs) and applicants. A question set is an RTQ **Questionnaire**; the answers come back as an RTQ **QuestionnaireResponse**. Each covers the whole package: cover letter, individual questions or answers, supporting attachments, and metadata.
+
+Because every question is a discrete item with its own identifier and category codes, and every answer is linked to its question, the dialogue becomes data that systems can route, track, reuse, and analyze. RTQ standardizes the *content* of the dialogue; the [APIX Implementation Guide](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html) standardizes one way to *exchange* it. Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, the two together move regulatory Q&amp;A toward the real-time algorithmic exchange described in the [2023 *International Journal of Pharmaceutics* framework](https://www.sciencedirect.com/science/article/pii/S0378517323007627).
+
+<!-- SCOPE -->
+<div class="rtq-sec" id="scope">Scope</div>
+
+<div class="rtq-grid rtq-g2">
+  <div class="rtq-in">
+    <div class="h">✅ In scope: the structure of the question and the response</div>
+    <ul>
+      <li><strong>Question sets</strong> for widely used regulatory templates: lists of questions, validation issues, information requests, deficiency letters.</li>
+      <li><strong>Responses</strong> with answers, supporting attachments, cross-references, and commitments.</li>
+      <li><strong>Metadata:</strong> identifiers, versions, dates, category codes, and product, authorization, and procedure context.</li>
+      <li><strong>Assessment and closure:</strong> the regulator's outcome for each answer, round by round, until every question is resolved.</li>
+    </ul>
   </div>
-  <div style="flex: 1; padding: 20px 16px; border-right: 1px solid #e2e8f0; background: #fafbff;">
-    <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">1 Format</div>
-    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">For all regulators</div>
-  </div>
-  <div style="flex: 1; padding: 20px 16px; background: #fafbff;">
-    <div style="font-size: 1.6rem; font-weight: 800; color: #2563eb;">100%</div>
-    <div style="font-size: 0.82rem; color: #64748b; margin-top: 4px;">Machine-readable content</div>
+  <div class="rtq-out">
+    <div class="h">⛔ Out of scope</div>
+    <ul>
+      <li><strong>Exchange:</strong> how the files travel between parties (see below).</li>
+      <li><strong>Use of AI and automation:</strong> the structure makes it possible; how to apply it is each implementer's choice.</li>
+      <li><strong>Application features and internal workflow:</strong> routing, task assignment, reminders, search, dashboards, commitment tracking, and any categories a company adds internally.</li>
+      <li><strong>Master files (DMF/ASMF):</strong> tripartite communication with the master file holder is planned for a future phase.</li>
+    </ul>
   </div>
 </div>
 
-**Structured &amp; Traceable.** Every question is a discrete `Questionnaire` item; every answer is a linked `QuestionnaireResponse`. No more lost questions or ambiguous email threads.
+Medicinal products are the first focus. Because question categories are defined by each regulator, the same structure can also serve other regulated product domains, such as medical devices, veterinary, and OTC products.
 
-**Harmonized Across Agencies.** One standard format for all international regulators. Build your system once to handle questions from all regulators.
+<hr class="rtq-hr"/>
 
-**Analytics-Ready.** Because questions are structured data, instantly visualize trends: response cycle times, most frequent question topics, regional variances, and predict questions in advance or response quality.
-
-**Automated Workflow.** Route questions to the correct SME based on metadata (e.g., each question is tagged with a specific CTD section), reducing triage time from days to minutes.
-
-### Background
-
-In biopharmaceutical regulatory affairs, health authorities routinely issue formal questions during the review of regulatory applications. Traditionally, these are exchanged as unstructured Word or PDF documents via email or portals. This results in high manual effort, limited traceability, and "dead data" that cannot be analyzed.
-
-RTQ changes that by modeling questions as **Questionnaires** and responses as versioned **QuestionnaireResponses**, leveraging the FHIR standard to align regulatory Q&A processes with the modern digital systems.
-
-<div style="text-align: center; margin: 32px 0;">
-  <img src="rtq-vs-pdf-diagram.png" alt="Circular diagram comparing today's manual PDF process (weeks, manual, error-prone) versus FHIR RTQ (real-time, automated, machine-readable)" style="max-width: 560px; width: 100%;" />
-  <p style="font-size: 0.85rem; color: #64748b; margin-top: 8px; font-style: italic;">Figure 1: Manual PDF exchange vs. FHIR RTQ — from weeks to real-time</p>
+<!-- HOW IT WORKS -->
+<div class="rtq-sec-c">
+  <div class="rtq-sec">How It Works</div>
+  <p>One question set, one linked response, round after round until every question is resolved.</p>
 </div>
 
-This aligns with the broader strategy defined in the [APIX Implementation Guide](https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html): moving towards the "Real-time algorithmic exchange" envisioned in the 2023 *International Journal of Pharmaceutics* framework [(click to read)](https://www.sciencedirect.com/science/article/pii/S0378517323007627). 
+<div class="rtq-steps">
+  <div class="rtq-step"><div class="c">❓</div><div class="n">Step 1</div><div class="t">Ask</div><p>The regulator issues a question set: discrete questions with unique IDs and category tags.</p></div>
+  <div class="rtq-arrow">→</div>
+  <div class="rtq-step co"><div class="c">💬</div><div class="n">Step 2</div><div class="t">Answer</div><p>The company returns one linked answer per question, with attachments and any commitments.</p></div>
+  <div class="rtq-arrow">→</div>
+  <div class="rtq-step"><div class="c">⚖️</div><div class="n">Step 3</div><div class="t">Assess</div><p>The regulator marks each answer resolved, not resolved, or raising further questions.</p></div>
+  <div class="rtq-arrow">→</div>
+  <div class="rtq-step co"><div class="c">🔁</div><div class="n">Step 4</div><div class="t">Repeat</div><p>Only the open questions go another round, each linked to the round before.</p></div>
+  <div class="rtq-arrow">→</div>
+  <div class="rtq-step done"><div class="c">✅</div><div class="n">Step 5</div><div class="t">Close</div><p>When every question is resolved, the dialogue is closed.</p></div>
+</div>
+<div class="rtq-loop"><a href="how-it-works.html">What a question set and a response contain →</a> &nbsp;·&nbsp; <a href="lifecycle.html">The full lifecycle →</a></div>
 
-Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, RTQ + APIX harmonizes the regulatory dialogue—standardizing the *content* (RTQ) and the *exchange* (APIX) to unlock sub-second workflows.
+<!-- EXCHANGE -->
+<div class="rtq-callout violet" id="exchange">
+  <div class="ic">📨</div>
+  <div>
+    <div class="h">Exchange is out of scope. RTQ is a file: send it the way you send question documents today.</div>
+    <p>An RTQ question set or response is an XML or JSON file, the structured equivalent of today's DOCX or PDF. It can travel by <strong>email</strong>, through a <strong>regulatory portal</strong> (e.g., FDA ESG or a national gateway), inside an <strong>eCTD</strong> sequence, on a <strong>central platform</strong>, or by <strong>API</strong> using an APIX Task. The content is the same whatever the channel, so each party can modernize at its own pace.</p>
+    <p><strong>RTQ complements current processes.</strong> It changes the format of the document, not the channel or the procedure. <strong>It harmonizes structure, not wording:</strong> each regulator keeps its own phrasing, rules, and terminology. <strong>Simple exchanges stay simple:</strong> a clarification answered by email can still be answered by email. A typical path is to send the RTQ file alongside the PDF first, then parse incoming files automatically, then author in structured form, and finally move to API exchange where both parties support it.</p>
+  </div>
+</div>
 
-<table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
-  <thead>
-    <tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
-      <th style="padding: 12px; text-align: left; width: 50%;">✅ In Scope</th>
-      <th style="padding: 12px; text-align: left; width: 50%;">❌ Out of Scope</th>
-    </tr>
-  </thead>
+<!-- STANDARDS -->
+<div class="rtq-sec" id="standards">RTQ and other standards</div>
+
+<table class="rtq-table">
+  <thead><tr><th>Standard</th><th>Relationship to RTQ</th></tr></thead>
   <tbody>
-    <tr>
-      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
-        <ul style="margin: 0; padding-left: 20px;">
-          <li style="margin-bottom: 8px;"><strong>Health Authority Questions:</strong> Profiling of <code>Questionnaire</code> for widely used regulatory templates (Validation issues, Major Objections, List of Questions).</li>
-          <li style="margin-bottom: 8px;"><strong>Sponsor Responses:</strong> Profiling of <code>QuestionnaireResponse</code> for applicant replies, supporting evidence attachments, and cross-references.</li>
-          <li style="margin-bottom: 8px;"><strong>Regulatory Metadata:</strong> Tagging questions and responses with category codes (e.g., CTD sections, regulatory significance), dates, unique identifiers, organization details.</li>
-          <li><strong>Assessment of Responses:</strong> The regulator's per-question conclusion on a response (resolved, not resolved, raises further questions), carried in the follow-up question set.</li>
-        </ul>
-      </td>
-      <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
-        <ul style="margin: 0; padding-left: 20px;">
-          <li style="margin-bottom: 8px;"><strong>Exchange of questions and responses:</strong> How the files travel between the parties (email, portal, eCTD, central platform, or API) and how they are packaged for transport. For API-based exchange, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html">APIX Implementation Guide</a>. The exchange methods described in this guide are illustrative examples only.</li>
-          <li style="margin-bottom: 8px;"><strong>Use of AI and automation:</strong> How organizations use AI or automation to triage, draft, check, or analyze questions and responses. The structure makes this possible; how to do it is each implementer's choice.</li>
-          <li style="margin-bottom: 8px;"><strong>Application features and internal workflow:</strong> Routing, task assignment, reminders, search, dashboards, and any categories a company adds internally on top of the question set it received.</li>
-          <li><strong>Master Files (DMF/ASMF) — future scope:</strong> Tripartite communication between regulator, applicant, and Master File holder (access via Letter of Authorization) is planned for a future phase, after RTQ is established for standard drug applications.</li>
-        </ul>
-      </td>
-    </tr>
+    <tr><td><strong>APIX</strong></td><td>One exchange option: RTQ files are exchanged through APIX-defined APIs as the payload of an APIX Task. RTQ defines what is inside; APIX defines the wrapper, API operations, and delivery state.</td></tr>
+    <tr><td><strong>eCTD</strong></td><td>An RTQ response file can be placed in an eCTD sequence and submitted through the normal route.</td></tr>
+    <tr><td><strong>ePI</strong></td><td>Questions and answers about product information can point directly to ePI content (a whole ePI Bundle, a Composition section, or a MedicinalProductDefinition) instead of attaching a copy.</td></tr>
+    <tr><td><strong>PQI</strong></td><td>The project works with HL7 Product Quality Information so that quality and CMC answers can move from attachments to structured data over time.</td></tr>
+    <tr><td><strong>IDMP / SPOR</strong></td><td>No direct use case yet. IDMP identifiers such as the MPID can already be carried in the product context of a question set or response.</td></tr>
   </tbody>
 </table>
 
-### How RTQ Is Exchanged
+<hr class="rtq-hr"/>
 
-*Exchange is out of scope for RTQ: RTQ only structures the question and the response. This section shows, as examples, how the structured files can travel over channels that exist today.*
+<!-- WHY ADOPT -->
+<div class="rtq-sec-c">
+  <div class="rtq-sec">Why adopt RTQ</div>
+  <p>Structured questions and answers change what both sides can do with them.</p>
+</div>
 
-RTQ deliberately separates **content** from **transport**. An RTQ Questionnaire or QuestionnaireResponse is just a file (XML or JSON) — the structured equivalent of today's DOCX/PDF question document — so it can be sent and received the same way current question documents are:
+<div class="rtq-stats">
+  <div><b>Days → Minutes</b><span>Triage with automated routing</span></div>
+  <div><b>1 Format</b><span>For every regulator</span></div>
+  <div><b>100%</b><span>Machine-readable content</span></div>
+  <div><b>Every answer</b><span>Linked to its question</span></div>
+</div>
 
-<table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
-  <thead>
-    <tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
-      <th style="padding: 10px; text-align: left;">Channel</th>
-      <th style="padding: 10px; text-align: left;">How RTQ travels</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;"><strong>Email</strong></td><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">The RTQ file is attached to an email, exactly as a PDF would be today. Suitable for simple clarification exchanges and for early adoption before portals or APIs are available.</td></tr>
-    <tr><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;"><strong>Regulatory portals</strong> (e.g., FDA ESG, national gateways)</td><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">The RTQ file is uploaded/downloaded through the existing portal, like any other submission document.</td></tr>
-    <tr><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;"><strong>eCTD</strong></td><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">The RTQ response file is placed inside an eCTD sequence and submitted to the regulator through the normal submission route.</td></tr>
-    <tr><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;"><strong>Central platform</strong></td><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">A shared platform hosts the question/response exchange; both parties read and write RTQ resources there.</td></tr>
-    <tr><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;"><strong>API (APIX)</strong></td><td style="padding: 10px; border-bottom: 1px solid #e2e8f0;">The RTQ resource is carried in an APIX Task for fully automated, real-time exchange — the target end-state.</td></tr>
-  </tbody>
-</table>
+<div class="rtq-grid rtq-g3">
+  <div class="rtq-card soft"><div class="ic">🧭</div><div class="t">Automated triage</div><p>Each question carries its category codes, such as a CTD section, so it can be routed to the right expert the moment it arrives.</p><a class="more" href="use-case.html">Use cases →</a></div>
+  <div class="rtq-card soft"><div class="ic">🌍</div><div class="t">One structure for every regulator</div><p>Build once and handle question sets from any authority, while each regulator keeps its own wording and terminology.</p><a class="more" href="terminology.html">Terminology →</a></div>
+  <div class="rtq-card soft"><div class="ic">📈</div><div class="t">Traceable and analytics-ready</div><p>Every answer, assessment outcome, and commitment is linked and timestamped, from the first question to closure.</p><a class="more" href="lifecycle.html">Lifecycle →</a></div>
+</div>
 
-Three points follow from this design, answering the most common first-adopter questions:
+<hr class="rtq-hr"/>
 
-**RTQ complements current processes — it does not replace them.** It changes the *format* of the question/response document, not the channel it travels on or the procedure it belongs to. A regulator or company can adopt RTQ without waiting for any counterpart infrastructure. Any current or future method of exchange is acceptable.
+<!-- GOVERNANCE -->
+<div class="rtq-sec" id="get-involved">Governance &amp; Participation</div>
 
-**Regulator differences are handled by harmonizing structure, not content.** RTQ harmonizes only the *structure* of the question and response template. FDA, EMA, PMDA, and other authorities can continue to phrase their questions exactly as they do now, apply their own local rules, and use their own procedures — all within the common RTQ structure. Jurisdiction, country, and language metadata accommodate local needs without jurisdiction-specific profiles.
-
-**Simple exchanges stay simple.** Where a regulator today accepts simple responses by email, meeting, or web page, an RTQ file can travel the same simple route. Adopting RTQ does not force a formal submission process onto informal exchanges. See [Implementation & Exchange](implementation.html) for migration guidance and hybrid operation.
-
-### Governance & Collaboration
-
-RTQ is developed under the **HL7's Biomedical Research and Regulation (BR&R) Working Group** with active participation from regulators, pharmaceutical companies, and technology vendors.
-
-All meetings are public; notes and recordings are available via [HL7 BR&R Working Group's RTQ project page](https://confluence.hl7.org/spaces/BRR/pages/358267438/Response+to+Health+Authority+Questions+RTQ).
-
-The RTQ project coordinates with related HL7 initiatives so that response structures stay compatible with emerging standards for structured regulatory data — in particular the **Product Quality Information (PQI)** project for structured CMC/quality data (joint use cases and testing), the **APIX** project for API-based exchange, and the **ePI** work for structured product information. A Semantic Architecture Tiger Team is being formed to define terminology bindings for content domains referenced from RTQ questions and responses.
-
-### Pilots
-
-Pilot implementations are the next step for this guide: we are recruiting regulator/sponsor pairs to run pilot exchanges using the profiles in this version. If your organization is interested in piloting RTQ, please get in touch via the project page below.
-
-### Get Involved
-
-- **Join the weekly calls** — meeting links, notes, and recordings are on the [RTQ project page on HL7 Confluence](https://confluence.hl7.org/spaces/BRR/pages/358267438/Response+to+Health+Authority+Questions+RTQ) (see also the [HL7 BR&R Working Group page](http://www.hl7.org/Special/committees/brr)).
-- **Test the reference implementation** — try the [interactive question example](examples/sample-question.html) and [interactive response example](examples/sample-response.html), and validate your own instances against the [profiles](artifacts.html).
-- **Contribute on GitHub** — source for this guide lives at [github.com/HL7/rtq-ig](https://github.com/HL7/rtq-ig/); issues and pull requests are welcome.
-- **CMC and Manufacturing SMEs are specifically invited** to contribute reference content — such as complex stability tables or analytical validation reports — to ensure the standard handles large-scale technical datasets well (see the attachment guidance on the [Implementation & Exchange](implementation.html) page).
-
-We welcome industry, solution providers, and regulators from every region to contribute to this global standard.
+<div class="rtq-grid rtq-g3">
+  <div class="rtq-card">
+    <div class="ic">🤝</div><div class="t">Governance</div>
+    <p>RTQ is developed by the HL7 Biomedical Research and Regulation (BR&amp;R) Work Group with regulators, pharmaceutical companies, and technology vendors. It coordinates with the HL7 PQI, APIX, and ePI projects, and a Semantic Architecture Tiger Team is forming to align content terminologies. All meetings are public.</p>
+  </div>
+  <div class="rtq-card">
+    <div class="ic">🧪</div><div class="t">Pilots</div>
+    <p>We are recruiting regulator and company pairs to run pilot exchanges with this version of the profiles. If your organization is interested, contact the project through the project page.</p>
+  </div>
+  <div class="rtq-card">
+    <div class="ic">🚀</div><div class="t">Get involved</div>
+    <ul>
+      <li><a href="https://confluence.hl7.org/spaces/BRR/pages/358267438/Response+to+Health+Authority+Questions+RTQ">Join the weekly calls</a> (links, notes, and recordings)</li>
+      <li>Try the <a href="examples/sample-question.html">question</a>, <a href="examples/sample-response.html">response</a>, and <a href="examples/sample-lifecycle.html">lifecycle</a> examples, and validate your own instances against the <a href="artifacts.html">profiles</a></li>
+      <li>Contribute on <a href="https://github.com/HL7/rtq-ig/">GitHub</a></li>
+      <li>CMC and manufacturing experts: share real-world content, such as large stability tables, to test the attachment guidance</li>
+    </ul>
+  </div>
+</div>
