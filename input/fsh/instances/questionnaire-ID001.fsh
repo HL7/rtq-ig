@@ -58,7 +58,7 @@ Usage: #example
 * item[+].linkId = "admin-1"
 * item[=].code[+] = $ctd-categories-full#1.0 "1.0 Administrative Information"
 * item[=].code[+] = $ctd-categories-full#1.1 "1.1 Application Form"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Is the fee for the Type II variation fully paid and documented?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -66,7 +66,7 @@ Usage: #example
 * item[+].linkId = "admin-2"
 * item[=].code[+] = $ctd-categories-full#1.0 "Administrative Information"
 * item[=].code[+] = $ctd-categories-full#1.1 "Application Form"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Are all required metadata fields in the application form complete?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -74,7 +74,7 @@ Usage: #example
 * item[+].linkId = "product-1"
 * item[=].code[+] = $ctd-categories-full#1.3 "1.3 Product Information"
 * item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -82,7 +82,7 @@ Usage: #example
 * item[+].linkId = "product-2"
 * item[=].code[+] = $ctd-categories-full#1.3 "Product Information"
 * item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Is the patient leaflet revised to clarify the extended shelf life?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -91,7 +91,7 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#1.3 "Product Information"
 * item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
 * item[=].code[+] = $rtq-question-category#minor-concern "Minor Concern"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Is the updated ePI text sufficiently clear for all applicable languages?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -99,7 +99,7 @@ Usage: #example
 * item[+].linkId = "quality-1"
 * item[=].code[+] = $ctd-categories-full#3.2.P.8 "Stability"
 * item[=].code[+] = $ctd-categories-full#3.2.P.8.1 "Stability Summary and Conclusion"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -107,7 +107,7 @@ Usage: #example
 * item[+].linkId = "quality-2"
 * item[=].code[+] = $ctd-categories-full#3.2.P.8 "Stability"
 * item[=].code[+] = $ctd-categories-full#3.2.P.8.1 "Stability Summary and Conclusion"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Does the data support all intended climatic zones?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -115,7 +115,7 @@ Usage: #example
 * item[+].linkId = "quality-3"
 * item[=].code[+] = $ctd-categories-full#3.2.P.5 "Control of Drug Product"
 * item[=].code[+] = $ctd-categories-full#3.2.P.5.2 "Analytical Procedures"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Are the test methods used the same as in the previously submitted stability information?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
@@ -124,14 +124,14 @@ Usage: #example
 * item[=].code[+] = $ctd-categories-full#3.2.P.5 "Control of Drug Product"
 * item[=].code[+] = $ctd-categories-full#3.2.P.5.4 "Impurities"
 * item[=].code[+] = $rtq-question-category#major-objection "Major Objection"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Are there any new degradation products identified within the newly submitted data?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new degradation products identified within the newly submitted data?</p><p style=\"font-size:0.9em\">Threshold: <b>&gt;0.10%</b> per <a href=\"https://www.ich.org/page/quality-guidelines\">ICH Q3B(R2)</a></p></div>"
 * item[+].linkId = "quality-5"
 * item[=].code = $ctd-categories-full#3.2.P.7 "Container Closure System"
-* item[=].type = #question
+* item[=].type = #text
 * item[=].required = true
 * item[=].text = "Any changes in the packaging configuration and/or storage of the samples during stability?"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"

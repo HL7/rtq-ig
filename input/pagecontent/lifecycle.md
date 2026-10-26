@@ -68,8 +68,8 @@ Assessment templates record a conclusion for every answer. RTQ carries that conc
 <table class="rtq-table">
   <thead><tr><th>Outcome</th><th>Meaning</th><th>How the question is structured</th></tr></thead>
   <tbody>
-    <tr><td><span class="rtq-badge res">resolved</span></td><td>The answer is accepted; the question is closed.</td><td><code>type = question</code>, <code>required = false</code>. No further answer expected.</td></tr>
-    <tr><td><span class="rtq-badge nr">not-resolved</span></td><td>The answer is not accepted; the question stays open.</td><td><code>type = question</code>, <code>required = true</code>. The company answers again. The assessor's reasons can go in a nested <code>display</code> item (e.g., <code>product-3.assessment</code>).</td></tr>
+    <tr><td><span class="rtq-badge res">resolved</span></td><td>The answer is accepted; the question is closed.</td><td><code>type = text</code>, <code>required = false</code>. No further answer expected.</td></tr>
+    <tr><td><span class="rtq-badge nr">not-resolved</span></td><td>The answer is not accepted; the question stays open.</td><td><code>type = text</code>, <code>required = true</code>. The company answers again. The assessor's reasons can go in a nested <code>display</code> item (e.g., <code>product-3.assessment</code>).</td></tr>
     <tr><td><span class="rtq-badge fq">further-questions</span></td><td>The answer raises follow-up questions.</td><td><code>type = group</code>, <code>required = true</code>. The follow-up questions are child items (e.g., <code>quality-4.1</code>, <code>quality-4.2</code>), each answered in the next response.</td></tr>
   </tbody>
 </table>
