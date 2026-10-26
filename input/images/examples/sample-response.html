@@ -62,10 +62,36 @@
         .attachment-download:hover { text-decoration: underline; }
         .attachment-section-label { font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin: 18px 0 8px; }
         .footer { text-align: center; margin-top: 80px; padding: 40px 0; color: #64748b; font-size: 0.85rem; border-top: 1px solid #e2e8f0; }
+    
+        .rtq-tabs { display:flex; gap:8px; flex-wrap:wrap; margin: 4px 0 18px; }
+        .rtq-tab { border:1px solid #e2e8f0; background:#fff; color:#475569; border-radius:999px; padding:8px 14px; font-size:0.85rem; font-weight:600; cursor:pointer; }
+        .rtq-tab.on { background:#2563eb; border-color:#2563eb; color:#fff; }
+        .rv { display:none; }
+        body.round-1 .rv.r1, body.round-2 .rv.r2, body.round-3 .rv.r3 { display:block; }
+        body.round-1 span.rv.r1, body.round-2 span.rv.r2, body.round-3 span.rv.r3 { display:inline; }
+        body.round-2 .hide-r2, body.round-3 .hide-r3 { display:none; }
+        body.round-2 .dim-r2 { opacity:0.55; }
+        .round-banner { border-radius:12px; padding:14px 18px; margin-bottom:22px; font-size:0.92rem; line-height:1.5; }
+        .round-banner.info { background:#eff6ff; border:1px solid #bfdbfe; color:#1e3a8a; }
+        .round-banner.done { background:#f0fdf4; border:1px solid #bbf7d0; color:#14532d; }
+        .chip-cat { display:inline-block; font-family:monospace; font-size:0.72rem; font-weight:700; padding:4px 8px; border-radius:4px; margin-left:6px; background:#fef2f2; color:#b91c1c; }
+        .chip-cat.minor { background:#fff7ed; color:#c2410c; }
+        .badge { display:inline-block; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:999px; }
+        .badge.res { background:#dcfce7; color:#166534; } .badge.nr { background:#fee2e2; color:#b91c1c; } .badge.fq { background:#fef3c7; color:#92400e; }
+        .outcome { margin-top:14px; padding:12px 14px; border-radius:8px; font-size:0.9rem; line-height:1.5; background:#f8fafc; border:1px solid #e2e8f0; }
+        .outcome .note { margin-top:8px; padding:8px 12px; border-radius:6px; }
+        .outcome .note.ok { background:#f0fdf4; color:#166534; } .outcome .note.bad { background:#fef2f2; color:#991b1b; }
+        .follow { margin-top:10px; padding:12px 14px; border:1px dashed #f59e0b; border-radius:10px; background:#fffbeb; }
+        .follow .fid { font-family:monospace; font-size:0.75rem; font-weight:700; color:#64748b; }
+        .follow .fq-t { font-weight:600; margin-top:4px; color:#1e293b; }
+        .follow .ans { margin-top:8px; padding:8px 12px; background:#f0fdf4; border-radius:6px; color:#334155; }
+        .commit { margin-top:12px; padding:10px 14px; border-radius:8px; background:#f5f3ff; border:1px solid #ddd6fe; color:#3b0764; font-size:0.9rem; line-height:1.5; }
+        .commit-h { font-weight:700; color:#6d28d9; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+        .commit .due { font-weight:600; font-size:0.78rem; background:#ede9fe; padding:1px 8px; border-radius:999px; }
     </style>
 </head>
 
-<body>
+<body class="round-1">
 
     <aside class="sidebar">
         <div class="logo">Outline</div>
@@ -86,8 +112,10 @@
         <div class="top-bar">
             <h1>Regulatory Questionnaire Response</h1>
             <p>Response to List of Questions – Type II Variation (ID001)</p>
-            <p style="font-size: 0.9rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#2563eb;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">A</span> Procedure: NRA/H/C/005432/II/0023 | Questions issued: 2025-11-11 | Response submitted: 2025-11-18</p>
+            <p style="font-size: 0.9rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#2563eb;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">A</span> Procedure: NRA/H/C/005432/II/0023 | <span class="rv r1">Answers ID001 (issued 2025-11-11) | Submitted: 2025-11-18</span><span class="rv r2">Answers ID001-R2 (issued 2025-12-01) | Submitted: 2025-12-19</span></p>
         </div>
+        <div class="rtq-tabs"><button type="button" class="rtq-tab" data-round="1">Response 1 · SP-RTQ-2025-0148 → ID001</button><button type="button" class="rtq-tab" data-round="2">Response 2 · SP-RTQ-2025-0163 → ID001-R2</button></div>
+        <div class="round-banner info rv r1">Response 1 answers all ten questions, each matched by <b>linkId</b>, and offers a commitment on quality-1.</div><div class="round-banner info rv r2"><b>Response 2 answers only the open questions in ID001-R2</b>: product-3 (not resolved) and the two follow-up questions under quality-4. The eight questions marked <span class="badge res">resolved</span> need no answer and are shown dimmed. A new commitment is offered on quality-4.2.</div>
 
         <div class="intro-text">
             <p><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#16a34a;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">B</span> This document presents the official response to the regulatory questions issued by the health authority.
@@ -115,7 +143,7 @@
         <div id="admin" class="section-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#9333ea;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">D</span> 1.0 Administrative Information</div>
 
         <!-- Question 1 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.1 Application Form</span>
                 <span class="q-id">linkId: admin-1</span>
@@ -126,8 +154,8 @@
                     <div class="q-title">Is the fee for the Type II variation fully paid and documented?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>Yes, the fee was paid on <strong>June 25, 2025</strong>. Payment confirmation and receipt are
@@ -136,7 +164,7 @@
         </div>
 
         <!-- Question 2 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.1 Application Form</span>
                 <span class="q-id">linkId: admin-2</span>
@@ -147,8 +175,8 @@
                     <div class="q-title">Are all required metadata fields in the application form complete?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>Yes, all required metadata fields are complete:</p>
@@ -164,7 +192,7 @@
         <div id="product" class="section-title">1.3 Product Information</div>
 
         <!-- Question 3 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
                 <span class="q-id">linkId: product-1</span>
@@ -175,8 +203,8 @@
                     <div class="q-title">Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>No additional patient guidance is required. The ePI clearly states: "Store in a refrigerator
@@ -185,7 +213,7 @@
         </div>
 
         <!-- Question 4 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
                 <span class="q-id">linkId: product-2</span>
@@ -196,8 +224,8 @@
                     <div class="q-title">Is the patient leaflet revised to clarify the extended shelf life?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>Yes, the patient leaflet has been updated to state: "Shelf life after first opening: 36 months
@@ -208,7 +236,7 @@
         <!-- Question 5 -->
         <div class="question-card">
             <div class="q-meta-top">
-                <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
+                <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span><span class="chip-cat minor">Minor Concern</span>
                 <span class="q-id">linkId: product-3</span>
             </div>
             <div class="q-body">
@@ -218,19 +246,19 @@
                 </div>
             </div>
         </div>
-        <div class="answer-card">
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>Yes, the ePI text has been translated into all applicable languages and reviewed for clarity.
                     All versions are linguistically validated: English (Approved), French (Approved), German
                     (Approved); remaining languages have completed final review.</p>
             </div>
-        </div>
+        </div><div class="answer-card rv r2"><div class="answer-label">Response 2 · <span class="badge nr">was not resolved</span></div><div class="answer-text"><p>Apologies for the omission. The approved French and German ePI texts (linguistic review completed 2025-12-12) are now included in the response package alongside the English text.</p></div></div>
 
         <div id="control" class="section-title">3.2.P.5 Control of Drug Product</div>
 
         <!-- Question 6 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.5.2 Analytical Procedures</span>
                 <span class="q-id">linkId: quality-3</span>
@@ -241,8 +269,8 @@
                     <div class="q-title">Are the test methods used the same as in the previously submitted stability information?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>Yes, all test methods are consistent with the previously approved dossier. No changes have been
@@ -253,7 +281,7 @@
         <!-- Question 7 -->
         <div class="question-card">
             <div class="q-meta-top">
-                <span class="q-ref">CTD Ref: 3.2.P.5.4 Impurities</span>
+                <span class="q-ref">CTD Ref: 3.2.P.5.4 Impurities</span><span class="chip-cat ">Major Objection</span>
                 <span class="q-id">linkId: quality-4</span>
             </div>
             <div class="q-body">
@@ -263,18 +291,18 @@
                 </div>
             </div>
         </div>
-        <div class="answer-card">
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>No new degradation products have been identified. All impurities remain below the 0.10%
                     reporting threshold per ICH Q3B(R2). Batch analysis data is included in Section 3.2.P.5.4.</p>
             </div>
-        </div>
+        </div><div class="answer-card rv r2"><div class="answer-label">Response 2 · <span class="badge fq">follow-up questions</span></div><div class="answer-text"><div class="follow"><div class="fid">quality-4.1</div><div class="fq-t">The chromatograms for batch B-002 at 6 months accelerated (40°C/75% RH) show an unidentified peak at RRT 0.85 at 0.12%, above the 0.10% identification threshold. Identify this degradation product and propose a specification limit.</div><div class="ans">The peak at RRT 0.85 is the N-oxide of the active substance, identified by LC-MS and confirmed against a synthesized reference standard. It forms only under accelerated conditions in the Alu/Alu pack. Proposed shelf-life limit: <b>NMT 0.15%</b>.</div></div><div class="follow"><div class="fid">quality-4.2</div><div class="fq-t">Provide the toxicological qualification of this degradation product per ICH Q3B(R2), or justify why qualification is not required.</div><div class="ans">The N-oxide is a major human metabolite, so it is qualified at the proposed limit of 0.15% per ICH Q3B(R2). To confirm this, SynthPharma commits to a 13-week repeat-dose toxicity study on the isolated N-oxide.</div><div class="commit"><div class="commit-h">🤝 Commitment offered<span class="due">due 2026-09-30</span></div>Complete a 13-week repeat-dose toxicity study on the isolated N-oxide degradation product and submit the study report.</div></div></div></div>
 
         <div id="container" class="section-title">3.2.P.7 Container Closure System</div>
 
         <!-- Question 8 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.7 Container Closure</span>
                 <span class="q-id">linkId: quality-5</span>
@@ -285,8 +313,8 @@
                     <div class="q-title">Any changes in the packaging configuration and/or storage of the samples during stability?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>Yes, the packaging was changed from PVC/PVDC to Alu/Alu. New stability studies were initiated
@@ -318,7 +346,7 @@
         <div id="stability" class="section-title">3.2.P.8 Stability</div>
 
         <!-- Question 9 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary and Conclusion</span>
                 <span class="q-id">linkId: quality-1</span>
@@ -329,8 +357,8 @@
                     <div class="q-title">Are there any new stability studies conducted, or does the submission include only data from additional timepoints from previously submitted studies?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required · commitment accepted.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>The submission includes both extended long-term data (36 months) for primary batches and new
@@ -353,10 +381,10 @@
                     <a href="#" class="attachment-download">⬇ Download</a>
                 </div>
             </div>
-        </div>
+        <div class="commit"><div class="commit-h">🤝 Commitment offered<span class="due">due 2027-06-30</span></div>Submit the 48-month long-term stability results for batches A-001, A-002 and A-003 as a post-approval variation.</div></div>
 
         <!-- Question 10 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary and Conclusion</span>
                 <span class="q-id">linkId: quality-2</span>
@@ -367,8 +395,8 @@
                     <div class="q-title">Does the data support all intended climatic zones?</div>
                 </div>
             </div>
-        </div>
-        <div class="answer-card">
+        <div class="outcome rv r2"><span class="badge res">Resolved in ID001-R2</span> No answer required.</div></div>
+        <div class="answer-card hide-r2">
             <div class="answer-label">Response</div>
             <div class="answer-text">
                 <p>Yes, all batches remain within specification across all ICH climatic zones, including Zone IVb
@@ -382,6 +410,20 @@
     </main>
 
     <script src="../js/rtq-dashboard.js"></script>
+
+    <script>
+    (function () {
+        function show(n) {
+            document.body.className = document.body.className.replace(/\bround-\d\b/g, '').trim() + ' round-' + n;
+            document.querySelectorAll('.rtq-tab').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-round') === String(n)); });
+        }
+        document.querySelectorAll('.rtq-tab').forEach(function (b) {
+            b.addEventListener('click', function () { show(b.getAttribute('data-round')); });
+        });
+        var m = /round=(\d)/.exec(location.search + location.hash);
+        show(m ? m[1] : 1);
+    })();
+    </script>
 </body>
 
 </html>

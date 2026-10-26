@@ -44,10 +44,36 @@
         .img-box img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
         .img-ph { padding: 60px; text-align: center; color: #94a3b8; font-size: 0.9rem; font-style: italic; background: #f1f5f9; border: 2px dashed #cbd5e1; border-radius: 8px; }
         .footer { text-align: center; margin-top: 80px; padding: 40px 0; color: #64748b; font-size: 0.85rem; border-top: 1px solid #e2e8f0; }
+    
+        .rtq-tabs { display:flex; gap:8px; flex-wrap:wrap; margin: 4px 0 18px; }
+        .rtq-tab { border:1px solid #e2e8f0; background:#fff; color:#475569; border-radius:999px; padding:8px 14px; font-size:0.85rem; font-weight:600; cursor:pointer; }
+        .rtq-tab.on { background:#2563eb; border-color:#2563eb; color:#fff; }
+        .rv { display:none; }
+        body.round-1 .rv.r1, body.round-2 .rv.r2, body.round-3 .rv.r3 { display:block; }
+        body.round-1 span.rv.r1, body.round-2 span.rv.r2, body.round-3 span.rv.r3 { display:inline; }
+        body.round-2 .hide-r2, body.round-3 .hide-r3 { display:none; }
+        body.round-2 .dim-r2 { opacity:0.55; }
+        .round-banner { border-radius:12px; padding:14px 18px; margin-bottom:22px; font-size:0.92rem; line-height:1.5; }
+        .round-banner.info { background:#eff6ff; border:1px solid #bfdbfe; color:#1e3a8a; }
+        .round-banner.done { background:#f0fdf4; border:1px solid #bbf7d0; color:#14532d; }
+        .chip-cat { display:inline-block; font-family:monospace; font-size:0.72rem; font-weight:700; padding:4px 8px; border-radius:4px; margin-left:6px; background:#fef2f2; color:#b91c1c; }
+        .chip-cat.minor { background:#fff7ed; color:#c2410c; }
+        .badge { display:inline-block; font-size:0.75rem; font-weight:700; padding:3px 10px; border-radius:999px; }
+        .badge.res { background:#dcfce7; color:#166534; } .badge.nr { background:#fee2e2; color:#b91c1c; } .badge.fq { background:#fef3c7; color:#92400e; }
+        .outcome { margin-top:14px; padding:12px 14px; border-radius:8px; font-size:0.9rem; line-height:1.5; background:#f8fafc; border:1px solid #e2e8f0; }
+        .outcome .note { margin-top:8px; padding:8px 12px; border-radius:6px; }
+        .outcome .note.ok { background:#f0fdf4; color:#166534; } .outcome .note.bad { background:#fef2f2; color:#991b1b; }
+        .follow { margin-top:10px; padding:12px 14px; border:1px dashed #f59e0b; border-radius:10px; background:#fffbeb; }
+        .follow .fid { font-family:monospace; font-size:0.75rem; font-weight:700; color:#64748b; }
+        .follow .fq-t { font-weight:600; margin-top:4px; color:#1e293b; }
+        .follow .ans { margin-top:8px; padding:8px 12px; background:#f0fdf4; border-radius:6px; color:#334155; }
+        .commit { margin-top:12px; padding:10px 14px; border-radius:8px; background:#f5f3ff; border:1px solid #ddd6fe; color:#3b0764; font-size:0.9rem; line-height:1.5; }
+        .commit-h { font-weight:700; color:#6d28d9; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+        .commit .due { font-weight:600; font-size:0.78rem; background:#ede9fe; padding:1px 8px; border-radius:999px; }
     </style>
 </head>
 
-<body>
+<body class="round-1">
 
     <aside class="sidebar">
         <div class="logo">Outline</div>
@@ -68,8 +94,10 @@
         <div class="top-bar">
             <h1>Regulatory Questionnaire</h1>
             <p>List of Questions – Type II Variation (ID001)</p>
-            <p style="font-size: 0.9rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#2563eb;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">A</span> Procedure: NRA/H/C/005432/II/0023 | Issued: 2025-11-11 | Response due: 2025-12-11</p>
+            <p style="font-size: 0.9rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#2563eb;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">A</span> Procedure: NRA/H/C/005432/II/0023 | <span class="rv r1">ID001 · Issued: 2025-11-11 | Response due: 2025-12-11</span><span class="rv r2">ID001-R2 · Issued: 2025-12-01 | Response due: 2025-12-31 | In response to SP-RTQ-2025-0148</span><span class="rv r3">ID001-R3 · Issued: 2026-01-12 | No response due | In response to SP-RTQ-2025-0163</span></p>
         </div>
+        <div class="rtq-tabs"><button type="button" class="rtq-tab" data-round="1">Round 1 · ID001 · 2025-11-11</button><button type="button" class="rtq-tab" data-round="2">Round 2 · ID001-R2 · 2025-12-01</button><button type="button" class="rtq-tab" data-round="3">Round 3 · ID001-R3 · closing</button></div>
+        <div class="round-banner info rv r1">Round 1: ten questions, each with a unique <b>linkId</b> and category tags. Every question is required.</div><div class="round-banner info rv r2"><b>Round 2: assessment of the response.</b> Every question is repeated with the regulator's outcome: <span class="badge res">8 resolved</span> <span class="badge nr">1 not resolved</span> <span class="badge fq">1 further questions</span>. Resolved questions need no answer; the commitment offered on quality-1 is accepted.</div><div class="round-banner done rv r3"><b>Round 3: dialogue closed.</b> All 12 questions, including both follow-up questions, are <span class="badge res">resolved</span>. No due date and no response expected. The commitment on quality-4.2 is accepted.</div>
 
         <div class="intro-text">
             <p><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#16a34a;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">B</span> The Regulatory Questionnaire profile defines a structured, machine-readable format for regulatory
@@ -99,7 +127,7 @@
         <div id="admin" class="section-title"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#9333ea;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">D</span> 1.0 Administrative Information</div>
 
         <!-- Question 1 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.1 Application Form</span>
                 <span class="q-id">linkId: admin-1</span>
@@ -115,10 +143,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.</div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <!-- Question 2 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.1 Application Form</span>
                 <span class="q-id">linkId: admin-2</span>
@@ -137,12 +165,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.</div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <div id="product" class="section-title">1.3 Product Information</div>
 
         <!-- Question 3 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
                 <span class="q-id">linkId: product-1</span>
@@ -156,10 +184,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.</div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <!-- Question 4 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
                 <span class="q-id">linkId: product-2</span>
@@ -174,12 +202,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.</div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <!-- Question 5 -->
         <div class="question-card">
             <div class="q-meta-top">
-                <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span>
+                <span class="q-ref">CTD Ref: 1.3.1 SmPC, Labelling and Package Leaflet</span><span class="chip-cat minor">Minor Concern</span>
                 <span class="q-id">linkId: product-3</span>
             </div>
             <div class="q-body">
@@ -208,12 +236,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge nr">Not resolved</span> Answer again.<div class="note bad">Assessor comment: the response states that the French and German texts are approved, but the submitted ePI package contains the English text only. Provide the approved French and German ePI texts.</div></div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <div id="control" class="section-title">3.2.P.5 Control of Drug Product</div>
 
         <!-- Question 6 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.5.2 Analytical Procedures</span>
                 <span class="q-id">linkId: quality-3</span>
@@ -227,12 +255,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.</div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <!-- Question 7 -->
         <div class="question-card">
             <div class="q-meta-top">
-                <span class="q-ref">CTD Ref: 3.2.P.5.4 Impurities</span>
+                <span class="q-ref">CTD Ref: 3.2.P.5.4 Impurities</span><span class="chip-cat ">Major Objection</span>
                 <span class="q-id">linkId: quality-4</span>
             </div>
             <div class="q-body">
@@ -245,12 +273,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge fq">Further questions</span> Answer the follow-up questions below.<div class="follow"><div class="fid">quality-4.1</div><div class="fq-t">The chromatograms for batch B-002 at 6 months accelerated (40°C/75% RH) show an unidentified peak at RRT 0.85 at 0.12%, above the 0.10% identification threshold. Identify this degradation product and propose a specification limit.</div></div><div class="follow"><div class="fid">quality-4.2</div><div class="fq-t">Provide the toxicological qualification of this degradation product per ICH Q3B(R2), or justify why qualification is not required.</div></div></div><div class="outcome rv r3"><span class="badge res">Resolved</span><div class="follow"><div class="fid">quality-4.1 <span class="badge res">Resolved</span></div><div class="fq-t">The chromatograms for batch B-002 at 6 months accelerated (40°C/75% RH) show an unidentified peak at RRT 0.85 at 0.12%, above the 0.10% identification threshold. Identify this degradation product and propose a specification limit.</div></div><div class="follow"><div class="fid">quality-4.2 <span class="badge res">Resolved</span></div><div class="fq-t">Provide the toxicological qualification of this degradation product per ICH Q3B(R2), or justify why qualification is not required.</div></div><div class="note ok">Commitment accepted (quality-4.2): complete the 13-week repeat-dose toxicity study on the isolated N-oxide and submit the report by 2026-09-30.</div></div></div>
 
         <div id="container" class="section-title">3.2.P.7 Container Closure System</div>
 
         <!-- Question 8 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.7 Container Closure</span>
                 <span class="q-id">linkId: quality-5</span>
@@ -274,12 +302,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.</div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <div id="stability" class="section-title">3.2.P.8 Stability</div>
 
         <!-- Question 9 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary and Conclusion</span>
                 <span class="q-id">linkId: quality-1</span>
@@ -296,10 +324,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.<div class="note ok">Commitment accepted: submit 48-month long-term stability results for batches A-001, A-002 and A-003 by 2027-06-30.</div></div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <!-- Question 10 -->
-        <div class="question-card">
+        <div class="question-card dim-r2">
             <div class="q-meta-top">
                 <span class="q-ref">CTD Ref: 3.2.P.8.1 Stability Summary and Conclusion</span>
                 <span class="q-id">linkId: quality-2</span>
@@ -314,7 +342,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        <div class="outcome rv r2"><span class="badge res">Resolved</span> Answer accepted; no further answer needed.</div><div class="outcome rv r3"><span class="badge res">Resolved</span></div></div>
 
         <div class="footer">
             Regulatory Questionnaire Standard (RTQ) • Enabling machine-readable regulatory Q&A
@@ -322,6 +350,20 @@
     </main>
 
     <script src="../js/rtq-dashboard.js"></script>
+
+    <script>
+    (function () {
+        function show(n) {
+            document.body.className = document.body.className.replace(/\bround-\d\b/g, '').trim() + ' round-' + n;
+            document.querySelectorAll('.rtq-tab').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-round') === String(n)); });
+        }
+        document.querySelectorAll('.rtq-tab').forEach(function (b) {
+            b.addEventListener('click', function () { show(b.getAttribute('data-round')); });
+        });
+        var m = /round=(\d)/.exec(location.search + location.hash);
+        show(m ? m[1] : 1);
+    })();
+    </script>
 </body>
 
 </html>

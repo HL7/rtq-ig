@@ -15,7 +15,7 @@ When a health authority has questions about a submission, it sends a structured 
       Procedure NRA/H/C/005432/II/0023 · product MPID-EX-000123
     </div>
     <div class="rtq-part b">
-      <div class="k">B · Cover letter</div>
+      <div class="k">B · Cover letter (rich text, inside the file)</div>
       Please find enclosed the List of Questions for the Type II variation for ExampleDrug 10 mg Tablets. Responses are required by the due date above.
     </div>
     <div class="rtq-part c">
@@ -41,7 +41,7 @@ When a health authority has questions about a submission, it sends a structured 
   </div>
   <div class="rtq-labels">
     <div class="rtq-lab"><div class="dot" style="background:#2563eb">A</div><div><div class="h">Metadata</div><p>A unique ID, version, type, issue date, and due date, with any negotiated extensions. The procedure number and the product or marketing authorization concerned let the company's system file it against the right records automatically.</p></div></div>
-    <div class="rtq-lab"><div class="dot" style="background:#16a34a">B</div><div><div class="h">Cover letter</div><p>Free text for context and instructions, with full rich formatting.</p></div></div>
+    <div class="rtq-lab"><div class="dot" style="background:#16a34a">B</div><div><div class="h">Cover letter, built in</div><p>A rich-text field inside the question set carries the cover letter content: context, instructions, and overall comments, with tables, lists, and other formatting. <strong>No separate cover letter document is needed</strong>: the question set is self-contained.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#ca8a04">C</div><div><div class="h">Sender &amp; recipient</div><p>The authority and the MAH or applicant, each with contact details. One question set goes to one company.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#9333ea">D</div><div><div class="h">Questions</div><p>Each question is a discrete item with a unique <strong>linkId</strong>, one or more <strong>category tags</strong> set by the regulator (for example a CTD section and "major objection"), rich-text wording, and optional attachments or references to existing content such as the ePI.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#ea580c">E</div><div><div class="h">Assessment</div><p>In follow-up rounds, each question also carries the regulator's verdict on the previous answer: resolved, not resolved, or raising further questions. See <a href="lifecycle.html">Lifecycle</a>.</p></div></div>
@@ -64,7 +64,7 @@ The MAH or applicant sends back a structured **response** in which every answer 
       Procedure NRA/H/C/005432/II/0023
     </div>
     <div class="rtq-part b">
-      <div class="k">B · Cover letter</div>
+      <div class="k">B · Cover letter (rich text, inside the file)</div>
       Please find enclosed SynthPharma AG's responses to the List of Questions ID001, with supporting documents attached where applicable.
     </div>
     <div class="rtq-part c">
@@ -90,7 +90,7 @@ The MAH or applicant sends back a structured **response** in which every answer 
   </div>
   <div class="rtq-labels">
     <div class="rtq-lab"><div class="dot" style="background:#2563eb">A</div><div><div class="h">Metadata</div><p>The company's own ID for the response plus the regulator's question set ID, a version, status, and date. The response points to the exact question set it answers.</p></div></div>
-    <div class="rtq-lab"><div class="dot" style="background:#16a34a">B</div><div><div class="h">Cover letter</div><p>Any overall narrative before the individual answers.</p></div></div>
+    <div class="rtq-lab"><div class="dot" style="background:#16a34a">B</div><div><div class="h">Cover letter, built in</div><p>The same rich-text field carries the company's cover letter content: introduction, overall remarks, and cross-references. <strong>No separate cover letter document is needed</strong>: the response is self-contained.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#ca8a04">C</div><div><div class="h">Sender &amp; recipient</div><p>The roles reverse: the MAH or applicant authors and sends the response.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#9333ea">D</div><div><div class="h">Answers</div><p><strong>Every open question gets an answer</strong>, matched by linkId, even if the answer is "No response required." Answers support rich text, attachments, and references to existing content.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#ea580c">E</div><div><div class="h">Commitments</div><p>When an answer includes a commitment, it is flagged on that answer with what will be done and by when. The regulator accepts it in the next round.</p></div></div>
