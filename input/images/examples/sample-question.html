@@ -46,13 +46,20 @@
         .footer { text-align: center; margin-top: 80px; padding: 40px 0; color: #64748b; font-size: 0.85rem; border-top: 1px solid #e2e8f0; }
     
         .rtq-tabs { display:flex; gap:8px; flex-wrap:wrap; margin: 4px 0 18px; }
-        .rtq-tab { border:1px solid #e2e8f0; background:#fff; color:#475569; border-radius:999px; padding:8px 14px; font-size:0.85rem; font-weight:600; cursor:pointer; }
-        .rtq-tab.on { background:#2563eb; border-color:#2563eb; color:#fff; }
+        .rtq-tab { border:1px solid #e2e8f0; background:#fff; color:#475569; border-radius:999px; padding:8px 14px; font-size:0.85rem; font-weight:600; cursor:pointer; display:inline-block; }
+        .rtq-radio { position:absolute; opacity:0; pointer-events:none; }
         .rv { display:none; }
-        body.round-1 .rv.r1, body.round-2 .rv.r2, body.round-3 .rv.r3 { display:block; }
-        body.round-1 span.rv.r1, body.round-2 span.rv.r2, body.round-3 span.rv.r3 { display:inline; }
-        body.round-2 .hide-r2, body.round-3 .hide-r3 { display:none; }
-        body.round-2 .dim-r2 { opacity:0.55; }
+        #rtq-round-1:checked ~ main .rv.r1 { display:block; }
+        #rtq-round-1:checked ~ main span.rv.r1 { display:inline; }
+        #rtq-round-1:checked ~ main label[for="rtq-round-1"] { background:#2563eb; border-color:#2563eb; color:#fff; }
+        #rtq-round-2:checked ~ main .rv.r2 { display:block; }
+        #rtq-round-2:checked ~ main span.rv.r2 { display:inline; }
+        #rtq-round-2:checked ~ main label[for="rtq-round-2"] { background:#2563eb; border-color:#2563eb; color:#fff; }
+        #rtq-round-3:checked ~ main .rv.r3 { display:block; }
+        #rtq-round-3:checked ~ main span.rv.r3 { display:inline; }
+        #rtq-round-3:checked ~ main label[for="rtq-round-3"] { background:#2563eb; border-color:#2563eb; color:#fff; }
+        #rtq-round-2:checked ~ main .hide-r2 { display:none; }
+        #rtq-round-2:checked ~ main .dim-r2 { opacity:0.55; }
         .round-banner { border-radius:12px; padding:14px 18px; margin-bottom:22px; font-size:0.92rem; line-height:1.5; }
         .round-banner.info { background:#eff6ff; border:1px solid #bfdbfe; color:#1e3a8a; }
         .round-banner.done { background:#f0fdf4; border:1px solid #bbf7d0; color:#14532d; }
@@ -73,7 +80,8 @@
     </style>
 </head>
 
-<body class="round-1">
+<body>
+    <input type="radio" name="rtq-round" id="rtq-round-1" class="rtq-radio" checked/><input type="radio" name="rtq-round" id="rtq-round-2" class="rtq-radio"/><input type="radio" name="rtq-round" id="rtq-round-3" class="rtq-radio"/>
 
     <aside class="sidebar">
         <div class="logo">Outline</div>
@@ -96,7 +104,7 @@
             <p>List of Questions – Type II Variation (ID001)</p>
             <p style="font-size: 0.9rem;"><span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#2563eb;color:#fff;font-size:0.75rem;font-weight:800;flex:none;">A</span> Procedure: NRA/H/C/005432/II/0023 | <span class="rv r1">ID001 · Issued: 2025-11-11 | Response due: 2025-12-11</span><span class="rv r2">ID001-R2 · Issued: 2025-12-01 | Response due: 2025-12-31 | In response to SP-RTQ-2025-0148</span><span class="rv r3">ID001-R3 · Issued: 2026-01-12 | No response due | In response to SP-RTQ-2025-0163</span></p>
         </div>
-        <div class="rtq-tabs"><button type="button" class="rtq-tab" data-round="1">Round 1 · ID001 · 2025-11-11</button><button type="button" class="rtq-tab" data-round="2">Round 2 · ID001-R2 · 2025-12-01</button><button type="button" class="rtq-tab" data-round="3">Round 3 · ID001-R3 · closing</button></div>
+        <div class="rtq-tabs"><label class="rtq-tab" for="rtq-round-1">Round 1 · ID001 · 2025-11-11</label><label class="rtq-tab" for="rtq-round-2">Round 2 · ID001-R2 · 2025-12-01</label><label class="rtq-tab" for="rtq-round-3">Round 3 · ID001-R3 · closing</label></div>
         <div class="round-banner info rv r1">Round 1: ten questions, each with a unique <b>linkId</b> and category tags. Every question is required.</div><div class="round-banner info rv r2"><b>Round 2: assessment of the response.</b> Every question is repeated with the regulator's outcome: <span class="badge res">8 resolved</span> <span class="badge nr">1 not resolved</span> <span class="badge fq">1 further questions</span>. Resolved questions need no answer; the commitment offered on quality-1 is accepted.</div><div class="round-banner done rv r3"><b>Round 3: dialogue closed.</b> All 12 questions, including both follow-up questions, are <span class="badge res">resolved</span>. No due date and no response expected. The commitment on quality-4.2 is accepted.</div>
 
         <div class="intro-text">
@@ -351,19 +359,6 @@
 
     <script src="../js/rtq-dashboard.js"></script>
 
-    <script>
-    (function () {
-        function show(n) {
-            document.body.className = document.body.className.replace(/\bround-\d\b/g, '').trim() + ' round-' + n;
-            document.querySelectorAll('.rtq-tab').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-round') === String(n)); });
-        }
-        document.querySelectorAll('.rtq-tab').forEach(function (b) {
-            b.addEventListener('click', function () { show(b.getAttribute('data-round')); });
-        });
-        var m = /round=(\d)/.exec(location.search + location.hash);
-        show(m ? m[1] : 1);
-    })();
-    </script>
 </body>
 
 </html>
