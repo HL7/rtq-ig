@@ -68,34 +68,92 @@ Question `linkId`s must remain stable across versions for unchanged questions, s
 | `in-progress` | `stopped` | Response abandoned (e.g., application withdrawn) |
 | any | `entered-in-error` | Artifact created by mistake |
 
-No custom status codes are defined. Regulatory business states beyond these (e.g., "accepted by assessor") belong to workflow resources such as `Task.businessStatus`, not to the response itself.
+No custom status codes are defined. The regulator's conclusion on each answer (accepted, not accepted, further questions) is not a status of the response resource; it is carried question by question in the next question set, as described under [Assessment of Responses](#assessment-of-responses) below.
 
 ### Every Question Must Have a Response
 
-**Rule: every question item in the Questionnaire must be answered by a response item with the matching `linkId` — always.** Where no substantive answer applies, the company still responds explicitly, for example:
+**Rule: every open question in the Questionnaire must be answered by a response item with the matching `linkId` — always.** The only questions that need no answer are those the regulator has re-issued as `resolved` in a follow-up round. Where no substantive answer applies, the company still responds explicitly, for example:
 
 - *"No response required."*
 - *"See response to question 3."* (or an answer reference to the relevant document)
 
-This way the regulator's system is never left with an open question, wondering whether an answer was lost in transit. The rule is enforced twice over: every question in the RTQ Questionnaire is marked `required = true`, so standard FHIR validation of a response against its questionnaire fails if any question is unanswered; and invariant `rtq-qr-1` on the response rejects any reported item that carries neither an answer nor nested items.
+This way the regulator's system is never left with an open question, wondering whether an answer was lost in transit. The rule is enforced twice over: every open question in the RTQ Questionnaire is marked `required = true`, so standard FHIR validation of a response against its questionnaire fails if any question is unanswered; and invariant `rtq-qr-1` on the response rejects any reported item that carries neither an answer nor nested items.
+
+### Assessment of Responses
+
+Regulatory assessment templates record a conclusion for every answer: the issue is resolved, it is not resolved, or the answer raises further questions. RTQ builds this conclusion into the **Questionnaire** so that it travels with the question it concerns. When the regulator has assessed a response, it issues a follow-up question set that re-issues each question from the previous round, keeping its `linkId` and category codes, and adds an **assessment outcome** in the `assessment` slice of `item.code` (code system [RTQ Assessment Outcome](CodeSystem-rtq-assessment-outcome.html)):
+
+<table border="1" style="border-collapse: collapse; width: 100%; border-color: #ddd;">
+  <thead style="background-color: #f5f5f5;">
+    <tr>
+      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Outcome</th>
+      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Meaning</th>
+      <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">How the item is structured</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>resolved</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">The regulator accepts the answer; the question is closed.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>type = question</code>, <code>required = false</code>. No further answer is expected.</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>not-resolved</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">The answer is not accepted; the question stays open.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>type = question</code>, <code>required = true</code>. The company answers again. The assessor's reasoning can be given in a nested <code>display</code> item (e.g., <code>linkId</code> <code>product-3.assessment</code>).</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>further-questions</code></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">The answer raises follow-up questions.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>type = group</code>, <code>required = true</code>. The follow-up questions are child items with hierarchical <code>linkId</code>s (e.g., <code>quality-4.1</code>, <code>quality-4.2</code>), each answered in the next response.</td>
+    </tr>
+  </tbody>
+</table>
+
+Invariants on the RTQ Questionnaire profile enforce these rules (`rtq-q-2`, `rtq-q-3`), and assessment outcomes are only allowed in a question set that references the response it assesses via `rtq-in-response-to` (`rtq-q-4`).
+
+### Closing the Dialogue
+
+There is no separate "question set resolved" flag. **A follow-up question set in which every question (including every follow-up question) is marked `resolved` closes the Q&A dialogue for that procedure.** Because resolved questions have `required = false`, the closing set needs no response, and it normally carries no due date. Closure is computed from the questions themselves, so it can never contradict them, and `Questionnaire.status` keeps its standard FHIR meaning (draft, active, retired).
+
+The regulator still sends the closing set: without it, the company could not tell "closed" from "not yet assessed". Two points to note:
+
+- **Closing the Q&A is not the regulatory decision.** Approval or refusal of the application is communicated through the regulator's normal decision process and is out of scope for RTQ.
+- **Open point: closing with an issue still unresolved.** Some assessment templates (e.g., EMA) allow the conclusion "issue not resolved, but no follow-up questions", which ends the dialogue with an issue on record. The current outcome codes cannot express this. If needed, a fourth code (e.g., `not-resolved-closed`) would cover it, and the closure rule would become "every question is resolved or closed". This is open for working group discussion.
+
+### Worked Example: A Complete Thread
+
+The examples form one complete exchange for procedure NRA/H/C/005432/II/0023. The [interactive walkthrough](examples/sample-lifecycle.html) shows all five steps side by side.
+
+| Step | Example | What happens |
+|---|---|---|
+| 1. Questions | [ID001](Questionnaire-questionnaire-ID001.html) | The regulator asks 10 questions. |
+| 2. Response | [SP-RTQ-2025-0148](QuestionnaireResponse-questionnaireresponse-ID001.html) | The company answers all 10 and offers a commitment on `quality-1` (48-month stability data). |
+| 3. Follow-up questions | [ID001-R2](Questionnaire-questionnaire-ID001-round2.html) | Eight answers are `resolved`, including acceptance of the `quality-1` commitment. `product-3` is `not-resolved` with the assessor's comment. `quality-4` raises two follow-up questions, `quality-4.1` and `quality-4.2`. |
+| 4. Response | [SP-RTQ-2025-0163](QuestionnaireResponse-questionnaireresponse-ID001-round2.html) | The company answers only the three open questions and offers a new commitment on `quality-4.2` (toxicity study). |
+| 5. Closure | [ID001-R3](Questionnaire-questionnaire-ID001-round3.html) | Every question is `resolved`, including the `quality-4.2` commitment. No due date and no response expected: the dialogue is closed. |
 
 ### Multi-Round Q&A and Branching
 
 Real dialogues thread: a company responds, the regulator accepts five of six answers, and rounds continue on the sixth. RTQ models this as a **chain of complete question/response pairs**:
 
 1. **Round 1:** Questionnaire `Q1 v1.0` → QuestionnaireResponse `R1 v1.0` (all questions answered).
-2. **Round 2:** The regulator issues a *new* question set `Q2 v1.0` containing only the follow-up questions. `Q2` carries the `rtq-in-response-to` extension referencing `R1`, which preserves the thread, and the same procedure identifier, which groups all rounds under one procedure.
-3. Follow-up questions that drill into a specific earlier question should use hierarchical `linkId`s (e.g., `quality-4.1`, `quality-4.2`) so parent–child relationships between an original question and its sub-questions are explicit and machine-readable.
-4. The thread closes per question when a round produces no further follow-ups on it; the procedure-level outcome is communicated through the regulator's normal decision process (out of scope for RTQ).
+2. **Round 2:** The regulator issues a *new* question set `Q2 v1.0` that re-issues every round-1 question with its assessment outcome (see above): the five accepted answers are marked `resolved`, and the sixth is marked `not-resolved` or `further-questions`. `Q2` carries the `rtq-in-response-to` extension referencing `R1`, which preserves the thread, and the same procedure identifier, which groups all rounds under one procedure.
+3. **Response to round 2:** `R2` answers only the open questions in `Q2` (those not marked `resolved`).
+4. The thread closes per question when it is marked `resolved`, and closes as a whole when every question is resolved (see [Closing the Dialogue](#closing-the-dialogue)).
 
-**Multi-part questions** within a single round are modeled as nested `item` groups: a parent item (the overall question) containing child items (the parts), each with its own `linkId`, CTD code(s), and — because every question must be answered — its own response item. Parts relevant only under certain conditions can use the native `enableWhen` mechanism. Multidisciplinary questions may carry multiple CTD codes and can be routed to several owners; the response still comes back as one consolidated set.
+**Multi-part questions** within a single round are modeled as nested `item` groups: a parent item (the overall question) containing child items (the parts), each with its own `linkId`, category code(s), and — because every question must be answered — its own response item. Parts relevant only under certain conditions can use the native `enableWhen` mechanism. Multidisciplinary questions may carry multiple category codes (e.g., two CTD sections) and can be routed to several owners; the response still comes back as one consolidated set.
 
 ### Commitments and Follow-Up Measures
 
-Questions or responses that establish post-approval commitments are handled in three steps:
+A commitment can start on either side of the exchange, and RTQ marks it where it starts:
 
-1. **Mark:** the item carries the category code `commitment` (see [Terminology](terminology.html)).
-2. **Track:** the organization tracking the commitment creates a `Task` whose `focus` references the QuestionnaireResponse (or the specific item via its `linkId`), with `Task.businessStatus` carrying the commitment state (e.g., due, submitted, fulfilled) and a `Flag` optionally marking the open commitment on the relevant record.
-3. **Fulfil:** when the commitment is fulfilled — often much later, and possibly through a separate submission — the fulfilment references the original procedure identifier and question `linkId`, closing the loop even when the fulfilment is far removed in time from the original Q&A exchange.
+| Step | Who | How it is represented |
+|---|---|---|
+| **Request** | Regulator asks for a commitment | The question carries the category code `commitment` (see [Terminology](terminology.html)). |
+| **Offer** | MAH/applicant commits in its answer | The answer carries the [`rtq-commitment`](StructureDefinition-rtq-commitment.html) extension on `QuestionnaireResponse.item`: what the company commits to do and, optionally, the date by which it will do it. |
+| **Accept** | Regulator | The assessment outcome on that question in the follow-up question set: `resolved` accepts the commitment; `not-resolved` or `further-questions` sends it back. |
 
-This is a usage pattern rather than a set of profiles; profiles for the Task/Flag pattern may be added in a future version once pilot experience confirms the shape.
+In the [worked example](#worked-example-a-complete-thread), the company offers commitments on `quality-1` (round 1) and `quality-4.2` (round 2), and the regulator accepts each one by marking the question `resolved` in the next round.
+
+Tracking the commitment after the exchange, and fulfilling it (often much later and through a separate submission), are out of scope for RTQ. Because the commitment sits on an identified answer in an identified response for an identified procedure, any application that tracks commitments can point back to exactly where it was requested, offered, and accepted.

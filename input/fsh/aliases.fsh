@@ -7,3 +7,4 @@ Alias: $rtq-questionnaire-type-vs = http://hl7.org/fhir/uv/rtq/ValueSet/rtq-ques
 Alias: $contact-purpose = http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose
 Alias: $rtq-question-category = http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-question-category
 Alias: $rtq-questionnaire-type-cs = http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-questionnaire-type-cs
+Alias: $rtq-assessment-outcome = http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome

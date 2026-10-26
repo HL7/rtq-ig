@@ -13,13 +13,18 @@ This page summarizes the terminology defined and used by the RTQ Implementation 
   <tbody>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><strong>RTQ CTD Categories (Full)</strong></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">The full Common Technical Document hierarchy (modules, sections, subsections). Every question carries at least one CTD code — this is what enables automated routing to module owners and response reuse across similar queries.</td>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>Questionnaire.item.code</code> (ctd slice, mandatory)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">The full Common Technical Document hierarchy (modules, sections, subsections). The preferred topic terminology for medicinal product questions: tagging each question with its CTD section enables automated routing to module owners and response reuse across similar queries.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>Questionnaire.item.code</code> (category; preferred)</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>RTQ Question Category</strong></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Regulatory significance of a question: <code>major-objection</code>, <code>minor-concern</code>, <code>other-consideration</code>, <code>commitment</code>. Regulators are encouraged to adopt these as <em>preferred</em> terms for international alignment; local terminology remains welcome in the question text.</td>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>Questionnaire.item.code</code> (category slice, optional)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>RTQ Regulatory Significance Category</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Regulatory significance of a question: <code>major-objection</code>, <code>minor-concern</code>, <code>other-consideration</code>, <code>commitment</code>. Regulators are encouraged to adopt these as <em>preferred</em> terms for international alignment.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>Questionnaire.item.code</code> (category; preferred)</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>RTQ Assessment Outcome</strong></td>
+      <td style="padding: 8px; border: 1px solid #ddd;">The regulator's conclusion on the company's response to a question: <code>resolved</code>, <code>not-resolved</code>, <code>further-questions</code>. Used only when the question is re-issued in a follow-up question set (see <a href="lifecycle.html">Lifecycle &amp; Versioning</a>).</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>Questionnaire.item.code</code> (assessment slice; required binding)</td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><strong>RTQ Questionnaire Type</strong></td>
@@ -39,6 +44,16 @@ This page summarizes the terminology defined and used by the RTQ Implementation 
   </tbody>
 </table>
 
+### Question Categories Are Regulator-Defined
+
+Every question carries **at least one category code**; which terminology supplies it is up to the regulator. The [RTQ Question Category value set](ValueSet-rtq-question-category-vs.html) combines the two preferred terminologies above, the CTD sections and the regulatory significance categories, and its binding is *preferred*, not mandatory:
+
+- A regulator may add its own category codes, in its own code system and language, alongside or instead of the preferred ones.
+- Product domains that do not use the CTD (for example medical devices, veterinary medicines, or OTC products) use the category terminology that fits that domain.
+- A question can carry several categories, e.g., a CTD section plus `major-objection`, or two CTD sections for a multidisciplinary question.
+
+Categories are set by the regulator in the question set. A company that wants additional or different classifications for its own purposes keeps them in its internal applications, as a layer on top of the question set it received.
+
 ### CTD Granularity Policy
 
 The CTD CodeSystem follows the CTD section hierarchy — questions are coded at section/subsection level (e.g., `3.2.P.8.1`). Experience so far indicates this is the right default granularity for routing and reuse. **Some implementers may need finer granularity**, and the CodeSystem is designed to be extended rather than forked:
@@ -46,7 +61,7 @@ The CTD CodeSystem follows the CTD section hierarchy — questions are coded at 
 - If you need more granular codes (or additional regulatory topics beyond the standard CTD structure), request them via the [RTQ project page](https://confluence.hl7.org/spaces/BRR/pages/358267438/Response+to+Health+Authority+Questions+RTQ) or a [GitHub issue](https://github.com/HL7/rtq-ig/issues). The project will extend the shared CodeSystem so that all implementations stay aligned.
 - Avoid minting local codes in private systems: the value of the CTD tagging comes from every party interpreting the same code the same way.
 
-The item-level CTD binding is *extensible* — codes beyond the current CodeSystem are permitted where genuinely necessary, but the expectation is that they are fed back into the shared CodeSystem promptly.
+Where a regulator uses the CTD terminology but needs codes it does not yet contain, the expectation is that those codes are fed back into the shared CodeSystem promptly.
 
 ### Semantic Architecture (Future Work)
 

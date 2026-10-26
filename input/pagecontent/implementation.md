@@ -11,7 +11,7 @@ The smallest useful RTQ implementation is deliberately simple. To participate in
 3. `status` (`active`), `date` issued, and the response due date (`rtq-due-date` extension)
 4. A `code` giving the questionnaire type (e.g., `list-of-questions`) and `subjectType` (e.g., `MedicinalProductDefinition`)
 5. Two contacts — sender (regulator) and receiver (MAH) — each with the contact-purpose extension, a name, email, and phone
-6. One `item` per question, each with: a unique `linkId`, at least one CTD section code, `required = true`, and the question text (with the `rendering-xhtml` extension for rich formatting)
+6. One `item` per question, each with: a unique `linkId`, at least one category code (for medicinal products, normally a CTD section code), `required = true`, and the question text (with the `rendering-xhtml` extension for rich formatting)
 7. A narrative `text` summarizing the question set (this doubles as the cover letter)
 
 **To act as a company (respond), produce an [RTQ QuestionnaireResponse](StructureDefinition-rtq-questionnaireresponse.html) with:**
@@ -27,7 +27,7 @@ Everything else — product/authorisation context, procedure identifier, categor
 
 ### Exchange Methods
 
-RTQ is a document standard: the file travels over any channel the two parties already use. The flows below are illustrative, not normative.
+Exchange is out of scope for RTQ, which only structures the question and the response. The file travels over any channel the two parties already use; the flows below are illustrative examples, not normative.
 
 **Email (simplest — works today)**
 

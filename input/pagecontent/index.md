@@ -70,12 +70,15 @@ Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, RTQ + 
         <ul style="margin: 0; padding-left: 20px;">
           <li style="margin-bottom: 8px;"><strong>Health Authority Questions:</strong> Profiling of <code>Questionnaire</code> for widely used regulatory templates (Validation issues, Major Objections, List of Questions).</li>
           <li style="margin-bottom: 8px;"><strong>Sponsor Responses:</strong> Profiling of <code>QuestionnaireResponse</code> for applicant replies, supporting evidence attachments, and cross-references.</li>
-          <li><strong>Regulatory Metadata:</strong> Tagging questions and responses with CTD sections, dates, unique identifiers, organization details.</li>
+          <li style="margin-bottom: 8px;"><strong>Regulatory Metadata:</strong> Tagging questions and responses with category codes (e.g., CTD sections, regulatory significance), dates, unique identifiers, organization details.</li>
+          <li><strong>Assessment of Responses:</strong> The regulator's per-question conclusion on a response (resolved, not resolved, raises further questions), carried in the follow-up question set.</li>
         </ul>
       </td>
       <td style="padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;">
         <ul style="margin: 0; padding-left: 20px;">
-          <li style="margin-bottom: 8px;"><strong>Transport Mechanisms:</strong> The full submission packaging and transport layer. For instructions on how to package and transport the questionnaire and response via API, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html">APIX Implementation Guide</a>. See <a href="implementation.html">Implementation &amp; Exchange</a> for how RTQ travels over today's channels (email, portal, eCTD) as well.</li>
+          <li style="margin-bottom: 8px;"><strong>Exchange of questions and responses:</strong> How the files travel between the parties (email, portal, eCTD, central platform, or API) and how they are packaged for transport. For API-based exchange, see the <a href="https://build.fhir.org/ig/HL7/APIX---API-Exchange-for-Medicinal-Products/branches/main/index.html">APIX Implementation Guide</a>. The exchange methods described in this guide are illustrative examples only.</li>
+          <li style="margin-bottom: 8px;"><strong>Use of AI and automation:</strong> How organizations use AI or automation to triage, draft, check, or analyze questions and responses. The structure makes this possible; how to do it is each implementer's choice.</li>
+          <li style="margin-bottom: 8px;"><strong>Application features and internal workflow:</strong> Routing, task assignment, reminders, search, dashboards, and any categories a company adds internally on top of the question set it received.</li>
           <li><strong>Master Files (DMF/ASMF) — future scope:</strong> Tripartite communication between regulator, applicant, and Master File holder (access via Letter of Authorization) is planned for a future phase, after RTQ is established for standard drug applications.</li>
         </ul>
       </td>
@@ -84,6 +87,8 @@ Just as [ISO 20022](https://www.iso20022.org) harmonized global payments, RTQ + 
 </table>
 
 ### How RTQ Is Exchanged
+
+*Exchange is out of scope for RTQ: RTQ only structures the question and the response. This section shows, as examples, how the structured files can travel over channels that exist today.*
 
 RTQ deliberately separates **content** from **transport**. An RTQ Questionnaire or QuestionnaireResponse is just a file (XML or JSON) — the structured equivalent of today's DOCX/PDF question document — so it can be sent and received the same way current question documents are:
 

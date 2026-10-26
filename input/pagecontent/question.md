@@ -85,19 +85,19 @@ The following table is a simplified view of the key elements of a regulatory que
       <td style="padding: 8px; border: 1px solid #ddd;">The pharmaceutical MAH or applicant expected to respond.</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code> (ctd)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code> (category)</td>
       <td style="padding: 8px; border: 1px solid #ddd;">1..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;"><strong>Mandatory</strong> CTD section mapping (e.g., <code>3.2.P.8.1</code>) using the RTQ CTD Categories CodeSystem.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><strong>At least one</strong> category code per question. Categories are regulator-defined: CTD section codes (e.g., <code>3.2.P.8.1</code>) and the regulatory significance codes (<code>major-objection</code>, <code>minor-concern</code>, <code>other-consideration</code>, <code>commitment</code>) are preferred, but a regulator may use its own code system, and non-CTD product domains (e.g., devices) use their own. A question may carry several categories.</td>
     </tr>
     <tr>
-      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code> (category)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Optional regulatory-significance category: <code>major-objection</code>, <code>minor-concern</code>, <code>other-consideration</code>, or <code>commitment</code>. Recommended as preferred terms for international alignment.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.code</code> (assessment)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Follow-up rounds only: the regulator's assessment of the previous response to this question: <code>resolved</code>, <code>not-resolved</code>, or <code>further-questions</code>. See <a href="lifecycle.html">Lifecycle &amp; Versioning</a>.</td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.required</code></td>
-      <td style="padding: 8px; border: 1px solid #ddd;">1..1 (fixed <code>true</code>)</td>
-      <td style="padding: 8px; border: 1px solid #ddd;">Always <code>true</code>: <strong>every question must receive a response item</strong>, even if the answer is "No response required." or a cross-reference. See <a href="lifecycle.html">Lifecycle &amp; Versioning</a>.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">1..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>true</code> for every open question, so every question must be answered. <code>false</code> only for a question re-issued as <code>resolved</code>, which needs no further answer.</td>
     </tr>
     <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.extension</code> (itemReference)</td>

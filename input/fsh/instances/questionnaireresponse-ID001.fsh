@@ -20,7 +20,7 @@ Usage: #example
 * status = #completed
 * subject = Reference(MedicinalProductDefinition/MedicinalProduct-ExampleDrug) "ExampleDrug 10 mg Tablets"
 * author.type = "Organization"
-* author = Reference(org-regulator) "National Regulatory Authority"
+* author = Reference(org-mah) "SynthPharma AG"
 * source.type = "Organization"
 * source = Reference(org-mah) "SynthPharma AG"
 * authored = "2025-11-18T14:00:00+02:00"
@@ -61,6 +61,8 @@ Usage: #example
 * item[=].answer.extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].answer.valueString = "See extension"
 * item[=].answer.extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The submission includes both:</p><ul><li><strong>Additional timepoints:</strong> Long-term data extended to 36 months for primary batches A-001, A-002, A-003.</li><li><strong>New stability studies:</strong> Two pilot-scale batches (B-001, B-002) in new Alu/Alu packaging, with 6-month accelerated (40°C/75% RH) and long-term (25°C/60% RH) data.</li></ul><p>No protocol deviations occurred. All studies follow ICH Q1A(R2).</p></div>"
+* item[=].extension[RtqCommitmentExtension].extension[description].valueMarkdown = "Submit the 48-month long-term stability results for batches A-001, A-002 and A-003 as a post-approval variation."
+* item[=].extension[RtqCommitmentExtension].extension[dueDate].valueDate = "2027-06-30"
 * item[+].linkId = "quality-2"
 * item[=].extension.url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].extension.valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Does the data support all intended climatic zones?</p></div>"

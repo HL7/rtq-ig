@@ -102,3 +102,22 @@ Context: Questionnaire
 * ^date = "2026-08-08"
 * value[x] only Reference(RTQQuestionnaireResponse)
 * valueReference 1..1 MS
+
+Extension: RtqCommitmentExtension
+Id: rtq-commitment
+Title: "RTQ Commitment"
+Description: "Marks an answer in which the MAH/applicant offers a commitment (e.g., to submit further data or complete a study by a given date). The regulator accepts or rejects the commitment through the assessment outcome on that question in the follow-up question set. Questions in which the regulator requests a commitment carry the 'commitment' category code instead. Tracking and fulfilment of commitments after the exchange are application-layer concerns and out of scope for RTQ."
+Context: QuestionnaireResponse.item
+* ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-commitment"
+* ^version = "0.2.0"
+* ^status = #draft
+* ^experimental = true
+* ^date = "2026-10-25"
+* value[x] 0..0
+* extension contains
+    description 1..1 MS and
+    dueDate 0..1 MS
+* extension[description] ^short = "What the company commits to do"
+* extension[description].value[x] only markdown
+* extension[dueDate] ^short = "Date by which the commitment will be fulfilled"
+* extension[dueDate].value[x] only date

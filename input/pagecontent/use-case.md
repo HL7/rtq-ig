@@ -66,10 +66,17 @@ This structured approach delivers major benefits for both health authorities and
     </tr>
     <tr style="background-color: #fafafa;">
       <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">8</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Automated Commitment Tracking</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Commitment Flagging</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Regulators and Industry</td>
-      <td style="border: 1px solid #ddd; padding: 12px;">Commitments automatically flagged and tracked via linked <code>Task</code>/<code>Flag</code> resources.</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Commitments are flagged in the structure itself: requested by the regulator (category code), offered by the company (commitment on the answer, with a due date), and accepted through the assessment outcome. Applications can track them from there.</td>
       <td style="border: 1px solid #ddd; padding: 12px;">Ensures reliable post-marketing commitment/follow-up reporting</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 12px; text-align: center;">9</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Impact Assessment Across Documents</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Industry and Regulators</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Category codes and references to the affected content (e.g., an ePI <code>Composition</code> section) show at once which documents a question touches: downstream (SmPC → package leaflet → artwork) and upstream (company core data sheet and other products that share it).</td>
+      <td style="border: 1px solid #ddd; padding: 12px;">Impact understood in minutes; consistent updates across products and markets</td>
     </tr>
   </tbody>
 </table>
@@ -102,8 +109,16 @@ This structured approach delivers major benefits for both health authorities and
 <p><strong>Context:</strong> A Quality/CMC organization wants to reduce the number of questions it receives on Module 3 and to understand the impact of incoming questions faster.</p>
 <ul>
     <li><strong>Old Way:</strong> Question histories are buried in PDFs and email threads. Nobody can say which stability protocols attract the most objections, and assessing the cross-document impact of a new question takes days of manual searching.</li>
-    <li><strong>RTQ Way:</strong> Because every question carries a CTD section code and a category (e.g., major objection vs. minor concern), the company can visualize trends in frequent question topics — for example, recurring objections to specific stability protocols — and use them to improve future filing quality. When a new question arrives, the CTD metadata immediately identifies the affected documents and modules across the dossier, so the content impact is understood in minutes rather than days. <strong>Result: Fewer repeat deficiencies and immediate impact assessment for Quality modules.</strong></li>
+    <li><strong>RTQ Way:</strong> Because every question carries category codes, typically its CTD section and its significance (e.g., major objection vs. minor concern), the company can visualize trends in frequent question topics — for example, recurring objections to specific stability protocols — and use them to improve future filing quality. When a new question arrives, the CTD metadata immediately identifies the affected documents and modules across the dossier, so the content impact is understood in minutes rather than days. <strong>Result: Fewer repeat deficiencies and immediate impact assessment for Quality modules.</strong></li>
 </ul>
+
+<h4>Scenario D: Labelling Impact Assessment (Impact)</h4>
+<p><strong>Context:</strong> A health authority asks the company to strengthen the liver-injury warning in section 4.4 of the SmPC for one product in a therapy area where several products share the same company core data sheet.</p>
+<ul>
+    <li><strong>Old Way:</strong> The labelling team reads the PDF question, then searches manually for every document that might be affected: the package leaflet, the artwork, the company core data sheet, and the labelling of sister products in other markets. Impact assessment takes days, and a downstream document is easily missed.</li>
+    <li><strong>RTQ Way:</strong> The question carries the category code <code>1.3.1</code> (SmPC, Labelling and Package Leaflet) and a reference to the exact ePI <code>Composition</code> section it concerns. The company's labelling system uses these to list the affected content immediately: downstream, the matching package leaflet section and the artwork; upstream, the company core data sheet and every other product and market that shares it. The team decides on one coordinated change instead of a series of separate fixes. <strong>Result: Impact assessed in minutes and consistent safety wording across products.</strong></li>
+</ul>
+<p><em>The impact analysis itself is an application feature; RTQ supplies the category codes and content references that make it possible.</em></p>
 
 <h4>Future Potential: Pull-Through to Operations</h4>
 <p>Once an RTQ response is approved (for example, a shelf-life extension), the structured outcome could be pulled through to clinical and manufacturing settings using automated notifications and triggers, keeping operational systems synchronized with regulatory status in near real time. The mechanics of such notifications live in the application layer, not in this specification, but the structured RTQ data is what makes them possible.</p>

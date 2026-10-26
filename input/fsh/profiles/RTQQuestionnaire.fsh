@@ -1,3 +1,23 @@
+Invariant: rtq-q-1
+Description: "Every question or group carries at least one category code (any code other than an assessment outcome). Display items carry no codes."
+Expression: "type = 'display' or code.where(system != 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome').exists()"
+Severity: #error
+
+Invariant: rtq-q-2
+Description: "Every question must be answered (required = true), except a question the regulator has assessed as resolved in a follow-up round, which is closed and must have required = false."
+Expression: "type = 'display' or (code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome' and code = 'resolved').exists() implies required = false) and (code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome' and code = 'resolved').exists().not() implies required = true)"
+Severity: #error
+
+Invariant: rtq-q-3
+Description: "A question assessed as raising further questions is a group that carries the follow-up questions as child items."
+Expression: "code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome' and code = 'further-questions').exists() implies (type = 'group' and item.exists())"
+Severity: #error
+
+Invariant: rtq-q-4
+Description: "Assessment outcomes are only used in a follow-up question set, which must reference the response being assessed (rtq-in-response-to)."
+Expression: "item.repeat(item).code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome').exists() implies extension.where(url = 'http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-in-response-to').exists()"
+Severity: #error
+
 Extension: RTQItemReferenceExtension
 Id: rtq-item-reference
 Title: "RTQ Item Reference Extension"
@@ -22,6 +42,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * extension[regulatedContext] ^short = "Medicinal product / marketing authorisation this question set concerns"
 * extension[procedureIdentifier] ^short = "Regulator-assigned identifier of the regulatory procedure instance (e.g., procedure number, eCTD sequence)"
 * extension[dueDate] ^short = "Original and negotiated response due dates"
+* obeys rtq-q-4
 * extension[inResponseTo] ^short = "The prior response that triggered this follow-up question set (multi-round Q&A)"
 * meta 1.. MS
 * meta.versionId 1.. MS
@@ -179,38 +200,28 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * contact[receiver].telecom[phone].value 1..
 * item MS
 * item ^short = "Question in the regulatory questionnaire"
-* item.required 1..1 MS
-* item.required = true (exactly)
-* item.required ^short = "Always true: every question must be answered in the response"
-* item.required ^definition = "Fixed to true so that standard FHIR validation of a QuestionnaireResponse against this Questionnaire enforces that every question receives a response item. Where no substantive answer applies, the responder still provides an explicit answer (e.g., 'No response required.') or a cross-reference, so the regulator's system is never left with an unanswered question."
-* item.code 1..* MS
+* item.required MS
+* item.required ^short = "True for every open question; false only for a question assessed as resolved"
+* item.required ^definition = "Every question in an RTQ question set must be answered, so required is true. Standard FHIR validation of a QuestionnaireResponse against this Questionnaire then enforces that every question receives a response item. The single exception is a question re-issued in a follow-up round with the assessment outcome 'resolved': it is closed, no further answer is expected, and required is false (invariant rtq-q-2)."
+* item obeys rtq-q-1 and rtq-q-2 and rtq-q-3
 * item.extension contains RTQItemReferenceExtension named itemReference 0..* MS
 * item.extension[itemReference] ^short = "Supporting document(s) or referenced FHIR resource(s) for this question"
+* item.code MS
+* item.code from RtqQuestionCategoryVS (preferred)
+* item.code ^short = "Category code(s) (at least one) and, in a follow-up round, the regulator's assessment outcome"
+* item.code ^definition = "Category codes classify the question. At least one is required on every question or group (invariant rtq-q-1). Categories are regulator-defined: CTD section codes and the RTQ regulatory significance codes are the preferred terminologies, but a regulator may use its own code system, and product domains that do not use the CTD (e.g., medical devices) use the terminology that fits. A question may carry several categories (e.g., a CTD section and 'major-objection', or two CTD sections for a multidisciplinary question). In a follow-up round, the assessment slice records the regulator's conclusion on the previous response to this question."
+* item.code ^comment = "Display items carry no codes (FHIR invariant que-3)."
 * item.code ^slicing.discriminator.type = #value
 * item.code ^slicing.discriminator.path = "system"
 * item.code ^slicing.rules = #open
-* item.code ^short = "CTD section code(s) (required) and question category code (optional)"
-* item.code contains
-    ctd 1..* MS and
-    category 0..* MS
-* item.code[ctd] from $ctd-categories-full (extensible)
-* item.code[ctd] ^short = "CTD-based category code that classifies the regulatory topic of this question/group"
-* item.code[ctd] ^definition = "A required code from the RTQ CTD Categories CodeSystem (or an allowed extension of it) that identifies which section, subsection, or specific regulatory topic within a medicinal product dossier this questionnaire item pertains to. This enables precise mapping and automated routing in regulatory processes."
-* item.code[ctd] ^comment = "Examples: '2-3-s-4-2' = Nonclinical Overview, '3-2-p-5-3' = Microbiological quality control, etc. The granularity of the CodeSystem follows the CTD section hierarchy; implementers who need finer granularity are invited to propose additional codes for inclusion (see Terminology page)."
-* item.code[ctd] ^binding.description = "Codes from the full CTD hierarchy as defined in the RTQ CTD Categories CodeSystem. Additional codes beyond the standard CTD structure may be defined locally or in future versions of the CodeSystem when new regulatory topics are required."
-* item.code[ctd].system 1.. MS
-* item.code[ctd].system = "http://hl7.org/fhir/uv/rtq/CodeSystem/ctd-categories-full" (exactly)
-* item.code[ctd].code 1.. MS
-* item.code[ctd].code ^short = "CTD section/subsection code (e.g., 2-3-s-4-2-1)"
-* item.code[ctd].display 1.. MS
-* item.code[ctd].display ^short = "Human-readable title of the CTD category"
-* item.code[category] from RtqQuestionCategoryVS (extensible)
-* item.code[category] ^short = "Regulatory significance of the question (e.g., major-objection, minor-concern, commitment)"
-* item.code[category] ^definition = "An optional additional coding classifying the regulatory significance of the question. Regulators are encouraged to adopt these categories as preferred terms for international alignment. Items coded 'commitment' are intended to be tracked as post-approval commitments via linked Task/Flag resources (see Lifecycle page)."
-* item.code[category].system 1.. MS
-* item.code[category].system = "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-question-category" (exactly)
-* item.code[category].code 1.. MS
-* item.code[category].display 1.. MS
+* item.code ^slicing.description = "The assessment slice is identified by its fixed system. All other codings on the item are category codes."
+* item.code contains assessment 0..1 MS
+* item.code[assessment] from RtqAssessmentOutcomeVS (required)
+* item.code[assessment] ^short = "Regulator's assessment of the previous response: resolved | not-resolved | further-questions"
+* item.code[assessment] ^definition = "Used only when a question is re-issued in a follow-up question set (which references the assessed response via rtq-in-response-to). 'resolved' closes the question (required = false); 'not-resolved' keeps it open (required = true); 'further-questions' makes the item a group whose child items are the follow-up questions."
+* item.code[assessment].system 1.. MS
+* item.code[assessment].system = "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome" (exactly)
+* item.code[assessment].code 1.. MS
 * item.text 1.. MS
 * item.text.extension ^slicing.discriminator.type = #value
 * item.text.extension ^slicing.discriminator.path = "url"

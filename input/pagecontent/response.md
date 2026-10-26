@@ -75,6 +75,11 @@ The following table maps the business requirements of a regulatory response to t
       <td style="padding: 8px; border: 1px solid #ddd;">The answer text. <strong>Requires</strong> the <code>rendering-xhtml</code> extension for formatted content like tables or lists.</td>
     </tr>
     <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;"><code>item.extension</code> (commitment)</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">0..1</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">Commitment offered by the company in this answer: a description and an optional due date. The regulator accepts it through the assessment outcome in the next round. See <a href="lifecycle.html#commitments-and-follow-up-measures">Lifecycle &amp; Versioning</a>.</td>
+    </tr>
+    <tr>
       <td style="padding: 8px; border: 1px solid #ddd;"><code>item.answer.valueReference</code></td>
       <td style="padding: 8px; border: 1px solid #ddd;">0..*</td>
       <td style="padding: 8px; border: 1px solid #ddd;">Reference to supporting documents using the <strong>RTQ DocumentReference</strong> profile, or directly to FHIR resources such as an ePI <code>Bundle</code>, <code>Composition</code>, or <code>MedicinalProductDefinition</code>.</td>
