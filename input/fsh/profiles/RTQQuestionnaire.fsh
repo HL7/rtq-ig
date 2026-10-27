@@ -44,6 +44,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
     RtqRegulatorySubjectExtension named regulatorySubject 0..* MS and
     RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS
 * extension[regulatorySubject] ^short = "Products, devices, authorisations and organisations the question set is about (one occurrence per subject)"
+* extension[regulatorySubject] ^definition = "One occurrence per subject the question set is about. Each occurrence has three parts, defined in the RTQ Regulatory Subject extension (rtq-regulatory-subject): product (0..1, a MedicinalProductDefinition or DeviceDefinition, or an identifier such as an MPID), authorization (0..*, a RegulatedAuthorization, or an identifier such as a marketing authorisation number), and organization (0..*, an Organization such as a manufacturer or site, or an identifier). Repeat the extension for each product so each product stays paired with its own authorisations."
 * extension[procedureIdentifier] ^short = "Regulator-assigned identifier of the regulatory procedure instance (e.g., procedure number, eCTD sequence)"
 * obeys rtq-q-4
 * meta 1.. MS
