@@ -43,5 +43,5 @@ Usage: #example
 * item[=].item[=].answer[+].valueString = "The N-oxide is a major human metabolite, so it is qualified at the proposed limit of 0.15% per ICH Q3B(R2). To confirm this, SynthPharma commits to a 13-week repeat-dose toxicity study on the isolated N-oxide."
 * item[=].item[=].answer[=].valueString.extension[+].url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"
 * item[=].item[=].answer[=].valueString.extension[=].valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The N-oxide is a major human metabolite, so it is qualified at the proposed limit of 0.15% per ICH Q3B(R2). To confirm this, SynthPharma commits to a 13-week repeat-dose toxicity study on the isolated N-oxide.</p></div>"
-* item[=].item[=].extension[commitment].extension[description].valueMarkdown = "Complete a 13-week repeat-dose toxicity study on the isolated N-oxide degradation product and submit the study report."
-* item[=].item[=].extension[commitment].extension[dueDate].valueDate = "2026-09-30"
+* item[=].item[=].extension[RtqCommitmentExtension].extension[description].valueMarkdown = "Complete a 13-week repeat-dose toxicity study on the isolated N-oxide degradation product and submit the study report."
+* item[=].item[=].extension[RtqCommitmentExtension].extension[dueDate].valueDate = "2026-09-30"
