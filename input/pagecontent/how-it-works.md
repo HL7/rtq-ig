@@ -11,7 +11,7 @@ When a health authority has questions about a submission, it sends a structured 
     <div class="rtq-part a">
       <div class="k">A · Question set metadata</div>
       <strong>ID001</strong> · version 1.0 · List of Questions · issued 2025-11-11<br/>
-      Due 2025-12-11 <span style="color:#6b7280">(negotiated dates can be added)</span><br/>
+      Respond by 2025-12-11 <span style="color:#6b7280">(the regulator can extend the deadline)</span><br/>
       Procedure NRA/H/C/005432/II/0023 · product MPID-EX-000123
     </div>
     <div class="rtq-part b">
@@ -40,7 +40,7 @@ When a health authority has questions about a submission, it sends a structured 
     </div>
   </div>
   <div class="rtq-labels">
-    <div class="rtq-lab"><div class="dot" style="background:#2563eb">A</div><div><div class="h">Metadata</div><p>A unique ID, version, type, issue date, and due date, with any negotiated extensions. The procedure number and the product or marketing authorization concerned let the company's system file it against the right records automatically.</p></div></div>
+    <div class="rtq-lab"><div class="dot" style="background:#2563eb">A</div><div><div class="h">Metadata</div><p>A unique ID, version, and type, and the response window: the issue date and the deadline, which the regulator can extend. The procedure number and the product or marketing authorization concerned let the company's system file it against the right records automatically.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#16a34a">B</div><div><div class="h">Cover letter, built in</div><p>A rich-text field inside the question set carries the cover letter content: context, instructions, and overall comments, with tables, lists, and other formatting. <strong>No separate cover letter document is needed</strong>: the question set is self-contained.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#ca8a04">C</div><div><div class="h">Sender &amp; recipient</div><p>The authority and the MAH or applicant, each with contact details. One question set goes to one company.</p></div></div>
     <div class="rtq-lab"><div class="dot" style="background:#9333ea">D</div><div><div class="h">Questions</div><p>Each question is a discrete item with a unique <strong>linkId</strong>, one or more <strong>category tags</strong> set by the regulator (for example a CTD section and "major objection"), rich-text wording, and optional attachments or references to existing content such as the ePI.</p></div></div>

@@ -8,7 +8,7 @@ The **RTQ Questionnaire** profile defines a regulatory question set: the cover l
     <ul class="rtq-check">
       <li><code>meta.profile</code> set to the RTQ Questionnaire profile</li>
       <li>A canonical <code>url</code>, a regulator-issued identifier, and a business <code>version</code></li>
-      <li><code>status</code>, issue <code>date</code>, and the cover letter as rich text in <code>text</code></li>
+      <li><code>status</code>, issue <code>date</code>, the response window in <code>effectivePeriod</code> (issue date and deadline), and the cover letter as rich text in <code>text</code></li>
       <li>A questionnaire type in <code>code</code> and <code>subjectType</code> (e.g., MedicinalProductDefinition)</li>
       <li>Two contacts, sender and recipient, each with a name, email, and (recipient) phone</li>
       <li>One <code>item</code> per question: unique <code>linkId</code>, at least one category code, <code>required = true</code>, and the question text</li>
@@ -26,7 +26,7 @@ The **RTQ Questionnaire** profile defines a regulatory question set: the cover l
   </div>
 </div>
 
-Everything beyond the minimum, such as product and procedure context, due dates, and attachments, is optional but Must-Support: systems that have the information populate it, and receiving systems use it when present.
+Everything beyond the minimum, such as product and procedure context and attachments, is optional but Must-Support: systems that have the information populate it, and receiving systems use it when present.
 
 <div class="rtq-sec" id="key-elements">Key elements</div>
 
@@ -43,7 +43,7 @@ Everything beyond the minimum, such as product and procedure context, due dates,
     <tr class="grp"><td colspan="3">Context and dates</td></tr>
     <tr><td><code>extension</code> (procedureIdentifier)</td><td>0..1</td><td>Regulator-assigned procedure number, e.g., <code>NRA/H/C/005432/II/0023</code>. The same number groups every round.</td></tr>
     <tr><td><code>extension</code> (regulatedContext)</td><td>0..1</td><td>The product and marketing authorization concerned, as a reference (<code>MedicinalProductDefinition</code>, <code>RegulatedAuthorization</code>) or an identifier (e.g., MPID, MA number).</td></tr>
-    <tr><td><code>extension</code> (dueDate)</td><td>0..1</td><td>Original due date plus any negotiated due dates; the latest negotiated date is current. Omitted on a closing question set.</td></tr>
+    <tr><td><code>effectivePeriod</code></td><td>1..1</td><td>Response window. <code>start</code> (required) is the issue date; <code>end</code> is the deadline for the response. A new agreed deadline updates <code>end</code>; earlier deadlines stay in the version history. A closing question set has no <code>end</code>.</td></tr>
     <tr><td><code>extension</code> (inResponseTo)</td><td>0..1</td><td>Follow-up rounds: the response this question set assesses.</td></tr>
     <tr><td><code>subjectType</code></td><td>1..*</td><td>Resource type the questions are about, normally <code>MedicinalProductDefinition</code>.</td></tr>
     <tr class="grp"><td colspan="3">Parties</td></tr>

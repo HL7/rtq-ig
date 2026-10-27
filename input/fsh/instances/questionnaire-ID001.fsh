@@ -10,7 +10,6 @@ Usage: #example
 * identifier[=].type = $rtq-identifier-type#regulator-id "Regulator-issued Identifier"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.value = "NRA/H/C/005432/II/0023"
-* extension[RtqDueDateExtension].extension[originalDueDate].valueDate = "2025-12-11"
 * extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.system = "https://example-nra.example.org/product-id"
 * extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.value = "MPID-EX-000123"
 * extension[RtqRegulatedContextExtension].extension[authorization].valueIdentifier.system = "https://example-nra.example.org/marketing-authorisation-number"
@@ -22,6 +21,8 @@ Usage: #example
 * subjectType = #MedicinalProductDefinition
 * code = $rtq-questionnaire-type-cs#list-of-questions "List of Questions"
 * date = "2025-11-11"
+* effectivePeriod.start = "2025-11-11"
+* effectivePeriod.end = "2025-12-11"
 // * contact[+].purpose.coding.system = "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose"
 // * contact[=].purpose.coding.code = "SENDER"
 // * contact[=].purpose.coding.display = "Sender (Health Authority)"

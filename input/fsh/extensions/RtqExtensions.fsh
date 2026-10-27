@@ -4,7 +4,6 @@
 //  - rtq-contact-purpose:       machine-readable sender/receiver discrimination
 //  - rtq-regulated-context:     link a question set to the product / authorisation
 //  - rtq-procedure-identifier:  link a question set to the regulatory procedure
-//  - rtq-due-date:              canonical due-date model (original + negotiated)
 //  - rtq-response-version:      business version of a response (R5 QuestionnaireResponse
 //                               has no native version element)
 //  - rtq-in-response-to:        thread a follow-up question set to the prior response
@@ -57,25 +56,6 @@ Context: Questionnaire, QuestionnaireResponse
 * ^date = "2026-08-08"
 * value[x] only Identifier
 * valueIdentifier 1..1 MS
-
-Extension: RtqDueDateExtension
-Id: rtq-due-date
-Title: "RTQ Response Due Date"
-Description: "Canonical due-date model for a question set: the original due date assigned by the regulator, plus zero or more negotiated due dates agreed subsequently. The current due date is the most recent negotiatedDueDate, or the originalDueDate when no extension has been negotiated. Whether a response is late is derivable by comparing the response's authored date to the current due date; reminders and escalations are application-layer behaviour."
-Context: Questionnaire
-* ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-due-date"
-* ^version = "0.2.0"
-* ^status = #draft
-* ^experimental = true
-* ^date = "2026-08-08"
-* value[x] 0..0
-* extension contains
-    originalDueDate 1..1 MS and
-    negotiatedDueDate 0..* MS
-* extension[originalDueDate] ^short = "Original due date assigned by the regulator"
-* extension[originalDueDate].value[x] only date
-* extension[negotiatedDueDate] ^short = "Subsequently negotiated due date (latest one is current)"
-* extension[negotiatedDueDate].value[x] only date
 
 Extension: RtqResponseVersionExtension
 Id: rtq-response-version

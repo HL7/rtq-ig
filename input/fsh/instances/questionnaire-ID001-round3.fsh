@@ -1,7 +1,7 @@
 Instance: questionnaire-ID001-round3
 InstanceOf: Questionnaire
 Title: "Closing Question Set ID001-R3 (all questions resolved)"
-Description: "Round 3 of the example thread. Every question, including the round-2 follow-up questions, is marked resolved, so this question set closes the dialogue: no response is expected and no due date is given. It also accepts the commitment offered on quality-4.2."
+Description: "Round 3 of the example thread. Every question, including the round-2 follow-up questions, is marked resolved, so this question set closes the dialogue: no response is expected, so the response window has a start and no end. It also accepts the commitment offered on quality-4.2."
 Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2026-01-12T09:00:00Z"
@@ -24,6 +24,7 @@ Usage: #example
 * subjectType = #MedicinalProductDefinition
 * code = $rtq-questionnaire-type-cs#list-of-questions "List of Questions"
 * date = "2026-01-12"
+* effectivePeriod.start = "2026-01-12"
 * contact[+].extension[RtqContactPurposeExtension].valueCoding = $contact-purpose#SENDER "Sender (Health Authority)"
 * contact[=].name = "National Regulatory Authority"
 * contact[=].telecom[+].system = #email

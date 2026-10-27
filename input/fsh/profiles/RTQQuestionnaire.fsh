@@ -43,11 +43,9 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * extension contains
     RtqRegulatedContextExtension named regulatedContext 0..1 MS and
     RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS and
-    RtqDueDateExtension named dueDate 0..1 MS and
     RtqInResponseToExtension named inResponseTo 0..1 MS
 * extension[regulatedContext] ^short = "Medicinal product / marketing authorisation this question set concerns"
 * extension[procedureIdentifier] ^short = "Regulator-assigned identifier of the regulatory procedure instance (e.g., procedure number, eCTD sequence)"
-* extension[dueDate] ^short = "Original and negotiated response due dates"
 * obeys rtq-q-4
 * extension[inResponseTo] ^short = "The prior response that triggered this follow-up question set (multi-round Q&A)"
 * meta 1.. MS
@@ -76,6 +74,14 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * version ^short = "Business version of the question set (e.g., 1.0). An amended question set is issued as a new version linked via derivedFrom."
 * derivedFrom MS
 * derivedFrom ^short = "Canonical reference to the question set this one amends or supersedes"
+* effectivePeriod 1.. MS
+* effectivePeriod ^short = "Response window: from issue (start) to the deadline for the response (end)"
+* effectivePeriod ^definition = "The period in which the recipient is to respond to this question set. start is the date the question set is issued; end is the current deadline for the response. If a new deadline is agreed, the regulator updates end; earlier deadlines remain in the resource's version history (meta.versionId). A response is late if its authored date is after end. A closing question set, in which every question is resolved, has a start and no end."
+* effectivePeriod ^comment = "Used here as the response window. It does not mean the question set expires after end: a late response is still a valid response."
+* effectivePeriod.start 1.. MS
+* effectivePeriod.start ^short = "Date the question set is issued"
+* effectivePeriod.end MS
+* effectivePeriod.end ^short = "Deadline for the response (absent on a closing question set)"
 * text 1.. MS
 * text ^short = "Cover letter: rich-text content of the question set"
 * text ^definition = "The cover letter of the question set, as rich text (XHTML): context, instructions, and overall comments. Use text.status = additional. No separate cover letter document is needed."

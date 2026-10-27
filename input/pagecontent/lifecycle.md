@@ -31,7 +31,7 @@ Regulatory Q&amp;A is iterative: an answer is accepted, sent back, or raises new
   <div class="rtq-card soft"><div class="t">Closure is computed</div><p>The dialogue is closed when every question in the latest question set is resolved.</p></div>
 </div>
 
-Each round has its own due date. If the company and the regulator agree an extension, the regulator adds it as a negotiated due date (`rtq-due-date`); the latest negotiated date is the current one.
+Each round has its own response window in `effectivePeriod`: `start` is the issue date and `end` is the deadline. If the company and the regulator agree a new deadline, the regulator updates `end`; earlier deadlines remain in the question set's version history. A response is late if it is authored after `end`.
 
 <div class="rtq-sec" id="identifiers-and-versioning">Identifiers and versioning</div>
 
@@ -95,7 +95,7 @@ Tracking and fulfilling a commitment after the exchange, often much later and th
 
 <div class="rtq-sec" id="closing-the-dialogue">Closing the dialogue</div>
 
-There is no separate "resolved" flag on the question set. **A question set in which every question, including every follow-up question, is marked `resolved` closes the dialogue for that procedure.** Resolved questions are not required, so the closing set needs no response, and it normally carries no due date. Because closure is computed from the questions, it can never contradict them, and `Questionnaire.status` keeps its standard FHIR meaning.
+There is no separate "resolved" flag on the question set. **A question set in which every question, including every follow-up question, is marked `resolved` closes the dialogue for that procedure.** Resolved questions are not required, so the closing set needs no response, and its response window has a start and no end. Because closure is computed from the questions, it can never contradict them, and `Questionnaire.status` keeps its standard FHIR meaning.
 
 The regulator still sends the closing set; without it, the company could not tell "closed" from "not yet assessed".
 

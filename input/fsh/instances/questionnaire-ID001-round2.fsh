@@ -12,7 +12,6 @@ Usage: #example
 * identifier[=].type = $rtq-identifier-type#regulator-id "Regulator-issued Identifier"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.value = "NRA/H/C/005432/II/0023"
-* extension[RtqDueDateExtension].extension[originalDueDate].valueDate = "2025-12-31"
 * extension[RtqInResponseToExtension].valueReference = Reference(questionnaireresponse-ID001)
 * extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.system = "https://example-nra.example.org/product-id"
 * extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.value = "MPID-EX-000123"
@@ -25,6 +24,8 @@ Usage: #example
 * subjectType = #MedicinalProductDefinition
 * code = $rtq-questionnaire-type-cs#list-of-questions "List of Questions"
 * date = "2025-12-01"
+* effectivePeriod.start = "2025-12-01"
+* effectivePeriod.end = "2025-12-31"
 * contact[+].extension[RtqContactPurposeExtension].valueCoding = $contact-purpose#SENDER "Sender (Health Authority)"
 * contact[=].name = "National Regulatory Authority"
 * contact[=].telecom[+].system = #email
