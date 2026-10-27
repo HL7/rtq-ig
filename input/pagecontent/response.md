@@ -10,7 +10,7 @@ The **RTQ QuestionnaireResponse** profile defines the response a marketing autho
       <li>Both identifiers: your own response ID and the regulator's question set ID, and the <code>language</code></li>
       <li><code>questionnaire</code>: the canonical URL of the question set being answered</li>
       <li><code>status</code>, <code>authored</code> date, and the cover letter as rich text in <code>text</code></li>
-      <li><code>author</code> and <code>source</code>: your organization (the MAH or applicant)</li>
+      <li><code>author</code>: your organization (the MAH or applicant)</li>
       <li>One answer item for every open question, matched by <code>linkId</code></li>
     </ul>
   </div>
@@ -33,14 +33,15 @@ The **RTQ QuestionnaireResponse** profile defines the response a marketing autho
     <tr class="grp"><td colspan="3">Identity, version, and context</td></tr>
     <tr><td><code>identifier</code></td><td>2..2</td><td>Both mandatory: <code>company-id</code> (your ID for the response) and <code>regulator-id</code> (echoed from the question set).</td></tr>
     <tr><td><code>language</code></td><td>1..1</td><td>Language of the response, as a BCP 47 code (e.g., <code>en</code>, <code>fr</code>, <code>de</code>).</td></tr>
-    <tr><td><code>questionnaire</code></td><td>1..1</td><td>Canonical URL of the question set being answered, including its round (e.g., ID001-R2).</td></tr>
+    <tr><td><code>questionnaire</code></td><td>1..1</td><td>The link back to the original question set this response answers (its canonical URL). Each answer matches a question in it by <code>linkId</code>. In a follow-up round, this is that round's question set (e.g., ID001-R2).</td></tr>
     <tr><td><code>extension</code> (responseVersion)</td><td>0..1</td><td>Business version, e.g., <code>1.0</code>. A supplement is a new version with status <code>amended</code>.</td></tr>
     <tr><td><code>extension</code> (procedureIdentifier)</td><td>0..1</td><td>The procedure number, echoed from the question set.</td></tr>
     <tr><td><code>subject</code></td><td>0..1</td><td>The product the response is about (e.g., a <code>MedicinalProductDefinition</code>). The full product and authorization context is on the question set.</td></tr>
     <tr><td><code>status</code></td><td>1..1</td><td><code>in-progress</code>, <code>completed</code>, <code>amended</code>, <code>stopped</code>, or <code>entered-in-error</code>.</td></tr>
     <tr><td><code>authored</code></td><td>1..1</td><td>Date the response was finalized.</td></tr>
     <tr><td><code>text</code></td><td>1..1</td><td>The cover letter, as rich text (<code>status = additional</code>). No separate cover letter document is needed.</td></tr>
-    <tr><td><code>author</code>, <code>source</code></td><td>1..1</td><td>The MAH or applicant that prepared and answered the response. The regulator is identified on the question set.</td></tr>
+    <tr><td><code>author</code></td><td>1..1</td><td>The MAH or applicant organization that prepared and submitted the response (<code>Organization</code> only). The regulator is identified on the question set.</td></tr>
+    <tr><td><code>source</code></td><td>0..1</td><td>Optional: the regulatory contact person who answered, as a <code>PractitionerRole</code> at the author organization. FHIR R5 does not allow an organization here.</td></tr>
     <tr class="grp"><td colspan="3">Answers</td></tr>
     <tr><td><code>item.linkId</code></td><td>1..1</td><td>The <code>linkId</code> of the question being answered. <strong>Every open question must have an answer</strong>; questions marked <code>resolved</code> need none.</td></tr>
     <tr><td><code>item.answer.valueString</code></td><td>0..*</td><td>The answer as text, with the <code>rendering-xhtml</code> extension on the string for tables, lists, and formatting. A group carries nested items instead; invariant <code>rtq-qr-1</code> requires one or the other. Where there is nothing substantive to say, answer explicitly (e.g., "No response required.").</td></tr>

@@ -35,7 +35,7 @@ Each round has its own response window in `effectivePeriod`: `start` is the issu
 
 <div class="rtq-sec" id="identifiers-and-versioning">Identifiers and versioning</div>
 
-The `company` and `regulator` **identifiers identify the documents**, not the organizations. The parties are identified by the contacts on the question set and by `author`/`source` on the response.
+The `company` and `regulator` **identifiers identify the documents**, not the organizations. The parties are identified by the contacts on the question set and by `author` on the response.
 
 - **Question set:** the regulator's identifier is mandatory; the company may add its own tracking number.
 - **Response:** both identifiers are mandatory. The company identifies its response with its own ID and echoes the regulator's ID.

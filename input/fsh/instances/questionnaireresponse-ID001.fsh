@@ -21,8 +21,6 @@ Usage: #example
 * subject = Reference(MedicinalProductDefinition/MedicinalProduct-ExampleDrug) "ExampleDrug 10 mg Tablets"
 * author.type = "Organization"
 * author = Reference(org-mah) "SynthPharma AG"
-* source.type = "Organization"
-* source = Reference(org-mah) "SynthPharma AG"
 * authored = "2025-11-18T14:00:00+02:00"
 * text.status = #additional
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><p>Dear National Regulatory Authority,</p><p>Please find enclosed the responses of SynthPharma AG to the List of Questions ID001 for procedure NRA/H/C/005432/II/0023. All ten questions are answered, with supporting documents attached where applicable. In response to question quality-1, SynthPharma commits to submit 48-month long-term stability data by 30 June 2027.</p><p>SynthPharma AG, Global Regulatory Strategy</p></div>"

@@ -42,7 +42,7 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
     company 1..1 MS and
     regulator 1..1 MS
 * identifier[company] ^short = "Company-assigned identifier (mandatory: the responding company must identify its response)"
-* identifier[company] ^definition = "Identifier assigned by the responding marketing authorisation holder/applicant to this response. Mandatory so that the response is always unambiguously identified by its author. Note that identifiers identify the artifacts (question set and response documents), not the organizations; the responding organization itself is identified by the required source element."
+* identifier[company] ^definition = "Identifier assigned by the responding marketing authorisation holder/applicant to this response. Mandatory so that the response is always unambiguously identified by its author. Note that identifiers identify the artifacts (question set and response documents), not the organizations; the responding organization itself is identified by the required author element."
 * identifier[company].type.coding 1..1
 * identifier[company].type.coding = RtqIdentifierTypeCS#company-id "Company-issued Identifier" (exactly)
 * identifier[company].type.coding ^short = "Company identifier type"
@@ -51,12 +51,13 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * identifier[regulator].type.coding = RtqIdentifierTypeCS#regulator-id "Regulator-issued Identifier" (exactly)
 * identifier[regulator].type.coding ^short = "Regulator identifier type"
 * author 1..1 MS
-* author only Reference
+* author only Reference(Organization)
 * author ^short = "MAH/applicant organization that authored the response"
 * author ^definition = "The marketing authorisation holder or applicant organization that prepared and submitted this response. The regulator is identified on the Questionnaire this response answers, not here."
-* source 1..1 MS
-* source only Reference
-* source ^short = "MAH/applicant that answered the questions (usually the same organization as author)"
+* source MS
+* source only Reference(PractitionerRole)
+* source ^short = "Regulatory contact at the MAH/applicant who answered the questions (optional)"
+* source ^definition = "The person at the marketing authorisation holder or applicant responsible for the answers, as a PractitionerRole whose organization is the author. FHIR R5 does not allow an Organization here; the responding organization is identified by author."
 * item obeys rtq-qr-1
 * item ^comment = "Every open question in the referenced Questionnaire must be represented by a response item with the matching linkId. Because the RTQ Questionnaire sets item.required to true on every open question, standard FHIR validation of this response against its Questionnaire enforces completeness; rtq-qr-1 additionally guarantees that no reported item is empty. Where no substantive answer applies, provide an explicit answer such as 'No response required.' or a cross-reference."
 * item.extension contains
@@ -78,7 +79,8 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * subject ^comment = "The full product and marketing authorisation context is carried on the question set this response answers (rtq-regulatory-subject)."
 * questionnaire 1..1 MS
 * questionnaire only Canonical(RTQQuestionnaire)
-* questionnaire ^short = "Original questionnaire set"
+* questionnaire ^short = "Link back to the original question set this response answers"
+* questionnaire ^definition = "Canonical URL of the RTQ Questionnaire (question set) this response answers. This is the link back to the original questions: each response item answers the question with the same linkId in that question set. In a follow-up round, it points to that round's question set (e.g., ID001-R2)."
 * text 1..1 MS
 * text ^short = "Cover letter: rich-text content of the response"
 * text ^definition = "The cover letter of the response, as rich text (XHTML): introduction, overall remarks, and cross-references. Use text.status = additional. No separate cover letter document is needed."
