@@ -25,23 +25,27 @@ Context: Questionnaire.contact
 Extension: RtqRegulatorySubjectExtension
 Id: rtq-regulatory-subject
 Title: "RTQ Regulatory Subject"
-Description: "The regulated product and/or marketing authorisation a question set is about, so receiving systems (e.g., RIM systems) can automatically file it against the correct product and registration record. Questionnaire.subjectType only states the kind of subject (e.g., MedicinalProductDefinition); this extension identifies the actual product and authorisation. Each sub-extension accepts either a Reference (for parties operating FHIR product registries) or an Identifier (e.g., an MPID or marketing authorisation number) for parties that do not."
+Description: "A regulated subject the question set is about, so receiving systems (e.g., RIM systems) can automatically file it against the right records. Questionnaire.subjectType only states the kinds of subject (e.g., MedicinalProductDefinition, DeviceDefinition); this extension identifies the actual ones. Repeat the extension for each subject: each occurrence describes one product (medicinal product or device) with its marketing authorisation(s) and any related organisations (e.g., a manufacturer). Each part accepts either a Reference (for parties with FHIR registries) or an Identifier (e.g., an MPID, a marketing authorisation number, or an organisation ID) for parties without."
 Context: Questionnaire
 * ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-regulatory-subject"
 * ^version = "0.2.0"
 * ^status = #draft
 * ^experimental = true
-* ^date = "2026-08-08"
+* ^date = "2026-10-26"
 * value[x] 0..0
 * extension contains
-    product 0..* MS and
-    authorization 0..* MS
-* extension[product] ^short = "Medicinal product concerned"
-* extension[product] ^definition = "The medicinal product this question set is about, as a Reference to a MedicinalProductDefinition or as an Identifier (e.g., MPID, local product code)."
-* extension[product].value[x] only Reference(MedicinalProductDefinition) or Identifier
-* extension[authorization] ^short = "Marketing authorisation / registration concerned"
-* extension[authorization] ^definition = "The marketing authorisation or registration this question set is about, as a Reference to a RegulatedAuthorization or as an Identifier (e.g., marketing authorisation number)."
+    product 0..1 MS and
+    authorization 0..* MS and
+    organization 0..* MS
+* extension[product] ^short = "Medicinal product or device the questions are about"
+* extension[product] ^definition = "The medicinal product or device this subject describes, as a Reference to a MedicinalProductDefinition or DeviceDefinition, or as an Identifier (e.g., MPID, device identifier, local product code)."
+* extension[product].value[x] only Reference(MedicinalProductDefinition or DeviceDefinition) or Identifier
+* extension[authorization] ^short = "Marketing authorisation or registration of the product"
+* extension[authorization] ^definition = "A marketing authorisation or registration of this product that the questions concern, as a Reference to a RegulatedAuthorization or as an Identifier (e.g., marketing authorisation number)."
 * extension[authorization].value[x] only Reference(RegulatedAuthorization) or Identifier
+* extension[organization] ^short = "Related organisation (e.g., manufacturer, site)"
+* extension[organization] ^definition = "An organisation the questions concern for this subject, such as a manufacturer or manufacturing site, as a Reference to an Organization or as an Identifier (e.g., an organisation or site ID)."
+* extension[organization].value[x] only Reference(Organization) or Identifier
 
 Extension: RtqProcedureIdentifierExtension
 Id: rtq-procedure-identifier

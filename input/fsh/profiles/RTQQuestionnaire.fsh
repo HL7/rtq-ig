@@ -41,9 +41,9 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * ^experimental = true
 * ^date = "2026-10-26"
 * extension contains
-    RtqRegulatorySubjectExtension named regulatorySubject 0..1 MS and
+    RtqRegulatorySubjectExtension named regulatorySubject 0..* MS and
     RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS
-* extension[regulatorySubject] ^short = "The product and/or marketing authorisation this question set is about"
+* extension[regulatorySubject] ^short = "Products, devices, authorisations and organisations the question set is about (one occurrence per subject)"
 * extension[procedureIdentifier] ^short = "Regulator-assigned identifier of the regulatory procedure instance (e.g., procedure number, eCTD sequence)"
 * obeys rtq-q-4
 * meta 1.. MS
@@ -73,9 +73,9 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * identifier[regulator].type.coding = RtqIdentifierTypeCS#regulator-id "Regulator-issued Identifier" (exactly)
 * version 1.. MS
 * version ^short = "Business version of the question set (e.g., 1.0). An amended question set is issued as a new version linked via derivedFrom."
-* derivedFrom ..1 MS
-* derivedFrom ^short = "The question set this one follows on from (previous round) or amends (earlier version)"
-* derivedFrom ^definition = "Canonical reference, with version, to the question set this one is based on. A follow-up round has a new url and derives from the previous round's question set; the response it assesses is the response to that question set. An amendment keeps the same url with a new version and derives from the version it replaces, which is retired."
+* derivedFrom MS
+* derivedFrom ^short = "The question set(s) this one follows on from (previous round) or amends (earlier version)"
+* derivedFrom ^definition = "Canonical reference, with version, to the question set this one is based on. A follow-up round has a new url and derives from the previous round's question set; the response it assesses is the response to that question set. A follow-up round that consolidates several earlier question sets derives from each of them. An amendment keeps the same url with a new version and derives from the version it replaces, which is retired."
 * effectivePeriod 1.. MS
 * effectivePeriod ^short = "Response window: from issue (start) to the deadline for the response (end)"
 * effectivePeriod ^definition = "The period in which the recipient is to respond to this question set. start is the date the question set is issued; end is the current deadline for the response. If a new deadline is agreed, the regulator updates end; earlier deadlines remain in the resource's version history (meta.versionId). A response is late if its authored date is after end. A closing question set, in which every question is resolved, has a start and no end."
@@ -88,7 +88,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * text ^short = "Cover letter: rich-text content of the question set"
 * text ^definition = "The cover letter of the question set, as rich text (XHTML): context, instructions, and overall comments. Use text.status = additional. No separate cover letter document is needed."
 * subjectType 1.. MS
-* subjectType ^short = "Resource type(s) the question set is about (e.g., MedicinalProductDefinition)"
+* subjectType ^short = "Kinds of subject the question set is about (e.g., MedicinalProductDefinition, DeviceDefinition, Organization)"
 * subjectType ^comment = "Per FHIR R5, subjectType is bound (required) to the ResourceType value set and must carry resource type codes. The regulatory template type of the question set (e.g., list-of-questions, information-request) is carried in Questionnaire.code; the procedure instance is carried in the rtq-procedure-identifier extension."
 * code 1..* MS
 * code from $rtq-questionnaire-type-vs (extensible)
