@@ -69,7 +69,7 @@
   <div class="ctx">An authority asks the company to strengthen the liver-injury warning in SmPC section 4.4 for one product in a therapy area where several products share the same company core data sheet.</div>
   <div class="rtq-ba">
     <div class="before"><div class="h">Today</div>The labelling team reads the PDF and searches by hand for every affected document: package leaflet, artwork, core data sheet, sister products in other markets. Days, and easy to miss one.</div>
-    <div class="after"><div class="h">With RTQ</div>The question carries category 1.3.1 and points to the exact ePI section. The company's labelling system lists the affected content at once: the leaflet section and artwork downstream, the core data sheet and every product sharing it upstream. One coordinated change.</div>
+    <div class="after"><div class="h">With RTQ</div>The question carries category 1.3.1 and an attachment that points to the product's ePI, with section 4.4 named. The company's labelling system lists the affected content at once: the leaflet section and artwork downstream, the core data sheet and every product sharing it upstream. One coordinated change.</div>
   </div>
   <span class="rtq-pill">Impact assessed in minutes</span>
 </div>

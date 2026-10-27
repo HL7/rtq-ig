@@ -14,21 +14,21 @@ Expression: "code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-asse
 Severity: #error
 
 Invariant: rtq-q-4
-Description: "Assessment outcomes are only used in a follow-up question set, which must reference the response being assessed (rtq-in-response-to)."
-Expression: "repeat(item).code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome').exists() implies extension.where(url = 'http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-in-response-to').exists()"
+Description: "Assessment outcomes are only used in a follow-up question set, which must reference the previous round's question set in derivedFrom."
+Expression: "repeat(item).code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome').exists() implies derivedFrom.exists()"
 Severity: #error
 
 Extension: RTQItemReferenceExtension
 Id: rtq-item-reference
 Title: "RTQ Item Reference"
-Description: "Supporting content for an individual question or answer: an RTQDocumentReference for attached documents, or existing FHIR content such as an ePI Bundle, a Composition (e.g., a section of the product information), or a MedicinalProductDefinition. Used on Questionnaire.item (supporting content for the question) and on QuestionnaireResponse.item (supporting content for the answer)."
+Description: "A supporting document for an individual question or answer, as an RTQ DocumentReference. All supporting content is handled the same way, including existing structured content such as an ePI: the DocumentReference attachment points to it (e.g., an ePI Bundle URL with contentType application/fhir+json). Used on Questionnaire.item (supporting content for the question) and on QuestionnaireResponse.item (supporting content for the answer)."
 Context: Questionnaire.item, QuestionnaireResponse.item
 * ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-item-reference"
 * ^version = "0.2.0"
 * ^status = #draft
 * ^experimental = true
 * ^date = "2026-10-26"
-* value[x] only Reference(RTQDocumentReference or Bundle or Composition or MedicinalProductDefinition)
+* value[x] only Reference(RTQDocumentReference)
 * valueReference 1..1 MS
 
 Profile: RTQQuestionnaire
@@ -41,18 +41,19 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * ^experimental = true
 * ^date = "2026-10-26"
 * extension contains
-    RtqRegulatedContextExtension named regulatedContext 0..1 MS and
-    RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS and
-    RtqInResponseToExtension named inResponseTo 0..1 MS
-* extension[regulatedContext] ^short = "Medicinal product / marketing authorisation this question set concerns"
+    RtqRegulatorySubjectExtension named regulatorySubject 0..1 MS and
+    RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS
+* extension[regulatorySubject] ^short = "The product and/or marketing authorisation this question set is about"
 * extension[procedureIdentifier] ^short = "Regulator-assigned identifier of the regulatory procedure instance (e.g., procedure number, eCTD sequence)"
 * obeys rtq-q-4
-* extension[inResponseTo] ^short = "The prior response that triggered this follow-up question set (multi-round Q&A)"
 * meta 1.. MS
 * meta.versionId 1.. MS
 * meta.lastUpdated 1.. MS
 * meta.profile 1..1 MS
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire" (exactly)
+* language 1.. MS
+* language ^short = "Language of the question set (e.g., en, fr, de)"
+* language ^definition = "The language of the question set content, as a BCP 47 code. Required so that receiving systems know which language the questions and cover letter are written in."
 * url 1.. MS
 * url ^short = "Canonical URL of this question set"
 * url ^definition = "Globally unique canonical URL of the question set. The response references it through QuestionnaireResponse.questionnaire, and an amended question set references the version it replaces through derivedFrom."
@@ -72,8 +73,9 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * identifier[regulator].type.coding = RtqIdentifierTypeCS#regulator-id "Regulator-issued Identifier" (exactly)
 * version 1.. MS
 * version ^short = "Business version of the question set (e.g., 1.0). An amended question set is issued as a new version linked via derivedFrom."
-* derivedFrom MS
-* derivedFrom ^short = "Canonical reference to the question set this one amends or supersedes"
+* derivedFrom ..1 MS
+* derivedFrom ^short = "The question set this one follows on from (previous round) or amends (earlier version)"
+* derivedFrom ^definition = "Canonical reference, with version, to the question set this one is based on. A follow-up round has a new url and derives from the previous round's question set; the response it assesses is the response to that question set. An amendment keeps the same url with a new version and derives from the version it replaces, which is retired."
 * effectivePeriod 1.. MS
 * effectivePeriod ^short = "Response window: from issue (start) to the deadline for the response (end)"
 * effectivePeriod ^definition = "The period in which the recipient is to respond to this question set. start is the date the question set is issued; end is the current deadline for the response. If a new deadline is agreed, the regulator updates end; earlier deadlines remain in the resource's version history (meta.versionId). A response is late if its authored date is after end. A closing question set, in which every question is resolved, has a start and no end."
@@ -235,7 +237,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * item.code contains assessment 0..1 MS
 * item.code[assessment] from RtqAssessmentOutcomeVS (required)
 * item.code[assessment] ^short = "Regulator's assessment of the previous response: resolved | not-resolved | further-questions"
-* item.code[assessment] ^definition = "Used only when a question is re-issued in a follow-up question set (which references the assessed response via rtq-in-response-to). 'resolved' closes the question (required = false); 'not-resolved' keeps it open (required = true); 'further-questions' makes the item a group whose child items are the follow-up questions."
+* item.code[assessment] ^definition = "Used only when a question is re-issued in a follow-up question set (which references the previous round's question set in derivedFrom; the assessed response is the response to that question set). 'resolved' closes the question (required = false); 'not-resolved' keeps it open (required = true); 'further-questions' makes the item a group whose child items are the follow-up questions."
 * item.code[assessment].system 1.. MS
 * item.code[assessment].system = "http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome" (exactly)
 * item.code[assessment].code 1.. MS

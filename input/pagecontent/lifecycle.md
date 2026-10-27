@@ -26,7 +26,7 @@ Regulatory Q&amp;A is iterative: an answer is accepted, sent back, or raises new
 
 <div class="rtq-grid rtq-g4">
   <div class="rtq-card soft"><div class="t">Same linkId every round</div><p>A question keeps its linkId from round to round, and follow-up questions extend it (quality-4 → quality-4.1).</p></div>
-  <div class="rtq-card soft"><div class="t">New question set per round</div><p>Each round is a new question set that points back to the response it assesses and carries the same procedure number.</p></div>
+  <div class="rtq-card soft"><div class="t">New question set per round</div><p>Each round is a new question set that derives from the previous round (<code>derivedFrom</code>) and carries the same procedure number.</p></div>
   <div class="rtq-card soft"><div class="t">Every open question answered</div><p>Only questions marked resolved need no answer. Nothing is left open by accident.</p></div>
   <div class="rtq-card soft"><div class="t">Closure is computed</div><p>The dialogue is closed when every question in the latest question set is resolved.</p></div>
 </div>
@@ -63,7 +63,7 @@ Assessment templates record a conclusion for every answer. RTQ carries that conc
 
 - repeats every question from the previous round with the same `linkId` and category codes;
 - adds an **assessment outcome** to each, in the `assessment` slice of `item.code` ([RTQ Assessment Outcome](CodeSystem-rtq-assessment-outcome.html));
-- points to the response it assesses with `rtq-in-response-to` and keeps the same procedure number.
+- derives from the previous round's question set (`derivedFrom`, including its version) and keeps the same procedure number. The response it assesses is the response to that question set: each question set has exactly one response.
 
 <table class="rtq-table">
   <thead><tr><th>Outcome</th><th>Meaning</th><th>How the question is structured</th></tr></thead>
@@ -122,7 +122,7 @@ The examples form one complete exchange for procedure NRA/H/C/005432/II/0023. Th
 **Amending a question set before it is answered** (adding, removing, or rewording questions) is different from a follow-up round:
 
 1. Issue a new version of the same question set (e.g., `2.0`) with the same procedure context.
-2. Point it at the version it replaces with `derivedFrom`.
+2. Point it at the version it replaces with `derivedFrom`, and keep the same `url`. (A follow-up round also uses `derivedFrom` but has a new `url`, which is how the two are told apart.)
 3. Retire the old version (`status = retired`); the new one is `active`.
 
 Keep `linkId`s stable for unchanged questions so draft answers carry forward.

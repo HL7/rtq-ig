@@ -6,17 +6,18 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2026-01-12T09:00:00Z"
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire"
+* language = #en
 * url = "http://hl7.org/fhir/uv/rtq/Questionnaire/questionnaire-ID001-round3"
 * identifier[+].system = "https://example-nra.example.org/question-set-id"
 * identifier[=].value = "ID001-R3"
 * identifier[=].type = $rtq-identifier-type#regulator-id "Regulator-issued Identifier"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.value = "NRA/H/C/005432/II/0023"
-* extension[RtqInResponseToExtension].valueReference = Reference(questionnaireresponse-ID001-round2)
-* extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.system = "https://example-nra.example.org/product-id"
-* extension[RtqRegulatedContextExtension].extension[product].valueIdentifier.value = "MPID-EX-000123"
-* extension[RtqRegulatedContextExtension].extension[authorization].valueIdentifier.system = "https://example-nra.example.org/marketing-authorisation-number"
-* extension[RtqRegulatedContextExtension].extension[authorization].valueIdentifier.value = "NRA/H/C/005432"
+* derivedFrom = "http://hl7.org/fhir/uv/rtq/Questionnaire/questionnaire-ID001-round2|1.0"
+* extension[RtqRegulatorySubjectExtension].extension[product].valueIdentifier.system = "https://example-nra.example.org/product-id"
+* extension[RtqRegulatorySubjectExtension].extension[product].valueIdentifier.value = "MPID-EX-000123"
+* extension[RtqRegulatorySubjectExtension].extension[authorization].valueIdentifier.system = "https://example-nra.example.org/marketing-authorisation-number"
+* extension[RtqRegulatorySubjectExtension].extension[authorization].valueIdentifier.value = "NRA/H/C/005432"
 * version = "1.0"
 * name = "BRRRegulatoryQAQuestionnaireRound3"
 * title = "Question Set ID001-R3"
@@ -37,7 +38,7 @@ Usage: #example
 * contact[=].telecom[=].value = "+41-61-123-4567"
 
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Dear SynthPharma AG,</p><p>Following our assessment of your responses SP-RTQ-2025-0163, all questions in this list are resolved, including the commitment you offered on question quality-4.2. No further response is required. The decision on the variation will be communicated separately.</p><p>National Regulatory Authority, Regulatory Affairs Division</p></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><p>Dear SynthPharma AG,</p><p>Following our assessment of your responses SP-RTQ-2025-0163, all questions in this list are resolved, including the commitment you offered on question quality-4.2. No further response is required. The decision on the variation will be communicated separately.</p><p>National Regulatory Authority, Regulatory Affairs Division</p></div>"
 * item[+].linkId = "admin-1"
 * item[=].code[+] = $ctd-categories-full#1 "Administrative Information and Prescribing Information"
 * item[=].code[+] = $example-nra-module-1#1.1 "Application Form"

@@ -7,7 +7,7 @@ The **RTQ Questionnaire** profile defines a regulatory question set: the cover l
     <div class="t">✓ Minimum to conform</div>
     <ul class="rtq-check">
       <li><code>meta.profile</code> set to the RTQ Questionnaire profile</li>
-      <li>A canonical <code>url</code>, a regulator-issued identifier, and a business <code>version</code></li>
+      <li>A canonical <code>url</code>, a regulator-issued identifier, a business <code>version</code>, and the <code>language</code></li>
       <li><code>status</code>, issue <code>date</code>, the response window in <code>effectivePeriod</code> (issue date and deadline), and the cover letter as rich text in <code>text</code></li>
       <li>A questionnaire type in <code>code</code> and <code>subjectType</code> (e.g., MedicinalProductDefinition)</li>
       <li>Two contacts, sender and recipient, each with a name, email, and (recipient) phone</li>
@@ -36,15 +36,16 @@ Everything beyond the minimum, such as product and procedure context and attachm
     <tr class="grp"><td colspan="3">Identity and version</td></tr>
     <tr><td><code>url</code></td><td>1..1</td><td>Canonical URL of the question set. The response points to it in <code>questionnaire</code>; an amended version points to the one it replaces in <code>derivedFrom</code>.</td></tr>
     <tr><td><code>identifier</code></td><td>1..2</td><td>Identifies the question set (not the organizations). <code>regulator-id</code> is mandatory; <code>company-id</code> is optional.</td></tr>
+    <tr><td><code>language</code></td><td>1..1</td><td>Language of the question set, as a BCP 47 code (e.g., <code>en</code>, <code>fr</code>, <code>de</code>).</td></tr>
     <tr><td><code>version</code></td><td>1..1</td><td>Business version, e.g., <code>1.0</code>. An amended question set is a new version linked by <code>derivedFrom</code>.</td></tr>
     <tr><td><code>code</code></td><td>1..*</td><td>Questionnaire type: <code>list-of-questions</code>, <code>information-request</code>, <code>deficiency-letter</code>, and others.</td></tr>
     <tr><td><code>date</code>, <code>status</code></td><td>1..1</td><td>Issue date and FHIR publication status.</td></tr>
     <tr><td><code>text</code></td><td>1..1</td><td>The cover letter, as rich text (<code>status = additional</code>). No separate cover letter document is needed.</td></tr>
     <tr class="grp"><td colspan="3">Context and dates</td></tr>
     <tr><td><code>extension</code> (procedureIdentifier)</td><td>0..1</td><td>Regulator-assigned procedure number, e.g., <code>NRA/H/C/005432/II/0023</code>. The same number groups every round.</td></tr>
-    <tr><td><code>extension</code> (regulatedContext)</td><td>0..1</td><td>The product and marketing authorization concerned, as a reference (<code>MedicinalProductDefinition</code>, <code>RegulatedAuthorization</code>) or an identifier (e.g., MPID, MA number).</td></tr>
+    <tr><td><code>extension</code> (regulatorySubject)</td><td>0..1</td><td>The product and marketing authorization the question set is about, as a reference (<code>MedicinalProductDefinition</code>, <code>RegulatedAuthorization</code>) or an identifier (e.g., MPID, MA number).</td></tr>
     <tr><td><code>effectivePeriod</code></td><td>1..1</td><td>Response window. <code>start</code> (required) is the issue date; <code>end</code> is the deadline for the response. A new agreed deadline updates <code>end</code>; earlier deadlines stay in the version history. A closing question set has no <code>end</code>.</td></tr>
-    <tr><td><code>extension</code> (inResponseTo)</td><td>0..1</td><td>Follow-up rounds: the response this question set assesses.</td></tr>
+    <tr><td><code>derivedFrom</code></td><td>0..1</td><td>The question set this one is based on, with version. A follow-up round (new <code>url</code>) derives from the previous round; the response it assesses is the response to that question set. An amendment (same <code>url</code>, new <code>version</code>) derives from the version it replaces.</td></tr>
     <tr><td><code>subjectType</code></td><td>1..*</td><td>Resource type the questions are about, normally <code>MedicinalProductDefinition</code>.</td></tr>
     <tr class="grp"><td colspan="3">Parties</td></tr>
     <tr><td><code>contact</code> (sender)</td><td>1..1</td><td>The issuing authority: name, email, and optionally phone.</td></tr>
@@ -56,6 +57,6 @@ Everything beyond the minimum, such as product and procedure context and attachm
     <tr><td><code>item.code</code> (assessment)</td><td>0..1</td><td>Follow-up rounds only: <code>resolved</code>, <code>not-resolved</code>, or <code>further-questions</code>. See <a href="lifecycle.html#assessment-of-responses">Lifecycle</a>.</td></tr>
     <tr><td><code>item.required</code></td><td>1..1</td><td><code>true</code> for every open question; <code>false</code> only for a question marked <code>resolved</code>.</td></tr>
     <tr><td><code>item.item</code></td><td>0..*</td><td>Nested items: parts of a multi-part question, follow-up questions under a <code>further-questions</code> outcome, or a display item with the assessor's comment.</td></tr>
-    <tr><td><code>item.extension</code> (itemReference)</td><td>0..*</td><td>Supporting content for the question: an RTQ DocumentReference, or existing FHIR content such as an ePI Bundle, Composition, or MedicinalProductDefinition.</td></tr>
+    <tr><td><code>item.extension</code> (itemReference)</td><td>0..*</td><td>Supporting content for the question, as an RTQ DocumentReference. Existing structured content, such as an ePI, is attached the same way: the DocumentReference points to it.</td></tr>
   </tbody>
 </table>

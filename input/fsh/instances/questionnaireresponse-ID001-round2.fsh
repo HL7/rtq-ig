@@ -6,6 +6,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-12-19T16:00:00Z"
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse"
+* language = #en
 * extension[RtqResponseVersionExtension].valueString = "1.0"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.value = "NRA/H/C/005432/II/0023"
@@ -25,7 +26,7 @@ Usage: #example
 * source = Reference(org-mah) "SynthPharma AG"
 * authored = "2025-12-19T15:00:00+01:00"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Dear National Regulatory Authority,</p><p>Please find enclosed the responses of SynthPharma AG to the open questions in ID001-R2: the approved French and German ePI texts, and the identification and qualification of the N-oxide degradation product. In response to question quality-4.2, SynthPharma commits to a 13-week repeat-dose toxicity study, with the report due by 30 September 2026.</p><p>SynthPharma AG, Global Regulatory Strategy</p></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><p>Dear National Regulatory Authority,</p><p>Please find enclosed the responses of SynthPharma AG to the open questions in ID001-R2: the approved French and German ePI texts, and the identification and qualification of the N-oxide degradation product. In response to question quality-4.2, SynthPharma commits to a 13-week repeat-dose toxicity study, with the report due by 30 September 2026.</p><p>SynthPharma AG, Global Regulatory Strategy</p></div>"
 * item[+].linkId = "product-3"
 * item[=].text = "Is the updated ePI text sufficiently clear for all applicable languages?"
 * item[=].answer[+].valueString = "Apologies for the omission. The approved French and German ePI texts (linguistic review completed 2025-12-12) are now included in the response package alongside the English text."

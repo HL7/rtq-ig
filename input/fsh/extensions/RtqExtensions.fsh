@@ -2,11 +2,10 @@
 // RTQ Extensions (v0.2.0)
 // Added in response to implementer feedback (April 2026 review round):
 //  - rtq-contact-purpose:       machine-readable sender/receiver discrimination
-//  - rtq-regulated-context:     link a question set to the product / authorisation
+//  - rtq-regulatory-subject:    the product / authorisation a question set is about
 //  - rtq-procedure-identifier:  link a question set to the regulatory procedure
 //  - rtq-response-version:      business version of a response (R5 QuestionnaireResponse
 //                               has no native version element)
-//  - rtq-in-response-to:        thread a follow-up question set to the prior response
 // ============================================================================
 
 Extension: RtqContactPurposeExtension
@@ -23,12 +22,12 @@ Context: Questionnaire.contact
 * valueCoding 1..1 MS
 * valueCoding from RtqContactPurposeVS (required)
 
-Extension: RtqRegulatedContextExtension
-Id: rtq-regulated-context
-Title: "RTQ Regulated Product and Authorisation Context"
-Description: "Associates a question set or response with the medicinal product and/or marketing authorisation it concerns, so receiving systems (e.g., RIM systems) can automatically match the exchange to the correct product and registration record. Each sub-extension accepts either a Reference (for parties operating FHIR product registries) or an Identifier (e.g., an MPID or marketing authorisation number) for parties that do not."
-Context: Questionnaire, QuestionnaireResponse
-* ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-regulated-context"
+Extension: RtqRegulatorySubjectExtension
+Id: rtq-regulatory-subject
+Title: "RTQ Regulatory Subject"
+Description: "The regulated product and/or marketing authorisation a question set is about, so receiving systems (e.g., RIM systems) can automatically file it against the correct product and registration record. Questionnaire.subjectType only states the kind of subject (e.g., MedicinalProductDefinition); this extension identifies the actual product and authorisation. Each sub-extension accepts either a Reference (for parties operating FHIR product registries) or an Identifier (e.g., an MPID or marketing authorisation number) for parties that do not."
+Context: Questionnaire
+* ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-regulatory-subject"
 * ^version = "0.2.0"
 * ^status = #draft
 * ^experimental = true
@@ -38,10 +37,10 @@ Context: Questionnaire, QuestionnaireResponse
     product 0..* MS and
     authorization 0..* MS
 * extension[product] ^short = "Medicinal product concerned"
-* extension[product] ^definition = "The medicinal product this question set or response concerns, as a Reference to a MedicinalProductDefinition or as an Identifier (e.g., MPID, local product code)."
+* extension[product] ^definition = "The medicinal product this question set is about, as a Reference to a MedicinalProductDefinition or as an Identifier (e.g., MPID, local product code)."
 * extension[product].value[x] only Reference(MedicinalProductDefinition) or Identifier
 * extension[authorization] ^short = "Marketing authorisation / registration concerned"
-* extension[authorization] ^definition = "The marketing authorisation or registration this question set or response concerns, as a Reference to a RegulatedAuthorization or as an Identifier (e.g., marketing authorisation number)."
+* extension[authorization] ^definition = "The marketing authorisation or registration this question set is about, as a Reference to a RegulatedAuthorization or as an Identifier (e.g., marketing authorisation number)."
 * extension[authorization].value[x] only Reference(RegulatedAuthorization) or Identifier
 
 Extension: RtqProcedureIdentifierExtension
@@ -69,19 +68,6 @@ Context: QuestionnaireResponse
 * ^date = "2026-08-08"
 * value[x] only string
 * valueString 1..1 MS
-
-Extension: RtqInResponseToExtension
-Id: rtq-in-response-to
-Title: "RTQ In Response To"
-Description: "Threads a follow-up question set to the response that triggered it. When a regulator reviews a response and raises further questions (multi-round Q&A), the new Questionnaire carries this extension pointing at the prior QuestionnaireResponse, preserving the full conversation thread across rounds."
-Context: Questionnaire
-* ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-in-response-to"
-* ^version = "0.2.0"
-* ^status = #draft
-* ^experimental = true
-* ^date = "2026-08-08"
-* value[x] only Reference(RTQQuestionnaireResponse)
-* valueReference 1..1 MS
 
 Extension: RtqCommitmentExtension
 Id: rtq-commitment

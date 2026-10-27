@@ -89,7 +89,7 @@ Medicinal products are the first focus. Because question categories are defined 
   <tbody>
     <tr><td><strong>APIX</strong></td><td>One exchange option: RTQ files are exchanged through APIX-defined APIs as the payload of an APIX Task. RTQ defines what is inside; APIX defines the wrapper, API operations, and delivery state.</td></tr>
     <tr><td><strong>eCTD</strong></td><td>An RTQ response file can be placed in an eCTD sequence and submitted through the normal route.</td></tr>
-    <tr><td><strong>ePI</strong></td><td>Questions and answers about product information can point directly to ePI content (a whole ePI Bundle, a Composition section, or a MedicinalProductDefinition) instead of attaching a copy.</td></tr>
+    <tr><td><strong>ePI</strong></td><td>Questions and answers about product information can point to ePI content through a DocumentReference whose attachment links to the ePI, instead of attaching a PDF copy.</td></tr>
     <tr><td><strong>PQI</strong></td><td>The project works with HL7 Product Quality Information so that quality and CMC answers can move from attachments to structured data over time.</td></tr>
     <tr><td><strong>IDMP / SPOR</strong></td><td>No direct use case yet. IDMP identifiers such as the MPID can already be carried in the product context of a question set or response.</td></tr>
   </tbody>

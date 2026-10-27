@@ -4,6 +4,7 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2025-11-20T22:30:00Z"
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse"
+* language = #en
 * extension[RtqResponseVersionExtension].valueString = "1.0"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.value = "NRA/H/C/005432/II/0023"
@@ -24,7 +25,7 @@ Usage: #example
 * source = Reference(org-mah) "SynthPharma AG"
 * authored = "2025-11-18T14:00:00+02:00"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Dear National Regulatory Authority,</p><p>Please find enclosed the responses of SynthPharma AG to the List of Questions ID001 for procedure NRA/H/C/005432/II/0023. All ten questions are answered, with supporting documents attached where applicable. In response to question quality-1, SynthPharma commits to submit 48-month long-term stability data by 30 June 2027.</p><p>SynthPharma AG, Global Regulatory Strategy</p></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en\" xml:lang=\"en\"><p>Dear National Regulatory Authority,</p><p>Please find enclosed the responses of SynthPharma AG to the List of Questions ID001 for procedure NRA/H/C/005432/II/0023. All ten questions are answered, with supporting documents attached where applicable. In response to question quality-1, SynthPharma commits to submit 48-month long-term stability data by 30 June 2027.</p><p>SynthPharma AG, Global Regulatory Strategy</p></div>"
 * item[+].linkId = "admin-1"
 * item[=].text = "Is the fee for the Type II variation fully paid and documented?"
 * item[=].text.extension[+].url = "http://hl7.org/fhir/StructureDefinition/rendering-xhtml"

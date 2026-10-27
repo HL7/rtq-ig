@@ -15,10 +15,8 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * . ^short = "RTQ QuestionnaireResponse for regulatory applications"
 * extension contains
     RtqResponseVersionExtension named responseVersion 0..1 MS and
-    RtqRegulatedContextExtension named regulatedContext 0..1 MS and
     RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS
 * extension[responseVersion] ^short = "Business version of this response (e.g., 1.0); R5 QuestionnaireResponse has no native version element"
-* extension[regulatedContext] ^short = "Medicinal product / marketing authorisation this response concerns"
 * extension[procedureIdentifier] ^short = "Regulator-assigned identifier of the regulatory procedure instance"
 * meta 1.. MS
 * meta ^short = "Metadata (required)"
@@ -29,6 +27,9 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * meta.profile 1.. MS
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaireresponse" (exactly)
 * meta.profile ^short = "Conformance to RTQ profile"
+* language 1.. MS
+* language ^short = "Language of the response (e.g., en, fr, de)"
+* language ^definition = "The language of the response content, as a BCP 47 code."
 * status 1..1 MS
 * authored 1..1 MS
 * authored ^short = "Date the full response was finalized"
@@ -72,6 +73,9 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * item.answer.value[x] ^short = "The answer as text (plain-text form of the rich-text answer)"
 * item.answer.valueString.extension contains XhtmlRepresentation named rendering-xhtml 0..1 MS
 * item.answer.valueString.extension[rendering-xhtml] ^short = "Rich text answer (tables, lists, formatting)"
+* subject MS
+* subject ^short = "The product this response is about (e.g., a MedicinalProductDefinition)"
+* subject ^comment = "The full product and marketing authorisation context is carried on the question set this response answers (rtq-regulatory-subject)."
 * questionnaire 1..1 MS
 * questionnaire only Canonical(RTQQuestionnaire)
 * questionnaire ^short = "Original questionnaire set"
