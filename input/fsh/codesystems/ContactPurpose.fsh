@@ -2,7 +2,7 @@ CodeSystem: ContactPurpose
 Id: contact-purpose
 Title: "Contact Purpose Code System"
 Description: "Defines the role of a contact in regulatory correspondence. Used to distinguish the sender (health authority) and recipient (marketing authorization holder) in structured Q&A."
-* ^url = "http://hl7.org/fhir/uv/brr/CodeSystem/contact-purpose"
+* ^url = "http://hl7.org/fhir/uv/rtq/CodeSystem/contact-purpose"
 * ^version = "1.1.5"
 * ^status = #active
 * ^date = "2025-11-11"

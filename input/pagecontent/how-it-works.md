@@ -25,7 +25,7 @@ When a health authority has questions about a submission, it sends a structured 
     <div class="rtq-part d">
       <div class="k">D · Individual questions</div>
       <div class="rtq-mini">
-        <div class="top"><span><span class="rtq-chip">CTD 3.2.P.5.4 Impurities</span><span class="rtq-chip cat">Major Objection</span></span><code>quality-4</code></div>
+        <div class="top"><span><span class="rtq-chip">CTD 3.2.P.5.5 Characterisation of Impurities</span><span class="rtq-chip cat">Major Objection</span></span><code>quality-4</code></div>
         <div class="q">Are there any new degradation products identified within the newly submitted data?</div>
         <div class="s">Required · 📎 optional attachment or ePI reference</div>
       </div>

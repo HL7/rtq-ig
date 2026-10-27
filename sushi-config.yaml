@@ -1,5 +1,5 @@
 id: hl7.fhir.uv.rtq-ig
-canonical: https://build.fhir.org/ig/HL7/rtq-ig
+canonical: http://hl7.org/fhir/uv/rtq
 name: RTQ_IG
 title: Response to Regulatory Questions (RTQ)
 description: The Response to Question (RTQ) Implementation Guide provides a standardized framework for the exchange of formal questions from health authorities to sponsors/applicants and structured responses in return.

@@ -11,7 +11,7 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * ^version = "0.2.0"
 * ^status = #draft
 * ^experimental = true
-* ^date = "2026-08-08"
+* ^date = "2026-10-26"
 * . ^short = "RTQ QuestionnaireResponse for regulatory applications"
 * extension contains
     RtqResponseVersionExtension named responseVersion 0..1 MS and
@@ -58,24 +58,23 @@ Description: "Profile for a Response to Questions submitted to a regulator from 
 * source ^short = "MAH/applicant that answered the questions (usually the same organization as author)"
 * item obeys rtq-qr-1
 * item ^comment = "Every open question in the referenced Questionnaire must be represented by a response item with the matching linkId. Because the RTQ Questionnaire sets item.required to true on every open question, standard FHIR validation of this response against its Questionnaire enforces completeness; rtq-qr-1 additionally guarantees that no reported item is empty. Where no substantive answer applies, provide an explicit answer such as 'No response required.' or a cross-reference."
-* item.extension contains RtqCommitmentExtension named commitment 0..1 MS
+* item.extension contains
+    RTQItemReferenceExtension named itemReference 0..* MS and
+    RtqCommitmentExtension named commitment 0..1 MS
+* item.extension[itemReference] ^short = "Supporting document(s) or referenced FHIR resource(s) for this answer"
 * item.extension[commitment] ^short = "Commitment offered by the MAH/applicant in this answer"
 * item.linkId 1..1 MS
 * item.linkId ^short = "Question link ID (matches the linkId of the corresponding question)"
 * item.text.extension contains XhtmlRepresentation named rendering-xhtml 0..1 MS
 * item.text.extension[rendering-xhtml] ^short = "Rich text question"
-* item.answer.extension contains XhtmlRepresentation named rendering-xhtml 0..1 MS
-* item.answer.extension[rendering-xhtml] ^short = "Rich text answer"
+* item.answer.value[x] only string
 * item.answer.value[x] MS
-* item.answer.value[x] ^slicing.discriminator.type = #type
-* item.answer.value[x] ^slicing.discriminator.path = "$this"
-* item.answer.value[x] ^slicing.rules = #open
-* item.answer.valueReference only Reference(RTQDocumentReference or Bundle or Composition or MedicinalProductDefinition)
-* item.answer.valueReference MS
-* item.answer.valueReference ^sliceName = "valueReference"
-* item.answer.valueReference ^short = "Reference to a supporting document or FHIR resource (e.g., ePI Bundle or Composition)"
+* item.answer.value[x] ^short = "The answer as text (plain-text form of the rich-text answer)"
+* item.answer.valueString.extension contains XhtmlRepresentation named rendering-xhtml 0..1 MS
+* item.answer.valueString.extension[rendering-xhtml] ^short = "Rich text answer (tables, lists, formatting)"
 * questionnaire 1..1 MS
 * questionnaire only Canonical(RTQQuestionnaire)
 * questionnaire ^short = "Original questionnaire set"
 * text 1..1 MS
-* text ^short = "Narrative overview of the response"
+* text ^short = "Cover letter: rich-text content of the response"
+* text ^definition = "The cover letter of the response, as rich text (XHTML): introduction, overall remarks, and cross-references. Use text.status = additional. No separate cover letter document is needed."

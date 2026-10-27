@@ -6,7 +6,8 @@ Usage: #example
 * meta.versionId = "1"
 * meta.lastUpdated = "2026-01-12T09:00:00Z"
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire"
-* identifier[+].system = "http://hl7.org/fhir/uv/brr/identifier/qa-request"
+* url = "http://hl7.org/fhir/uv/rtq/Questionnaire/questionnaire-ID001-round3"
+* identifier[+].system = "https://example-nra.example.org/question-set-id"
 * identifier[=].value = "ID001-R3"
 * identifier[=].type = $rtq-identifier-type#regulator-id "Regulator-issued Identifier"
 * extension[RtqProcedureIdentifierExtension].valueIdentifier.system = "https://example-nra.example.org/procedure-number"
@@ -34,9 +35,11 @@ Usage: #example
 * contact[=].telecom[+].system = #phone
 * contact[=].telecom[=].value = "+41-61-123-4567"
 
+* text.status = #additional
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Dear SynthPharma AG,</p><p>Following our assessment of your responses SP-RTQ-2025-0163, all questions in this list are resolved, including the commitment you offered on question quality-4.2. No further response is required. The decision on the variation will be communicated separately.</p><p>National Regulatory Authority, Regulatory Affairs Division</p></div>"
 * item[+].linkId = "admin-1"
-* item[=].code[+] = $ctd-categories-full#1.0 "1.0 Administrative Information"
-* item[=].code[+] = $ctd-categories-full#1.1 "1.1 Application Form"
+* item[=].code[+] = $ctd-categories-full#1 "Administrative Information and Prescribing Information"
+* item[=].code[+] = $example-nra-module-1#1.1 "Application Form"
 * item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].type = #text
 * item[=].required = false
@@ -45,8 +48,8 @@ Usage: #example
 * item[=].text.extension[=].valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the fee for the Type II variation fully paid and documented?</p></div>"
 
 * item[+].linkId = "admin-2"
-* item[=].code[+] = $ctd-categories-full#1.0 "Administrative Information"
-* item[=].code[+] = $ctd-categories-full#1.1 "Application Form"
+* item[=].code[+] = $ctd-categories-full#1 "Administrative Information and Prescribing Information"
+* item[=].code[+] = $example-nra-module-1#1.1 "Application Form"
 * item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].type = #text
 * item[=].required = false
@@ -55,8 +58,8 @@ Usage: #example
 * item[=].text.extension[=].valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are all required metadata fields in the application form complete?</p></div>"
 
 * item[+].linkId = "product-1"
-* item[=].code[+] = $ctd-categories-full#1.3 "1.3 Product Information"
-* item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
+* item[=].code[+] = $ctd-categories-full#1 "Administrative Information and Prescribing Information"
+* item[=].code[+] = $example-nra-module-1#1.3.1 "SmPC, Labelling and Package Leaflet"
 * item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].type = #text
 * item[=].required = false
@@ -65,8 +68,8 @@ Usage: #example
 * item[=].text.extension[=].valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Do the updated storage conditions (2–8°C for 36 months) require additional patient guidance?</p></div>"
 
 * item[+].linkId = "product-2"
-* item[=].code[+] = $ctd-categories-full#1.3 "Product Information"
-* item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
+* item[=].code[+] = $ctd-categories-full#1 "Administrative Information and Prescribing Information"
+* item[=].code[+] = $example-nra-module-1#1.3.1 "SmPC, Labelling and Package Leaflet"
 * item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].type = #text
 * item[=].required = false
@@ -75,8 +78,8 @@ Usage: #example
 * item[=].text.extension[=].valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Is the patient leaflet revised to clarify the extended shelf life?</p></div>"
 
 * item[+].linkId = "product-3"
-* item[=].code[+] = $ctd-categories-full#1.3 "Product Information"
-* item[=].code[+] = $ctd-categories-full#1.3.1 "SmPC, Labelling and Package Leaflet"
+* item[=].code[+] = $ctd-categories-full#1 "Administrative Information and Prescribing Information"
+* item[=].code[+] = $example-nra-module-1#1.3.1 "SmPC, Labelling and Package Leaflet"
 * item[=].code[+] = $rtq-question-category#minor-concern "Minor Concern"
 * item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].type = #text
@@ -117,7 +120,7 @@ Usage: #example
 
 * item[+].linkId = "quality-4"
 * item[=].code[+] = $ctd-categories-full#3.2.P.5 "Control of Drug Product"
-* item[=].code[+] = $ctd-categories-full#3.2.P.5.4 "Impurities"
+* item[=].code[+] = $ctd-categories-full#3.2.P.5.5 "Characterisation of Impurities"
 * item[=].code[+] = $rtq-question-category#major-objection "Major Objection"
 * item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].type = #group
@@ -127,7 +130,7 @@ Usage: #example
 * item[=].text.extension[=].valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Are there any new degradation products identified within the newly submitted data?</p></div>"
 * item[=].item[+].linkId = "quality-4.1"
 * item[=].item[=].code[+] = $ctd-categories-full#3.2.P.5 "Control of Drug Product"
-* item[=].item[=].code[+] = $ctd-categories-full#3.2.P.5.4 "Impurities"
+* item[=].item[=].code[+] = $ctd-categories-full#3.2.P.5.5 "Characterisation of Impurities"
 * item[=].item[=].code[+] = $rtq-question-category#major-objection "Major Objection"
 * item[=].item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].item[=].type = #text
@@ -137,7 +140,7 @@ Usage: #example
 * item[=].item[=].text.extension[=].valueString = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The chromatograms for batch B-002 at 6 months accelerated (40°C/75% RH) show an unidentified peak at RRT 0.85 at 0.12%, above the 0.10% identification threshold. Identify this degradation product and propose a specification limit.</p></div>"
 * item[=].item[+].linkId = "quality-4.2"
 * item[=].item[=].code[+] = $ctd-categories-full#3.2.P.5 "Control of Drug Product"
-* item[=].item[=].code[+] = $ctd-categories-full#3.2.P.5.4 "Impurities"
+* item[=].item[=].code[+] = $ctd-categories-full#3.2.P.5.5 "Characterisation of Impurities"
 * item[=].item[=].code[+] = $rtq-question-category#major-objection "Major Objection"
 * item[=].item[=].code[+] = $rtq-assessment-outcome#resolved "Resolved"
 * item[=].item[=].type = #text

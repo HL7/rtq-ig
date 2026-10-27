@@ -15,13 +15,19 @@ Severity: #error
 
 Invariant: rtq-q-4
 Description: "Assessment outcomes are only used in a follow-up question set, which must reference the response being assessed (rtq-in-response-to)."
-Expression: "item.repeat(item).code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome').exists() implies extension.where(url = 'http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-in-response-to').exists()"
+Expression: "repeat(item).code.where(system = 'http://hl7.org/fhir/uv/rtq/CodeSystem/rtq-assessment-outcome').exists() implies extension.where(url = 'http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-in-response-to').exists()"
 Severity: #error
 
 Extension: RTQItemReferenceExtension
 Id: rtq-item-reference
-Title: "RTQ Item Reference Extension"
-Description: "An extension to allow referencing supporting content from a Questionnaire item (the question): an RTQDocumentReference for attached documents, or FHIR resources such as an ePI Bundle, a Composition (e.g., a section of the product information), or a MedicinalProductDefinition when the question concerns existing structured content."
+Title: "RTQ Item Reference"
+Description: "Supporting content for an individual question or answer: an RTQDocumentReference for attached documents, or existing FHIR content such as an ePI Bundle, a Composition (e.g., a section of the product information), or a MedicinalProductDefinition. Used on Questionnaire.item (supporting content for the question) and on QuestionnaireResponse.item (supporting content for the answer)."
+Context: Questionnaire.item, QuestionnaireResponse.item
+* ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-item-reference"
+* ^version = "0.2.0"
+* ^status = #draft
+* ^experimental = true
+* ^date = "2026-10-26"
 * value[x] only Reference(RTQDocumentReference or Bundle or Composition or MedicinalProductDefinition)
 * valueReference 1..1 MS
 
@@ -33,7 +39,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * ^version = "0.2.0"
 * ^status = #draft
 * ^experimental = true
-* ^date = "2026-08-08"
+* ^date = "2026-10-26"
 * extension contains
     RtqRegulatedContextExtension named regulatedContext 0..1 MS and
     RtqProcedureIdentifierExtension named procedureIdentifier 0..1 MS and
@@ -49,6 +55,9 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * meta.lastUpdated 1.. MS
 * meta.profile 1..1 MS
 * meta.profile = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-questionnaire" (exactly)
+* url 1.. MS
+* url ^short = "Canonical URL of this question set"
+* url ^definition = "Globally unique canonical URL of the question set. The response references it through QuestionnaireResponse.questionnaire, and an amended question set references the version it replaces through derivedFrom."
 * identifier ..2 MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type.coding.code"
@@ -68,6 +77,8 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 * derivedFrom MS
 * derivedFrom ^short = "Canonical reference to the question set this one amends or supersedes"
 * text 1.. MS
+* text ^short = "Cover letter: rich-text content of the question set"
+* text ^definition = "The cover letter of the question set, as rich text (XHTML): context, instructions, and overall comments. Use text.status = additional. No separate cover letter document is needed."
 * subjectType 1.. MS
 * subjectType ^short = "Resource type(s) the question set is about (e.g., MedicinalProductDefinition)"
 * subjectType ^comment = "Per FHIR R5, subjectType is bound (required) to the ResourceType value set and must carry resource type codes. The regulatory template type of the question set (e.g., list-of-questions, information-request) is carried in Questionnaire.code; the procedure instance is carried in the rtq-procedure-identifier extension."
@@ -128,7 +139,7 @@ Description: "Profile for a set of Questions issued from a regulator to a market
 // * contact[sender].organization.contact 1.. MS
 // * contact[sender].organization.contact ^short = "Primary contact at the issuing authority"
 // * contact[sender].organization.contact ^definition = "Designated contact person or role within the regulatory authority responsible for this Questionnaire and for receiving the completed response."
-* contact[sender].telecom 2..2 MS
+* contact[sender].telecom 1..2 MS
 * contact[sender].telecom ^slicing.discriminator.type = #value
 * contact[sender].telecom ^slicing.discriminator.path = "system"
 * contact[sender].telecom ^slicing.rules = #closed

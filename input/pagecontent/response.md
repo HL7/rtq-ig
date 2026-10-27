@@ -8,8 +8,8 @@ The **RTQ QuestionnaireResponse** profile defines the response a marketing autho
     <ul class="rtq-check">
       <li><code>meta.profile</code> set to the RTQ QuestionnaireResponse profile</li>
       <li>Both identifiers: your own response ID and the regulator's question set ID</li>
-      <li><code>questionnaire</code>: the question set being answered</li>
-      <li><code>status</code>, <code>authored</code> date, and a narrative <code>text</code> (the cover letter)</li>
+      <li><code>questionnaire</code>: the canonical URL of the question set being answered</li>
+      <li><code>status</code>, <code>authored</code> date, and the cover letter as rich text in <code>text</code></li>
       <li><code>author</code> and <code>source</code>: your organization (the MAH or applicant)</li>
       <li>One answer item for every open question, matched by <code>linkId</code></li>
     </ul>
@@ -32,25 +32,25 @@ The **RTQ QuestionnaireResponse** profile defines the response a marketing autho
   <tbody>
     <tr class="grp"><td colspan="3">Identity, version, and context</td></tr>
     <tr><td><code>identifier</code></td><td>2..2</td><td>Both mandatory: <code>company-id</code> (your ID for the response) and <code>regulator-id</code> (echoed from the question set).</td></tr>
-    <tr><td><code>questionnaire</code></td><td>1..1</td><td>The question set being answered, including its round (e.g., ID001-R2).</td></tr>
+    <tr><td><code>questionnaire</code></td><td>1..1</td><td>Canonical URL of the question set being answered, including its round (e.g., ID001-R2).</td></tr>
     <tr><td><code>extension</code> (responseVersion)</td><td>0..1</td><td>Business version, e.g., <code>1.0</code>. A supplement is a new version with status <code>amended</code>.</td></tr>
     <tr><td><code>extension</code> (procedureIdentifier, regulatedContext)</td><td>0..1</td><td>The procedure number and product or authorization context, echoed from the question set.</td></tr>
     <tr><td><code>status</code></td><td>1..1</td><td><code>in-progress</code>, <code>completed</code>, <code>amended</code>, <code>stopped</code>, or <code>entered-in-error</code>.</td></tr>
     <tr><td><code>authored</code></td><td>1..1</td><td>Date the response was finalized.</td></tr>
-    <tr><td><code>text</code></td><td>1..1</td><td>Narrative overview; serves as the cover letter.</td></tr>
+    <tr><td><code>text</code></td><td>1..1</td><td>The cover letter, as rich text (<code>status = additional</code>). No separate cover letter document is needed.</td></tr>
     <tr><td><code>author</code>, <code>source</code></td><td>1..1</td><td>The MAH or applicant that prepared and answered the response. The regulator is identified on the question set.</td></tr>
     <tr class="grp"><td colspan="3">Answers</td></tr>
     <tr><td><code>item.linkId</code></td><td>1..1</td><td>The <code>linkId</code> of the question being answered. <strong>Every open question must have an answer</strong>; questions marked <code>resolved</code> need none.</td></tr>
-    <tr><td><code>item.answer</code></td><td>0..*</td><td>The answer to a question (a group carries nested items instead; invariant <code>rtq-qr-1</code> requires one or the other), with the <code>rendering-xhtml</code> extension for formatted text. Where there is nothing substantive to say, answer explicitly (e.g., "No response required.").</td></tr>
+    <tr><td><code>item.answer.valueString</code></td><td>0..*</td><td>The answer as text, with the <code>rendering-xhtml</code> extension on the string for tables, lists, and formatting. A group carries nested items instead; invariant <code>rtq-qr-1</code> requires one or the other. Where there is nothing substantive to say, answer explicitly (e.g., "No response required.").</td></tr>
     <tr><td><code>item.item</code></td><td>0..*</td><td>Answers to follow-up questions or parts of a multi-part question, nested under the parent question.</td></tr>
-    <tr><td><code>item.answer.valueReference</code></td><td>0..*</td><td>Supporting content: an RTQ DocumentReference, or existing FHIR content such as an ePI Bundle, Composition, or MedicinalProductDefinition.</td></tr>
+    <tr><td><code>item.extension</code> (itemReference)</td><td>0..*</td><td>Supporting content for the answer: an RTQ DocumentReference, or existing FHIR content such as an ePI Bundle, Composition, or MedicinalProductDefinition. The same extension carries supporting content on questions.</td></tr>
     <tr><td><code>item.extension</code> (commitment)</td><td>0..1</td><td>A commitment offered in this answer: what will be done and, optionally, by when. The regulator accepts it by marking the question <code>resolved</code> in the next round. See <a href="lifecycle.html#commitments">Lifecycle</a>.</td></tr>
   </tbody>
 </table>
 
 <div class="rtq-sec" id="attachments">Attachments and large documents</div>
 
-Supporting documents attach to answers (and to questions) through the [RTQ DocumentReference](StructureDefinition-rtq-documentreference.html) profile. All documents are handled the same way whatever their purpose; the document's `type` and `category` say what it is.
+Supporting documents attach to answers and to questions with the <a href="StructureDefinition-rtq-item-reference.html">rtq-item-reference</a> extension, pointing to the [RTQ DocumentReference](StructureDefinition-rtq-documentreference.html) profile. All documents are handled the same way whatever their purpose; the document's `type` and `category` say what it is.
 
 <div class="rtq-grid rtq-g3">
   <div class="rtq-card soft"><div class="t">Up to about 10 MB: embed</div><p>Include the document in the file itself (<code>attachment.data</code>).</p></div>
