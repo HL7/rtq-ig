@@ -2,27 +2,14 @@
 
 The **RTQ QuestionnaireResponse** profile defines the response a marketing authorization holder (MAH) or applicant returns to a question set: the cover letter, one answer per open question, supporting attachments, commitments, and metadata. Full definition: [RTQ QuestionnaireResponse profile](StructureDefinition-rtq-questionnaireresponse.html).
 
-<div class="rtq-two">
-  <div class="rtq-card">
-    <div class="t">✓ Minimum to conform</div>
-    <ul class="rtq-check">
-      <li><code>meta.profile</code> set to the RTQ QuestionnaireResponse profile</li>
-      <li>Both identifiers: your own response ID and the regulator's question set ID, and the <code>language</code></li>
-      <li><code>questionnaire</code>: the canonical URL of the question set being answered</li>
-      <li><code>status</code>, <code>authored</code> date, and the cover letter as rich text in <code>text</code></li>
-      <li><code>author</code>: your organization (the MAH or applicant)</li>
-      <li>One answer item for every open question, matched by <code>linkId</code></li>
-    </ul>
-  </div>
-  <div class="rtq-card soft">
-    <div class="t">Examples</div>
-    <p>The two responses in the worked example:</p>
-    <ul>
-      <li><a href="QuestionnaireResponse-questionnaireresponse-ID001.html">SP-RTQ-2025-0148</a>: answers all ten round-1 questions; offers a commitment</li>
-      <li><a href="QuestionnaireResponse-questionnaireresponse-ID001-round2.html">SP-RTQ-2025-0163</a>: answers only the open round-2 questions; offers a second commitment</li>
-    </ul>
-    <p style="margin-top:10px"><a class="more" href="examples/sample-response.html" target="_blank">Interactive response example →</a><br/><a class="more" href="examples/sample-lifecycle.html" target="_blank">Lifecycle walkthrough →</a></p>
-  </div>
+<div class="rtq-card soft">
+  <div class="t">Examples</div>
+  <p>The two responses in the worked example:</p>
+  <ul>
+    <li><a href="QuestionnaireResponse-questionnaireresponse-ID001.html">SP-RTQ-2025-0148</a>: answers all ten round-1 questions; offers a commitment</li>
+    <li><a href="QuestionnaireResponse-questionnaireresponse-ID001-round2.html">SP-RTQ-2025-0163</a>: answers only the open round-2 questions; offers a second commitment</li>
+  </ul>
+  <p style="margin-top:10px"><a class="more" href="examples/sample-response.html" target="_blank">Interactive response example →</a><br/><a class="more" href="examples/sample-lifecycle.html" target="_blank">Lifecycle walkthrough →</a></p>
 </div>
 
 <div class="rtq-sec" id="key-elements">Key elements</div>
@@ -51,14 +38,14 @@ The **RTQ QuestionnaireResponse** profile defines the response a marketing autho
   </tbody>
 </table>
 
-<div class="rtq-sec" id="attachments">Attachments and large documents</div>
+<div class="rtq-sec" id="attachments">Attachments</div>
 
 Supporting documents attach to answers and to questions with the <a href="StructureDefinition-rtq-item-reference.html">rtq-item-reference</a> extension, pointing to the [RTQ DocumentReference](StructureDefinition-rtq-documentreference.html) profile. All documents are handled the same way whatever their purpose; the document's `type` and `category` say what it is.
 
 <div class="rtq-grid rtq-g3">
-  <div class="rtq-card soft"><div class="t">Up to about 10 MB: embed</div><p>Include the document in the file itself (<code>attachment.data</code>).</p></div>
-  <div class="rtq-card soft"><div class="t">Larger: point to it</div><p>Reference the document by URL (<code>attachment.url</code>) in a repository both parties can reach, such as a submission portal or shared document store. Strongly preferred for very large datasets.</p></div>
+  <div class="rtq-card soft"><div class="t">Embed it</div><p>Include the document in the file itself (<code>attachment.data</code>), so the response is self-contained.</p></div>
+  <div class="rtq-card soft"><div class="t">Or point to it</div><p>Reference the document by URL (<code>attachment.url</code>) in a repository both parties can reach, such as a submission portal or shared document store. Give its <code>size</code> so the receiver can decide when to fetch it.</p></div>
   <div class="rtq-card soft"><div class="t">Existing structured content: point to it</div><p>Structured content such as an ePI is attached the same way: the DocumentReference attachment points to it (e.g., the ePI Bundle URL with content type <code>application/fhir+json</code>). In a decentralized exchange, make sure the receiver can resolve the URL, or embed the content.</p></div>
 </div>
 
-The 10 MB threshold is guidance, not a conformance rule, and any file format can be attached. Over time the direction is from binary attachments toward structured data, in collaboration with the HL7 PQI project. CMC and manufacturing experts are invited to share real-world content, such as large stability datasets, to test this guidance.
+RTQ sets no size limit, and any file format can be attached. Which option to use is up to the parties, for example based on what their exchange channel can carry. Over time the direction is from binary attachments toward structured data, in collaboration with the HL7 PQI project.

@@ -25,7 +25,7 @@ Context: Questionnaire.contact
 Extension: RtqRegulatorySubjectExtension
 Id: rtq-regulatory-subject
 Title: "RTQ Regulatory Subject"
-Description: "A regulated subject the question set is about, so receiving systems (e.g., RIM systems) can automatically file it against the right records. Questionnaire.subjectType only states the kinds of subject (e.g., MedicinalProductDefinition, DeviceDefinition); this extension identifies the actual ones. Repeat the extension for each subject: each occurrence describes one product (medicinal product or device) with its marketing authorisation(s) and any related organisations (e.g., a manufacturer). Each part accepts either a Reference (for parties with FHIR registries) or an Identifier (e.g., an MPID, a marketing authorisation number, or an organisation ID) for parties without."
+Description: "A regulated subject the question set is about, so receiving systems can automatically file it against the right records. Questionnaire.subjectType only states the kinds of subject (e.g., MedicinalProductDefinition, DeviceDefinition); this extension identifies the actual ones. Repeat the extension for each subject: each occurrence describes one product (medicinal product or device) with its marketing authorisation(s) and any related organisations (e.g., a manufacturer). Each part accepts either a Reference (for parties with FHIR registries) or an Identifier (e.g., an MPID, a marketing authorisation number, or an organisation ID) for parties without."
 Context: Questionnaire
 * ^url = "http://hl7.org/fhir/uv/rtq/StructureDefinition/rtq-regulatory-subject"
 * ^version = "0.2.0"

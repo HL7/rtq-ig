@@ -2,31 +2,16 @@
 
 The **RTQ Questionnaire** profile defines a regulatory question set: the cover letter, the individual questions, supporting attachments, and metadata, with rich formatting preserved. Full definition: [RTQ Questionnaire profile](StructureDefinition-rtq-questionnaire.html).
 
-<div class="rtq-two">
-  <div class="rtq-card">
-    <div class="t">✓ Minimum to conform</div>
-    <ul class="rtq-check">
-      <li><code>meta.profile</code> set to the RTQ Questionnaire profile</li>
-      <li>A canonical <code>url</code>, a regulator-issued identifier, a business <code>version</code>, and the <code>language</code></li>
-      <li><code>status</code>, issue <code>date</code>, the response window in <code>effectivePeriod</code> (issue date and deadline), and the cover letter as rich text in <code>text</code></li>
-      <li>A questionnaire type in <code>code</code> and <code>subjectType</code> (e.g., MedicinalProductDefinition)</li>
-      <li>Two contacts, sender and recipient, each with a name, email, and (recipient) phone</li>
-      <li>One <code>item</code> per question: unique <code>linkId</code>, at least one category code, <code>required = true</code>, and the question text</li>
-    </ul>
-  </div>
-  <div class="rtq-card soft">
-    <div class="t">Examples</div>
-    <p>The three question sets in the worked example, from first round to closure:</p>
-    <ul>
-      <li><a href="Questionnaire-questionnaire-ID001.html">ID001</a>: round 1, ten questions</li>
-      <li><a href="Questionnaire-questionnaire-ID001-round2.html">ID001-R2</a>: assessment outcomes and follow-up questions</li>
-      <li><a href="Questionnaire-questionnaire-ID001-round3.html">ID001-R3</a>: closing set, all resolved</li>
-    </ul>
-    <p style="margin-top:10px"><a class="more" href="examples/sample-question.html" target="_blank">Interactive question example →</a><br/><a class="more" href="examples/sample-lifecycle.html" target="_blank">Lifecycle walkthrough →</a></p>
-  </div>
+<div class="rtq-card soft">
+  <div class="t">Examples</div>
+  <p>The three question sets in the worked example, from first round to closure:</p>
+  <ul>
+    <li><a href="Questionnaire-questionnaire-ID001.html">ID001</a>: round 1, ten questions</li>
+    <li><a href="Questionnaire-questionnaire-ID001-round2.html">ID001-R2</a>: assessment outcomes and follow-up questions</li>
+    <li><a href="Questionnaire-questionnaire-ID001-round3.html">ID001-R3</a>: closing set, all resolved</li>
+  </ul>
+  <p style="margin-top:10px"><a class="more" href="examples/sample-question.html" target="_blank">Interactive question example →</a><br/><a class="more" href="examples/sample-lifecycle.html" target="_blank">Lifecycle walkthrough →</a></p>
 </div>
-
-Everything beyond the minimum, such as product and procedure context and attachments, is optional but Must-Support: systems that have the information populate it, and receiving systems use it when present.
 
 <div class="rtq-sec" id="key-elements">Key elements</div>
 

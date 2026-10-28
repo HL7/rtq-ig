@@ -55,7 +55,7 @@ RTQ files are documents, so they can be stored and audited wherever DOCX and PDF
 
 <div class="rtq-sec" id="every-question-answered">Every open question gets an answer</div>
 
-**Every open question must be answered by a response item with the same `linkId`.** Where there is nothing substantive to say, the company still answers explicitly, for example *"No response required."* or *"See response to question 3."* The rule is enforced twice: open questions are marked `required = true`, so standard FHIR validation fails if one is unanswered, and invariant `rtq-qr-1` rejects any empty answer item. The only questions that need no answer are those the regulator has marked `resolved`.
+**Every open question must be answered by a response item with the same `linkId`.** Where there is nothing substantive to say, the company still answers explicitly, for example *"No response required."* or *"See response to question 3."* The rule is enforced twice: open questions are marked `required = true`, so standard FHIR validation fails if one is unanswered, and invariant `rtq-qr-1` rejects any empty answer item.
 
 <div class="rtq-sec" id="assessment-of-responses">Assessment of responses</div>
 
@@ -99,8 +99,7 @@ There is no separate "resolved" flag on the question set. **A question set in wh
 
 The regulator still sends the closing set; without it, the company could not tell "closed" from "not yet assessed".
 
-- **Closing the Q&amp;A is not the regulatory decision.** Approval or refusal of the application follows the regulator's normal decision process, outside RTQ.
-- **Open point for the working group:** some templates (e.g., EMA) allow "issue not resolved, but no follow-up questions", which ends the dialogue with an issue on record. The current outcome codes cannot express this. A fourth code (e.g., `not-resolved-closed`) would cover it, and the closure rule would become "every question is resolved or closed".
+**Closing the Q&amp;A is not the regulatory decision.** Approval or refusal of the application follows the regulator's normal decision process, outside RTQ.
 
 <div class="rtq-sec" id="worked-example">Worked example: a complete thread</div>
 
@@ -138,5 +137,3 @@ Keep `linkId`s stable for unchanged questions so draft answers carry forward.
     <tr><td>Either</td><td>any → <code>entered-in-error</code></td><td>Created by mistake</td></tr>
   </tbody>
 </table>
-
-No custom status codes are defined. The regulator's verdict on an answer is not a response status; it arrives as an assessment outcome in the next question set.

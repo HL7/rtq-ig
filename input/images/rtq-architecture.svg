@@ -9,7 +9,7 @@
 <rect width="100%" height="100%" fill="#ffffff"/>
 <rect x="20" y="56" width="920" height="64" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-dasharray="6 4"/>
 <text x="40" y="82" font-size="12" font-weight="700" fill="#64748b">TRANSPORT — any channel (out of scope)</text>
-<text x="40" y="102" font-size="12" fill="#64748b">Email · Regulatory portal · eCTD sequence · Central platform · APIX Task (API) — the RTQ file travels unchanged over any of these</text>
+<text x="40" y="102" font-size="12" fill="#64748b">Email · Regulatory portal · eCTD sequence · Central platform · RWI API — the RTQ file travels unchanged over any of these</text>
 <rect x="20" y="144" width="460" height="600" rx="10" fill="#eff6ff" stroke="#2563eb"/>
 <text x="40" y="170" font-size="12" font-weight="700" fill="#2563eb">RTQ CORE (this guide)</text>
 <rect x="60" y="186" width="380" height="150" rx="9" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
@@ -29,7 +29,7 @@
 <rect x="60" y="646" width="180" height="84" rx="9" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
 <text x="150.0" y="670" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e293b">DocumentReference</text>
 <text x="150.0" y="690" text-anchor="middle" font-size="10.8" fill="#64748b">attachments:</text>
-<text x="150.0" y="707" text-anchor="middle" font-size="10.8" fill="#64748b">embed ≤ ~10 MB, else url</text>
+<text x="150.0" y="707" text-anchor="middle" font-size="10.8" fill="#64748b">embedded or by url</text>
 <rect x="560" y="144" width="380" height="600" rx="10" fill="#f0fdf4" stroke="#16a34a"/>
 <text x="580" y="170" font-size="12" font-weight="700" fill="#16a34a">REGULATORY CONTEXT (R5 ecosystem)</text>
 <rect x="600" y="196" width="300" height="76" rx="9" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>

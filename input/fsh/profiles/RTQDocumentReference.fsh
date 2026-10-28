@@ -8,7 +8,7 @@ Description: "A profile on the DocumentReference resource for use within the Res
 * ^experimental = true
 * ^date = "2026-08-08"
 * . ^short = "RTQ DocumentReference for attachments"
-* . ^comment = "Best practice for attachment size: embed the document in content.attachment.data when it is 10 MB or smaller; for larger documents, use content.attachment.url to reference content held in a repository accessible to both parties (e.g., a submission portal or shared document store). All supporting documents — including assessment reports provided as background to a question — attach through this profile uniformly; the type and category elements convey the document's intent."
+* . ^comment = "The document can be embedded in content.attachment.data or referenced by content.attachment.url in a repository accessible to both parties (e.g., a submission portal or shared document store); when referenced, give content.attachment.size so the receiver can decide when to fetch it. RTQ sets no size limit. All supporting documents — including assessment reports provided as background to a question — attach through this profile uniformly; the type and category elements convey the document's intent."
 * identifier MS
 * status MS
 * docStatus MS
@@ -28,4 +28,5 @@ Description: "A profile on the DocumentReference resource for use within the Res
 * content.attachment.data MS
 * content.attachment.url MS
 * content.attachment.title 1..1 MS
+* content.attachment.size MS
 * content.attachment.creation MS

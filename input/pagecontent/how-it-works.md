@@ -103,7 +103,7 @@ The MAH or applicant sends back a structured **response** in which every answer 
 <div class="rtq-sec" id="pieces">Part 3: How the pieces fit</div>
 
 <div class="rtq-figure">
-  <img src="rtq-architecture.svg" width="900" alt="RTQ resource relationships. The RTQ Questionnaire (question set from the regulator, with category codes and, in follow-up rounds, an assessment outcome per question) and the RTQ QuestionnaireResponse (response set from the MAH, one answer per question, with commitments) are linked by a canonical reference, with answers matched by linkId. Each follow-up question set derives from the previous round's question set (derivedFrom). Both link to RTQ DocumentReference for attachments, and through optional context links to MedicinalProductDefinition, RegulatedAuthorization and the regulatory procedure identifier; ePI content is reached through a DocumentReference. A transport band shows email, portal, eCTD, central platform and APIX as interchangeable channels."/>
+  <img src="rtq-architecture.svg" width="900" alt="RTQ resource relationships. The RTQ Questionnaire (question set from the regulator, with category codes and, in follow-up rounds, an assessment outcome per question) and the RTQ QuestionnaireResponse (response set from the MAH, one answer per question, with commitments) are linked by a canonical reference, with answers matched by linkId. Each follow-up question set derives from the previous round's question set (derivedFrom). Both link to RTQ DocumentReference for attachments, and through optional context links to MedicinalProductDefinition, RegulatedAuthorization and the regulatory procedure identifier; ePI content is reached through a DocumentReference. A transport band shows email, portal, eCTD, central platform and the Regulatory Workflows and Interactions (RWI) API as interchangeable channels."/>
 </div>
 
 The core is a pair of resources. The **RTQ Questionnaire** (the question set) and the **RTQ QuestionnaireResponse** (the response) are linked at two levels: the response names the question set it answers, and each answer carries the `linkId` of its question. **RTQ DocumentReference** carries attachments on either side. Optional context links connect the question set to the product (`MedicinalProductDefinition`) and the marketing authorization (`RegulatedAuthorization`) through `rtq-regulatory-subject`, and both resources carry the procedure number, so receiving systems can file them without manual matching. In follow-up rounds, each new question set derives from the previous round's question set (`derivedFrom`); the response it assesses is the response to that question set, which keeps the whole thread together.
@@ -129,8 +129,8 @@ The core is a pair of resources. The **RTQ Questionnaire** (the question set) an
   </div>
 </div>
 
-**For RIM system vendors**, the intended integration is:
+**For system vendors**, the intended integration is:
 
 1. **Inbound:** use the procedure number and product context to file the question set against the right records, category codes to route and prioritize each question, and assessment outcomes to see what is still open.
 2. **Outbound:** answer every open question by `linkId`, attach supporting documents, flag commitments, set your own response ID and version, and echo the regulator's IDs.
-3. **Status:** a response moves from `in-progress` to `completed`, and to `amended` for supplements. The regulator's verdict on each answer arrives in the next question set, not as a response status.
+3. **Status:** a response is sent with status `completed`. `in-progress` is the company's internal draft state, before the response is sent. If the company later supplements or corrects a sent response, it issues a new version of that response with status `amended`. The regulator's verdict on each answer arrives in the next question set, not as a response status.
